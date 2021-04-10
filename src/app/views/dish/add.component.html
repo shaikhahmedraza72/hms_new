@@ -1,0 +1,30 @@
+<div bsModal #largeModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong>Dish</strong>
+                            <button type="button" class="close" (click)="close()" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                        </div>
+                        <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)" class="card-body needs-validation" novalidate>
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" required ngModel [(ngModel)]="dish.name" class="form-control" name="name" #name="ngModel" placeholder="Enter product Name">
+                                <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                    Name is required
+                                </div>
+                            </div>
+                            <!-- <button type="submit" class="btn btn-success btn-primary" [disabled]="!productForm.form.valid">Submit</button> -->
+                            <button type="submit" class="btn btn-success" [disabled]="!productForm.form.valid">Submit</button>
+                            <button type="button" class="btn btn-success btn-primary" (click)="productForm.resetForm()">Reset</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

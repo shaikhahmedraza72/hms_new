@@ -1,0 +1,68 @@
+{
+  "dish": [
+    {
+      "id": 1,
+      "name": "31",
+      "description": "d1",
+      "price": 10,
+      "qty": 1
+    },
+    {
+      "id": 2,
+      "name": "pr2",
+      "description": "d2",
+      "price": 11,
+      "qty": 2
+    },
+    {
+      "id": 3,
+      "name": "product3",
+      "description": "d3",
+      "price": 12,
+      "qty": 3
+    },
+    {
+      "id": 4,
+      "name": "product4",
+      "description": "d4",
+      "price": 13,
+      "qty": 4
+    },
+    {
+      "id": 5,
+      "name": "product4=5",
+      "description": "d5",
+      "price": 12,
+      "qty": 3
+    },
+    {
+      "name": "Chicken Bhuna",
+      "id": 6
+    },
+    {
+      "name": "chicken Keema",
+      "id": 7
+    },
+    {
+      "name": "chicken baida kadai",
+      "id": 8
+    }
+  ],
+  "dishCategory": [
+    {
+      "id": 1,
+      "name": "C1",
+      "description": "cd1"
+    },
+    {
+      "id": 2,
+      "name": "C2",
+      "description": "cd2"
+    },
+    {
+      "id": 3,
+      "name": "C3",
+      "description": "cd3"
+    }
+  ]
+}
