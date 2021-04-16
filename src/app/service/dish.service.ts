@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
 import { ApiConfig } from '../constant/api';
-import { Dish } from '../models/dish';
+import { Dish, DishCategory } from '../models/dish';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map } from 'rxjs/internal/operators';
 @Injectable({
@@ -10,8 +10,10 @@ import { catchError, map } from 'rxjs/internal/operators';
 
 export class DishService {
 
-  //#region properties
-  url = `${ApiConfig.URL}${ApiConfig.DISH}`;
+  // #region properties
+    url = `${ApiConfig.URL}${ApiConfig.DISH}`;
+    categoryUrl = `${ApiConfig.URL}${ApiConfig.DISHCATEGORY}`;
+
   public dish: Dish | undefined;
   public dishList: Dish[] = [];
   modalSubject = new Subject();
@@ -28,21 +30,23 @@ export class DishService {
   //#endregion Constructor
 
   //#region Method
+  // Adding new data
   Add(dish: Dish): Observable<Dish> {
     return this.httpClient.post<Dish>(this.url, dish).pipe(
       map(x => {
-        this.dishList.push(x);       
+        this.dishList.push(x);
         return dish;
       }),
       catchError(this.handleError('', dish))
     );
   }
 
+  //updating exisiting data
   update(dish: Dish): Observable<Dish> {
     return this.httpClient.put<Dish>(`${this.url}/${dish.id}`, dish).pipe(
       map(x => {
-        var index =  this.dishList.findIndex(i => i.id == x.id)
-         this.dishList[index] = x;
+        var index = this.dishList.findIndex(i => i.id == x.id)
+        this.dishList[index] = x;
         return dish;
       }),
       catchError(this.handleError('', dish))
@@ -72,12 +76,23 @@ export class DishService {
     );
   }
 
+  getDishCategory(): Observable<DishCategory[]> {
+    return this.httpClient.get<DishCategory[]>(this.categoryUrl).pipe(
+      map(x => {
+        return x;
+      })
+    );
+  }
+
+
+
+
   openModal() {
     this.modalSubject.next();
   }
 
-  openEditModel(id:number){
-    var dish = this.dishList.find(i=> i.id == id );
+  openEditModel(id: number) {
+    var dish = this.dishList.find(i => i.id == id);
     this.editModalSubject.next(dish);
   }
   //#endregion Method

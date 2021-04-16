@@ -6,10 +6,20 @@ export class Dish {
     // public brand: string,
     // public brand: string,
     public qty!: number;
-    public mainCategory?: string;
+    public mainCategoryId?: number;
+    public mainCategoryName: string;
+    public isVeg:boolean;
+    public isHalf:boolean;
     // public picture?: string
     constructor(
     ) { }
 }
 
+export class DishCategory{
+    public id? : number;
+    public name!: string;
+    public description: string | undefined;
+    constructor(
+        ) { }
+}
     

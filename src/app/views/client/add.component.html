@@ -10,10 +10,10 @@
                                 <span aria-hidden="true">&times;</span>
                               </button>
                         </div>
-                        <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)" class="card-body needs-validation" novalidate>
+                        <form #clientForm="ngForm" (ngSubmit)="onSubmit(clientForm)" class="card-body needs-validation" novalidate>
                             <div class="form-group">
                                 <!-- <label for="name">Name</label> -->
-                                <input type="text" required ngModel [(ngModel)]="dish.name" class="form-control" name="name" #name="ngModel" placeholder="Enter product Name">
+                                <input type="number" required ngModel [(ngModel)]="client.id" class="form-control" name="id" #name="ngModel" placeholder="Enter client Id">
                                 <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
                                     Name is required
                                 </div>
@@ -21,7 +21,7 @@
                             <div class="form-row">
                                 <div class="form-group col-md-5">
                                     <!-- <label for="mainCategory">Category</label> -->
-                                    <select [(ngModel)]="dish.mainCategoryId" name="ct" name="mainCategory" class="form-control"> 
+                                    <select [(ngModel)]="client.business" name="business" class="form-control"> 
                                 <option [ngValue]="0" selected  disabled > Select Category </option>
                                 <option *ngFor="let item of categories" [(ngModel)]="item.name" [ngValue]="item.id">{{item.name}}</option>
                                  </select>

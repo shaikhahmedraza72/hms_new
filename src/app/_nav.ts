@@ -19,4 +19,9 @@ export const navItems: INavData[] = [
     url: '/dish',
     icon: 'icon-drop'
   },
+  {
+    name: 'Clients',
+    url: '/client',
+    icon: 'icon-drop'
+  },
 ];

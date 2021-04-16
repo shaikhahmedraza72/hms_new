@@ -7,20 +7,20 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { CommonModule } from "@angular/common";
-import { DishAddComponent } from './add.component';
-import { DishRoutingModule } from './dish-routing.module';
-import { DishComponent } from './dish.component';
+import { AddClientComponent } from './add.component';
+import { ClientRoutingModule } from './client-routing.module';
+import { ClientComponent } from './client.component';
 
 @NgModule({
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    DishRoutingModule,
+    ClientRoutingModule,
     ChartsModule,CommonModule,
     BsDropdownModule,HttpClientModule,
     ButtonsModule.forRoot(),
     ModalModule.forRoot()
   ],
-  declarations: [ DishAddComponent, DishComponent ]
+  declarations: [ AddClientComponent, ClientComponent ]
 })
-export class DashboardModule { }
+export class ClientModule { }

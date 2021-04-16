@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 
 // Import Containers
 import { DefaultLayoutComponent } from './containers';
-import { DishAddComponent } from './views/dish/add.component';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
@@ -60,6 +59,10 @@ export const routes: Routes = [
         path: 'dish',
         loadChildren: () => import('./views/dish/dish.module').then(m => m.DashboardModule)
       },
+      {
+        path: 'client',
+        loadChildren: () => import('./views/client/client.module').then(m => m.ClientModule)
+      }
      
     ]
   },

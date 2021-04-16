@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { Dish } from '../../models/dish';
+import { Dish, DishCategory } from '../../models/dish';
 import { DishService } from '../../service/dish.service';
+
 @Component({
   selector: 'dish-add',
   templateUrl: './add.component.html',
@@ -12,11 +13,21 @@ export class DishAddComponent implements OnInit {
   constructor(public dishSvc: DishService) { }
   dish: Dish;
   isEdit: boolean;
+  categories : DishCategory[]=[];
+  categoryId:number = 0;
+  
   ngOnInit(): void {
     this.dish = new Dish();
-    this.subscribeModalEvent()
+    this.subscribeModalEvent();
+    this.getDishCategory();
   }
-
+   
+   getDishCategory(){
+     this.dishSvc.getDishCategory().subscribe(x=>{
+        this.categories = x;
+        console.log(this.categories)
+     });
+   }
 
   subscribeModalEvent() {
     this.dishSvc.modalSubject.subscribe(any => {
