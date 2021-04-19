@@ -135,6 +135,20 @@
       "seal": "SEAL",
       "sign": "STARK",
       "category": null
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4,
+      "business": null,
+      "category": null,
+      "address": null,
+      "gst": null,
+      "foodClass": null,
+      "logo": null,
+      "seal": null,
+      "sign": null
     }
   ]
 }

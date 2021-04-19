@@ -8,10 +8,12 @@
         "github": "https://github.com/mrholek",
         "twitter": "https://twitter.com/lukaszholeczek"
     },
-    "contributors": [{
-        "name": "Andrzej Kopański",
-        "url": "https://github.com/xidedix"
-    }],
+    "contributors": [
+        {
+            "name": "Andrzej Kopański",
+            "url": "https://github.com/xidedix"
+        }
+    ],
     "homepage": "https://coreui.io/angular",
     "copyright": "Copyright 2021 creativeLabs Łukasz Holeczek",
     "license": "MIT",
@@ -47,6 +49,7 @@
         "core-js": "^3.9.1",
         "flag-icon-css": "^3.5.0",
         "font-awesome": "^4.7.0",
+        "jquery": "^3.6.0",
         "ng2-charts": "^2.4.2",
         "ngx-bootstrap": "^6.2.0",
         "ngx-perfect-scrollbar": "^10.1.0",
