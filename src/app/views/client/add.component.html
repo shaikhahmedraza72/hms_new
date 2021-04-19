@@ -5,85 +5,70 @@
                 <div class="col-sm-12">
                     <div class="card">
                         <div class="card-header">
-                            <strong>Dish</strong>
+                            <strong>Client</strong>
                             <button type="button" class="close" (click)="close()" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
                         </div>
                         <form #clientForm="ngForm" (ngSubmit)="onSubmit(clientForm)" class="card-body needs-validation" novalidate>
-                            <div class="form-group">
-                                <!-- <label for="name">Name</label> -->
-                                <input type="number" required ngModel [(ngModel)]="client.id" class="form-control" name="id" #name="ngModel" placeholder="Enter client Id">
-                                <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
-                                    Name is required
-                                </div>
-                            </div>
                             <div class="form-row">
+                                <div class="form-group">
+                                    <input type="number" required ngModel [(ngModel)]="client.id" class="form-control" name="id" #name="ngModel" placeholder="Enter client Id">
+                                    <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                        ID is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="text" required ngModel [(ngModel)]="client.business" class="form-control" name="name" #name="ngModel" placeholder="Enter the business name">
+                                    <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                        Business is required
+                                    </div>
+                                </div>
                                 <div class="form-group col-md-5">
-                                    <!-- <label for="mainCategory">Category</label> -->
-                                    <select [(ngModel)]="client.business" name="business" class="form-control"> 
+                                    <select [(ngModel)]="client.category" name="business" class="form-control"> 
                                 <option [ngValue]="0" selected  disabled > Select Category </option>
-                                <option *ngFor="let item of categories" [(ngModel)]="item.name" [ngValue]="item.id">{{item.name}}</option>
+                                <option *ngFor="let item of categories" [(ngModel)]="item.name" [ngValue]="item.id">{{item.category}}</option>
                                  </select>
                                 </div>
-                                <div class="form-group col-md-1"><label for="mainCategory">OR</label></div>
                                 <div class="form-group col-md-6">
-                                    <input type="text" required ngModel [(ngModel)]="dish.mainCategoryName" class="form-control" name="name" #name="ngModel" placeholder="Enter new Category">
+                                    <input type="text" required ngModel [(ngModel)]="client.address" class="form-control" name="address" #name="ngModel" placeholder="Enter the address">
                                     <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
-                                        Name is required
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="mainCategory">Non-Veg&nbsp;</label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="switch switch-success ">
-                                        <input name="vegNonVeg" type="checkbox" class="switch-input" checked>
-                                        <span class="switch-slider"></span> 
-                                      </label>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="mainCategory"> Veg</label>
-                                </div>
-                                <div class="form-group">
-                                    <label for="halfFull">Half&nbsp;</label>
-                                </div>
-                                <div class="form-group">
-                                    <label class="switch switch-success ">
-                                        <input name="halfFull" type="checkbox" class="switch-input" checked>
-                                        <span class="switch-slider"> </span> 
-                                      </label>
-                                </div>
-                                <div class="form-group col-md-1">
-                                    <label for="halfFull">Full</label>
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <!-- <label for="price">Price</label> -->
-                                    <input type="number" required ngModel [(ngModel)]="dish.price" class="form-control" name="price" #name="ngModel" placeholder="Enter fullf product price">
-                                    <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
-                                        Name is required
+                                        Address is required
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <!-- <label for="qty">Quantity</label> -->
-                                    <input type="number" required ngModel [(ngModel)]="dish.qty" class="form-control" name="qty" #name="ngModel" placeholder="Enter product Quantity">
+                                    <input type="text" required ngModel [(ngModel)]="client.gst" class="form-control" name="gst" #name="ngModel" placeholder="Enter GST">
                                     <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
-                                        Name is required
+                                        GST is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="text" required ngModel [(ngModel)]="client.foodClass" class="form-control" name="foodClass" #name="ngModel" placeholder="Enter food class">
+                                    <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                        foodClass is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="text" required ngModel [(ngModel)]="client.logo" class="form-control" name="logo" #name="ngModel" placeholder="logo">
+                                    <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                        Logo is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="text" required ngModel [(ngModel)]="client.seal" class="form-control" name="seal" #name="ngModel" placeholder="Enter seal">
+                                    <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                        Seal is required
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="text" required ngModel [(ngModel)]="client.sign" class="form-control" name="sign" #name="ngModel" placeholder="Enter the sign">
+                                    <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                        Sign is required
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <!-- <label for="description">Description</label> -->
-                                <textarea ngModel [(ngModel)]="dish.description" class="form-control" name="description" placeholder="Enter product Description" rows="3"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-success" [disabled]="!productForm.form.valid">Submit</button>
-                            <button type="button" class="btn btn-success btn-primary" (click)="productForm.resetForm()">Reset</button>
+                            <button type="submit" class="btn btn-success" [disabled]="!clientForm.form.valid">Submit</button>
+                            <button type="button" class="btn btn-success btn-primary" (click)="clientForm.resetForm()">Reset</button>
                         </form>
                     </div>
                 </div>
