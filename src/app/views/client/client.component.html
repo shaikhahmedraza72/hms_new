@@ -27,7 +27,7 @@
                         <tr *ngFor="let item of clientList">
                             <td>{{item.id}}</td>
                             <td>{{item.business}}</td>
-                            <td>{{item.category}}</td>
+                            <td>{{item.CategoryName}}</td>
                             <td>{{item.address}}</td>
                             <td>{{item.gst}}</td>
                             <td>{{item.foodClass}}</td>
@@ -45,4 +45,21 @@
         </div>
     </div>
 </div>
-<app-add></app-add>
+<div class="col-md-6 mb-4">
+    <div class="nav-tabs-boxed">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item"><a class="nav-link active" data-coreui-toggle="tab" href="#clientProfile" role="tab" aria-controls="home">Client Profile</a></li>
+            <li class="nav-item"><a class="nav-link" data-coreui-toggle="tab" href="#bankDetail" role="tab" aria-controls="profile">Bank Details</a></li>
+            <li class="nav-item"><a class="nav-link" data-coreui-toggle="tab" href="#t&c" role="tab" aria-controls="messages">T&C</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane" id="clientProfile" role="tabpanel">
+                <app-add></app-add>
+            </div>
+            <div class="tab-pane active" id="bankDetail" role="tabpanel">
+                <app-bank-details></app-bank-details>
+            </div>
+            <div class="tab-pane" id="t&c" role="tabpanel"></div>
+        </div>
+    </div>
+</div>

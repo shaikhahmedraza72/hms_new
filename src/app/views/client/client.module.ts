@@ -10,6 +10,7 @@ import { CommonModule } from "@angular/common";
 import { AddClientComponent } from './add.component';
 import { ClientRoutingModule } from './client-routing.module';
 import { ClientComponent } from './client.component';
+import { BankDetailsComponent } from '../client/bank-details.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,6 @@ import { ClientComponent } from './client.component';
     ButtonsModule.forRoot(),
     ModalModule.forRoot()
   ],
-  declarations: [ AddClientComponent, ClientComponent ]
+  declarations: [ AddClientComponent, ClientComponent, BankDetailsComponent ]
 })
 export class ClientModule { }

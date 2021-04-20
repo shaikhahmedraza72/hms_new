@@ -1,53 +1,68 @@
-<div bsModal #largeModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="col-sm-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <strong>Client</strong>
-                            <button type="button" class="close" (click)="close()" aria-label="Close">
+<div class="modal-content">
+    <div class="modal-body">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Client</strong>
+                    <button type="button" class="close" (click)="close()" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
-                        </div>
-                        <form #clientForm="ngForm" (ngSubmit)="onSubmit(clientForm)" class="card-body needs-validation" novalidate>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <input type="number" required ngModel [(ngModel)]="client.id" class="form-control" name="id" #name="ngModel" placeholder="Enter client Id">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="text" required ngModel [(ngModel)]="client.business" class="form-control" name="name" #name="ngModel" placeholder="Enter the business name">
-                                </div>
-                                <div class="form-group col-md-5">
-                                    <select [(ngModel)]="client.category" name="business" class="form-control"> 
-                                <option [ngValue]="0" selected  disabled > Select Category </option>
-                                <option *ngFor="let item of categories" [(ngModel)]="item.name" [ngValue]="item.id">{{item.category}}</option>
-                                 </select>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="text" ngModel [(ngModel)]="client.address" class="form-control" name="address" #name="ngModel" placeholder="Enter the address" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="text" ngModel [(ngModel)]="client.gst" class="form-control" name="gst" #name="ngModel" placeholder="Enter GST" required>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="text" required ngModel [(ngModel)]="client.foodClass" class="form-control" name="foodClass" #name="ngModel" placeholder="Enter food class">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="text" required ngModel [(ngModel)]="client.logo" class="form-control" name="logo" #name="ngModel" placeholder="logo">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="text" required ngModel [(ngModel)]="client.seal" class="form-control" name="seal" #name="ngModel" placeholder="Enter seal">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="text" required ngModel [(ngModel)]="client.sign" class="form-control" name="sign" #name="ngModel" placeholder="Enter the sign">
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-success" [disabled]="!clientForm.form.valid">Submit</button>
-                            <button type="button" class="btn btn-success btn-primary" (click)="clientForm.resetForm()">Reset</button>
-                        </form>
-                    </div>
                 </div>
+                <form #clientForm="ngForm" (ngSubmit)="onSubmit(clientForm)" class="card-body needs-validation" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="number" required ngModel [(ngModel)]="client.id" class="form-control" name="id" #name="ngModel" placeholder="Enter client Id">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" required ngModel [(ngModel)]="client.business" class="form-control" name="name" #name="ngModel" placeholder="Enter the business name">
+
+                        </div>
+                        <div class="form-group col-md-5">
+                            <select [(ngModel)]="client.CategoryId" name="category" class="form-control"> 
+                                <option [ngValue]="0" selected  disabled > Select Category </option>
+                                <option *ngFor="let item of categories" [(ngModel)]="item.name" [ngValue]="item.id">{{item.name}}</option>
+                                 </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" ngModel [(ngModel)]="client.address" class="form-control" name="address" #name="ngModel" placeholder="Enter the address" required>
+                            <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                Address is required
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" ngModel [(ngModel)]="client.gst" class="form-control" name="gst" #name="ngModel" placeholder="Enter GST" required>
+                            <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                GST is required
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" required ngModel [(ngModel)]="client.foodClass" class="form-control" name="foodClass" #name="ngModel" placeholder="Enter food class">
+                            <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                foodClass is required
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" required ngModel [(ngModel)]="client.logo" class="form-control" name="logo" #name="ngModel" placeholder="logo">
+                            <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                Logo is required
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" required ngModel [(ngModel)]="client.seal" class="form-control" name="seal" #name="ngModel" placeholder="Enter seal">
+                            <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                Seal is required
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" required ngModel [(ngModel)]="client.sign" class="form-control" name="sign" #name="ngModel" placeholder="Enter the sign">
+                            <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                Sign is required
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success" [disabled]="!clientForm.form.valid">Submit</button>
+                    <button type="button" class="btn btn-success btn-primary" (click)="clientForm.resetForm()">Reset</button>
+                </form>
             </div>
         </div>
     </div>

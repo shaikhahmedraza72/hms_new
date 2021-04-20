@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
 import { catchError, map } from 'rxjs/internal/operators';
 import { ApiConfig } from '../constant/api';
-import { Client } from '../models/client';
+import { Client, CLientCategory } from '../models/client';
 @Injectable({
   providedIn: 'root'
 })
 export class ClientService {
   url = `${ApiConfig.URL}${ApiConfig.CLIENT}`;
+  categoryUrl = `${ApiConfig.URL}${ApiConfig.CLIENTCATEGORY}`;
   public client: Client | undefined;
   public clientList: Client [] = [];
   modalSubject = new Subject();
@@ -52,6 +53,15 @@ export class ClientService {
         })
       );
     } 
+
+    getClientCategory(): Observable<CLientCategory[]> {
+      return this.httpClient.get<CLientCategory[]>(this.categoryUrl).pipe(
+        map(x => {
+          return x;
+        })
+      );
+    }
+
   handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);

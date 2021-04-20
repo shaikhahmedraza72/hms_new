@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { Client } from './../../models/client';
+import { Client, CLientCategory } from './../../models/client';
 import { ClientService } from '../../service/client.service';
 
 @Component({
@@ -13,11 +13,20 @@ export class AddClientComponent implements OnInit {
 
   constructor(public clientSvc: ClientService) { }
   client: Client = new Client();
+  categories: CLientCategory[] = [];
   isEdit: boolean;
 
   ngOnInit(): void {
     this.client = new Client();
     this.subscribeModalEvent();
+    this.getClientCategory();
+  }
+
+  getClientCategory(){
+    this.clientSvc.getClientCategory().subscribe(x=>{
+       this.categories = x;
+       console.log(this.categories)
+    });
   }
 
   subscribeModalEvent() {

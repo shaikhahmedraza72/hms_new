@@ -1,154 +1,159 @@
 {
-  "dish": [
-    {
-      "id": 1,
-      "name": "Mutton Keema",
-      "description": "d1",
-      "price": 10,
-      "qty": 1
-    },
-    {
-      "id": 2,
-      "name": "pizza",
-      "description": "d2",
-      "price": 11,
-      "qty": 2
-    },
-    {
-      "name": "IPhone",
-      "id": 3
-    },
-    {
-      "name": "Chicken biryani",
-      "id": 4
-    },
-    {
-      "name": "Chicken kadhai",
-      "description": "medium spicy",
-      "id": 5,
-      "price": "250",
-      "qty": 1,
-      "mainCategoryId": 1,
-      "mainCategory": "mughlai"
-    },
-    {
-      "name": "chicken nizamuddin",
-      "description": "medium spicy",
-      "price": "270",
-      "id": 6,
-      "qty": 2,
-      "mainCategory": "chinese"
-    },
-    {
-      "name": "Chicken kadhai",
-      "description": "medium spicy",
-      "price": "260",
-      "qty": 4,
-      "id": 7,
-      "mainCategoryId": 2
-    },
-    {
-      "price": 200,
-      "name": "Paneer",
-      "mainCategoryId": 2,
-      "description": "xyz",
-      "qty": 1,
-      "id": 8
-    },
-    {
-      "price": 200,
-      "name": "custard",
-      "mainCategoryId": 1,
-      "description": null,
-      "qty": 10,
-      "mainCategoryName": "dessert",
-      "id": 9
-    },
-    {
-      "name": "Chicken Gravy",
-      "mainCategoryId": 2,
-      "price": 200,
-      "description": "1",
-      "qty": 1,
-      "id": 10
-    },
-    {
-      "price": 200,
-      "qty": 1,
-      "mainCategoryId": 1,
-      "name": "chicken nuggets",
-      "description": "tasty",
-      "id": 11
-    }
-  ],
-  "dishCategory": [
-    {
-      "id": 1,
-      "name": "Starter",
-      "description": "cd1"
-    },
-    {
-      "id": 2,
-      "name": "Main Course (Chicken)",
-      "description": "cd2"
-    },
-    {
-      "id": 3,
-      "name": "Rice",
-      "description": "cd3"
-    },
-    {
-      "id": 4,
-      "name": "Main Course (Mutton)",
-      "description": "cd2"
-    }
-  ],
-  "people": [
-    {
-      "id": 1,
-      "name": "n1"
-    },
-    {
-      "id": 1,
-      "name": "n2"
-    }
-  ],
-  "client": [
-    {
-      "id": 1,
-      "business": "FY5",
-      "address": "india",
-      "gst": "18%",
-      "foodClass": "Something",
-      "logo": "logo",
-      "seal": "SEAL",
-      "sign": "sign",
-      "category": null
-    },
-    {
-      "id": 2,
-      "business": "STARKINDUSTRIES",
-      "address": "USA",
-      "gst": "18",
-      "foodClass": "CLASS 1",
-      "logo": "LG",
-      "seal": "SEAL",
-      "sign": "STARK",
-      "category": null
-    },
-    {
-      "id": 3
-    },
-    {
-      "id": 4,
-      "business": null,
-      "category": null,
-      "address": null,
-      "gst": null,
-      "foodClass": null,
-      "logo": null,
-      "seal": null,
-      "sign": null
-    }
-  ]
+    "dish": [{
+            "id": 1,
+            "name": "Mutton Keema",
+            "description": "d1",
+            "price": 10,
+            "qty": 1
+        },
+        {
+            "id": 2,
+            "name": "pizza",
+            "description": "d2",
+            "price": 11,
+            "qty": 2
+        },
+        {
+            "name": "IPhone",
+            "id": 3
+        },
+        {
+            "name": "Chicken biryani",
+            "id": 4
+        },
+        {
+            "name": "Chicken kadhai",
+            "description": "medium spicy",
+            "id": 5,
+            "price": "250",
+            "qty": 1,
+            "mainCategoryId": 1,
+            "mainCategory": "mughlai"
+        },
+        {
+            "name": "chicken nizamuddin",
+            "description": "medium spicy",
+            "price": "270",
+            "id": 6,
+            "qty": 2,
+            "mainCategory": "chinese"
+        },
+        {
+            "name": "Chicken kadhai",
+            "description": "medium spicy",
+            "price": "260",
+            "qty": 4,
+            "id": 7,
+            "mainCategoryId": 2
+        },
+        {
+            "price": 200,
+            "name": "Paneer",
+            "mainCategoryId": 2,
+            "description": "xyz",
+            "qty": 1,
+            "id": 8
+        },
+        {
+            "price": 200,
+            "name": "custard",
+            "mainCategoryId": 1,
+            "description": null,
+            "qty": 10,
+            "mainCategoryName": "dessert",
+            "id": 9
+        },
+        {
+            "name": "Chicken Gravy",
+            "mainCategoryId": 2,
+            "price": 200,
+            "description": "1",
+            "qty": 1,
+            "id": 10
+        },
+        {
+            "price": 200,
+            "qty": 1,
+            "mainCategoryId": 1,
+            "name": "chicken nuggets",
+            "description": "tasty",
+            "id": 11
+        }
+    ],
+    "dishCategory": [{
+            "id": 1,
+            "name": "Starter",
+            "description": "cd1"
+        },
+        {
+            "id": 2,
+            "name": "Main Course (Chicken)",
+            "description": "cd2"
+        },
+        {
+            "id": 3,
+            "name": "Rice",
+            "description": "cd3"
+        },
+        {
+            "id": 4,
+            "name": "Main Course (Mutton)",
+            "description": "cd2"
+        }
+    ],
+    "people": [{
+            "id": 1,
+            "name": "n1"
+        },
+        {
+            "id": 1,
+            "name": "n2"
+        }
+    ],
+    "client": [{
+            "id": 1,
+            "business": "FY5",
+            "address": "india",
+            "gst": "18%",
+            "foodClass": "Something",
+            "logo": "logo",
+            "seal": "SEAL",
+            "sign": "sign",
+            "category": null
+        },
+        {
+            "id": 2,
+            "business": "STARKINDUSTRIES",
+            "address": "USA",
+            "gst": "18",
+            "foodClass": "CLASS 1",
+            "logo": "LG",
+            "seal": "SEAL",
+            "sign": "STARK",
+            "category": null
+        },
+        {
+            "id": 3
+        },
+        {
+            "id": 4,
+            "business": null,
+            "category": null,
+            "address": null,
+            "gst": null,
+            "foodClass": null,
+            "logo": null,
+            "seal": null,
+            "sign": null
+        }
+    ],
+    "clientCategory": [{
+            "id": 1,
+            "name": "cat1"
+        },
+        {
+            "id": 2,
+            "name": "cat2"
+        }
+    ]
 }
