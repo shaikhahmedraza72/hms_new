@@ -14,19 +14,9 @@
                             <div class="form-row">
                                 <div class="form-group">
                                     <input type="number" required ngModel [(ngModel)]="client.id" class="form-control" name="id" #name="ngModel" placeholder="Enter client Id">
-                                    <!-- <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
-                                        ID is required
-                                    </div> -->
-
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" required ngModel [(ngModel)]="client.business" class="form-control" name="name" #name="ngModel" placeholder="Enter the business name">
-                                    <!-- <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
-                                        Business is required
-                                    </div> -->
-                                    <div *ngIf="name.invalid" class="needs-validation">
-                                        Looks good!
-                                    </div>
                                 </div>
                                 <div class="form-group col-md-5">
                                     <select [(ngModel)]="client.category" name="business" class="form-control"> 
@@ -36,39 +26,21 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" ngModel [(ngModel)]="client.address" class="form-control" name="address" #name="ngModel" placeholder="Enter the address" required>
-                                    <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
-                                        Address is required
-                                    </div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" ngModel [(ngModel)]="client.gst" class="form-control" name="gst" #name="ngModel" placeholder="Enter GST" required>
-                                    <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
-                                        GST is required
-                                    </div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" required ngModel [(ngModel)]="client.foodClass" class="form-control" name="foodClass" #name="ngModel" placeholder="Enter food class">
-                                    <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
-                                        foodClass is required
-                                    </div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" required ngModel [(ngModel)]="client.logo" class="form-control" name="logo" #name="ngModel" placeholder="logo">
-                                    <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
-                                        Logo is required
-                                    </div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" required ngModel [(ngModel)]="client.seal" class="form-control" name="seal" #name="ngModel" placeholder="Enter seal">
-                                    <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
-                                        Seal is required
-                                    </div>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input type="text" required ngModel [(ngModel)]="client.sign" class="form-control" name="sign" #name="ngModel" placeholder="Enter the sign">
-                                    <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
-                                        Sign is required
-                                    </div>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-success" [disabled]="!clientForm.form.valid">Submit</button>
