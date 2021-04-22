@@ -17,8 +17,9 @@ export class CLientCategory {
     constructor(){}
 }
 
-export class ClientBankDetail {
+export class ClientBankDetails {
     // required property
+    id?: number;
     public accountName: string;
     public accountNumber: number;
     public bankName: string;

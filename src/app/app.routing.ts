@@ -67,10 +67,6 @@ export const routes: Routes = [
         path: 'bankDetail',
         loadChildren: () => import('./views/client/client.module').then(m => m.ClientModule)
       },
-      {
-        path: 'terms&Condition',
-        loadChildren: () => import('./views/client/terms.module').then(m => m.TermsModule)
-      }
     ]
   },
   { path: '**', component: P404Component }

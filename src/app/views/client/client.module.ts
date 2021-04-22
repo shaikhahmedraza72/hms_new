@@ -11,6 +11,7 @@ import { AddClientComponent } from './add.component';
 import { ClientRoutingModule } from './client-routing.module';
 import { ClientComponent } from './client.component';
 import { BankDetailsComponent } from '../client/bank-details.component';
+import { TermsComponent } from '../client/terms.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,6 @@ import { BankDetailsComponent } from '../client/bank-details.component';
     ButtonsModule.forRoot(),
     ModalModule.forRoot()
   ],
-  declarations: [ AddClientComponent, ClientComponent, BankDetailsComponent ]
+  declarations: [ AddClientComponent, ClientComponent, BankDetailsComponent, TermsComponent ]
 })
 export class ClientModule { }
