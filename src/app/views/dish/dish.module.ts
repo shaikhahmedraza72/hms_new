@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
@@ -16,8 +16,8 @@ import { DishComponent } from './dish.component';
     FormsModule,
     ReactiveFormsModule,
     DishRoutingModule,
-    ChartsModule,CommonModule,
-    BsDropdownModule,HttpClientModule,
+    ChartsModule, CommonModule,
+    BsDropdownModule, HttpClientModule,
     ButtonsModule.forRoot(),
     ModalModule.forRoot()
   ],
