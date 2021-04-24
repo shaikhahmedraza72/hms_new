@@ -3,5 +3,7 @@ export class  ApiConfig{
     public static DISH = "dish"
     public static DISHCATEGORY = "dishCategory"
     public static CLIENT = "client"
+    public static CLIENTCATEGORY = "clientCategory"
+    public static BANKDETAILS = "bankDetails"
 }
 

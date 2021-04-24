@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { Client } from './../../models/client';
+import { Client, CLientCategory } from './../../models/client';
 import { ClientService } from '../../service/client.service';
 
 @Component({
@@ -13,20 +13,29 @@ export class AddClientComponent implements OnInit {
 
   constructor(public clientSvc: ClientService) { }
   client: Client = new Client();
+  categories: CLientCategory[] = [];
   isEdit: boolean;
 
   ngOnInit(): void {
     this.client = new Client();
     this.subscribeModalEvent();
+    this.getClientCategory();
+  }
+
+  getClientCategory() {
+    this.clientSvc.getClientCategory().subscribe(x => {
+      this.categories = x;
+      console.log(this.categories)
+    });
   }
 
   subscribeModalEvent() {
-    this.clientSvc.modalSubject.subscribe(any => {
+    this.clientSvc.modalSubjectForClient.subscribe(any => {
       this.largeModal.show();
       this.isEdit = false;
     });
     this.clientSvc.editModalSubject.subscribe(client => {
-      this.client =Object.assign({}, this.client) ;
+      this.client = Object.assign({}, this.client);
       this.isEdit = true;
     });
   }
@@ -36,11 +45,10 @@ export class AddClientComponent implements OnInit {
   }
   onSubmit(userForm: NgForm) {
     if (this.isEdit) {
-      this.clientSvc.update(this.client).subscribe(resp => {
+      this.clientSvc.updateCLient(this.client).subscribe(resp => {
       });
-    }
-    else {
-      this.clientSvc.Add(this.client).subscribe(resp => {
+    } else {
+      this.clientSvc.AddClient(this.client).subscribe(resp => {
       });
     }
     userForm.resetForm();
