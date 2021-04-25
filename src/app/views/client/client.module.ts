@@ -12,6 +12,7 @@ import { ClientRoutingModule } from './client-routing.module';
 import { ClientComponent } from './client.component';
 import { BankDetailsComponent } from '../client/bank-details.component';
 import { TermsComponent } from '../client/terms.component';
+import { EndUserComponent } from '../client/end-user/end-user.component'
 
 @NgModule({
   imports: [
@@ -23,6 +24,6 @@ import { TermsComponent } from '../client/terms.component';
     ButtonsModule.forRoot(),
     ModalModule.forRoot()
   ],
-  declarations: [ AddClientComponent, ClientComponent, BankDetailsComponent, TermsComponent ]
+  declarations: [ AddClientComponent, ClientComponent, BankDetailsComponent, TermsComponent, EndUserComponent ]
 })
 export class ClientModule { }

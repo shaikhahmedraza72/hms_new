@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Client, ClientBankDetails } from '../../models/client';
+import { Client, ClientBankDetails, EndUser } from '../../models/client';
 import { ClientService } from '../../service/client.service';
 
 @Component({
@@ -8,13 +8,15 @@ import { ClientService } from '../../service/client.service';
 })
 export class ClientComponent implements OnInit {
 
-  constructor(private clientSvc: ClientService, private bankSvc: ClientService) { }
+  constructor(private clientSvc: ClientService, private bankSvc: ClientService, private endUserSvc: ClientService) { }
   clientList: Client[] = [];
   detailList: ClientBankDetails[] = [];
+  endUserList: EndUser [] = [];
   displayModel = false;
   ngOnInit(): void {
     this.loadData();
     this.loadBankData();
+    this.loadEndUserData();
   }
   showModel() {
     this.clientSvc.openModalForClient();
@@ -34,4 +36,10 @@ export class ClientComponent implements OnInit {
       this.detailList = res;
     });
   }
+ 
+  loadEndUserData() {
+  this.endUserSvc.getEndUserList().subscribe(res => {
+    this.endUserList = res;
+  });
+}
 }
