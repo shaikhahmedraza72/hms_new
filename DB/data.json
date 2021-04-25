@@ -178,5 +178,22 @@
       "bankName": "MahaBank",
       "ifscCode": "9874CC"
     }
+  ],
+  "endUser": [
+    {
+      "id":1,
+      "name": "name1",
+      "address": "addr1"
+    },
+    {
+      "id":2,
+      "name": "name2",
+      "address": "addr2"
+    },
+    {
+      "id":3,
+      "name": "name3",
+      "address": "addr3"
+    }
   ]
 }
