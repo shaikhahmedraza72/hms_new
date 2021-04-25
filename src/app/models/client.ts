@@ -27,3 +27,9 @@ export class ClientBankDetails {
     public address: any;
     // component 
 }
+
+export class EndUser {
+    public id?: number;
+    public name!: string;
+    public address: string;
+}
