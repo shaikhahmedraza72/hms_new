@@ -2,10 +2,8 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header">
-                <button type="button" class="btn btn-secondary mr-1" (click)="showModel()">
-                    Add Dish
+                <button type="button" class="btn btn-secondary mr-1 icon-plus icons font-2xl d-block mt-4" (click)="showModel()">
                   </button>
-                <i class="fa fa-align-justify"></i> All Dishes
             </div>
             <div class="card-body">
                 <table class="table table-bordered table-striped table-sm">
@@ -26,7 +24,7 @@
                             <td>{{item.price}}</td>
                             <td>{{item.qty}}</td>
                             <td>{{item.mainCategoryName}}</td>
-                            <td><button type="button" class="btn btn-secondary mr-1" (click)="edit(item.id)">
+                            <td><button type="button" class="btn btn-secondary mr-1 fa fa-edit fa-lg mt-4" (click)="edit(item.id)">
                                 Edit
                               </button></td>
                         </tr>
