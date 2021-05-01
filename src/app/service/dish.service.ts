@@ -32,6 +32,16 @@ export class DishService {
   //#region Method
   // Adding new data
   Add(dish: Dish): Observable<Dish> {
+    if(dish.mainCategoryId == 0 && dish.mainCategoryName !="" ){
+      let category = new  DishCategory();
+      category.name = dish.mainCategoryName; 
+      this.httpClient.post<Dish>(this.categoryUrl, category).pipe(
+        map(x => {
+          console.log(x);          
+        }),
+        catchError(this.handleError('', dish))
+      );
+    }
     return this.httpClient.post<Dish>(this.url, dish).pipe(
       map(x => {
         this.dishList.push(x);
