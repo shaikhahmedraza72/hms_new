@@ -3,16 +3,16 @@
             "id": 1,
             "name": "Mutton Keema",
             "description": "d1",
-            "price": 10,
-            "qty": 1,
+            "halfPrice": 10,
+            "fullPrice": 1,
             "imageUrl": "https://www.online-image-editor.com/styles/2019/images/power_girl_editor.png"
         },
         {
             "id": 2,
             "name": "pizza",
             "description": "d2",
-            "price": 11,
-            "qty": 2
+            "halfPrice": 11,
+            "fullPrice": 2
         },
         {
             "name": "IPhone",
