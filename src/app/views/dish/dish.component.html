@@ -26,11 +26,11 @@
                             <th style="width:5%">Half Price</th>
                             <th style="width:5%">Full Price</th>
                             <th style="width:5%">Category</th>
-                            <th style="width:3%">
-
+                            <th style="width:5%">
+                                Action
                                 <div class="btn-group" dropdown>
                                     <button dropdownToggle type="button" class="btn btn-outline-success">
-                                       Action <i class="fa fa-list-ul fa-lg mt-4"></i>
+                                    <i class="fa fa-list-ul fa-lg mt-1"></i>
                                     </button>
                                     <ul *dropdownMenu class="dropdown-menu" role="menu">
                                         <li role="menuitem"><a class="dropdown-item" title="Add dish" (click)="showModel()">Add</a></li>
@@ -52,14 +52,13 @@
                             <td>
                                 <img src="{{item.imageUrl}}" width="30px" height="30px" /></td>
                             <td title="{{item.description}} ">
-                                {{(item.description.length >6)? (item.description | slice:0:6)+'..':(item.description) }}
+                                {{((item.description != null)? (item.description.length >6)? (item.description | slice:0:6)+'..':(item.description)) }}
                             </td>
                             <td>{{item.halfPrice}}</td>
                             <td>{{item.fullPrice}}</td>
                             <td>{{item.mainCategoryName}}</td>
                             <td><input type="checkbox"></td>
                             <!-- <i type class="fa fa-edit fa-lg mt-4 " (click)="edit(dishList) "></i> -->
-
                         </tr>
                     </tbody>
                 </table>
