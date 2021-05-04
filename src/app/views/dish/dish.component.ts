@@ -11,13 +11,14 @@ export class DishComponent implements OnInit {
   constructor(public dishSvc: DishService) { }
   dishList: Dish[] = [];
   isChecked: boolean;
+  btnDisable: boolean = false;
   selectedDish: number[] = [];
   displayModel = false;
   ngOnInit(): void {
     this.loadData();
   }
   showModel() {
-    this.dishSvc.openModal();
+      this.dishSvc.openModal();
   }
   edit(id: number) {
     this.dishSvc.openModal();
@@ -39,9 +40,10 @@ export class DishComponent implements OnInit {
 
   // }
   onCheckboxChange(id, e) {
+    this.btnDisable = false;
     console.log(e.target.checked);
     if (e.target.checked) {
-      if (this.selectedDish.indexOf(id) == -1) {
+      if (this.selectedDish.indexOf(id) === -1) {
         this.selectedDish.push(id);
       }
     } else {
@@ -49,6 +51,9 @@ export class DishComponent implements OnInit {
       if (index > -1) {
         this.selectedDish.splice(index, 1);
       }
+    }
+    if(this.selectedDish.length > 1){
+      this.btnDisable = true;
     }
     console.log(this.selectedDish);
   }

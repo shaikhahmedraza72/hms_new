@@ -33,12 +33,12 @@
                                     <i class="fa fa-list-ul fa-lg mt-1"></i>
                                     </button>
                                     <ul *dropdownMenu class="dropdown-menu" role="menu">
-                                        <li role="menuitem"><a class="dropdown-item" [disabled]="selectedDish >  1" title="Add dish" (click)="showModel()">Add</a></li>
-                                        <li role="menuitem"><a class="dropdown-item" (click)="edit(dishList) ">Edit</a></li>
-                                        <li role="menuitem"><a class="dropdown-item" (click)="onDelete()">Delete</a></li>
+                                        <li role="menuitem"><button class="dropdown-item" [disabled]="btnDisable" title="Add dish" (click)="showModel()">Add</button></li>
+                                        <li role="menuitem"><button class="dropdown-item" [disabled]="btnDisable" (click)="edit(dishList) ">Edit</button></li>
+                                        <li role="menuitem"><button class="dropdown-item" (click)="onDelete()">Delete</button></li>
                                         <!-- <li class="divider dropdown-divider"></li> -->
-                                        <li role="menuitem"><a class="dropdown-item">Active</a></li>
-                                        <li role="menuitem"><a class="dropdown-item">Inactive</a>
+                                        <li role="menuitem"><button class="dropdown-item">Active</button></li>
+                                        <li role="menuitem"><button class="dropdown-item">Inactive</button>
                                         </li>
                                     </ul>
                                 </div>
