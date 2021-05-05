@@ -20,9 +20,12 @@ export class DishComponent implements OnInit {
   showModel() {
       this.dishSvc.openModal();
   }
-  edit(id: number) {
+  edit() {
+    if(this.selectedDish.length === 1){
+      console.log(this.dishList);
+    }
     this.dishSvc.openModal();
-    this.dishSvc.openEditModel(id);
+    this.dishSvc.openEditModel(this.selectedDish[0]);
   }
   loadData() {
     this.dishSvc.getList().subscribe(res => {
@@ -41,7 +44,7 @@ export class DishComponent implements OnInit {
   // }
   onCheckboxChange(id, e) {
     this.btnDisable = false;
-    console.log(e.target.checked);
+    // console.log(e.target.checked);
     if (e.target.checked) {
       if (this.selectedDish.indexOf(id) === -1) {
         this.selectedDish.push(id);
@@ -55,7 +58,6 @@ export class DishComponent implements OnInit {
     if(this.selectedDish.length > 1){
       this.btnDisable = true;
     }
-    console.log(this.selectedDish);
   }
 
 

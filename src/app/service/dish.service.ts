@@ -103,6 +103,8 @@ export class DishService {
 
   openEditModel(id: number) {
     var dish = this.dishList.find(i => i.id == id);
+    console.log(id);
+    console.log(dish)
     this.editModalSubject.next(dish);
   }
   //#endregion Method

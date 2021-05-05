@@ -11,7 +11,10 @@ import { DishService } from '../../service/dish.service';
 export class DishAddComponent implements OnInit {
   @ViewChild('largeModal') public largeModal: ModalDirective;
   constructor(public dishSvc: DishService) { }
+  test : boolean = true;
+
   dish: Dish;
+  public checked = true;
   isEdit: boolean;
   categories : DishCategory[]=[];
   categoryId:number = 0;
@@ -21,6 +24,7 @@ export class DishAddComponent implements OnInit {
     this.dish = new Dish();
     this.dish.isFull = true;
     this.dish.isHalf = true;
+    this.dish.isVeg = false;
     this.dish.mainCategoryId = 0;
     this.subscribeModalEvent();
     this.getDishCategory();
@@ -78,5 +82,13 @@ export class DishAddComponent implements OnInit {
   chkFullevent(){
     if(!this.dish.isFull)
     this.dish.fullPrice = null;
+  }
+  checkClicked(val){
+    if(val){
+      this.test = false;
+    } else{
+      this.test = true;
+    }
+    console.log(val);
   }
 }

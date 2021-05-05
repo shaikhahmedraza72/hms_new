@@ -2,11 +2,15 @@
   "dish": [
     {
       "id": 1,
-      "name": "Mutton Keema",
-      "description": "d1",
-      "halfPrice": 10,
-      "fullPrice": 1,
-      "imageUrl": "https://www.online-image-editor.com/styles/2019/images/power_girl_editor.png"
+      "name": "SPicy",
+      "description": "asasasasd",
+      "halfPrice": 56,
+      "fullPrice": 112,
+      "imageUrl": "https://www.online-image-editor.com/styles/2019/images/power_girl_editor.png",
+      "mainCategoryName": "",
+      "mainCategoryId": 1,
+      "isFull": true,
+      "isHalf": true
     },
     {
       "id": 2,
@@ -120,6 +124,37 @@
       "mainCategoryName": "fewrfwe",
       "description": "asdfcdas",
       "id": 15
+    },
+    {
+      "isFull": true,
+      "isHalf": true,
+      "isVeg": true,
+      "mainCategoryId": 0,
+      "id": 16
+    },
+    {
+      "isFull": null,
+      "isHalf": null,
+      "isVeg": true,
+      "mainCategoryId": null,
+      "name": null,
+      "mainCategoryName": null,
+      "fullPrice": null,
+      "halfPrice": null,
+      "description": null,
+      "id": 17
+    },
+    {
+      "isFull": null,
+      "isHalf": null,
+      "isVeg": true,
+      "mainCategoryId": null,
+      "name": null,
+      "mainCategoryName": null,
+      "fullPrice": null,
+      "halfPrice": null,
+      "description": null,
+      "id": 18
     }
   ],
   "dishCategory": [
