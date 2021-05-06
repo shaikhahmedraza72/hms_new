@@ -3,9 +3,9 @@
     {
       "id": 1,
       "name": "SPicy",
-      "description": "asasasasd",
-      "halfPrice": 56,
-      "fullPrice": 112,
+      "description": "asasaswedasd",
+      "halfPrice": null,
+      "fullPrice": 2222,
       "imageUrl": "https://www.online-image-editor.com/styles/2019/images/power_girl_editor.png",
       "mainCategoryName": "",
       "mainCategoryId": 1,

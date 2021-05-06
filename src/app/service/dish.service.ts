@@ -63,6 +63,10 @@ export class DishService {
     );
   }
 
+  deleteData(id: number): Observable<Dish> {
+    return this.httpClient.delete<Dish>(`${this.url}/${id}`).pipe(catchError(this.handleError))
+  }
+
   handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);

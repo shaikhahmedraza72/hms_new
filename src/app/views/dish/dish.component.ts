@@ -10,6 +10,7 @@ import { DishService } from '../../service/dish.service';
 export class DishComponent implements OnInit {
   constructor(public dishSvc: DishService) { }
   dishList: Dish[] = [];
+  dish: Dish;
   isChecked: boolean;
   btnDisable: boolean = false;
   selectedDish: number[] = [];
@@ -60,10 +61,11 @@ export class DishComponent implements OnInit {
     }
   }
 
-
   onDelete() {
-    if (this.selectedDish) {
-      this.selectedDish.pop();
+    if(this.selectedDish.indexOf(this.dish.id)){
+      console.log(this.selectedDish);      
     }
+      // this.dishSvc.deleteData(this.selectedDish.indexOf(this.dish.id));
+      // console.log(this.selectedDish);
   }
 }
