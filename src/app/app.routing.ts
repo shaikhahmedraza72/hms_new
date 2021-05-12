@@ -57,7 +57,7 @@ export const routes: Routes = [
         loadChildren: () => import('./views/dish/dish.module').then(m => m.DashboardModule)
       },
       {
-        path: 'client',
+        path: 'admin-config',
         loadChildren: () => import('./views/client/client.module').then(m => m.ClientModule)
       },
       {

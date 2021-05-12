@@ -20,8 +20,8 @@ export const navItems: INavData[] = [
     icon: 'icon-drop'
   },
   {
-    name: 'Clients',
-    url: '/client',
+    name: 'Admin-Config',
+    url: '/admin-config',
     icon: 'icon-drop'
   },
 ];
