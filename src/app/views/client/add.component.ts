@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { Client, CLientCategory } from './../../models/client';
+import { Client, ClientBankDetails, CLientCategory } from './../../models/client';
 import { ClientService } from '../../service/client.service';
 
 @Component({
@@ -15,6 +15,8 @@ export class AddClientComponent implements OnInit {
   client: Client = new Client();
   categories: CLientCategory[] = [];
   isEdit: boolean;
+
+  bankDetaials: ClientBankDetails = new ClientBankDetails();
 
   ngOnInit(): void {
     this.client = new Client();
