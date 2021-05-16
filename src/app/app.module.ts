@@ -38,6 +38,8 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
+// import { SearchFilterPipe } from './helpers/search-filter.pipe';
+
 // import { EndUserComponent } from './views/client/end-user/end-user.component';
 
 
@@ -65,7 +67,7 @@ import { ChartsModule } from 'ng2-charts';
     P404Component,
     P500Component,
     LoginComponent,
-    RegisterComponent,
+    RegisterComponent
    // EndUserComponent
   ],
   providers: [

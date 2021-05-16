@@ -15,6 +15,7 @@
     {
       "id": 2,
       "name": "pizza",
+      "imageUrl":"https://primefaces.org/primeng/showcase/assets/showcase/images/demo/product/chakra-bracelet.jpg",
       "description": "d2",
       "halfPrice": 11,
       "fullPrice": 2
@@ -22,11 +23,13 @@
     {
       "name": "IPhone",
       "id": 3,
+      "imageUrl":"https://primefaces.org/primeng/showcase/assets/showcase/images/demo/product/black-watch.jpg",
       "description": "d2"
     },
     {
       "name": "Chicken biryani",
       "id": 4,
+      "imageUrl":"https://primefaces.org/primeng/showcase/assets/showcase/images/demo/product/bamboo-watch.jpg",
       "description": "d2"
     },
     {
