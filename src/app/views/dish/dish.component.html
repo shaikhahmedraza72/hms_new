@@ -6,16 +6,16 @@
         <div class="card">
             <div class="card-header">
                 <p-toolbar class="pToolbar">
-                <ng-template pTemplate="left">
-                    <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
-                    <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedDishes()" [disabled]="!selectedDishes || !selectedDishes.length"></button>
-                </ng-template>
-        
-                <ng-template pTemplate="right">
-                    <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block"></p-fileUpload>
-                    <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help my-2"></button>
-                </ng-template>
-</p-toolbar>
+                    <ng-template pTemplate="left">
+                        <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
+                        <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedDishes()" [disabled]="!selectedDishes || !selectedDishes.length"></button>
+                    </ng-template>
+
+                    <ng-template pTemplate="right">
+                        <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block"></p-fileUpload>
+                        <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help my-2"></button>
+                    </ng-template>
+                </p-toolbar>
             </div>
             <div class="card-body">
                 <table class="table table-bordered table-striped table-sm" *ngIf="1==0">
@@ -34,12 +34,9 @@
                                         <i class="fa fa-list-ul fa-lg mt-1"></i>
                                     </button>
                                     <ul *dropdownMenu class="dropdown-menu" role="menu">
-                                        <li role="menuitem"><button class="dropdown-item" [disabled]="btnDisable"
-                                                title="Add dish" (click)="showModel()">Add</button></li>
-                                        <li role="menuitem"><button class="dropdown-item" [disabled]="btnDisable"
-                                                (click)="edit()">Edit</button></li>
-                                        <li role="menuitem"><button class="dropdown-item"
-                                                (click)="onDelete()">Delete</button></li>
+                                        <li role="menuitem"><button class="dropdown-item" [disabled]="btnDisable" title="Add dish" (click)="showModel()">Add</button></li>
+                                        <li role="menuitem"><button class="dropdown-item" [disabled]="btnDisable" (click)="edit()">Edit</button></li>
+                                        <li role="menuitem"><button class="dropdown-item" (click)="onDelete()">Delete</button></li>
                                         <!-- <li class="divider dropdown-divider"></li> -->
                                         <li role="menuitem"><button class="dropdown-item">Active</button></li>
                                         <li role="menuitem"><button class="dropdown-item">Inactive</button>
@@ -81,30 +78,35 @@
                         <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help my-2"></button>
                     </ng-template>
                 </p-toolbar> -->
-                                <p-table #d2 [value]="dishList" styleClass="p-datatable-customcss" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
-                                [(selection)]="selectedDishes" [rowHover]="true" dataKey="id"
-                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                <p-table #d2 [value]="dishList" styleClass="p-datatable-customcss" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" [(selection)]="selectedDishes" [rowHover]="true" dataKey="id" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
                     [rowsPerPageOptions]="[10,25,50]">
                     <ng-template pTemplate="header">
-                        <tr><th style="width: 3rem">
-                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
-                        </th>
-                            <th style="width: 13%;">Name<p-columnFilter type="text" field="name" display="menu"></p-columnFilter></th> 
-                            <th >Image</th>
-                            <th style="width:17%;">Description<p-columnFilter type="text" field="description" display="menu"></p-columnFilter></th>
-                            <th >Half Price</th>
-                            <th >Full Price</th>
-                            <th style="width:16%;">Category<p-columnFilter type="text" field="mainCategoryName" display="menu"></p-columnFilter></th>
+                        <tr>
+                            <th style="width: 3rem">
+                                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                            </th>
+                            <th style="width: 13%;">Name
+                                <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+                            </th>
+                            <th>Image</th>
+                            <th style="width:17%;">Description
+                                <p-columnFilter type="text" field="description" display="menu"></p-columnFilter>
+                            </th>
+                            <th>Half Price</th>
+                            <th>Full Price</th>
+                            <th style="width:16%;">Category
+                                <p-columnFilter type="text" field="mainCategoryName" display="menu"></p-columnFilter>
+                            </th>
                             <th style="width:14%;">Action </th>
                     </ng-template>
                     <ng-template pTemplate="body" let-item>
-                        <tr> 
+                        <tr>
                             <td>
                                 <p-tableCheckbox [value]="item"></p-tableCheckbox>
                             </td>
                             <td>{{item.name}}</td>
                             <td>
-                                <img src="{{item.imageUrl}}"  [alt]="item.name"  width="100" class="p-shadow-4"/>
+                                <img src="{{item.imageUrl}}" [alt]="item.name" width="100" class="p-shadow-4" />
                             </td>
                             <td title="{{item.description}} ">
                                 <!-- {{( (item.description.length >6)? (item.description | slice:0:6)+'..':(item.description)) }} -->
@@ -117,7 +119,7 @@
                                 <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editDish(item)"></button>
                                 <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteDish(item)"></button>
                                 <!-- <p-checkbox name="groupname{{item.id}}" [value]="item.selectedDish" [inputId]="item.id" [(ngModel)]="selectedValues" (change)="onCheckboxChange(item.id, $event)"></p-checkbox> -->
-                               </td>
+                            </td>
 
                         </tr>
                     </ng-template>
@@ -182,7 +184,7 @@
             </div>
         </div>
     </ng-template>
-    
+
     <ng-template pTemplate="footer">
         <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
         <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveDish()"></button>

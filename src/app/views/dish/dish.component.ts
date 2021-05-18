@@ -86,7 +86,7 @@ hideDialog() {
   this.submitted = false;
 }
 
-saveProduct() {
+saveDish() {
   this.submitted = true;
 
   if (this.dish.name.trim()) {
@@ -127,19 +127,9 @@ createId(): string {
   }
   return id;
 }
-  // onChkEdit(id){
-  //   if(this.isChecked === true){
-  //     this.selectedDish.push(id);
-  //   } else {
-  //     this.selectedDish.pop();
-  //   }
-  //   console.log(this.selectedDish); 
-
-  // }
   onCheckboxChange(id, e) {
     this.btnDisable = false;
-    // console.log(e.target.checked);
-    if (e.target.checked) {
+     if (e.target.checked) {
       if (this.selectedDish.indexOf(id) === -1) {
         this.selectedDish.push(id);
       }
@@ -152,13 +142,5 @@ createId(): string {
     if(this.selectedDish.length > 1){
       this.btnDisable = true;
     }
-  }
-
-  onDelete() {
-    if(this.selectedDish.indexOf(this.dish.id)){
-      console.log(this.selectedDish);      
-    }
-      // this.dishSvc.deleteData(this.selectedDish.indexOf(this.dish.id));
-      // console.log(this.selectedDish);
   }
 }
