@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddClientComponent } from './views/client/add.component';
+import { TermsComponent } from './views/client/terms.component';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
@@ -40,6 +42,21 @@ export const routes: Routes = [
       title: 'Register Page'
     }
   },
+  {
+    path: 'AddClientComponent',
+    component: AddClientComponent,
+    data: {
+      title: 'Add Client'
+    }
+
+  },
+  {
+    path: 'TermsComponent',
+    component: TermsComponent,
+    data: {
+      title: 'Terms & Conditions'
+    }
+  },
   // {
   //   path: '',
   //   component: DefaultLayoutComponent,
@@ -63,7 +80,7 @@ export const routes: Routes = [
       {
         path: 'bankDetail',
         loadChildren: () => import('./views/client/client.module').then(m => m.ClientModule)
-    //   },
+      // },
     // ]
   },
   { path: '**', component: P404Component }
