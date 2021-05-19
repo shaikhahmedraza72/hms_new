@@ -32,7 +32,7 @@ import {
 } from '@coreui/angular';
 
 // Import routing module
-import { AppRoutingModule } from './app.routing';
+import { AppRoutingModule, routingComponents } from './app.routing';
 
 // Import 3rd party components
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -67,7 +67,8 @@ import { ChartsModule } from 'ng2-charts';
     P404Component,
     P500Component,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    routingComponents
    // EndUserComponent
   ],
   providers: [
