@@ -35,9 +35,12 @@ import {
 // import { AppRoutingModule, routingComponents } from './app.routing';
 
 // Import 3rd party components
+import { SharedModule } from './shared/shared.module'
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
+import { AppRoutingModule,  routingComponents} from './app.routing';
+import { ClientConfigComponent } from './views/client-config/client-config.component';
 // import { SearchFilterPipe } from './helpers/search-filter.pipe';
 
 // import { EndUserComponent } from './views/client/end-user/end-user.component';
@@ -48,6 +51,7 @@ import { ChartsModule } from 'ng2-charts';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    SharedModule,
     AppAsideModule,
     AppBreadcrumbModule.forRoot(),
     AppFooterModule,
@@ -68,7 +72,8 @@ import { ChartsModule } from 'ng2-charts';
     P500Component,
     LoginComponent,
     RegisterComponent,
-    routingComponents
+    routingComponents,
+    ClientConfigComponent
    // EndUserComponent
   ],
   providers: [

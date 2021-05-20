@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ClientConfigComponent } from './views/client-config/client-config.component';
 import { AddClientComponent } from './views/client/add.component';
 import { TermsComponent } from './views/client/terms.component';
 
@@ -57,6 +58,13 @@ export const routes: Routes = [
       title: 'Terms & Conditions'
     }
   },
+  {
+    path: 'ClientConfigComponent',
+    component: ClientConfigComponent,
+    data: {
+      title: 'Client Configuration'
+    }
+  },
   // {
   //   path: '',
   //   component: DefaultLayoutComponent,
@@ -91,4 +99,4 @@ export const routes: Routes = [
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {}
-// export const routingComponents = [AddClientComponent, TermsComponent];
+export const routingComponents = [AddClientComponent, TermsComponent];

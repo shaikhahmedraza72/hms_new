@@ -1,0 +1,11 @@
+<div class="p-fluid p-formgrid p-grid">
+    <div class="p-field p-col">
+        <label for="firstname1">Firstname</label>
+        <input id="firstname1" type="text" pInputText>
+    </div>
+    <div class="p-field p-col">
+        <label for="lastname1">Lastname</label>
+        <input id="lastname1" type="text" pInputText>
+    </div>
+</div>
+<p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>
