@@ -10,6 +10,8 @@ export class ClientComponent implements OnInit {
 
   constructor(private clientSvc: ClientService, private bankSvc: ClientService, private endUserSvc: ClientService) { }
   clientList: Client[] = [];
+  submitted: boolean;
+  clientDialog: boolean;
   detailList: ClientBankDetails[] = [];
   endUserList: EndUser [] = [];
   displayModel = false;
@@ -21,6 +23,10 @@ export class ClientComponent implements OnInit {
   showModel() {
     this.clientSvc.openModalForClient();
   }
+  openNew() {
+    this.submitted = false;
+    this.clientDialog = true;
+}
   edit(id: number) {
     this.clientSvc.openModalForClient();
     this.clientSvc.openEditModelForClient(id);

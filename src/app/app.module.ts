@@ -32,7 +32,7 @@ import {
 } from '@coreui/angular';
 
 // Import routing module
-import { AppRoutingModule, routingComponents } from './app.routing';
+// import { AppRoutingModule, routingComponents } from './app.routing';
 
 // Import 3rd party components
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';

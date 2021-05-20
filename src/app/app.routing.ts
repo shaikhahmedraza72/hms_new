@@ -91,4 +91,4 @@ export const routes: Routes = [
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {}
-export const routingComponents = [AddClientComponent, TermsComponent];
+// export const routingComponents = [AddClientComponent, TermsComponent];
