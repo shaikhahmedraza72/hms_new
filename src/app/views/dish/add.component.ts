@@ -8,6 +8,7 @@ import { DishService } from '../../service/dish.service';
   selector: 'dish-add',
   templateUrl: './add.component.html',
 })
+
 export class DishAddComponent implements OnInit {
   @ViewChild('largeModal') public largeModal: ModalDirective;
   constructor(public dishSvc: DishService) { }

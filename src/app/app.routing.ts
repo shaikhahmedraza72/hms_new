@@ -61,9 +61,6 @@ export const routes: Routes = [
   {
     path: 'ClientConfigComponent',
     component: ClientConfigComponent,
-    data: {
-      title: 'Client Configuration'
-    }
   },
   // {
   //   path: '',
