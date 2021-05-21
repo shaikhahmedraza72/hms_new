@@ -15,7 +15,7 @@
     {
       "id": 2,
       "name": "pizza",
-      "imageUrl":"https://primefaces.org/primeng/showcase/assets/showcase/images/demo/product/chakra-bracelet.jpg",
+      "imageUrl": "https://primefaces.org/primeng/showcase/assets/showcase/images/demo/product/chakra-bracelet.jpg",
       "description": "d2",
       "halfPrice": 11,
       "fullPrice": 2
@@ -23,13 +23,13 @@
     {
       "name": "IPhone",
       "id": 3,
-      "imageUrl":"https://primefaces.org/primeng/showcase/assets/showcase/images/demo/product/black-watch.jpg",
+      "imageUrl": "https://primefaces.org/primeng/showcase/assets/showcase/images/demo/product/black-watch.jpg",
       "description": "d2"
     },
     {
       "name": "Chicken biryani",
       "id": 4,
-      "imageUrl":"https://primefaces.org/primeng/showcase/assets/showcase/images/demo/product/bamboo-watch.jpg",
+      "imageUrl": "https://primefaces.org/primeng/showcase/assets/showcase/images/demo/product/bamboo-watch.jpg",
       "description": "d2"
     },
     {
@@ -203,31 +203,6 @@
       "seal": "SEAL",
       "sign": "sign",
       "category": null
-    },
-    {
-      "id": 2,
-      "business": "STARKINDUSTRIES",
-      "address": "USA",
-      "gst": "18",
-      "foodClass": "CLASS 1",
-      "logo": "LG",
-      "seal": "SEAL",
-      "sign": "STARK",
-      "category": null
-    },
-    {
-      "id": 3
-    },
-    {
-      "id": 4,
-      "business": null,
-      "category": null,
-      "address": null,
-      "gst": null,
-      "foodClass": null,
-      "logo": null,
-      "seal": null,
-      "sign": null
     }
   ],
   "clientCategory": [
@@ -256,6 +231,46 @@
       "accountNumber": 125,
       "bankName": "MahaBank",
       "ifscCode": "9874CC"
+    },
+    {
+      "accountName": "Bank",
+      "address": "USA",
+      "accountNumber": 125,
+      "bankName": "USABANK",
+      "ifscCode": "USAIFC",
+      "id": 3
+    },
+    {
+      "accountName": "Bank",
+      "address": "USA",
+      "accountNumber": 125,
+      "bankName": "USABANK",
+      "ifscCode": "USAIFC",
+      "id": 4
+    },
+    {
+      "accountName": "Bank",
+      "address": "USA",
+      "accountNumber": 125,
+      "bankName": "USABANK",
+      "ifscCode": "USAIFC",
+      "id": 5
+    },
+    {
+      "accountName": "Bank",
+      "address": "USA",
+      "accountNumber": 125,
+      "bankName": "USABANK",
+      "ifscCode": "USAIFC",
+      "id": 6
+    },
+    {
+      "accountName": "Bank",
+      "address": "USA",
+      "accountNumber": 125,
+      "bankName": "USABANK",
+      "ifscCode": "USAIFC",
+      "id": 7
     }
   ],
   "endUser": [
