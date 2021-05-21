@@ -1,11 +1,100 @@
-<div class="p-fluid p-formgrid p-grid">
-    <div class="p-field p-col">
-        <label for="firstname1">Firstname</label>
-        <input id="firstname1" type="text" pInputText>
-    </div>
-    <div class="p-field p-col">
-        <label for="lastname1">Lastname</label>
-        <input id="lastname1" type="text" pInputText>
+<div class="modal-content">
+    <div class="modal-body">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Client</strong>
+                </div>
+                <form #clientForm="ngForm" (ngSubmit)="onSubmit(clientForm.value)" class="card-body needs-validation" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="number" required ngModel [(ngModel)]="client.id" class="form-control" name="id" #name="ngModel" placeholder="Enter client Id">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" required ngModel [(ngModel)]="client.business" class="form-control" name="name" #name="ngModel" placeholder="Enter the business name">
+                        </div>
+                        <div class="form-group col-md-5">
+                            <select [(ngModel)]="client.CategoryId" name="category" class="form-control"> 
+                                <option [ngValue]="0" selected  disabled > Select Category </option>
+                                <option *ngFor="let item of categories" [ngValue]="item.id">{{item.name}}</option>
+                                 </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" ngModel [(ngModel)]="client.address" class="form-control" name="address" #name="ngModel" placeholder="Enter the address" required>
+                            <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                Address is required
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" ngModel [(ngModel)]="client.gst" class="form-control" name="gst" #name="ngModel" placeholder="Enter GST" required>
+                            <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                GST is required
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" required ngModel [(ngModel)]="client.foodClass" class="form-control" name="foodClass" #name="ngModel" placeholder="Enter food class">
+                            <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                foodClass is required
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" required ngModel [(ngModel)]="client.logo" class="form-control" name="logo" #name="ngModel" placeholder="logo">
+                            <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                Logo is required
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" required ngModel [(ngModel)]="client.seal" class="form-control" name="seal" #name="ngModel" placeholder="Enter seal">
+                            <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                Seal is required
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" required ngModel [(ngModel)]="client.sign" class="form-control" name="sign" #name="ngModel" placeholder="Enter the sign">
+                            <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                Sign is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-header">
+                        <strong>Bank Details</strong>
+                    </div>
+                    <br>
+                    <!-- <form #BankDetailsForm="ngForm" (ngSubmit)="onSubmit(BankDetailsForm)" class="card-body needs-validation" novalidate> -->
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input type="text" required ngModel [(ngModel)]="bankDetaials.accountName" class="form-control" name="name" #name="ngModel" placeholder="Enter the Account name">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" ngModel [(ngModel)]="bankDetaials.address" class="form-control" name="address" #name="ngModel" placeholder="Enter the address" required>
+                            <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                Address is required
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="number" ngModel [(ngModel)]="bankDetaials.accountNumber" class="form-control" name="accountNumber" #name="ngModel" placeholder="Enter Account number" required>
+                            <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                Account number is required
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" required ngModel [(ngModel)]="bankDetaials.bankName" class="form-control" name="bankName" #name="ngModel" placeholder="Enter the bank name">
+                            <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                foodClass is required
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="text" required ngModel [(ngModel)]="bankDetaials.ifscCode" class="form-control" name="ifscCode" #name="ngModel" placeholder="Enetr the IFSC code">
+                            <div [hidden]="name.valid || name.pristine" class="invalid-feedback">
+                                IFSC is required
+                            </div>
+                        </div>
+                    </div>
+                    <!-- </form> -->
+                    <button type="submit" class="btn btn-success" [disabled]="!clientForm.form.valid">Submit</button>
+                    <button type="button" class="btn btn-success btn-primary" (click)="clientForm.resetForm()">Reset</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
-<p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="name"></p-dropdown>
