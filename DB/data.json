@@ -158,6 +158,18 @@
       "halfPrice": null,
       "description": null,
       "id": 18
+    },
+    {
+      "isFull": true,
+      "isHalf": false,
+      "isVeg": false,
+      "mainCategoryId": 1,
+      "name": "DJI Mavic Pro",
+      "mainCategoryName": "",
+      "fullPrice": 1200,
+      "halfPrice": null,
+      "description": "Some Description",
+      "id": 19
     }
   ],
   "dishCategory": [
@@ -203,6 +215,17 @@
       "seal": "SEAL",
       "sign": "sign",
       "category": null
+    },
+    {
+      "id": 12,
+      "business": "Busines 1",
+      "CategoryId": 1,
+      "address": "pakistan",
+      "gst": "1%",
+      "foodClass": "Food 1",
+      "logo": "Some Log",
+      "seal": "Some seal",
+      "sign": "sun shine"
     }
   ],
   "clientCategory": [
@@ -287,6 +310,14 @@
       "bankName": "la bank",
       "ifscCode": "la1233",
       "id": 9
+    },
+    {
+      "accountName": "Tony",
+      "address": "LA",
+      "accountNumber": 12345,
+      "bankName": "Bank of LA",
+      "ifscCode": "la1233",
+      "id": 10
     }
   ],
   "endUser": [
