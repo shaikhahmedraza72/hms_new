@@ -271,6 +271,22 @@
       "bankName": "USABANK",
       "ifscCode": "USAIFC",
       "id": 7
+    },
+    {
+      "accountName": "L.A Bank",
+      "address": "L.A Bank ",
+      "accountNumber": 22,
+      "bankName": "la bank",
+      "ifscCode": "la1233",
+      "id": 8
+    },
+    {
+      "accountName": "L.A Bank",
+      "address": "L.A Bank ",
+      "accountNumber": 22,
+      "bankName": "la bank",
+      "ifscCode": "la1233",
+      "id": 9
     }
   ],
   "endUser": [
