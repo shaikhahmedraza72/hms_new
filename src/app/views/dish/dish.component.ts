@@ -12,12 +12,15 @@ import { DishService } from '../../service/dish.service';
 export class DishComponent implements OnInit {
   dishDialog: boolean;
   test : boolean = true;
+  isEdit: boolean;
+
 
   statuses: { label: string; value: string; }[];
   categories: {label: string; value: string; }[];
 
   constructor(public dishSvc: DishService, private confirmationService: ConfirmationService, private msgService: MessageService) { }
   dishList: Dish[] = [];
+  uploadedFiles: any[] = [];
   dish: Dish;
   isChecked: boolean;
   btnDisable: boolean = false;
@@ -49,6 +52,13 @@ export class DishComponent implements OnInit {
     });
   }
 
+  onUpload(event) {
+    for(let file of event) {
+        this.dish.imageUrl.push(file);
+    }
+
+    this.msgService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
+}
   
   openNew() {
     // this.dish = '';
@@ -96,7 +106,8 @@ hideDialog() {
 
 saveDish() {
   this.submitted = true;
-
+  console.log(this,this.dish);
+  console.log(this.dish.imageUrl);
   if (this.dish.name.trim()) {
       if (this.dish.id) {
           this.dishList[this.findIndexById(this.dish.id)] = this.dish;
@@ -110,8 +121,16 @@ saveDish() {
 
       this.dishList = [...this.dishList];
       this.dishDialog = false;
-      // this.d = {};
   }
+  // if (this.isEdit) {
+  //   this.dishSvc.update(this.dish).subscribe(resp => {
+  //   });
+  // }
+  // else {
+  //   this.dishSvc.Add(this.dish).subscribe(resp => {
+  //   });
+  // }
+  // this.hideDialog();
 }
 
 findIndexById(id: number) {

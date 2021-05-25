@@ -5,13 +5,16 @@ export class Dish {
     public halfPrice!: number;
     public fullPrice!: number;
     public qty!: number;
+    public image: any;
     public mainCategoryId?: number;
     public mainCategoryName: string;
+    public newCategory: string;
     public isVeg:boolean;
     public isHalf:boolean;
     public isFull:boolean;
-    public imageUrl:string;
-
+    public imageUrl:any;
+    public nonVegCategory:string;
+    public timeForService: number;
     constructor(
     ) { }
 }
