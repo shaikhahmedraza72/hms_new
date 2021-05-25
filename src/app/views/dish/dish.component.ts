@@ -11,7 +11,10 @@ import { DishService } from '../../service/dish.service';
 })
 export class DishComponent implements OnInit {
   dishDialog: boolean;
+  test : boolean = true;
+
   statuses: { label: string; value: string; }[];
+  categories: {label: string; value: string; }[];
 
   constructor(public dishSvc: DishService, private confirmationService: ConfirmationService, private msgService: MessageService) { }
   dishList: Dish[] = [];
@@ -25,7 +28,10 @@ export class DishComponent implements OnInit {
   ngOnInit(): void {
     this.loadData();
     this.statuses = [  {label: 'Active', value: 'active'},
-    {label: 'InActive', value: 'inActive'},]
+    {label: 'InActive', value: 'inActive'}];
+    this.categories = [ {label: 'Starter', value: 'starter'},
+    {label: 'Main Course', value: 'mainCourse'},
+    {label: 'Rice', value: 'rice'}];
   }
   showModel() {
       this.dishSvc.openModal();
@@ -45,9 +51,10 @@ export class DishComponent implements OnInit {
 
   
   openNew() {
-    //this.dish = '';
+    // this.dish = '';
     this.submitted = false;
     this.dishDialog = true;
+    // this.dishSvc.openModal();
 }
 editDish(dish: Dish) {
   this.dish = {...dish};
@@ -55,7 +62,8 @@ editDish(dish: Dish) {
 }
 
 deleteDish(dish: Dish) {
-  debugger
+  // tslint:disable-next-line:no-debugger
+  debugger;
   this.confirmationService.confirm({
       message: 'Are you sure you want to delete ' + dish.name + '?',
       header: 'Confirm',
@@ -91,10 +99,9 @@ saveDish() {
 
   if (this.dish.name.trim()) {
       if (this.dish.id) {
-          this.dishList[this.findIndexById(this.dish.id)] = this.dish;                
+          this.dishList[this.findIndexById(this.dish.id)] = this.dish;
           this.msgService.add({severity:'success', summary: 'Successful', detail: 'Dish Updated', life: 3000});
-      }
-      else {
+      } else {
           this.dish.id = this.dishList[this.dishList.length].id + 1;
           this.dish.imageUrl = 'product-placeholder.svg';
           this.dishList.push(this.dish);
@@ -117,6 +124,24 @@ findIndexById(id: number) {
   }
 
   return index;
+}
+
+chkHalfevent(){
+  if(!this.dish.isHalf)
+  this.dish.halfPrice = null;
+}
+chkFullevent(){
+  if(!this.dish.isFull)
+  this.dish.fullPrice = null;
+}
+
+checkClicked(val){
+  if(val){
+    this.test = false;
+  } else{
+    this.test = true;
+  }
+  console.log(val);
 }
 
 createId(): string {
