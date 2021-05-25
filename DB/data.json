@@ -203,6 +203,17 @@
       "seal": "SEAL",
       "sign": "sign",
       "category": null
+    },
+    {
+      "id": 11,
+      "business": "Avengers",
+      "CategoryId": 2,
+      "address": "USA",
+      "gst": "1%",
+      "foodClass": "El Classico",
+      "logo": "Avengers",
+      "seal": "Cap America",
+      "sign": "Iron man"
     }
   ],
   "clientCategory": [
@@ -287,6 +298,14 @@
       "bankName": "la bank",
       "ifscCode": "la1233",
       "id": 9
+    },
+    {
+      "accountName": "Avenger bank",
+      "address": "USA",
+      "accountNumber": 123445,
+      "bankName": "Avengers",
+      "ifscCode": "ave1234",
+      "id": 10
     }
   ],
   "endUser": [
