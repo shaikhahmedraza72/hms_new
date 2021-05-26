@@ -13,7 +13,7 @@ export class DishComponent implements OnInit {
   dishDialog: boolean;
   test : boolean = true;
   isEdit: boolean;
-
+  category: DishCategory[] = [];
 
   statuses: { label: string; value: string; }[];
   categories: {label: string; value: string; }[];
@@ -53,6 +53,12 @@ export class DishComponent implements OnInit {
     });
   }
 
+  getClientCategory() {
+    this.dishSvc.getDishCategory().subscribe(x => {
+      this.category = x;
+      console.log(this.categories)
+    });
+  }
   onUpload(event) {
     for(let file of event) {
         this.dish.imageUrl.push(file);
