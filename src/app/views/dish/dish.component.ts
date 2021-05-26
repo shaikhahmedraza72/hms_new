@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 // import { ModalDirective } from 'ngx-bootstrap/modal';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { Dish } from '../../models/dish';
+import { Dish, DishCategory } from '../../models/dish';
 import { DishService } from '../../service/dish.service';
 
 @Component({
@@ -22,6 +22,7 @@ export class DishComponent implements OnInit {
   dishList: Dish[] = [];
   uploadedFiles: any[] = [];
   dish: Dish;
+  dishCategory: DishCategory;
   isChecked: boolean;
   btnDisable: boolean = false;
   selectedDishes: Dish[];
@@ -32,9 +33,9 @@ export class DishComponent implements OnInit {
     this.loadData();
     this.statuses = [  {label: 'Active', value: 'active'},
     {label: 'InActive', value: 'inActive'}];
-    this.categories = [ {label: 'Starter', value: 'starter'},
-    {label: 'Main Course', value: 'mainCourse'},
-    {label: 'Rice', value: 'rice'}];
+    this.categories = [ {label: 'Starter', value: 'Starter'},
+    {label: 'Main Course', value: 'Main Course'},
+    {label: 'Rice', value: 'Rice'}];
   }
   showModel() {
       this.dishSvc.openModal();

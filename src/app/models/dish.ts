@@ -14,7 +14,7 @@ export class Dish {
     public isFull:boolean;
     public imageUrl:any;
     public nonVegCategory:string;
-    public timeForService: number;
+    public serviceTime: any;
     constructor(
     ) { }
 }
