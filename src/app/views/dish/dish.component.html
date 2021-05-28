@@ -66,7 +66,6 @@
         </div>
     </div>
 </div>
-<dish-add></dish-add>
 
 <p-dialog [(visible)]="dishDialog" [style]="{width: '550px'}" header="Dish Details" [modal]="true" styleClass="p-fluid">
     <ng-template pTemplate="content">
@@ -96,7 +95,7 @@
 
         <div class="p-field">
             <label for="inventoryStatus">Select Category</label>
-            <p-dropdown [(ngModel)]="dish.categories" inputId="inventoryStatus" [options]="categories" placeholder="Select">
+            <p-dropdown [(ngModel)]="dish.categories" [disabled]="dish.newCategory" inputId="inventoryStatus" [options]="categories" placeholder="Select">
                 <ng-template let-option pTemplate="item">
                     <span [class]="'dish-badge status-' + option.value">{{option.label}}</span>
                 </ng-template>
@@ -104,9 +103,10 @@
             <div style="text-align:center"><strong>OR</strong></div>
             <div class="p-field p-col">
                 <label for="newCategory">Enter a new category</label>
-                <input id="newCategory" pInputText [disabled]="!categories.value === ''" [(ngModel)]="dish.newCategory">
+                <input id="newCategory" pInputText [disabled]="dish.categories" [(ngModel)]="dish.newCategory">
             </div>
         </div>
+<<<<<<< HEAD
         <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
         <div class="p-formgrid p-grid">
             <div class="p-field-checkbox">
@@ -116,6 +116,21 @@
                 <input type="checkbox" class="switch-input" (change)="checkClicked(test)" checked>
                 <span class="switch-slider"></span>
                 <label> Veg</label>
+=======
+        <!-- form-row col-sm-12 -->
+        <div style="display: flex; flex-direction: row;" class="p-formgrid p-grid"> 
+            <div class="p-field p-col">
+                <label for="mainCategory">Non-Veg&nbsp;</label>
+            </div>
+            <div class="p-field p-col">
+                <label class="switch switch-success">
+                    <input type="checkbox" class="switch-input" (change)="checkClicked(test)" checked>
+                    <span class="switch-slider"></span>
+                </label>
+            </div>
+            <div class="p-field p-col">
+                <label for="mainCategory"> Veg</label>
+>>>>>>> 9f3df7409cb52bb4225a0a7d921c416b8eb19c59
             </div>
             <div class="p-formgroup-inline">
                 <div class="p-field-checkbox">
@@ -129,16 +144,16 @@
             </div>
         </div>
         <section>
-            <div style="display: flex; flex-direction: row; justify-content: space-between; margin-left: 20px;" [hidden]="test" class="form-group ">
-                <div class="p-field-radiobutton">
+            <div style="display: flex; flex-direction: row; justify-content: space-between; margin-left: 20px;" [hidden]="test" class="p-formgrid p-grid">
+                <div class="p-field-radiobutton p-field p-col">
                     <p-radioButton name="nonVegCategory" value="chicken" [(ngModel)]="dish.nonVegCategory" inputId="nonVegCategory1"></p-radioButton>
                     <label for="vegNonVeg1">Chicken</label>
                 </div>
-                <div class="p-field-radiobutton">
+                <div class="p-field-radiobutton p-field p-col">
                     <p-radioButton name="nonVegCategory" value="mutton" [(ngModel)]="dish.nonVegCategory" inputId="nonVegCategory2"></p-radioButton>
                     <label for="vegNonVeg2">Mutton</label>
                 </div>
-                <div class="p-field-radiobutton">
+                <div class="p-field-radiobutton p-field p-col">
                     <p-radioButton name="nonVegCategory" value="seaFood" [(ngModel)]="dish.nonVegCategory" inputId="nonVegCategory3"></p-radioButton>
                     <label for="vegNonVeg3">Sea Food</label>
                 </div>
