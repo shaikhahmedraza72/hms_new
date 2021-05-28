@@ -6,7 +6,7 @@ import { ChartsModule } from 'ng2-charts';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 // import { ButtonsModule } from 'ngx-bootstrap/buttons'; 
 import { ModalModule } from 'ngx-bootstrap/modal'; 
-
+import {CarouselModule} from 'primeng/carousel';
 import {TableModule} from 'primeng/table';
 import {ToastModule} from 'primeng/toast';
 import {CalendarModule} from 'primeng/calendar';
@@ -27,6 +27,7 @@ import {InputNumberModule} from 'primeng/inputnumber';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
+import {InputSwitchModule} from 'primeng/inputswitch';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 @NgModule({
   declarations: [],
@@ -35,8 +36,10 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    InputSwitchModule,
     ChartsModule,
     BsDropdownModule,
+    CarouselModule,
     //ButtonsModule.forRoot(),
     ModalModule.forRoot(),
     TableModule,

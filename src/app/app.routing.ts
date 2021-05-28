@@ -7,6 +7,7 @@ import { TermsComponent } from './views/client/terms.component';
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
+import { MenuItemComponent } from './views/menu-item/menu-item.component';
 import { RegisterComponent } from './views/register/register.component';
 
 export const routes: Routes = [
@@ -46,21 +47,19 @@ export const routes: Routes = [
   {
     path: 'AddClientComponent',
     component: AddClientComponent,
-    data: {
-      title: 'Add Client'
-    }
 
   },
   {
     path: 'TermsComponent',
     component: TermsComponent,
-    data: {
-      title: 'Terms & Conditions'
-    }
   },
   {
     path: 'ClientConfigComponent',
     component: ClientConfigComponent,
+  },
+  {
+    path: 'menuItem',
+    component: MenuItemComponent,
   },
   // {
   //   path: '',
@@ -96,4 +95,4 @@ export const routes: Routes = [
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {}
-export const routingComponents = [AddClientComponent, TermsComponent];
+export const routingComponents = [AddClientComponent, TermsComponent, MenuItemComponent];

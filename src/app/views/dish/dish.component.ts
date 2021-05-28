@@ -11,6 +11,9 @@ import { DishService } from '../../service/dish.service';
 })
 export class DishComponent implements OnInit {
   dishDialog: boolean;
+
+  checked: boolean = true;
+
   test : boolean = true;
   isEdit: boolean;
   category: DishCategory[] = [];

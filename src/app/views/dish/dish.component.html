@@ -107,28 +107,25 @@
                 <input id="newCategory" pInputText [disabled]="!categories.value === ''" [(ngModel)]="dish.newCategory">
             </div>
         </div>
-        <div style="display: flex; flex-direction: row;" class="form-row col-sm-12">
-            <div class="form-group">
-                <label for="mainCategory">Non-Veg&nbsp;</label>
+        <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
+        <div class="p-formgrid p-grid">
+            <div class="p-field-checkbox">
+                <label>Non-Veg</label>
+                <!-- <p-inputSwitch (change)="checkClicked(test)"></p-inputSwitch>> -->
+                <!-- <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch> -->
+                <input type="checkbox" class="switch-input" (change)="checkClicked(test)" checked>
+                <span class="switch-slider"></span>
+                <label> Veg</label>
             </div>
-            <div class="form-group">
-                <label class="switch switch-success">
-                    <input type="checkbox" class="switch-input" (change)="checkClicked(test)" checked>
-                    <span class="switch-slider"></span>
-                </label>
-            </div>
-            <div class="form-group ">
-                <label for="mainCategory"> Veg</label>
-            </div>
-            <div style="display: flex; flex-direction: row; justify-content:space-evenly;" class="form-group col-sm-5">
-                <section>
-                    <input class="form-check-input" [(ngModel)]="dish.isFull" (change)="chkFullevent()" type="checkbox" name="chkFull" value="full" [checked]="true">
-                    <label class="form-check-label" for="chkFull">Full</label>
-                </section>
-                <section>
-                    <input class="form-check-input" [(ngModel)]="dish.isHalf" (change)="chkHalfevent()" type="checkbox" name="chkHalf" value="half" [checked]="true">
-                    <label class="form-check-label" for="chkHalf">Half</label>
-                </section>
+            <div class="p-formgroup-inline">
+                <div class="p-field-checkbox">
+                    <p-checkbox [(ngModel)]="dish.isFull" (change)="chkFullevent()" inputId="chkFull" value="full" [checked]="true"></p-checkbox>
+                    <label for="chkFull">Full</label>
+                </div>
+                <div class="p-field-checkbox">
+                    <p-checkbox [(ngModel)]="dish.isHalf" (change)="chkHalfevent()" inputId="chkHalf" value="half" [checked]="true"></p-checkbox>
+                    <label for="chkHalf">Half</label>
+                </div>
             </div>
         </div>
         <section>
@@ -150,7 +147,7 @@
         <div class="p-formgrid p-grid">
             <div class="p-field p-col">
                 <label for="fullPrice">Enter full dish price</label>
-                <p-inputNumber id="price" ngModel [(ngModel)]="dish.fullPrice" [disabled]="!dish.isFull"></p-inputNumber>
+                <p-inputNumber id="price" ngModel [(ngModel)]="dish.fullPrice" [disabled]="dish.isFull"></p-inputNumber>
             </div>
             <div class="p-field p-col">
                 <label for="halfPrice">Enter half dish price</label>

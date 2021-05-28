@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+  import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { Client, ClientBankDetails, CLientCategory } from './../../models/client';
