@@ -40,6 +40,7 @@ export class DishComponent implements OnInit {
     {label: 'Main Course', value: 'Main Course'},
     {label: 'Rice', value: 'Rice'}];
   }
+
   showModel() {
       this.dishSvc.openModal();
   }

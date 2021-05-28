@@ -106,31 +106,19 @@
                 <input id="newCategory" pInputText [disabled]="dish.categories" [(ngModel)]="dish.newCategory">
             </div>
         </div>
-<<<<<<< HEAD
-        <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch>
-        <div class="p-formgrid p-grid">
-            <div class="p-field-checkbox">
-                <label>Non-Veg</label>
-                <!-- <p-inputSwitch (change)="checkClicked(test)"></p-inputSwitch>> -->
-                <!-- <p-inputSwitch [(ngModel)]="checked"></p-inputSwitch> -->
-                <input type="checkbox" class="switch-input" (change)="checkClicked(test)" checked>
-                <span class="switch-slider"></span>
-                <label> Veg</label>
-=======
         <!-- form-row col-sm-12 -->
-        <div style="display: flex; flex-direction: row;" class="p-formgrid p-grid"> 
+        <div class="p-formgrid p-grid">
             <div class="p-field p-col">
-                <label for="mainCategory">Non-Veg&nbsp;</label>
+                <label for="isVeg">Non-Veg&nbsp;</label>
             </div>
             <div class="p-field p-col">
                 <label class="switch switch-success">
-                    <input type="checkbox" class="switch-input" (change)="checkClicked(test)" checked>
+                    <input type="checkbox" class="switch-input" inputId="isVeg" (change)="checkClicked(test)" checked>
                     <span class="switch-slider"></span>
                 </label>
             </div>
             <div class="p-field p-col">
-                <label for="mainCategory"> Veg</label>
->>>>>>> 9f3df7409cb52bb4225a0a7d921c416b8eb19c59
+                <label for="isVeg">Veg</label>
             </div>
             <div class="p-formgroup-inline">
                 <div class="p-field-checkbox">
@@ -144,16 +132,16 @@
             </div>
         </div>
         <section>
-            <div style="display: flex; flex-direction: row; justify-content: space-between; margin-left: 20px;" [hidden]="test" class="p-formgrid p-grid">
-                <div class="p-field-radiobutton p-field p-col">
+            <div [hidden]="test" class="p-formgroup-inline">
+                <div class="p-field-checkbox">
                     <p-radioButton name="nonVegCategory" value="chicken" [(ngModel)]="dish.nonVegCategory" inputId="nonVegCategory1"></p-radioButton>
                     <label for="vegNonVeg1">Chicken</label>
                 </div>
-                <div class="p-field-radiobutton p-field p-col">
+                <div class="p-field-checkbox">
                     <p-radioButton name="nonVegCategory" value="mutton" [(ngModel)]="dish.nonVegCategory" inputId="nonVegCategory2"></p-radioButton>
                     <label for="vegNonVeg2">Mutton</label>
                 </div>
-                <div class="p-field-radiobutton p-field p-col">
+                <div class="p-field-checkbox">
                     <p-radioButton name="nonVegCategory" value="seaFood" [(ngModel)]="dish.nonVegCategory" inputId="nonVegCategory3"></p-radioButton>
                     <label for="vegNonVeg3">Sea Food</label>
                 </div>
@@ -162,11 +150,11 @@
         <div class="p-formgrid p-grid">
             <div class="p-field p-col">
                 <label for="fullPrice">Enter full dish price</label>
-                <p-inputNumber id="price" ngModel [(ngModel)]="dish.fullPrice" [disabled]="dish.isFull"></p-inputNumber>
+                <p-inputNumber id="fullPrice" ngModel [(ngModel)]="dish.fullPrice" [disabled]="!dish.isFull"></p-inputNumber>
             </div>
             <div class="p-field p-col">
                 <label for="halfPrice">Enter half dish price</label>
-                <p-inputNumber id="quantity" [disabled]="!dish.isHalf" ngModel [(ngModel)]="dish.halfPrice"></p-inputNumber>
+                <p-inputNumber id="halfPrice" [disabled]="!dish.isHalf" ngModel [(ngModel)]="dish.halfPrice"></p-inputNumber>
             </div>
         </div>
         <!-- <div class="p-field">
