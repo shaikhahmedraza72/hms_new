@@ -3,8 +3,7 @@ import { Observable, of, Subject } from 'rxjs';
 import { ApiConfig } from '../constant/api';
 import { Dish, DishCategory } from '../models/dish';
 import { HttpClient } from '@angular/common/http';
-import { catchError, map } from 'rxjs/internal/operators';
-import { Dishnew } from '../models/dishnew';
+import { catchError, map } from 'rxjs/internal/operators'; 
 @Injectable({
   providedIn: 'root'
 })
@@ -51,16 +50,7 @@ export class DishService {
       catchError(this.handleError('', dish))
     );
   }
-
-  AddNew(dish:Dishnew): Observable<Dishnew>{
-return this.httpClient.post<Dish>(this.url,dish).pipe(
-  map(x => {
-    this.dishList.push(x);
-    debugger
-    return dish;
-  })
-)
-  }
+  
   //updating exisiting data
   update(dish: Dish): Observable<Dish> {
     return this.httpClient.put<Dish>(`${this.url}/${dish.id}`, dish).pipe(

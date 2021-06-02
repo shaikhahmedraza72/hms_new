@@ -31,9 +31,9 @@ export class MenuItemComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this.productService.getProductsSmall().then(products => {
-			this.products = products;
-		});
+    // this.productService.getProductsSmall().then(products => {
+		// 	this.products = products;
+		// });
     }
 
 }
