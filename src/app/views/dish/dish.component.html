@@ -183,8 +183,9 @@
                 <p-inputNumber type="number" id="quantity" [(ngModel)]="dish.quantity"></p-inputNumber>
             </div>
             <div class="p-field p-col">
-                <label for="serviceTime">Time for service</label>
-                <p-inputNumber type="time" id="serviceTime" [(ngModel)]="dish.serviceTime"></p-inputNumber>
+                <label for="cookingTime">Time for cooking</label>
+                <p-inputNumber type="time" id="cookingTime" [(ngModel)]="dish.cookingTime"></p-inputNumber>
+                <p-dropdown [options]="cities" [(ngModel)]="selectedCity" optionLabel="label"></p-dropdown>
             </div>
         </div>
         <div class="p-field">

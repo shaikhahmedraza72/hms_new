@@ -14,7 +14,8 @@ export class Dish {
     public isFull:boolean;
     public imageUrl:any;
     public nonVegCategory:string;
-    public serviceTime: any;
+    public cookingTime: any;
+    public minHr: string;
     constructor(
     ) { }
 }
