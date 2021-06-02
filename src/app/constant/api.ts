@@ -6,5 +6,6 @@ export class ApiConfig {
     public static CLIENTCATEGORY = 'clientCategory'
     public static BANKDETAILS = 'bankDetails'
     public static ENDUSER = 'endUser'
+    public static USER = 'user'
 }
 

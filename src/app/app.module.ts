@@ -42,6 +42,7 @@ import { ChartsModule } from 'ng2-charts';
 import { AppRoutingModule,  routingComponents} from './app.routing';
 import { ClientConfigComponent } from './views/client-config/client-config.component';
 import { AdminSettingComponent } from './views/admin-setting/admin-setting.component';
+import { UserConfigComponent } from './views/user-config/user-config.component';
 
 // import { SearchFilterPipe } from './helpers/search-filter.pipe';
 
@@ -77,6 +78,7 @@ import { AdminSettingComponent } from './views/admin-setting/admin-setting.compo
     routingComponents,
     ClientConfigComponent,
     AdminSettingComponent,
+    UserConfigComponent,
 
    // EndUserComponent
   ],

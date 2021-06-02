@@ -23,10 +23,10 @@ export class DishComponent implements OnInit {
 
   constructor(public dishSvc: DishService, private confirmationService: ConfirmationService, private msgService: MessageService) { 
 
-    this.dish.minHr = [
-      {lanel: 'New York', value: 'NY'},
-      {label: 'Rome', value: 'RM'},
-  ];
+  //   this.dish.minHr = [
+  //     {lanel: 'New York', value: 'NY'},
+  //     {label: 'Rome', value: 'RM'},
+  // ];
   }
   dishList: Dish[] = [];
   uploadedFiles: any[] = [];

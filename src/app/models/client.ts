@@ -30,6 +30,7 @@ export class ClientBankDetails {
 
 export class EndUser {
     public id?: number;
-    public name!: string;
+    public userName!: string;
+    public email: string;
     public address: string;
 }

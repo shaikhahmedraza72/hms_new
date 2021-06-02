@@ -10,6 +10,7 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { MenuItemComponent } from './views/menu-item/menu-item.component';
 import { RegisterComponent } from './views/register/register.component';
+import { UserConfigComponent } from './views/user-config/user-config.component';
 
 export const routes: Routes = [
   {
@@ -61,6 +62,10 @@ export const routes: Routes = [
   {
     path: 'menuItem',
     component: MenuItemComponent,
+  },
+  {
+    path: 'userConfig',
+    component: UserConfigComponent,
   },
   // {
   //   path: '',
