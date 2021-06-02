@@ -28,7 +28,9 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
 import {InputSwitchModule} from 'primeng/inputswitch';
-import { InputTextareaModule } from 'primeng/inputtextarea';
+import { InputTextareaModule } from 'primeng/inputtextarea'; 
+import { SelectButtonModule } from 'primeng/selectbutton';
+import {TagModule} from 'primeng/tag'
 @NgModule({
   declarations: [],
   imports: [
@@ -53,8 +55,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 		ToastModule,
     InputTextModule,
     ProgressBarModule,
-    CheckboxModule,
-    
+    CheckboxModule,    
     FileUploadModule,
     ToolbarModule,
     RatingModule,
@@ -63,6 +64,8 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     InputNumberModule,
     ConfirmDialogModule,
     InputTextareaModule,
+    SelectButtonModule,
+    TagModule
   ],
   exports:[
     CommonModule,
@@ -84,8 +87,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 		ToastModule,
     InputTextModule,
     ProgressBarModule,
-    CheckboxModule,
-    
+    CheckboxModule,    
     FileUploadModule,
     ToolbarModule,
     RatingModule,
@@ -93,7 +95,10 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
     RadioButtonModule,
     InputNumberModule,
     ConfirmDialogModule,
-    InputTextareaModule,
+    InputTextareaModule ,
+    InputSwitchModule,
+    SelectButtonModule,
+    TagModule
   ],
   providers:[MessageService, ConfirmationService]
 })

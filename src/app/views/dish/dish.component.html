@@ -1,21 +1,25 @@
-<p-toast></p-toast>
-<div class="row">
-    <div class="col-lg-12">
+<p-toast position="bottom-right"></p-toast> 
         <div class="card">
             <div class="card-header">
                 <p-toolbar class="pToolbar">
                     <ng-template pTemplate="left">
-                        <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
-                        <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedDishes()" [disabled]="!selectedDishes || !selectedDishes.length"></button>
+                        <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2"
+                            (click)="openNew()"></button>
+                        <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger"
+                            (click)="deleteSelectedDishes()"
+                            [disabled]="!selectedDishes || !selectedDishes.length"></button>
                     </ng-template>
                     <ng-template pTemplate="right">
-                        <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block"></p-fileUpload>
+                        <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import"
+                            chooseLabel="Import" class="p-mr-2 p-d-inline-block"></p-fileUpload>
                         <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help my-2"></button>
                     </ng-template>
                 </p-toolbar>
             </div>
             <div class="card-body">
-                <p-table #d2 [value]="dishList" styleClass="p-datatable-customcss" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" [(selection)]="selectedDishes" [rowHover]="true" dataKey="id" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                <p-table #d2 [value]="dishList" styleClass="p-datatable-customcss" [paginator]="true" [rows]="10"
+                    [showCurrentPageReport]="true" [(selection)]="selectedDishes" [rowHover]="true" dataKey="id"
+                    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
                     [rowsPerPageOptions]="[10,25,50]">
                     <ng-template pTemplate="header">
                         <tr>
@@ -26,15 +30,16 @@
                                 <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
                             </th>
                             <th style="width:12%;">Image</th>
-                            <th style="width:17%;">Description
+                            <!-- <th style="width:17%;">Description
                                 <p-columnFilter type="text" field="description" display="menu"></p-columnFilter>
-                            </th>
+                            </th> -->
                             <th>Half Price</th>
                             <th>Full Price</th>
                             <th style="width:16%;">Category
                                 <p-columnFilter type="text" field="mainCategoryName" display="menu"></p-columnFilter>
                             </th>
-                            <th>Time for service</th>
+                            <th>Time for Cook</th>
+                            <th>Status<p-columnFilter type="text" field="statuses" display="menu"></p-columnFilter></th>
                             <th style="width:14%;">Action </th>
                     </ng-template>
                     <ng-template pTemplate="body" let-item>
@@ -46,17 +51,22 @@
                             <td>
                                 <img src="{{item.imageUrl}}" [alt]="item.name" width="100" class="p-shadow-4" />
                             </td>
-                            <td title="{{item.description}} ">
-                                <!-- {{( (item.description.length >6)? (item.description | slice:0:6)+'..':(item.description)) }} -->
-                                {{item.description}}
-                            </td>
+                            <!-- <td title="{{item.description}} ">{{item.description}}</td> -->
                             <td>{{item.halfPrice | currency:'INR'}}</td>
                             <td>{{item.fullPrice | currency:'INR'}}</td>
                             <td>{{item.categories}}</td>
-                            <td>{{item.serviceTime}}</td>
+                            <td>{{item.serviceTime}} mins</td>
                             <td>
-                                <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editDish(item)"></button>
-                                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteDish(item)"></button>
+                                
+                                <p-tag [value]="item.statuses" *ngIf="item.statuses" class="p-text-uppercase" [severity]="item.statuses =='active' ? 'success':'danger'"></p-tag>
+
+                                
+                                <!-- <span class="p-text-capitalize product-badge" [ngClass]="item.statuses =='active' ? 'status-instock':'status-outofstock'">{{item.statuses}}</span></td> -->
+                            <td>
+                                <button pButton pRipple icon="pi pi-pencil"
+                                    class="p-button-rounded p-button-success p-mr-2" (click)="editDish(item)"></button>
+                                <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
+                                    (click)="deleteDish(item)"></button>
                                 <!-- <p-checkbox name="groupname{{item.id}}" [value]="item.selectedDish" [inputId]="item.id" [(ngModel)]="selectedValues" (change)="onCheckboxChange(item.id, $event)"></p-checkbox> -->
                             </td>
                         </tr>
@@ -64,56 +74,90 @@
                 </p-table>
             </div>
         </div>
-    </div>
-</div>
+   
 
-<p-dialog [(visible)]="dishDialog" [style]="{width: '550px'}" header="Dish Details" [modal]="true" styleClass="p-fluid">
+<p-dialog [(visible)]="dishDialog" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}"
+    header="Dish Configuration" [modal]="true">
     <ng-template pTemplate="content">
-        <img [src]="'assets/showcase/images/demo/dish/' + dish.image" [alt]="dish.image" class="dish-image" *ngIf="dish.image">
-        <div class="p-field">
-            <label for="name">Name</label>
-            <input type="text" pInputText id="name" [(ngModel)]="dish.name" required autofocus/>
-            <small class="p-error" *ngIf="submitted && !dish.name">Name is required.</small>
-        </div>
+        <!-- <form name="dishform" #f="ngForm" novalidate> -->
+        <!-- <img [src]="'assets/showcase/images/demo/dish/' + dish.image" [alt]="dish.image" class="dish-image" *ngIf="dish.image"> -->
+        <div class="p-fluid p-formgrid p-grid">
+            <div class="p-field p-col-6">
+                <label for="name">Name</label>
+                <input type="text" name="name" class="p-inputtext-sm" pInputText id="name" [(ngModel)]="dish.name"
+                    required autofocus />
+                <small class="p-error" *ngIf="submitted && !dish.name">Name is required.</small>
+            </div>
+            <div class="p-field p-col-6">
+                <!-- <p-fileUpload name="dish.imageUrl[]" url="./assets/img" (onUpload)="onUpload($event)" multiple="multiple" accept="image/*" maxFileSize="1000000">
+                    <ng-template pTemplate="content">
+                        <ul *ngIf="dish.imageUrl.length">
+                            <li *ngFor="let file of dish.imageUrl">{{file.name}} - {{file.size}} bytes</li>
+                        </ul>
+                    </ng-template>
+                </p-fileUpload>  -->
+            </div> 
         <!-- <div class="card"> -->
-        <div>Dish image</div>
-        <p-fileUpload name="dish.imageUrl[]" url="./assets/img" (onUpload)="onUpload($event)" multiple="multiple" accept="image/*" maxFileSize="1000000">
-            <ng-template pTemplate="content">
-                <ul *ngIf="dish.imageUrl.length">
-                    <li *ngFor="let file of dish.imageUrl">{{file.name}} - {{file.size}} bytes</li>
-                </ul>
-            </ng-template>
-        </p-fileUpload>
-        <div class="p-field">
+        <!-- <div>Dish image</div>
+       -->
+       
+        <div class="p-field p-col-6">
             <label for="inventoryStatus">Inventory Status</label>
-            <p-dropdown [(ngModel)]="dish.statuses" inputId="inventoryStatus" [options]="statuses" placeholder="Select">
+            <p-dropdown [(ngModel)]="dish.statuses" class="p-inputtext-sm" name="inventoryStatus"
+                inputId="inventoryStatus" [options]="statuses" placeholder="Select" required>
                 <ng-template let-option pTemplate="item">
                     <span [class]="'dish-badge status-' + option.value">{{option.label}}</span>
                 </ng-template>
             </p-dropdown>
         </div>
-
-        <div class="p-field">
-            <label for="inventoryStatus">Select Category</label>
-            <p-dropdown [(ngModel)]="dish.categories" [disabled]="dish.newCategory" inputId="inventoryStatus" [options]="categories" placeholder="Select">
+        <div class="p-field p-col-6">
+            <label for="categories">Select Category</label>
+            <p-dropdown [(ngModel)]="dish.categories" editable="true" class="p-inputtext-sm" name="categories"
+                [disabled]="dish.newCategory" inputId="categories" [options]="categories"
+                placeholder="Type for new or Select" required>
                 <ng-template let-option pTemplate="item">
                     <span [class]="'dish-badge status-' + option.value">{{option.label}}</span>
                 </ng-template>
             </p-dropdown>
-            <div style="text-align:center"><strong>OR</strong></div>
-            <div class="p-field p-col">
+        </div>
+        <!-- <div class="p-field p-col-2 p-pt-5 p-pl-3"><strong>OR</strong></div> -->
+        <!-- <div class="p-field p-col-6"> 
                 <label for="newCategory">Enter a new category</label>
-                <input id="newCategory" pInputText [disabled]="dish.categories" [(ngModel)]="dish.newCategory">
+                <input id="newCategory" name="newCategory" class="p-inputtext-sm" pInputText [disabled]="dish.categories" [(ngModel)]="dish.newCategory">
+            </div> -->
+        <div class="p-field p-col-4">
+            <div class="p-formgroup-inline">
+                <label for="isVeg">Non-Veg </label>
+                <p-inputSwitch [(ngModel)]="isVeg" class="p-mx-2"></p-inputSwitch>
+                <label for="isVeg">Veg</label>
             </div>
         </div>
-        <!-- form-row col-sm-12 -->
-        <div class="p-formgrid p-grid">
-            <div class="p-field p-col">
-                <label for="isVeg">Non-Veg&nbsp;</label>
+        
+        <div class="p-field p-col-8">
+            <div class="p-formgroup-inline" [hidden]="isVeg">
+                <div class="p-field-checkbox">
+                    <p-radioButton name="nonVegCategory1" value="chicken" [(ngModel)]="dish.nonVegCategory"
+                        inputId="nonVegCategory1"></p-radioButton>
+                    <label for="nonVegCategory1">Chicken</label>
+                </div>
+                <div class="p-field-checkbox">
+                    <p-radioButton name="nonVegCategory2" value="mutton" [(ngModel)]="dish.nonVegCategory"
+                        inputId="nonVegCategory2"></p-radioButton>
+                    <label for="nonVegCategory2">Mutton</label>
+                </div>
+                <div class="p-field-checkbox">
+                    <p-radioButton name="nonVegCategory3" value="seaFood" [(ngModel)]="dish.nonVegCategory"
+                        inputId="nonVegCategory3"></p-radioButton>
+                    <label for="nonVegCategory3">Sea Food</label>
+                </div>
+
             </div>
+        </div>
+        <!-- <div class="p-formgrid p-grid">
+            
             <div class="p-field p-col">
                 <label class="switch switch-success">
-                    <input type="checkbox" class="switch-input" inputId="isVeg" (change)="checkClicked(test)" checked>
+                    <input type="checkbox" name="vegNonVeg" class="switch-input" inputId="isVeg" (change)="checkClicked(test)" checked>
                     <span class="switch-slider"></span>
                 </label>
             </div>
@@ -122,17 +166,17 @@
             </div>
             <div class="p-formgroup-inline">
                 <div class="p-field-checkbox">
-                    <p-checkbox [(ngModel)]="dish.isFull" (change)="chkFullevent()" inputId="chkFull" value="full" [checked]="true"></p-checkbox>
+                    <p-checkbox [(ngModel)]="dish.isFull" name="chkFull" (change)="chkFullevent()" inputId="chkFull" value="full" [checked]="true"></p-checkbox>
                     <label for="chkFull">Full</label>
                 </div>
                 <div class="p-field-checkbox">
-                    <p-checkbox [(ngModel)]="dish.isHalf" (change)="chkHalfevent()" inputId="chkHalf" value="half" [checked]="true"></p-checkbox>
+                    <p-checkbox [(ngModel)]="dish.isHalf" name="chkHalf" (change)="chkHalfevent()" inputId="chkHalf" value="half" [checked]="true"></p-checkbox>
                     <label for="chkHalf">Half</label>
                 </div>
-            </div>
-        </div>
-        <section>
-            <div [hidden]="test" class="p-formgroup-inline">
+            </div> 
+        </div> -->
+        <!-- <section>
+            <div [hidden]="isVeg" class="p-formgroup-inline">
                 <div class="p-field-checkbox">
                     <p-radioButton name="nonVegCategory" value="chicken" [(ngModel)]="dish.nonVegCategory" inputId="nonVegCategory1"></p-radioButton>
                     <label for="vegNonVeg1">Chicken</label>
@@ -146,58 +190,54 @@
                     <label for="vegNonVeg3">Sea Food</label>
                 </div>
             </div>
-        </section>
-        <div class="p-formgrid p-grid">
-            <div class="p-field p-col">
-                <label for="fullPrice">Enter full dish price</label>
-                <p-inputNumber id="fullPrice" ngModel [(ngModel)]="dish.fullPrice" [disabled]="!dish.isFull"></p-inputNumber>
-            </div>
-            <div class="p-field p-col">
-                <label for="halfPrice">Enter half dish price</label>
-                <p-inputNumber id="halfPrice" [disabled]="!dish.isHalf" ngModel [(ngModel)]="dish.halfPrice"></p-inputNumber>
+        </section> -->
+        <div class="p-field p-col-3">
+            <label for="fullPrice">Full dish price</label>
+            <div class="p-inputgroup">
+                <!-- <span class="p-inputgroup-addon">
+                    <p-checkbox [(ngModel)]="dish.isFull" name="chkFull" (change)="chkFullevent()" inputId="chkFull" value="full" ></p-checkbox>
+                </span> -->
+                <!-- <input type="number" id="fullPrice" name="fullPrice" class="p-inputtext-sm" [(ngModel)]="dish.fullPrice"
+                    [disabled]="!dish.isFull =='full'"> -->
+                    <p-inputNumber required [showButtons]="true" id="fullPrice" name="fullPrice" class="p-inputtext-sm" [(ngModel)]="dish.fullPrice"></p-inputNumber>
             </div>
         </div>
-        <!-- <div class="p-field">
-            <label class="p-mb-3">Category</label>
-            <div class="p-formgrid p-grid">
-                <div class="p-field-radiobutton p-col-6">
-                    <p-radioButton id="category1" name="category" value="Accessories" [(ngModel)]="dish.category"></p-radioButton>
-                    <label for="category1">Accessories</label>
-                </div>
-                <div class="p-field-radiobutton p-col-6">
-                    <p-radioButton id="category2" name="category" value="Clothing" [(ngModel)]="dish.category"></p-radioButton>
-                    <label for="category2">Clothing</label>
-                </div>
-                <div class="p-field-radiobutton p-col-6">
-                    <p-radioButton id="category3" name="category" value="Electronics" [(ngModel)]="dish.category"></p-radioButton>
-                    <label for="category3">Electronics</label>
-                </div>
-                <div class="p-field-radiobutton p-col-6">
-                    <p-radioButton id="category4" name="category" value="Fitness" [(ngModel)]="dish.category"></p-radioButton>
-                    <label for="category4">Fitness</label>
-                </div>
-            </div>-->
-        <!-- </div> -->
 
-        <div class="p-formgrid p-grid">
-            <div class="p-field p-col">
-                <label for="quantity">Quantity</label>
-                <p-inputNumber type="number" id="quantity" [(ngModel)]="dish.quantity"></p-inputNumber>
-            </div>
-            <div class="p-field p-col">
-                <label for="serviceTime">Time for service</label>
-                <p-inputNumber type="time" id="serviceTime" [(ngModel)]="dish.serviceTime"></p-inputNumber>
+        <div class="p-field p-col-3">
+            <label for="halfPrice">Half dish price {{dish.isHalf}}</label>
+            <div class="p-inputgroup">
+                <!-- <span class="p-inputgroup-addon">
+                    <p-checkbox [(ngModel)]="dish.isHalf" name="chkHalf" (change)="chkHalfevent()" value="true" inputId="chkHalf"></p-checkbox>
+                </span> -->
+                <p-inputNumber  [showButtons]="true" min="0" mode="decimal" id="halfPrice" name="halfPrice" class="p-inputtext-sm" [disabled]="!dish.isHalf == 'true'"
+                [(ngModel)]="dish.halfPrice"></p-inputNumber>  
             </div>
         </div>
-        <div class="p-field">
+        <div class="p-field p-col-3">
+            <label for="quantity">Quantity</label>
+            <p-inputNumber type="number" class="p-inputtext-sm" name="quantity" id="quantity"
+                [(ngModel)]="dish.quantity"></p-inputNumber>
+        </div>
+        <div class="p-field p-col-3">
+            <label for="serviceTime">Time for Cook</label>
+            <p-inputNumber type="time" class="p-inputtext-sm" name="serviceTime" id="serviceTime" suffix=" mins"
+                [(ngModel)]="dish.serviceTime"></p-inputNumber>
+        </div>
+        <div class="p-field p-col-12">
             <label for="description">Description</label>
-            <textarea id="description" pInputTextarea [(ngModel)]="dish.description" required rows="3" cols="20"></textarea>
+            <textarea id="description" name="description" pInputTextarea [(ngModel)]="dish.description" required
+                rows="3" cols="20"></textarea>
         </div>
+        </div>
+        <div class="p-d-flex p-jc-end">
+        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button p-button-raised p-mx-1"
+        (click)="saveDish(f)" ></button>
+    <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-danger p-button-raised"
+        (click)="hideDialog()"></button>
+        </div> 
+    <!-- </form> -->
     </ng-template>
 
-    <ng-template pTemplate="footer">
-        <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
-        <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveDish()"></button>
-    </ng-template>
+
 </p-dialog>
 <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

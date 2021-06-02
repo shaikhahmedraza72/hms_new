@@ -108,9 +108,20 @@
             }
         }
     }
-  
-  } :host ::ng-deep .p-dialog .product-image {
+ 
+  } :host ::ng-deep .p-dialog {
+      .product-image {
     width: 150px;
     margin: 0 auto 2rem auto;
     display: block;
+  }
+  .p-inputswitch .p-inputswitch-slider{
+    background: #D32F2F;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+   // border-radius: 30px;
+  }
+   
+  .p-inputswitch.p-inputswitch-checked .p-inputswitch-slider{
+      background:#689F38;
+  }
   }

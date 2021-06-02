@@ -22,7 +22,7 @@ export class DishAddComponent implements OnInit {
   isChecked: boolean;
   
   ngOnInit(): void {
-    this.dish = new Dish();
+  //  this.dish = new Dish();
     this.dish.isFull = true;
     this.dish.isHalf = true;
     this.dish.isVeg = false;
