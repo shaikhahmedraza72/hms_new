@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';  
+import { Component, OnInit, ViewChild } from '@angular/core';
+// import { ModalDirective } from 'ngx-bootstrap/modal';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Dish, DishCategory } from '../../models/dish';
 import { DishService } from '../../service/dish.service';
@@ -10,24 +11,33 @@ import { DishService } from '../../service/dish.service';
 })
 export class DishComponent implements OnInit {
   dishDialog: boolean;
+
   checked: boolean = true;
+
+  test : boolean = true;
   isEdit: boolean;
   category: DishCategory[] = [];
+
   statuses: { label: string; value: string; }[];
   categories: {label: string; value: string; }[];
 
-  constructor(public dishSvc: DishService, private confirmationService: ConfirmationService, private msgService: MessageService) { }
+  constructor(public dishSvc: DishService, private confirmationService: ConfirmationService, private msgService: MessageService) { 
+
+    this.dish.minHr = [
+      {lanel: 'New York', value: 'NY'},
+      {label: 'Rome', value: 'RM'},
+  ];
+  }
   dishList: Dish[] = [];
   uploadedFiles: any[] = [];
   dish: Dish;
   dishCategory: DishCategory;
   isChecked: boolean;
+  btnDisable: boolean = false;
   selectedDishes: Dish[];
   selectedDish: number[] = [];
   displayModel = false;
   submitted:boolean;
-  nonVegTypes:Array<any>;
-  isVeg = true;
   ngOnInit(): void {
     this.loadData();
     this.statuses = [  {label: 'Active', value: 'active'},
@@ -35,13 +45,19 @@ export class DishComponent implements OnInit {
     this.categories = [ {label: 'Starter', value: 'Starter'},
     {label: 'Main Course', value: 'Main Course'},
     {label: 'Rice', value: 'Rice'}];
-    this.nonVegTypes = [
-      { label: "Chicken", value: "chicken" },
-      { label: "Mutton", value: "mutton" },
-      { label: "Sea Food", value: "seaFood" }
-    ];
   }
   
+
+  showModel() {
+      this.dishSvc.openModal();
+  }
+  edit() {
+    if(this.selectedDish.length === 1){
+      console.log(this.dishList);
+    }
+    this.dishSvc.openModal();
+    this.dishSvc.openEditModel(this.selectedDish[0]);
+  }
   loadData() {
     this.dishSvc.getList().subscribe(res => {
       this.dishList = res;
@@ -61,32 +77,29 @@ export class DishComponent implements OnInit {
 
     this.msgService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
 }
-// to Open fresh form  
-openNew() {
-    this.dish = {};
+  
+  openNew() {
+    // this.dish = '';
     this.submitted = false;
-    this.dishDialog = true; 
+    this.dishDialog = true;
+    // this.dishSvc.openModal();
 }
-
-// edit the dish item
 editDish(dish: Dish) {
   this.dish = {...dish};
   this.dishDialog = true;
 }
 
-//to delete dish item 
-deleteDish(dish: Dish) { 
+deleteDish(dish: Dish) {
+  // tslint:disable-next-line:no-debugger
+  debugger;
   this.confirmationService.confirm({
       message: 'Are you sure you want to delete ' + dish.name + '?',
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-          this.dishSvc.deleteData(dish.id).subscribe(resp =>{
-            if(resp){
-             this.dishList = this.dishList.filter(val => val.name !== dish.name);
-             this.msgService.add({severity:'success', summary: 'Successful', detail: 'Dish Deleted', life: 3000});
-            }
-          })
+          this.dishList = this.dishList.filter(val => val.name !== dish.name);
+          // this.dish;
+          this.msgService.add({severity:'success', summary: 'Successful', detail: 'Dish Deleted', life: 3000});
       }
   });
 }
@@ -96,14 +109,9 @@ deleteSelectedDishes() {
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.dishList = this.dishList.filter(val => !this.selectedDishes.includes(val));
-
-       // this.dishSvc.deleteData().subscribe(resp =>{
-       ///   if(resp){
+          this.dishList = this.dishList.filter(val => !this.selectedDishes.includes(val));
           this.selectedDishes = null;
           this.msgService.add({severity:'success', summary: 'Successful', detail: 'Products Deleted', life: 3000});
-      //    }
-   //     })
       }
   });
 }
@@ -114,37 +122,33 @@ hideDialog() {
   this.submitted = false;
 }
 
-// add/ update dish 
-saveDish(f) {
-  debugger
+saveDish() {
   this.submitted = true;
   console.log(this,this.dish);
   console.log(this.dish.imageUrl);
   if (this.dish.name.trim()) {
       if (this.dish.id) {
-        this.dishList[this.findIndexById(this.dish.id)] = this.dish;
-        this.dishSvc.update(this.dish).subscribe(resp => {
-          if(resp){
-            this.msgService.add({severity:'success', summary: 'Successful', detail: 'Dish Updated', life: 3000});
-          }
-        });
-         
+          this.dishList[this.findIndexById(this.dish.id)] = this.dish;
+          this.msgService.add({severity:'success', summary: 'Successful', detail: 'Dish Updated', life: 3000});
       } else {
-          this.dish.id = this.dishList[this.dishList.length - 1].id + 1;
+          this.dish.id = this.dishList[this.dishList.length].id + 1;
           this.dish.imageUrl = 'product-placeholder.svg';
           this.dishList.push(this.dish);
-          this.dishSvc.Add(this.dish).subscribe(resp => {
-            if(resp){
-            this.msgService.add({severity:'success', summary: 'Successful', detail: 'Dish Created', life: 3000});
-            }
-          });
-      
-         
+          this.msgService.add({severity:'success', summary: 'Successful', detail: 'Dish Created', life: 3000});
       }
 
       this.dishList = [...this.dishList];
       this.dishDialog = false;
   }
+  // if (this.isEdit) {
+  //   this.dishSvc.update(this.dish).subscribe(resp => {
+  //   });
+  // }
+  // else {
+  //   this.dishSvc.Add(this.dish).subscribe(resp => {
+  //   });
+  // }
+  // this.hideDialog();
 }
 
 findIndexById(id: number) {
@@ -160,22 +164,22 @@ findIndexById(id: number) {
 }
 
 chkHalfevent(){
- // if(!this.dish.isHalf)
-//  this.dish.halfPrice = null;
+  if(!this.dish.isHalf)
+  this.dish.halfPrice = null;
 }
 chkFullevent(){
-//  if(!this.dish.isFull)
-  //this.dish.fullPrice = null;
+  if(!this.dish.isFull)
+  this.dish.fullPrice = null;
 }
 
-// checkClicked(val){
-//   if(val){
-//     this.test = false;
-//   } else{
-//     this.test = true;
-//   }
-//   console.log(val);
-// }
+checkClicked(val){
+  if(val){
+    this.test = false;
+  } else{
+    this.test = true;
+  }
+  console.log(val);
+}
 
 createId(): string {
   let id = '';
@@ -185,7 +189,8 @@ createId(): string {
   }
   return id;
 }
-  onCheckboxChange(id, e) { 
+  onCheckboxChange(id, e) {
+    this.btnDisable = false;
      if (e.target.checked) {
       if (this.selectedDish.indexOf(id) === -1) {
         this.selectedDish.push(id);
@@ -196,7 +201,8 @@ createId(): string {
         this.selectedDish.splice(index, 1);
       }
     }
-    if(this.selectedDish.length > 1){ 
+    if(this.selectedDish.length > 1){
+      this.btnDisable = true;
     }
   }
 }
