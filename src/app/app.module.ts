@@ -41,6 +41,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { AppRoutingModule,  routingComponents} from './app.routing';
 import { ClientConfigComponent } from './views/client-config/client-config.component';
+import { AdminSettingComponent } from './views/admin-setting/admin-setting.component';
 
 // import { SearchFilterPipe } from './helpers/search-filter.pipe';
 
@@ -75,6 +76,7 @@ import { ClientConfigComponent } from './views/client-config/client-config.compo
     RegisterComponent,
     routingComponents,
     ClientConfigComponent,
+    AdminSettingComponent,
 
    // EndUserComponent
   ],

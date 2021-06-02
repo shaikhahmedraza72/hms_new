@@ -1,0 +1,79 @@
+<div class="p-card">
+    <div class="p-card-body">
+<div class="p-fluid p-formgrid p-grid">
+   
+    <div class="p-field p-col-6">
+        <label for="businessName">Business Name</label> 
+        <input type="text" name="businessName" class="p-inputtext-sm" pInputText id="businessName" [(ngModel)]="client.businessName"
+        placeholder="Business Name" required autofocus />
+    <small class="p-error" *ngIf="submitted && ! client.businessName">Business name is required.</small>
+    </div>
+    <div class="p-field p-col-3">
+        <label for="inventoryStatus">Category</label>
+        <p-dropdown [(ngModel)]="client.category" class="p-inputtext-sm" name="categories"
+            inputId="categories" [options]="categories" placeholder="Select Category">
+            <ng-template let-option pTemplate="item">
+                <span [class]="'dish-badge status-' + option.value">{{option.label}}</span>
+            </ng-template>
+        </p-dropdown>
+    </div>
+    <div class="p-field p-col-3">
+        <label for="GSTNumber">GST Number</label>  
+        <input type="text" id="GSTNumber" name="GSTNumber" class="p-inputtext-sm" 
+        [(ngModel)]="client.gst" placeholder="GST Number" pInputText> 
+        </div>
+        <div class="p-field p-col-3">
+        <label for="foodClass">Food Class</label>  
+        <input type="text" id="foodClass" name="foodClass" class="p-inputtext-sm" 
+        [(ngModel)]="client.foodClass" placeholder="Food Class" pInputText> 
+    </div>
+    <div class="p-field p-col-6">
+        <label for="address">Address</label>
+        <textarea id="address" type="text" [(ngModel)]="client.address" rows="4" pInputTextarea></textarea>
+    </div>
+    <div class="p-field p-col-3"> 
+        <label for="city">City</label>
+        <input id="city" type="text" pInputText> 
+     
+        <label for="state">State</label>
+        <p-dropdown inputId="state" [options]="states" [(ngModel)]="selectedState" placeholder="Select" optionLabel="name"></p-dropdown>
+    </div>
+    
+</div>
+<div class="p-card-title">Bank Information</div>
+<div class="p-card-subtitle">Enter bank details </div>
+<div class="p-fluid p-formgrid p-grid"> 
+    <div class="p-field p-col-6">
+        <label for="accountName">Account Name</label>  
+        <input id="accountName" name="accountName" class="p-inputtext-sm" 
+        [(ngModel)]="client.bankDetails.accountName" placeholder="Account Name" pInputText>
+    <small class="p-error" *ngIf="submitted && ! client.bankDetails.accountName">Account name is required.</small>
+    
+    </div>
+    
+    <div class="p-field p-col-6">
+        <label for="accountNumber">Account Number</label>  
+        <p-inputNumber id="accountNumber" name="accountNumber" class="p-inputtext-sm" 
+        [(ngModel)]="client.bankDetails.accountNumber" placeholder="Account Number"></p-inputNumber> 
+    <small class="p-error" *ngIf="submitted && ! client.bankDetails.accountNumber">Account Number is required.</small></div>
+    <div class="p-field p-col-6">
+        <label for="bankName">Bank Name</label>  
+        <input type="text" id="bankName" name="bankName" class="p-inputtext-sm" 
+        [(ngModel)]="client.bankDetails.bankName" placeholder="Bank Name" pInputText>
+    <small class="p-error" *ngIf="submitted && ! client.bankDetails.bankName">Account Number is required.</small>
+    </div> <div class="p-field p-col-3">
+    <label for="ifscCode">IFCS Code</label>  
+    <input type="text" id="ifscCode" name="ifscCode" class="p-inputtext-sm" 
+    [(ngModel)]="client.bankDetails.ifscCode" placeholder="IFCS Code" pInputText> 
+<small class="p-error" *ngIf="submitted && ! client.bankDetails.ifscCode">IFCS Code is required.</small>
+</div>
+
+</div>
+<div class="p-card-footer p-text-right">
+    <button pButton pRipple label="Save" icon="pi pi-check" class="p-button p-button-raised"
+    (click)="saveAdmin(client)"></button>
+<button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-danger p-button-raised"
+    (click)="hideDialog()"></button>
+</div>
+</div>
+</div>

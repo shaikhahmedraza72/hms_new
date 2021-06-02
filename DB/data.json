@@ -2,35 +2,56 @@
   "dish": [
     {
       "id": 1,
-      "name": "SPicy",
-      "description": "asasaswedasd",
+      "name": "Veg Kolhapuri Spicy",
+      "description": "Veg Kolhapuri spicy etc.",
       "halfPrice": null,
-      "fullPrice": 2222,
+      "fullPrice": 120,
       "imageUrl": "https://www.online-image-editor.com/styles/2019/images/power_girl_editor.png",
       "mainCategoryName": "",
       "mainCategoryId": 1,
       "isFull": true,
-      "isHalf": true
+      "isHalf": true,
+      "statuses": "active",
+      "categories": "Main Course",
+      "quantity": 1,
+      "serviceTime": 16
     },
     {
       "id": 2,
-      "name": "pizza",
+      "name": "Veg Pizza",
       "imageUrl": "https://primefaces.org/primeng/showcase/assets/showcase/images/demo/product/chakra-bracelet.jpg",
-      "description": "d2",
-      "halfPrice": 11,
-      "fullPrice": 2
+      "description": "Have difference options available",
+      "halfPrice": 120,
+      "fullPrice": 180,
+      "statuses": "active",
+      "categories": "Other",
+      "quantity": 1,
+      "serviceTime": 28
     },
     {
-      "name": "IPhone",
+      "name": "Special Mutton Curry",
       "id": 3,
       "imageUrl": "https://primefaces.org/primeng/showcase/assets/showcase/images/demo/product/black-watch.jpg",
-      "description": "d2"
+      "description": "Special Mutton curry ",
+      "statuses": "inActive",
+      "categories": "Main Course",
+      "nonVegCategory": "mutton",
+      "fullPrice": 450,
+      "halfPrice": 250,
+      "quantity": 1,
+      "serviceTime": 25
     },
     {
-      "name": "Chicken biryani",
+      "name": "Chicken Biryani",
       "id": 4,
       "imageUrl": "https://primefaces.org/primeng/showcase/assets/showcase/images/demo/product/bamboo-watch.jpg",
-      "description": "d2"
+      "description": "d2",
+      "statuses": "active",
+      "nonVegCategory": "chicken",
+      "fullPrice": 380,
+      "halfPrice": 160,
+      "quantity": 1,
+      "serviceTime": 20
     },
     {
       "name": "Chicken kadhai",
@@ -39,7 +60,11 @@
       "price": "250",
       "qty": 1,
       "mainCategoryId": 1,
-      "mainCategory": "mughlai"
+      "mainCategory": "mughlai",
+      "nonVegCategory": "chicken",
+      "statuses": "active",
+      "categories": "Main Course",
+      "fullPrice": 230
     },
     {
       "name": "chicken nizamuddin",
@@ -47,7 +72,10 @@
       "price": "270",
       "id": 6,
       "qty": 2,
-      "mainCategory": "chinese"
+      "mainCategory": "chinese",
+      "statuses": "active",
+      "categories": "Main Course",
+      "fullPrice": 250
     },
     {
       "name": "Chicken kadhai",
@@ -59,20 +87,17 @@
     },
     {
       "price": 200,
-      "name": "Paneer",
+      "name": "Paneer Tikka Masala",
       "mainCategoryId": 2,
       "description": "xyz",
       "qty": 1,
-      "id": 8
-    },
-    {
-      "price": 200,
-      "name": "custard",
-      "mainCategoryId": 1,
-      "description": null,
-      "qty": 10,
-      "mainCategoryName": "dessert",
-      "id": 9
+      "id": 8,
+      "statuses": "active",
+      "categories": "Main Course",
+      "fullPrice": 160,
+      "halfPrice": 90,
+      "quantity": null,
+      "serviceTime": 15
     },
     {
       "name": "Chicken Gravy",
@@ -129,13 +154,6 @@
       "id": 15
     },
     {
-      "isFull": true,
-      "isHalf": true,
-      "isVeg": true,
-      "mainCategoryId": 0,
-      "id": 16
-    },
-    {
       "isFull": null,
       "isHalf": null,
       "isVeg": true,
@@ -160,16 +178,59 @@
       "id": 18
     },
     {
-      "isFull": true,
-      "isHalf": false,
-      "isVeg": false,
-      "mainCategoryId": 1,
-      "name": "DJI Mavic Pro",
-      "mainCategoryName": "",
-      "fullPrice": 1200,
+      "name": "Chicken 65",
+      "id": 19,
+      "imageUrl": "product-placeholder.svg",
+      "categories": "Starter",
+      "statuses": "active",
+      "description": "TEst",
+      "fullPrice": 123
+    },
+    {
+      "name": "RIL",
+      "id": 20,
+      "imageUrl": "product-placeholder.svg"
+    },
+    {
+      "name": "Paneer Kadai",
+      "statuses": "active",
+      "categories": "Main Course",
+      "fullPrice": 12,
       "halfPrice": null,
-      "description": "Some Description",
-      "id": 19
+      "quantity": null,
+      "serviceTime": null,
+      "description": "xyz",
+      "id": 21,
+      "imageUrl": "product-placeholder.svg"
+    },
+    {
+      "name": "dsd",
+      "statuses": "inActive",
+      "categories": "Rice",
+      "fullPrice": 123,
+      "description": "sds",
+      "id": 22,
+      "imageUrl": "product-placeholder.svg"
+    },
+    {
+      "name": "TEST",
+      "statuses": "inActive",
+      "categories": "Main Course",
+      "fullPrice": 23,
+      "description": "d",
+      "id": 23,
+      "imageUrl": "product-placeholder.svg"
+    },
+    {
+      "name": "s",
+      "id": 24,
+      "imageUrl": "product-placeholder.svg"
+    },
+    {
+      "name": "Punjabi Thali",
+      "statuses": "active",
+      "id": 25,
+      "imageUrl": "product-placeholder.svg"
     }
   ],
   "dishCategory": [
@@ -226,6 +287,23 @@
       "logo": "Avengers",
       "seal": "Cap America",
       "sign": "Iron man"
+    },
+    {
+      "id": 12
+    },
+    {
+      "businessName": "test",
+      "category": "cat2",
+      "gst": "ewewdf",
+      "address": "dfd",
+      "foodClass": "A1",
+      "bankDetails": {
+        "accountName": "Some User",
+        "accountNumber": 494944949494949,
+        "bankName": "hdifdsl Bank",
+        "ifscCode": "IFCS33F"
+      },
+      "id": 13
     }
   ],
   "clientCategory": [

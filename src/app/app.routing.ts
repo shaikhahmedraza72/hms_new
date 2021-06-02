@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminSettingComponent } from './views/admin-setting/admin-setting.component';
 import { ClientConfigComponent } from './views/client-config/client-config.component';
 import { AddClientComponent } from './views/client/add.component';
 import { TermsComponent } from './views/client/terms.component';
@@ -45,8 +46,8 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'AddClientComponent',
-    component: AddClientComponent,
+    path: 'admin-setting',
+    component: AdminSettingComponent,
 
   },
   {
