@@ -27,6 +27,9 @@ export class UserService {
     );
   }
 
+  edit(id: number): User {
+    return this.userList.find(i => i.id == id);
+  }
   updateUser(user: User): Observable<User> {
     return this.http.put<User>(`${this.url}/${user.id}`, user).pipe(
       map(x => {
@@ -37,6 +40,9 @@ export class UserService {
       }),
       catchError(this.handleError('', user))
     );
+  }
+  deleteData(id: number): Observable<User> {
+    return this.http.delete<User>(`${this.url}/${id}`).pipe(catchError(this.handleError))
   }
 
   getUserList(): Observable<User[]> {

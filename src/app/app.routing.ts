@@ -64,7 +64,7 @@ export const routes: Routes = [
     component: MenuItemComponent,
   },
   {
-    path: 'userConfig',
+    path: 'UserConfig',
     component: UserConfigComponent,
   },
   // {
