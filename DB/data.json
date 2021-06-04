@@ -1,425 +1,481 @@
 {
-    "dish": [{
-            "id": 1,
-            "name": "Veg Kolhapuri Spicy",
-            "description": "Veg Kolhapuri spicy etc.",
-            "halfPrice": null,
-            "fullPrice": 120,
-            "imageUrl": "https://www.online-image-editor.com/styles/2019/images/power_girl_editor.png",
-            "mainCategoryName": "",
-            "mainCategoryId": 1,
-            "isFull": true,
-            "isHalf": true,
-            "statuses": "active",
-            "categories": "Main Course",
-            "quantity": 1,
-            "serviceTime": 16
-        },
-        {
-            "id": 2,
-            "name": "Veg Pizza",
-            "imageUrl": "https://primefaces.org/primeng/showcase/assets/showcase/images/demo/product/chakra-bracelet.jpg",
-            "description": "Have difference options available",
-            "halfPrice": 120,
-            "fullPrice": 180,
-            "statuses": "active",
-            "categories": "Other",
-            "quantity": 1,
-            "serviceTime": 28
-        },
-        {
-            "name": "Special Mutton Curry",
-            "id": 3,
-            "imageUrl": "https://primefaces.org/primeng/showcase/assets/showcase/images/demo/product/black-watch.jpg",
-            "description": "Special Mutton curry ",
-            "statuses": "inActive",
-            "categories": "Main Course",
-            "nonVegCategory": "mutton",
-            "fullPrice": 450,
-            "halfPrice": 250,
-            "quantity": 1,
-            "serviceTime": 25
-        },
-        {
-            "name": "Chicken Biryani",
-            "id": 4,
-            "imageUrl": "https://primefaces.org/primeng/showcase/assets/showcase/images/demo/product/bamboo-watch.jpg",
-            "description": "d2",
-            "statuses": "active",
-            "nonVegCategory": "chicken",
-            "fullPrice": 380,
-            "halfPrice": 160,
-            "quantity": 1,
-            "serviceTime": 20
-        },
-        {
-            "name": "Chicken kadhai",
-            "description": "medium spicy",
-            "id": 5,
-            "price": "250",
-            "qty": 1,
-            "mainCategoryId": 1,
-            "mainCategory": "mughlai",
-            "nonVegCategory": "chicken",
-            "statuses": "active",
-            "categories": "Main Course",
-            "fullPrice": 230
-        },
-        {
-            "name": "chicken nizamuddin",
-            "description": "medium spicy",
-            "price": "270",
-            "id": 6,
-            "qty": 2,
-            "mainCategory": "chinese",
-            "statuses": "active",
-            "categories": "Main Course",
-            "fullPrice": 250
-        },
-        {
-            "name": "Chicken kadhai",
-            "description": "medium spicy",
-            "price": "260",
-            "qty": 4,
-            "id": 7,
-            "mainCategoryId": 2
-        },
-        {
-            "price": 200,
-            "name": "Paneer Tikka Masala",
-            "mainCategoryId": 2,
-            "description": "xyz",
-            "qty": 1,
-            "id": 8,
-            "statuses": "active",
-            "categories": "Main Course",
-            "fullPrice": 160,
-            "halfPrice": 90,
-            "quantity": null,
-            "serviceTime": 15
-        },
-        {
-            "name": "Chicken Gravy",
-            "mainCategoryId": 2,
-            "price": 200,
-            "description": "1",
-            "qty": 1,
-            "id": 10
-        },
-        {
-            "price": 200,
-            "qty": 1,
-            "mainCategoryId": 1,
-            "name": "chicken nuggets",
-            "description": "tasty",
-            "id": 11
-        },
-        {
-            "mainCategoryId": 0,
-            "mainCategoryName": "Chicken kadhai",
-            "price": 200,
-            "qty": 1,
-            "description": "asA",
-            "name": "ASDSA",
-            "id": 12
-        },
-        {
-            "mainCategoryId": 0,
-            "name": "sada",
-            "mainCategoryName": "asdasd",
-            "price": 12,
-            "qty": 21,
-            "description": "12",
-            "id": 13
-        },
-        {
-            "mainCategoryId": 0,
-            "name": "asdf",
-            "mainCategoryName": "Chicken kadhai",
-            "price": 200,
-            "qty": 1,
-            "description": "asdf",
-            "id": 14
-        },
-        {
-            "isFull": true,
-            "isHalf": true,
-            "mainCategoryId": 0,
-            "fullPrice": 12,
-            "halfPrice": 23,
-            "name": "asdd",
-            "mainCategoryName": "fewrfwe",
-            "description": "asdfcdas",
-            "id": 15
-        },
-        {
-            "isFull": null,
-            "isHalf": null,
-            "isVeg": true,
-            "mainCategoryId": null,
-            "name": null,
-            "mainCategoryName": null,
-            "fullPrice": null,
-            "halfPrice": null,
-            "description": null,
-            "id": 17
-        },
-        {
-            "isFull": null,
-            "isHalf": null,
-            "isVeg": true,
-            "mainCategoryId": null,
-            "name": null,
-            "mainCategoryName": null,
-            "fullPrice": null,
-            "halfPrice": null,
-            "description": null,
-            "id": 18
-        },
-        {
-            "name": "Chicken 65",
-            "id": 19,
-            "imageUrl": "product-placeholder.svg",
-            "categories": "Starter",
-            "statuses": "active",
-            "description": "TEst",
-            "fullPrice": 123
-        },
-        {
-            "name": "RIL",
-            "id": 20,
-            "imageUrl": "product-placeholder.svg"
-        },
-        {
-            "name": "Paneer Kadai",
-            "statuses": "active",
-            "categories": "Main Course",
-            "fullPrice": 12,
-            "halfPrice": null,
-            "quantity": null,
-            "serviceTime": null,
-            "description": "xyz",
-            "id": 21,
-            "imageUrl": "product-placeholder.svg"
-        },
-        {
-            "name": "dsd",
-            "statuses": "inActive",
-            "categories": "Rice",
-            "fullPrice": 123,
-            "description": "sds",
-            "id": 22,
-            "imageUrl": "product-placeholder.svg"
-        },
-        {
-            "name": "TEST",
-            "statuses": "inActive",
-            "categories": "Main Course",
-            "fullPrice": 23,
-            "description": "d",
-            "id": 23,
-            "imageUrl": "product-placeholder.svg"
-        },
-        {
-            "name": "s",
-            "id": 24,
-            "imageUrl": "product-placeholder.svg"
-        },
-        {
-            "name": "Punjabi Thali",
-            "statuses": "active",
-            "id": 25,
-            "imageUrl": "product-placeholder.svg"
-        }
-    ],
-    "dishCategory": [{
-            "id": 1,
-            "name": "Starter",
-            "description": "cd1"
-        },
-        {
-            "id": 2,
-            "name": "Main Course (Chicken)",
-            "description": "cd2"
-        },
-        {
-            "id": 3,
-            "name": "Rice",
-            "description": "cd3"
-        },
-        {
-            "id": 4,
-            "name": "Main Course (Mutton)",
-            "description": "cd2"
-        }
-    ],
-    "people": [{
-            "id": 1,
-            "name": "n1"
-        },
-        {
-            "id": 1,
-            "name": "n2"
-        }
-    ],
-    "client": [{
-            "id": 1,
-            "business": "FY5",
-            "address": "india",
-            "gst": "18%",
-            "foodClass": "Something",
-            "logo": "logo",
-            "seal": "SEAL",
-            "sign": "sign",
-            "category": null
-        },
-        {
-            "id": 11,
-            "business": "Avengers",
-            "CategoryId": 2,
-            "address": "USA",
-            "gst": "1%",
-            "foodClass": "El Classico",
-            "logo": "Avengers",
-            "seal": "Cap America",
-            "sign": "Iron man"
-        },
-        {
-            "id": 12
-        },
-        {
-            "businessName": "test",
-            "category": "cat2",
-            "gst": "ewewdf",
-            "address": "dfd",
-            "foodClass": "A1",
-            "bankDetails": {
-                "accountName": "Some User",
-                "accountNumber": 494944949494949,
-                "bankName": "hdifdsl Bank",
-                "ifscCode": "IFCS33F"
-            },
-            "id": 13
-        }
-    ],
-    "clientCategory": [{
-            "id": 1,
-            "name": "cat1"
-        },
-        {
-            "id": 2,
-            "name": "cat2"
-        }
-    ],
-    "bankDetails": [{
-            "id": 1,
-            "accountName": "Ahmed Raza Shaikh",
-            "accountNumber": 123,
-            "bankName": "Axis Bank",
-            "ifscCode": "AXB2000",
-            "address": "Byculla"
-        },
-        {
-            "id": 2,
-            "accountName": "Ibba ",
-            "address": "kalapani",
-            "accountNumber": 125,
-            "bankName": "MahaBank",
-            "ifscCode": "9874CC"
-        },
-        {
-            "accountName": "Bank",
-            "address": "USA",
-            "accountNumber": 125,
-            "bankName": "USABANK",
-            "ifscCode": "USAIFC",
-            "id": 3
-        },
-        {
-            "accountName": "Bank",
-            "address": "USA",
-            "accountNumber": 125,
-            "bankName": "USABANK",
-            "ifscCode": "USAIFC",
-            "id": 4
-        },
-        {
-            "accountName": "Bank",
-            "address": "USA",
-            "accountNumber": 125,
-            "bankName": "USABANK",
-            "ifscCode": "USAIFC",
-            "id": 5
-        },
-        {
-            "accountName": "Bank",
-            "address": "USA",
-            "accountNumber": 125,
-            "bankName": "USABANK",
-            "ifscCode": "USAIFC",
-            "id": 6
-        },
-        {
-            "accountName": "Bank",
-            "address": "USA",
-            "accountNumber": 125,
-            "bankName": "USABANK",
-            "ifscCode": "USAIFC",
-            "id": 7
-        },
-        {
-            "accountName": "L.A Bank",
-            "address": "L.A Bank ",
-            "accountNumber": 22,
-            "bankName": "la bank",
-            "ifscCode": "la1233",
-            "id": 8
-        },
-        {
-            "accountName": "L.A Bank",
-            "address": "L.A Bank ",
-            "accountNumber": 22,
-            "bankName": "la bank",
-            "ifscCode": "la1233",
-            "id": 9
-        },
-        {
-            "address": "LA",
-            "accountNumber": 12345,
-            "bankName": "Bank of LA",
-            "ifscCode": "la1233",
-            "id": 10
-        },
-        {
-            "accountName": "IPhone",
-            "address": "USA",
-            "accountNumber": 2112121,
-            "bankName": "212121",
-            "ifscCode": "2121221",
-            "id": 11
-        }
-    ],
-    "endUser": [{
-            "id": 1,
-            "name": "name1",
-            "address": "addr1"
-        },
-        {
-            "id": 2,
-            "name": "name2",
-            "address": "addr2"
-        },
-        {
-            "id": 3,
-            "name": "name3",
-            "address": "addr3"
-        }
-    ],
-    "user": [{
-        "id": 1,
-        "userName": "Ahmed",
-        "email": "shaikhahmedraza@gmail.com",
-        "contact": 123456,
-        "address": ""
-    }]
+  "dish": [
+    {
+      "id": 1,
+      "name": "Veg Kolhapuri Spicy",
+      "description": "Veg Kolhapuri spicy etc.",
+      "halfPrice": null,
+      "fullPrice": 120,
+      "imageUrl": "https://www.online-image-editor.com/styles/2019/images/power_girl_editor.png",
+      "mainCategoryName": "",
+      "mainCategoryId": 1,
+      "isFull": true,
+      "isHalf": true,
+      "statuses": "active",
+      "categories": "Main Course",
+      "quantity": 1,
+      "serviceTime": 16
+    },
+    {
+      "id": 2,
+      "name": "Veg Pizza",
+      "imageUrl": "https://primefaces.org/primeng/showcase/assets/showcase/images/demo/product/chakra-bracelet.jpg",
+      "description": "Have difference options available",
+      "halfPrice": 120,
+      "fullPrice": 180,
+      "statuses": "active",
+      "categories": "Other",
+      "quantity": 1,
+      "serviceTime": 28
+    },
+    {
+      "name": "Special Mutton Curry",
+      "id": 3,
+      "imageUrl": "https://primefaces.org/primeng/showcase/assets/showcase/images/demo/product/black-watch.jpg",
+      "description": "Special Mutton curry ",
+      "statuses": "inActive",
+      "categories": "Main Course",
+      "nonVegCategory": "mutton",
+      "fullPrice": 450,
+      "halfPrice": 250,
+      "quantity": 1,
+      "serviceTime": 25
+    },
+    {
+      "name": "Chicken Biryani",
+      "id": 4,
+      "imageUrl": "https://primefaces.org/primeng/showcase/assets/showcase/images/demo/product/bamboo-watch.jpg",
+      "description": "d2",
+      "statuses": "active",
+      "nonVegCategory": "chicken",
+      "fullPrice": 380,
+      "halfPrice": 160,
+      "quantity": 1,
+      "serviceTime": 20
+    },
+    {
+      "name": "Chicken kadhai",
+      "description": "medium spicy",
+      "id": 5,
+      "price": "250",
+      "qty": 1,
+      "mainCategoryId": 1,
+      "mainCategory": "mughlai",
+      "nonVegCategory": "chicken",
+      "statuses": "active",
+      "categories": "Main Course",
+      "fullPrice": 230
+    },
+    {
+      "name": "chicken nizamuddin",
+      "description": "medium spicy",
+      "price": "270",
+      "id": 6,
+      "qty": 2,
+      "mainCategory": "chinese",
+      "statuses": "active",
+      "categories": "Main Course",
+      "fullPrice": 250
+    },
+    {
+      "name": "Chicken kadhai",
+      "description": "medium spicy",
+      "price": "260",
+      "qty": 4,
+      "id": 7,
+      "mainCategoryId": 2
+    },
+    {
+      "price": 200,
+      "name": "Paneer Tikka Masala",
+      "mainCategoryId": 2,
+      "description": "xyz",
+      "qty": 1,
+      "id": 8,
+      "statuses": "active",
+      "categories": "Main Course",
+      "fullPrice": 160,
+      "halfPrice": 90,
+      "quantity": null,
+      "serviceTime": 15
+    },
+    {
+      "name": "Chicken Gravy",
+      "mainCategoryId": 2,
+      "price": 200,
+      "description": "1",
+      "qty": 1,
+      "id": 10
+    },
+    {
+      "price": 200,
+      "qty": 1,
+      "mainCategoryId": 1,
+      "name": "chicken nuggets",
+      "description": "tasty",
+      "id": 11
+    },
+    {
+      "mainCategoryId": 0,
+      "mainCategoryName": "Chicken kadhai",
+      "price": 200,
+      "qty": 1,
+      "description": "asA",
+      "name": "ASDSA",
+      "id": 12
+    },
+    {
+      "mainCategoryId": 0,
+      "name": "sada",
+      "mainCategoryName": "asdasd",
+      "price": 12,
+      "qty": 21,
+      "description": "12",
+      "id": 13
+    },
+    {
+      "mainCategoryId": 0,
+      "name": "asdf",
+      "mainCategoryName": "Chicken kadhai",
+      "price": 200,
+      "qty": 1,
+      "description": "asdf",
+      "id": 14
+    },
+    {
+      "isFull": true,
+      "isHalf": true,
+      "mainCategoryId": 0,
+      "fullPrice": 12,
+      "halfPrice": 23,
+      "name": "asdd",
+      "mainCategoryName": "fewrfwe",
+      "description": "asdfcdas",
+      "id": 15
+    },
+    {
+      "isFull": null,
+      "isHalf": null,
+      "isVeg": true,
+      "mainCategoryId": null,
+      "name": null,
+      "mainCategoryName": null,
+      "fullPrice": null,
+      "halfPrice": null,
+      "description": null,
+      "id": 17
+    },
+    {
+      "isFull": null,
+      "isHalf": null,
+      "isVeg": true,
+      "mainCategoryId": null,
+      "name": null,
+      "mainCategoryName": null,
+      "fullPrice": null,
+      "halfPrice": null,
+      "description": null,
+      "id": 18
+    },
+    {
+      "name": "Chicken 65",
+      "id": 19,
+      "imageUrl": "product-placeholder.svg",
+      "categories": "Starter",
+      "statuses": "active",
+      "description": "TEst",
+      "fullPrice": 123
+    },
+    {
+      "name": "RIL",
+      "id": 20,
+      "imageUrl": "product-placeholder.svg"
+    },
+    {
+      "name": "Paneer Kadai",
+      "statuses": "active",
+      "categories": "Main Course",
+      "fullPrice": 12,
+      "halfPrice": null,
+      "quantity": null,
+      "serviceTime": null,
+      "description": "xyz",
+      "id": 21,
+      "imageUrl": "product-placeholder.svg"
+    },
+    {
+      "name": "dsd",
+      "statuses": "inActive",
+      "categories": "Rice",
+      "fullPrice": 123,
+      "description": "sds",
+      "id": 22,
+      "imageUrl": "product-placeholder.svg"
+    },
+    {
+      "name": "TEST",
+      "statuses": "inActive",
+      "categories": "Main Course",
+      "fullPrice": 23,
+      "description": "d",
+      "id": 23,
+      "imageUrl": "product-placeholder.svg"
+    },
+    {
+      "name": "s",
+      "id": 24,
+      "imageUrl": "product-placeholder.svg"
+    },
+    {
+      "name": "Punjabi Thali",
+      "statuses": "active",
+      "id": 25,
+      "imageUrl": "product-placeholder.svg"
+    }
+  ],
+  "dishCategory": [
+    {
+      "id": 1,
+      "name": "Starter",
+      "description": "cd1"
+    },
+    {
+      "id": 2,
+      "name": "Main Course (Chicken)",
+      "description": "cd2"
+    },
+    {
+      "id": 3,
+      "name": "Rice",
+      "description": "cd3"
+    },
+    {
+      "id": 4,
+      "name": "Main Course (Mutton)",
+      "description": "cd2"
+    }
+  ],
+  "people": [
+    {
+      "id": 1,
+      "name": "n1"
+    },
+    {
+      "id": 1,
+      "name": "n2"
+    }
+  ],
+  "client": [
+    {
+      "id": 1,
+      "business": "FY5",
+      "address": "india",
+      "gst": "18%",
+      "foodClass": "Something",
+      "logo": "logo",
+      "seal": "SEAL",
+      "sign": "sign",
+      "category": null
+    },
+    {
+      "id": 11,
+      "business": "Avengers",
+      "CategoryId": 2,
+      "address": "USA",
+      "gst": "1%",
+      "foodClass": "El Classico",
+      "logo": "Avengers",
+      "seal": "Cap America",
+      "sign": "Iron man"
+    },
+    {
+      "id": 12
+    },
+    {
+      "businessName": "test",
+      "category": "cat2",
+      "gst": "ewewdf",
+      "address": "dfd",
+      "foodClass": "A1",
+      "bankDetails": {
+        "accountName": "Some User",
+        "accountNumber": 494944949494949,
+        "bankName": "hdifdsl Bank",
+        "ifscCode": "IFCS33F"
+      },
+      "id": 13
+    }
+  ],
+  "clientCategory": [
+    {
+      "id": 1,
+      "name": "cat1"
+    },
+    {
+      "id": 2,
+      "name": "cat2"
+    },
+    {
+      "id": 3,
+      "name": "cat3"
+    }
+  ],
+  "bankDetails": [
+    {
+      "id": 1,
+      "accountName": "Ahmed Raza Shaikh",
+      "accountNumber": 123,
+      "bankName": "Axis Bank",
+      "ifscCode": "AXB2000",
+      "address": "Byculla"
+    },
+    {
+      "id": 2,
+      "accountName": "Ibba ",
+      "address": "kalapani",
+      "accountNumber": 125,
+      "bankName": "MahaBank",
+      "ifscCode": "9874CC"
+    },
+    {
+      "accountName": "Bank",
+      "address": "USA",
+      "accountNumber": 125,
+      "bankName": "USABANK",
+      "ifscCode": "USAIFC",
+      "id": 3
+    },
+    {
+      "accountName": "Bank",
+      "address": "USA",
+      "accountNumber": 125,
+      "bankName": "USABANK",
+      "ifscCode": "USAIFC",
+      "id": 4
+    },
+    {
+      "accountName": "Bank",
+      "address": "USA",
+      "accountNumber": 125,
+      "bankName": "USABANK",
+      "ifscCode": "USAIFC",
+      "id": 5
+    },
+    {
+      "accountName": "Bank",
+      "address": "USA",
+      "accountNumber": 125,
+      "bankName": "USABANK",
+      "ifscCode": "USAIFC",
+      "id": 6
+    },
+    {
+      "accountName": "Bank",
+      "address": "USA",
+      "accountNumber": 125,
+      "bankName": "USABANK",
+      "ifscCode": "USAIFC",
+      "id": 7
+    },
+    {
+      "accountName": "L.A Bank",
+      "address": "L.A Bank ",
+      "accountNumber": 22,
+      "bankName": "la bank",
+      "ifscCode": "la1233",
+      "id": 8
+    },
+    {
+      "accountName": "L.A Bank",
+      "address": "L.A Bank ",
+      "accountNumber": 22,
+      "bankName": "la bank",
+      "ifscCode": "la1233",
+      "id": 9
+    },
+    {
+      "address": "LA",
+      "accountNumber": 12345,
+      "bankName": "Bank of LA",
+      "ifscCode": "la1233",
+      "id": 10
+    },
+    {
+      "accountName": "IPhone",
+      "address": "USA",
+      "accountNumber": 2112121,
+      "bankName": "212121",
+      "ifscCode": "2121221",
+      "id": 11
+    }
+  ],
+  "endUser": [
+    {
+      "id": 1,
+      "name": "name1",
+      "address": "addr1"
+    },
+    {
+      "id": 2,
+      "name": "name2",
+      "address": "addr2"
+    },
+    {
+      "id": 3,
+      "name": "name3",
+      "address": "addr3"
+    }
+  ],
+  "user": [
+    {
+      "userName": "Ibrahim",
+      "email": "ibba@testmail.com",
+      "contact": "7687548957",
+      "pincode": 400036,
+      "cities": "Pune",
+      "states": "Maharashtra",
+      "address": "badlupura",
+      "id": 2
+    },
+    {
+      "userName": "Yaqub Farooqui",
+      "email": "yaqub@testmail.com",
+      "contact": "7548965421",
+      "pincode": 400008,
+      "cities": "Mumbai",
+      "states": "Maharashtra",
+      "address": "kazipura",
+      "id": 3
+    },
+    {
+      "userName": "Yunus Farooqui",
+      "email": "yunus.farooqui@gmail.com",
+      "contact": "1234567989",
+      "pincode": 400008,
+      "cities": "Mumbai",
+      "states": "Maharashtra",
+      "address": "Kazipura",
+      "id": 4
+    }
+  ],
+  "city": [
+    {
+      "id": 1,
+      "name": "Mumbai"
+    },
+    {
+      "id": 2,
+      "name": "Delhi"
+    }
+  ],
+  "state": [
+    {
+      "id": 1,
+      "name": "Maharashtra"
+    },
+    {
+      "id": 2,
+      "name": "Rajasthan"
+    }
+  ]
 }

@@ -7,5 +7,7 @@ export class ApiConfig {
     public static BANKDETAILS = 'bankDetails'
     public static ENDUSER = 'endUser'
     public static USER = 'user'
+    public static CITY = 'city'
+    public static STATE = 'state'
 }
 

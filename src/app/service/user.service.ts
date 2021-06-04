@@ -3,7 +3,7 @@ import { Observable, of, Subject } from 'rxjs';
 import { ApiConfig } from '../constant/api';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map } from 'rxjs/internal/operators'; 
-import { User } from '../models/user';
+import { City, User } from '../models/user';
 
 
 @Injectable({
@@ -11,6 +11,8 @@ import { User } from '../models/user';
 })
 export class UserService {
   url = `${ApiConfig.URL}${ApiConfig.USER}`;
+  cityUrl = `${ApiConfig.URL}${ApiConfig.CITY}`
+  stateUrl = `${ApiConfig.URL}${ApiConfig.STATE}`
   public user: User | undefined;
   public userList: User[] = [];
   modalSubject = new Subject();
@@ -41,8 +43,16 @@ export class UserService {
       catchError(this.handleError('', user))
     );
   }
-  deleteData(id: number): Observable<User> {
-    return this.http.delete<User>(`${this.url}/${id}`).pipe(catchError(this.handleError))
+  deleteUser(id: number): Observable<User> {
+    return this.http.delete<User>(`${this.url}/${id}`).pipe(
+      map(x => {
+        let index = this.userList.findIndex(i => i.id == x.id);
+        this.userList[index] = x;
+        return this.user;
+      }
+
+      )
+    );
   }
 
   getUserList(): Observable<User[]> {
@@ -54,6 +64,21 @@ export class UserService {
     );
   }
 
+  getCities(): Observable<City[]> {
+    return this.http.get<City[]>(this.cityUrl).pipe(
+      map(x => {
+        return x;
+      })
+    );
+  }
+
+  getStates(): Observable<City[]> {
+    return this.http.get<City[]>(this.stateUrl).pipe(
+      map(x => {
+        return x;
+      })
+    );
+  }
   editEndUser(id: number): User {
     return this.userList.find(i => i.id === id);
   }
