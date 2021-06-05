@@ -4,7 +4,7 @@
         <p-toolbar class="pToolbar">
             <ng-template pTemplate="left">
                 <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
-                <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedUser()" [disabled]="!selectedUsers || !selectedUsers.length"></button>
+                <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedUser(item)" [disabled]="!selectedUsers || !selectedUsers.length"></button>
             </ng-template>
             <ng-template pTemplate="right">
                 <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block"></p-fileUpload>
@@ -21,7 +21,7 @@
                         <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                     </th>
                     <th style="width: 150px;">Name
-                        <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
+                        <p-columnFilter type="text" field="userName" display="menu"></p-columnFilter>
                     </th>
                     <th style="width: 180px;">Email
                     </th>
@@ -30,13 +30,13 @@
                     <th style="width: 100px;">Address
                     </th> -->
                         <th style="width: 80px;">City
-                            <p-columnFilter type="text" field="city" display="menu"></p-columnFilter>
+                            <p-columnFilter type="text" field="cities" display="menu"></p-columnFilter>
                         </th>
                         <!-- <th style="width: 90px;">State
                             <p-columnFilter type="text" field="pincode" display="menu"></p-columnFilter>
                         </th> -->
                         <th style="width: 100px;">Pincode
-                            <p-columnFilter type="text" field="state" display="menu"></p-columnFilter>
+                            <p-columnFilter type="text" field="pincode" display="menu"></p-columnFilter>
                         </th>
                         <th style="width: 100px;">Action </th>
             </ng-template>
@@ -54,6 +54,7 @@
                     <td>{{item.pincode}}</td>
                     <td>
                         <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editUser(item)"></button>
+                        <!-- <p-confirmDialog></p-confirmDialog> -->
                         <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteUser(item)"></button>
                         <!-- <p-checkbox name="groupname{{item.id}}" [value]="item.selectedDish" [inputId]="item.id" [(ngModel)]="selectedValues" (change)="onCheckboxChange(item.id, $event)"></p-checkbox> -->
                     </td>
@@ -65,59 +66,57 @@
 
 <p-dialog [(visible)]="userDialog" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}" header="User Configuration" [modal]="true">
     <ng-template pTemplate="content">
-        <div class="p-card">
-            <div class="p-card-body">
-                <div class="p-fluid p-formgrid p-grid">
-                    <div class="p-field p-col-6">
-                        <label for="userName">Name</label>
-                        <input type="text" name="userName" class="p-inputtext-sm" pInputText id="userName" [(ngModel)]="user.userName" placeholder="Name" required autofocus />
-                        <small class="p-error" *ngIf="submitted && !user.userName">Name is required.</small>
-                    </div>
-                    <div class="p-field p-col-6">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" class="p-inputtext-sm" pInputText id="email" [(ngModel)]="user.email" placeholder="Email" required autofocus />
-                        <small class="p-error" *ngIf="submitted && !user.email">Email is required.</small>
-                    </div>
-                    <div class="p-field p-col-6">
-                        <label for="contact">Contact</label>
-                        <input type="tel" name="contact" class="p-inputtext-sm" pInputText id="contact" [(ngModel)]="user.contact" placeholder="Contact" required autofocus />
-                        <small class="p-error" *ngIf="submitted && !user.contact">Contact is required.</small>
-                    </div>
-                    <div class="p-field p-col-6">
-                        <label for="pincode">Pincode</label>
-                        <p-inputNumber [(ngModel)]="user.pincode" mode="decimal" inputId="pincode" [useGrouping]="false">
-                        </p-inputNumber>
-                    </div>
-                    <div class="p-field p-col-6">
-                        <label for="city">City</label>
-                        <p-dropdown [options]="cities" [(ngModel)]="user.cities" id="city" editable="true" placeholder="City">
-                            <ng-template let-option pTemplate="item">
-                                <span [class]="'user-badge status-' + option.value">{{
-                                    option.label
-                                    }}</span>
-                            </ng-template>
-                        </p-dropdown>
-                        <label for="state">State</label>
-                        <p-dropdown [options]="states" [(ngModel)]="user.states" id="state" editable="true" placeholder="State">
-                            <ng-template let-option pTemplate="item">
-                                <span [class]="'user-badge status-' + option.value">{{
-                                    option.label
-                                    }}</span>
-                            </ng-template>
-                        </p-dropdown>
-                    </div>
-                    <div class="p-field p-col-6">
-                        <label for="address">Address</label>
-                        <textarea rows="5" cols="30" id="address" [(ngModel)]="user.address" pInputTextarea autoResize="autoResize" placeholder="Address" required autofocus></textarea>
-                        <!-- <input type="textarea" name="address" class="p-inputtext-sm" pInputTextarea id="address" [(ngModel)]="user.address" placeholder="Address" required autofocus /> -->
-                        <small class="p-error" *ngIf="submitted && !user.address">Address is required.</small>
-                    </div>
-                </div>
-                <div class="p-card-footer p-text-right">
-                    <button pButton pRipple label="Save" icon="pi pi-check" class="p-button p-button-raised" (click)="saveUser(user)"></button>
-                    <!-- <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-danger p-button-raised" (click)="hideDialog()"></button> -->
-                </div>
+        <div class="p-fluid p-formgrid p-grid">
+            <div class="p-field p-col-6">
+                <label for="userName">Name</label>
+                <input type="text" name="userName" class="p-inputtext-sm" pInputText id="userName" [(ngModel)]="user.userName" placeholder="Name" required autofocus />
+                <small class="p-error" *ngIf="submitted && !user.userName">Name is required.</small>
             </div>
+            <div class="p-field p-col-6">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="p-inputtext-sm" pInputText id="email" [(ngModel)]="user.email" placeholder="Email" required autofocus />
+                <small class="p-error" *ngIf="submitted && !user.email">Email is required.</small>
+            </div>
+            <div class="p-field p-col-6">
+                <label for="contact">Contact</label>
+                <p-inputNumber [(ngModel)]="user.contact" mode="decimal" maxlength="10  " inputId="contact" [useGrouping]="false" required autofocus>
+                </p-inputNumber>
+                <small class="p-error" *ngIf="submitted && !user.contact">Contact is required.</small><br>
+                <label for="city">City</label>
+                <p-dropdown [options]="cities" [(ngModel)]="user.cities" id="city" editable="true" placeholder="City">
+                    <ng-template let-option pTemplate="item">
+                        <span [class]="'user-badge status-' + option.value">{{
+                                    option.label
+                                    }}</span>
+                    </ng-template>
+                </p-dropdown>
+            </div>
+            <div class="p-field p-col-6">
+                <label for="address">Address</label>
+                <textarea rows="4" cols="30" id="address" [(ngModel)]="user.address" pInputTextarea autoResize="autoResize" placeholder="Address" required autofocus></textarea>
+                <!-- <input type="textarea" name="address" class="p-inputtext-sm" pInputTextarea id="address" [(ngModel)]="user.address" placeholder="Address" required autofocus /> -->
+                <small class="p-error" *ngIf="submitted && !user.address">Address is required.</small>
+            </div>
+            <div class="p-field p-col-6">
+                <label for="state">State</label>
+                <p-dropdown [options]="states" [(ngModel)]="user.states" id="state" editable="true" placeholder="State">
+                    <ng-template let-option pTemplate="item">
+                        <span [class]="'user-badge status-' + option.value">{{
+                                    option.label
+                                    }}</span>
+                    </ng-template>
+                </p-dropdown>
+            </div>
+            <div class="p-field p-col-6">
+                <label for="pincode">Pincode</label>
+                <p-inputNumber [(ngModel)]="user.pincode" maxlength="6" mode="decimal" inputId="pincode" [useGrouping]="false">
+                </p-inputNumber>
+            </div>
+        </div>
+        <div class="p-card-footer p-text-right">
+            <button pButton pRipple label="Save" icon="pi pi-check" class="p-button p-button-raised" (click)="saveUser(user)"></button>
+            <button pButton pRipple label="Reset" icon="pi pi-refresh" class="p-button-danger p-button-raised" (click)="reset()"></button>
         </div>
     </ng-template>
 </p-dialog>
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

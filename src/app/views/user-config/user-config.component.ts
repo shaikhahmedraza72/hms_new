@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { UserService } from '../../service/user.service';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-user-config',
@@ -10,7 +9,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./user-config.component.scss']
 })
 export class UserConfigComponent implements OnInit {
-  user: User = new User();
+  user: User;
   submitted: boolean;
   userList: User[] = [];
   userDialog: boolean;
@@ -44,14 +43,14 @@ export class UserConfigComponent implements OnInit {
     });
   }
   openNew() {
-    // this.userList = [];
+    this.user = {};
     this.submitted = false;
     this.userDialog = true;
     // this.dishSvc.openModal();
   }
-  hideDialog() {
-    this.userList = [];
-    this.userDialog = false;
+  reset() {
+    this.user = {};
+    // this.userDialog = false;
     this.submitted = false;
   }
 
@@ -124,32 +123,41 @@ export class UserConfigComponent implements OnInit {
 
   deleteUser(user: User) {
     // tslint:disable-next-line:no-debugger
-    console.log(user);
-      
+    // console.log(user);
+
     // this.userSvc.deleteUser(user.id).subscribe(res => {
     //   this.userList[this.findIndexById(this.user.id)] = this.user;
     //   this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'User Deleted', life: 3000 });
     // })
-    debugger;
     this.confirmationService.confirm({
       message: 'Are you sure you want to delete ' + user.userName + '?',
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
-      accept: () => { 
-        this.userList = this.userList.filter(val => val.userName !== user.userName);
-        this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'User Deleted', life: 3000 });
+      accept: () => {
+        this.userSvc.deleteUserData(user.id).subscribe(res => {
+          if (res) {
+            this.userList = this.userList.filter(val => val.userName !== user.userName);
+            this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'User Deleted', life: 3000 });
+          }
+        });
       }
     });
   }
-  deleteSelectedUser() {
+  deleteSelectedUser(user: User) {
     this.confirmationService.confirm({
       message: 'Are you sure you want to delete the selected Users?',
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.userList = this.userList.filter(val => !this.selectedUsers.includes(val));
-        this.selectedUsers = null;
-        this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'User Deleted', life: 3000 });
+        this.userSvc.deleteUserData(user.id).subscribe(res => {
+          if(res){
+            this.selectedUsers = null;
+            this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'User Deleted', life: 3000 });
+          }
+          
+        })
+
       }
     });
   }

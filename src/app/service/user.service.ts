@@ -43,16 +43,8 @@ export class UserService {
       catchError(this.handleError('', user))
     );
   }
-  deleteUser(id: number): Observable<User> {
-    return this.http.delete<User>(`${this.url}/${id}`).pipe(
-      map(x => {
-        let index = this.userList.findIndex(i => i.id == x.id);
-        this.userList[index] = x;
-        return this.user;
-      }
-
-      )
-    );
+  deleteUserData(id: number): Observable<User> {
+    return this.http.delete<User>(`${this.url}/${id}`).pipe(catchError(this.handleError));
   }
 
   getUserList(): Observable<User[]> {
