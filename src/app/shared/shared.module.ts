@@ -30,7 +30,9 @@ import { MessageService } from 'primeng/api';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import { InputTextareaModule } from 'primeng/inputtextarea'; 
 import { SelectButtonModule } from 'primeng/selectbutton';
-import {TagModule} from 'primeng/tag'
+import {TagModule} from 'primeng/tag';
+import {InputMaskModule} from 'primeng/inputmask';
+
 @NgModule({
   declarations: [],
   imports: [
@@ -65,7 +67,8 @@ import {TagModule} from 'primeng/tag'
     ConfirmDialogModule,
     InputTextareaModule,
     SelectButtonModule,
-    TagModule
+    TagModule,
+    InputMaskModule
   ],
   exports:[
     CommonModule,
@@ -98,7 +101,8 @@ import {TagModule} from 'primeng/tag'
     InputTextareaModule ,
     InputSwitchModule,
     SelectButtonModule,
-    TagModule
+    TagModule,
+    InputMaskModule
   ],
   providers:[MessageService, ConfirmationService]
 })

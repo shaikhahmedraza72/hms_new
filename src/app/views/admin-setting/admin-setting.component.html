@@ -1,7 +1,7 @@
 <div class="p-card">
     <div class="p-card-body">
         <div class="p-fluid p-formgrid p-grid">
-            <div class="p-field p-col-6">
+            <div class="p-field p-col-3">
                 <label for="businessName">Business Name</label>
                 <input type="text" name="businessName" class="p-inputtext-sm" pInputText id="businessName" [(ngModel)]="client.businessName" placeholder="Business Name" required autofocus />
                 <small class="p-error" *ngIf="submitted && !client.businessName">Business name is required.</small>
@@ -21,7 +21,7 @@
                 <input type="text" id="GSTNumber" name="GSTNumber" class="p-inputtext-sm" [(ngModel)]="client.gst" placeholder="GST Number" pInputText />
             </div>
             <div class="p-field p-col-3">
-                <label for="foodClass">Food Class</label>
+                <label for="foodClass">Food License Number</label>
                 <input type="text" id="foodClass" name="foodClass" class="p-inputtext-sm" [(ngModel)]="client.foodClass" placeholder="Food Class" pInputText />
             </div>
             <div class="p-field p-col-6">
@@ -35,6 +35,11 @@
                 <label for="state">State</label>
                 <p-dropdown inputId="state" [options]="states" [(ngModel)]="selectedState" placeholder="Select" optionLabel="name"></p-dropdown>
             </div>
+            
+            <div class="p-field p-col-3">
+                <label for="pincode">Pincode</label>
+                <input type="text" id="pincode" name="pincode" class="p-inputtext-sm" [(ngModel)]="client.pincode" placeholder="000000" minlength="6" maxlength="6" pInputText />
+            </div>
         </div>
         <div class="p-card-title">Bank Information</div>
         <div class="p-card-subtitle">Enter bank details</div>
@@ -47,7 +52,7 @@
 
             <div class="p-field p-col-6">
                 <label for="accountNumber">Account Number</label>
-                <p-inputNumber id="accountNumber" name="accountNumber" class="p-inputtext-sm" [(ngModel)]="client.bankDetails.accountNumber" placeholder="Account Number"></p-inputNumber>
+                <p-inputMask id="accountNumber" mask="00001111222233334444" name="accountNumber" class="p-inputtext-sm" [(ngModel)]="client.bankDetails.accountNumber" placeholder="Account Number"></p-inputMask>
                 <small class="p-error" *ngIf="submitted && !client.bankDetails.accountNumber">Account Number is
           required.</small>
             </div>
