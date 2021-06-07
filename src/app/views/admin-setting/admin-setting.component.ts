@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { Client, ClientBankDetails, CLientCategory } from './../../models/client';
+// import { Client, ClientBankDetails, CLientCategory } from './../../models/client';
 import { ClientService } from '../../service/client.service';
+import { Admin } from '../../models/admin';
 
 @Component({
   selector: 'app-admin-setting',
@@ -13,20 +14,18 @@ export class AdminSettingComponent implements OnInit {
   @ViewChild('largeModal') public largeModal: ModalDirective;
 
   constructor(public clientSvc: ClientService) { }
-  client: Client = new Client();
+  client: Admin;
   categories:any;
   isEdit: boolean;
 
-  bankDetaials: ClientBankDetails = new ClientBankDetails();
+  // bankDetaials: ClientBankDetails = new ClientBankDetails();
 
-  ngOnInit(): void {
-    // this.client = {};
+  ngOnInit(): void { 
     this.clientSvc.getClientList().subscribe(resp => {
       if(resp.length > 0){
         this.client = resp[resp.length-1]
       }
     })
-    this.subscribeModalEvent();
     this.getClientCategory();
   }
 
@@ -41,33 +40,7 @@ export class AdminSettingComponent implements OnInit {
    
   }
 
-  subscribeModalEvent() {
-    this.clientSvc.modalSubjectForClient.subscribe(any => {
-      this.largeModal.show();
-      this.isEdit = false;
-    });
-    this.clientSvc.editModalSubject.subscribe(client => {
-      this.client = Object.assign({}, this.client);
-      this.isEdit = true;
-    });
-  }
-
-  close() {
-    this.largeModal.hide();
-  }
-  onSubmit(userForm: NgForm) {
-    if (this.isEdit) {
-      this.clientSvc.updateCLient(this.client).subscribe(resp => {
-      });
-    } else {
-      this.clientSvc.AddClient(this.client).subscribe(resp => {
-      });
-    }
-    userForm.resetForm();
-    this.close();
-  }
-  saveAdmin(d){
-    console.log('CLIENTDATA', d)
+  saveAdmin(d){ 
     if(!d.id){
       this.clientSvc.AddClient(d).subscribe(resp => {
 

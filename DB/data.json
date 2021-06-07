@@ -175,58 +175,40 @@
     }
   ],
   "client": [
+    
     {
-      "id": 1,
-      "business": "FY5",
-      "address": "india",
-      "gst": "18%",
-      "foodClass": "Something",
-      "logo": "logo",
-      "seal": "SEAL",
-      "sign": "sign",
-      "category": null
-    },
-    {
-      "id": 11,
-      "business": "Avengers",
-      "CategoryId": 2,
-      "address": "USA",
-      "gst": "1%",
-      "foodClass": "El Classico",
-      "logo": "Avengers",
-      "seal": "Cap America",
-      "sign": "Iron man"
-    },
-    {
-      "id": 12
-    },
-    {
-      "businessName": "test",
-      "category": "cat2",
-      "gst": "ewewdf",
-      "address": "dfd",
-      "foodClass": "A1",
+      "businessName": "Khana Restaurent",
+      "category": "Restaurent",
+      "gst": "GST785522024",
+      "address": "Khana Restaurent, Main Road, Near IT Park",
+      "foodLincNum": "A1135636",
       "bankDetails": {
         "accountName": "Some User",
         "accountNumber": 494944949494949,
         "bankName": "hdifdsl Bank",
-        "ifscCode": "IFCS33F"
+        "ifscCode": "IFCS33F",
+        "UPICodeNumber": "UPICODE4521"
       },
-      "id": 13
+      "id": 13,
+      "pincode": "400001"
     }
   ],
   "clientCategory": [
     {
       "id": 1,
-      "name": "cat1"
+      "name": "Restaurent"
     },
     {
       "id": 2,
-      "name": "cat2"
+      "name": "IceCream Parlour"
     },
     {
       "id": 3,
-      "name": "cat3"
+      "name": "Juice Center"
+    },
+    {
+      "id": 4,
+      "name": "Coffee Cafe"
     }
   ],
   "bankDetails": [
