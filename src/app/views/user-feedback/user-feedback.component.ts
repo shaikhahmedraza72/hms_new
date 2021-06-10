@@ -16,4 +16,7 @@ export class UserFeedbackComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  submitFeedback(){
+    // do something
+  }
 }

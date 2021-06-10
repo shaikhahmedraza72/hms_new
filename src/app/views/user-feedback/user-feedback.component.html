@@ -10,6 +10,16 @@
                 <h5>Your Review</h5>
                 <textarea rows="5" cols="30" style="width: 100%;" pInputTextarea></textarea>
             </div>
+            <div class="p-col">
+                <h5>Give your review a title</h5>
+                <span class="p-input-icon-right">
+                    <i class="pi pi-pencil"></i>
+                    <input type="text" pInputText />
+                </span>
+            </div>
+            <div class="p-col">
+                <p-button label="Post Your Review" style="width: 100%;" icon="pi pi-check" iconPos="left" (ngSubmit)="submitFeedback()"></p-button>
+            </div>
         </div>
     </div>
 </div>
