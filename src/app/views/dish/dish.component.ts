@@ -11,16 +11,13 @@ import { DishService } from '../../service/dish.service';
 export class DishComponent implements OnInit {
   dishDialog: boolean;
   checked: boolean = true;
-  isEdit: boolean;
-  category: DishCategory[] = [];
-  statuses: { label: string; value: string; }[];
-  categories: {label: string; value: string; }[];
-
+  isEdit: boolean; 
+  statuses: { label: string; value: string; }[]; 
   constructor(public dishSvc: DishService, private confirmationService: ConfirmationService, private msgService: MessageService) { }
   dishList: Dish[] = [];
   uploadedFiles: any[] = [];
   dish: Dish;
-  dishCategory: DishCategory;
+  dishCategory: any;
   isChecked: boolean;
   selectedDishes: Dish[];
   selectedDish: number[] = [];
@@ -32,14 +29,12 @@ export class DishComponent implements OnInit {
     this.loadData();
     this.statuses = [  {label: 'Active', value: 'active'},
     {label: 'InActive', value: 'inActive'}];
-    this.categories = [ {label: 'Starter', value: 'Starter'},
-    {label: 'Main Course', value: 'Main Course'},
-    {label: 'Rice', value: 'Rice'}];
-    this.nonVegTypes = [
+     this.nonVegTypes = [
       { label: "Chicken", value: "chicken" },
       { label: "Mutton", value: "mutton" },
       { label: "Sea Food", value: "seaFood" }
     ];
+    this.fnGetDishCategoy();
   }
   
   loadData() {
@@ -48,10 +43,11 @@ export class DishComponent implements OnInit {
     });
   }
 
-  getClientCategory() {
-    this.dishSvc.getDishCategory().subscribe(x => {
-      this.category = x;
-      console.log(this.categories)
+  fnGetDishCategoy() {
+    this.dishSvc.getDishCategory().subscribe((x:DishCategory[]) => {
+      this.dishCategory = x.map(cItem => { 
+        return { label:cItem.name, value:cItem.name}
+         }) 
     });
   }
   onUpload(event) {
@@ -74,7 +70,7 @@ editDish(dish: Dish) {
   this.dishDialog = true;
 }
 
-// to delete dish item 
+//to delete dish item 
 deleteDish(dish: Dish) { 
   this.confirmationService.confirm({
       message: 'Are you sure you want to delete ' + dish.name + '?',
@@ -83,7 +79,7 @@ deleteDish(dish: Dish) {
       accept: () => {
           this.dishSvc.deleteData(dish.id).subscribe(resp =>{
             if(resp){
-             this.dishList = this.dishList.filter(val => val.name !== dish.name);
+             this.dishList = this.dishList.filter(val => val.id !== dish.id);
              this.msgService.add({severity:'success', summary: 'Successful', detail: 'Dish Deleted', life: 3000});
             }
           })
@@ -91,20 +87,21 @@ deleteDish(dish: Dish) {
   });
 }
 deleteSelectedDishes() {
-  // tslint:disable-next-line:no-debugger
-  debugger;
   this.confirmationService.confirm({
       message: 'Are you sure you want to delete the selected dishes?',
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.dishList = this.dishList.filter(val => !this.selectedDishes.includes(val));
-        this.dishSvc.deleteAll(this.selectedDishes).subscribe(res =>{
-         if(res) {
-         this.selectedDishes = null;
+      this.selectedDishes.map((dishId: Dish) => {
+        debugger
+       this.dishSvc.deleteData(dishId.id).subscribe(resp =>{
+       if(resp){
+          this.selectedDishes = null;
           this.msgService.add({severity:'success', summary: 'Successful', detail: 'Products Deleted', life: 3000});
          }
-       });
+       })
+      })
       }
   });
 }
@@ -116,13 +113,11 @@ hideDialog() {
 }
 
 // add/ update dish 
-saveDish(f) {
-  // tslint:disable-next-line:no-debugger
-  debugger;
+onSubmit(f) {
   this.submitted = true;
-  console.log(this,this.dish);
-  console.log(this.dish.imageUrl);
-  if (this.dish.name.trim()) {
+  if(f.invalid) return;
+  const isNewCategory = this.dishCategory.some(citem => citem.value === this.dish.categories);
+ // if (this.dish.name.trim()) {
       if (this.dish.id) {
         this.dishList[this.findIndexById(this.dish.id)] = this.dish;
         this.dishSvc.update(this.dish).subscribe(resp => {
@@ -130,6 +125,7 @@ saveDish(f) {
             this.msgService.add({severity:'success', summary: 'Successful', detail: 'Dish Updated', life: 3000});
           }
         });
+         
       } else {
           this.dish.id = this.dishList[this.dishList.length - 1].id + 1;
           this.dish.imageUrl = 'product-placeholder.svg';
@@ -139,10 +135,21 @@ saveDish(f) {
             this.msgService.add({severity:'success', summary: 'Successful', detail: 'Dish Created', life: 3000});
             }
           });
+      
+         
       }
 
       this.dishList = [...this.dishList];
       this.dishDialog = false;
+ // }
+  if(!isNewCategory){
+    this.dishSvc.addDishCategory(this.dish.categories).subscribe(resp => {
+      if(resp){
+        this.dishCategory.push({label:this.dish.categories,value:this.dish.categories})
+        this.msgService.add({severity:'success', summary: 'Successful', detail: 'New Category Added', life: 3000});
+
+      }
+    })
   }
 }
 
@@ -158,23 +165,6 @@ findIndexById(id: number) {
   return index;
 }
 
-chkHalfevent(){
- // if(!this.dish.isHalf)
-//  this.dish.halfPrice = null;
-}
-chkFullevent(){
-//  if(!this.dish.isFull)
-  // this.dish.fullPrice = null;
-}
-
-// checkClicked(val){
-//   if(val){
-//     this.test = false;
-//   } else{
-//     this.test = true;
-//   }
-//   console.log(val);
-// }
 
 createId(): string {
   let id = '';

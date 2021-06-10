@@ -3,19 +3,17 @@ export interface Dish {
     name?: string;
     description?: string | undefined;
     halfPrice?: number;
-    fullPrice?: number;
-    qty?: number;
-    image?: any;
-    mainCategoryId?: number;
-    mainCategoryName?: string;
-    newCategory?: string;
-    isVeg?: boolean;
-    isHalf?: boolean;
-    isFull?: boolean;
-    imageUrl?: any;
-    nonVegCategory?: string;
+    fullPrice?: number; 
+    image?: any
+    isVeg?:boolean; 
+    imageUrl?:any;
+    nonVegCategory?:string;
     cookingTime?: any;
-    minHr?: string;
+    minHr?: string;   
+    statuses?:string;
+    categories?:string;
+    quantity?:any;
+    serviceTime?: number;
 }
 
 export class DishCategory{
@@ -24,18 +22,6 @@ export class DishCategory{
     public description: string | undefined;
     constructor(
         ) { }
-}
-export interface Product {
-    id?:string;
-    code?:string;
-    name?:string;
-    description?:string;
-    price?:number;
-    quantity?:number;
-    inventoryStatus?:string;
-    category?:string;
-    image?:string;
-    rating?:number;
-}
+} 
  
   

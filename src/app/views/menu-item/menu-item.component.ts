@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Dish,Product } from '../../models/dish';
+// import { Dish,Product } from '../../models/dish';
 import { DishService } from '../../service/dish.service';
 @Component({
   selector: 'app-menu-item',
@@ -7,7 +7,7 @@ import { DishService } from '../../service/dish.service';
   styleUrls: ['./menu-item.component.scss']
 })
 export class MenuItemComponent implements OnInit {
-  products: Product[];
+  // products: Product[];
 	
 	responsiveOptions;
   constructor(private productService: DishService) {

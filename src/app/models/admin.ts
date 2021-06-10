@@ -1,22 +1,25 @@
-export interface Admin{
-businessName?:string;
-category?: string;
-gst?: string;
-address?: string;
-foodLincNum?: string,
-bankDetails?: Bankdetails ,
-id?: number,
-pincode?: number,
-restaurentLogo?:string;
-restaurentSeal?:string;
-signature?:string;
-termAndCondition?:string;
+export class Admin{
+  constructor(
+public businessName?:string,
+public category?: string,
+public gst?: string,
+public address?: string,
+public foodLincNum?: string,
+public id?: number,
+public pincode?: number,
+public restaurentLogo?:string,
+public restaurentSeal?:string,
+public signature?:string,
+public termAndCondition?:string,
+public bankDetails?: Bankdetails
+  ){}
 }
-export interface Bankdetails {
-    accountName?: string,
-    accountNumber?: number,
-    bankName?: string,
-    ifscCode?: string,
-    UPICodeImg?:string;
-    UPICodeNumber?:string;
+export class Bankdetails {
+  constructor(
+    public accountName?: string,
+    public accountNumber?: number,
+    public bankName?: string,
+    public ifscCode?: string,
+    public UPICodeImg?:string,
+    public UPICodeNumber?:string){}
   }

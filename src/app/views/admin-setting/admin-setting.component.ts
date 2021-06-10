@@ -3,7 +3,9 @@ import { NgForm } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
 // import { Client, ClientBankDetails, CLientCategory } from './../../models/client';
 import { ClientService } from '../../service/client.service';
-import { Admin } from '../../models/admin';
+import { Admin, Bankdetails } from '../../models/admin';
+import { MessageService } from 'primeng/api';
+import { CommonService } from '../../service/common.service';
 
 @Component({
   selector: 'app-admin-setting',
@@ -12,9 +14,19 @@ import { Admin } from '../../models/admin';
 })
 export class AdminSettingComponent implements OnInit {
   @ViewChild('largeModal') public largeModal: ModalDirective;
-
-  constructor(public clientSvc: ClientService) { }
-  client: Admin;
+  @ViewChild('f') form: any;
+  admin: Admin;
+  states: { label: string; value: string; }[];
+  cities: { label: string; value: string; }[];
+  constructor(
+    public clientSvc: ClientService,
+    private msgService: MessageService,
+    private commonService: CommonService
+    ) { 
+    this.admin = new Admin();
+    this.admin.bankDetails = new Bankdetails();
+   }
+  
   categories:any;
   isEdit: boolean;
 
@@ -22,11 +34,15 @@ export class AdminSettingComponent implements OnInit {
 
   ngOnInit(): void { 
     this.clientSvc.getClientList().subscribe(resp => {
-      if(resp.length > 0){
-        this.client = resp[resp.length-1]
+      if(resp.length > 0){  
+       const adminItm = resp[resp.length-1];
+        adminItm.id = 1;
+       this.admin = adminItm;
       }
     })
     this.getClientCategory();
+    this.fnGetCitiesList();
+    this.fnGetStatesList();
   }
 
   getClientCategory() {
@@ -34,24 +50,42 @@ export class AdminSettingComponent implements OnInit {
     this.clientSvc.getClientCategory().subscribe(x => {
       this.categories = x.map(cItem => { 
         return { label:cItem.name, value:cItem.name}
-         }) 
-      console.log(this.categories)
+         })  
     });
    
   }
 
-  saveAdmin(d){ 
-    if(!d.id){
-      this.clientSvc.AddClient(d).subscribe(resp => {
-
+  onSubmit(fData:any){ 
+    if(fData.invalid) return;
+    let f = fData.value ;
+    if(!this.admin.id){
+      this.clientSvc.AddClient(f).subscribe(resp => {
+        if(resp){
+          this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Added!', life: 3000});
+        }
       });
     } else { 
-      this.clientSvc.updateCLient(d).subscribe(resp => {
+      f.id = this.admin.id;
+      this.clientSvc.updateCLient(f).subscribe(resp => {
+        this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Updated!', life: 3000});
 
       });
-    }
-    
+    } 
   }
 
+  fnGetCitiesList(){
+    this.commonService.getCities().subscribe(x => {
+      this.cities = x.map(cItem => {
+        return { label: cItem.name, value: cItem.name }
+      }) 
+    });
+  }
+  fnGetStatesList(){
+    this.commonService.getStates().subscribe(x => {
+      this.states = x.map(cItem => {
+        return { label: cItem.name, value: cItem.name }
+      }) 
+    });
+  }
 
 }

@@ -32,16 +32,6 @@ export class DishService {
   //#region Method
   // Adding new data
   Add(dish: Dish): Observable<Dish> {
-    if(dish.mainCategoryId == 0 && dish.mainCategoryName !="" ){
-      let category = new  DishCategory();
-      category.name = dish.mainCategoryName; 
-      this.httpClient.post<Dish>(this.categoryUrl, category).pipe(
-        map(x => {
-          console.log(x);          
-        }),
-        catchError(this.handleError('', dish))
-      );
-    }
     return this.httpClient.post<Dish>(this.url, dish).pipe(
       map(x => {
         this.dishList.push(x);
@@ -67,12 +57,6 @@ export class DishService {
     return this.httpClient.delete<Dish>(`${this.url}/${id}`).pipe(catchError(this.handleError))
   }
 
-  deleteAll(value: any[]){
-    for(let i = 0 ; i <= value.length; i++){
-      return this.httpClient.delete<Dish>(`${this.url}/${value[i]}`).pipe(catchError(this.handleError));
-    }
-    
-  }
   handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
@@ -82,11 +66,12 @@ export class DishService {
     };
   }
 
-
+//edit the dish item
   edit(id: number): Dish {
     return this.dishList.find(i => i.id == id);
   }
 
+  // get all dish list
   getList(): Observable<Dish[]> {
     return this.httpClient.get<Dish[]>(this.url).pipe(
       map(x => {
@@ -96,6 +81,7 @@ export class DishService {
     );
   }
 
+  // get dishcategory list
   getDishCategory(): Observable<DishCategory[]> {
     return this.httpClient.get<DishCategory[]>(this.categoryUrl).pipe(
       map(x => {
@@ -104,7 +90,19 @@ export class DishService {
     );
   }
 
-
+  // add new dishcategory
+  addDishCategory(CategoryItm:string): Observable<any>{
+      
+      let category = new DishCategory(); 
+      category.name = CategoryItm;
+      return this.httpClient.post<Dish>(this.categoryUrl, category).pipe(
+        map(x => {
+          console.log(x);          
+        }),
+        catchError(this.handleError('', CategoryItm))
+      );
+   
+  }
 
 
   openModal() {

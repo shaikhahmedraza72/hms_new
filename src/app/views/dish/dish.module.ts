@@ -1,6 +1,4 @@
-import { NgModule } from '@angular/core'; 
-
-import { DishAddComponent } from './add.component';
+import { NgModule } from '@angular/core';  
 import { DishRoutingModule } from './dish-routing.module';
 import { DishComponent } from './dish.component';
 import { SharedModule} from './../../shared/shared.module';
@@ -10,6 +8,6 @@ import { SharedModule} from './../../shared/shared.module';
     DishRoutingModule,
     
   ],
-  declarations: [ DishAddComponent, DishComponent ]
+  declarations: [DishComponent ]
 })
 export class DashboardModule { }
