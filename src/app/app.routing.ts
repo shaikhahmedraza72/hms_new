@@ -11,6 +11,7 @@ import { LoginComponent } from './views/login/login.component';
 import { MenuItemComponent } from './views/menu-item/menu-item.component';
 import { RegisterComponent } from './views/register/register.component';
 import { UserConfigComponent } from './views/user-config/user-config.component';
+import { UserFeedbackComponent } from './views/user-feedback/user-feedback.component';
 
 export const routes: Routes = [
   {
@@ -66,6 +67,10 @@ export const routes: Routes = [
   {
     path: 'UserConfig',
     component: UserConfigComponent,
+  },
+  {
+    path: 'UserFeedback',
+    component: UserFeedbackComponent,
   },
   // {
   //   path: '',

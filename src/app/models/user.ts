@@ -16,3 +16,8 @@ export interface State {
     id?: number;
     name: string;
 }
+
+export interface UserFeedback {
+    ratings?: number;
+    opinionText?: string;
+}

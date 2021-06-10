@@ -43,6 +43,7 @@ import { AppRoutingModule,  routingComponents} from './app.routing';
 import { ClientConfigComponent } from './views/client-config/client-config.component';
 import { AdminSettingComponent } from './views/admin-setting/admin-setting.component';
 import { UserConfigComponent } from './views/user-config/user-config.component';
+import { UserFeedbackComponent } from './views/user-feedback/user-feedback.component';
 
 // import { SearchFilterPipe } from './helpers/search-filter.pipe';
 
@@ -79,6 +80,7 @@ import { UserConfigComponent } from './views/user-config/user-config.component';
     ClientConfigComponent,
     AdminSettingComponent,
     UserConfigComponent,
+    UserFeedbackComponent,
 
    // EndUserComponent
   ],

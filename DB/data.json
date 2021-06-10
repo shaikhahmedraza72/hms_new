@@ -127,19 +127,6 @@
       "description": "Chicken Nizami Kebab (5 Pcs.)",
       "id": 10,
       "imageUrl": "product-placeholder.svg"
-    },
-    {
-      "name": "Chicken Zafrani Kebab (5 Pcs.)",
-      "statuses": "active",
-      "categories": "Starter (Chicken)",
-      "nonVegCategory": "chicken",
-      "fullPrice": 430,
-      "halfPrice": null,
-      "quantity": 1,
-      "serviceTime": 20,
-      "description": "Chicken Nizami Kebab (5 Pcs.)",
-      "id": 11,
-      "imageUrl": "product-placeholder.svg"
     }
   ],
   "dishCategory": [
@@ -175,7 +162,6 @@
     }
   ],
   "client": [
-    
     {
       "businessName": "Khana Restaurent",
       "category": "Restaurent",
