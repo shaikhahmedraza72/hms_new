@@ -9,14 +9,13 @@ export interface Dish {
     mainCategoryId?: number;
     mainCategoryName?: string;
     newCategory?: string;
-    isVeg?:boolean;
-    isHalf?:boolean;
-    isFull?:boolean;
-    imageUrl?:any;
-    nonVegCategory?:string;
+    isVeg?: boolean;
+    isHalf?: boolean;
+    isFull?: boolean;
+    imageUrl?: any;
+    nonVegCategory?: string;
     cookingTime?: any;
     minHr?: string;
-    
 }
 
 export class DishCategory{

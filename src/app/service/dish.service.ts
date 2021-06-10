@@ -67,6 +67,12 @@ export class DishService {
     return this.httpClient.delete<Dish>(`${this.url}/${id}`).pipe(catchError(this.handleError))
   }
 
+  deleteAll(value: any[]){
+    for(let i = 0 ; i <= value.length; i++){
+      return this.httpClient.delete<Dish>(`${this.url}/${value[i]}`).pipe(catchError(this.handleError));
+    }
+    
+  }
   handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);

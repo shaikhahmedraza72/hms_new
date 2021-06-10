@@ -74,7 +74,7 @@ editDish(dish: Dish) {
   this.dishDialog = true;
 }
 
-//to delete dish item 
+// to delete dish item 
 deleteDish(dish: Dish) { 
   this.confirmationService.confirm({
       message: 'Are you sure you want to delete ' + dish.name + '?',
@@ -91,19 +91,20 @@ deleteDish(dish: Dish) {
   });
 }
 deleteSelectedDishes() {
+  // tslint:disable-next-line:no-debugger
+  debugger;
   this.confirmationService.confirm({
       message: 'Are you sure you want to delete the selected dishes?',
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.dishList = this.dishList.filter(val => !this.selectedDishes.includes(val));
-
-       // this.dishSvc.deleteData().subscribe(resp =>{
-       ///   if(resp){
-          this.selectedDishes = null;
+        this.dishSvc.deleteAll(this.selectedDishes).subscribe(res =>{
+         if(res) {
+         this.selectedDishes = null;
           this.msgService.add({severity:'success', summary: 'Successful', detail: 'Products Deleted', life: 3000});
-      //    }
-   //     })
+         }
+       });
       }
   });
 }
@@ -116,7 +117,8 @@ hideDialog() {
 
 // add/ update dish 
 saveDish(f) {
-  debugger
+  // tslint:disable-next-line:no-debugger
+  debugger;
   this.submitted = true;
   console.log(this,this.dish);
   console.log(this.dish.imageUrl);
@@ -128,7 +130,6 @@ saveDish(f) {
             this.msgService.add({severity:'success', summary: 'Successful', detail: 'Dish Updated', life: 3000});
           }
         });
-         
       } else {
           this.dish.id = this.dishList[this.dishList.length - 1].id + 1;
           this.dish.imageUrl = 'product-placeholder.svg';
@@ -138,8 +139,6 @@ saveDish(f) {
             this.msgService.add({severity:'success', summary: 'Successful', detail: 'Dish Created', life: 3000});
             }
           });
-      
-         
       }
 
       this.dishList = [...this.dishList];
@@ -165,7 +164,7 @@ chkHalfevent(){
 }
 chkFullevent(){
 //  if(!this.dish.isFull)
-  //this.dish.fullPrice = null;
+  // this.dish.fullPrice = null;
 }
 
 // checkClicked(val){
