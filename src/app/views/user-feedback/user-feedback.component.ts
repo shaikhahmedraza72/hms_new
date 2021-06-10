@@ -7,8 +7,9 @@ import { User, UserFeedback } from '../../models/user';
   styleUrls: ['./user-feedback.component.scss']
 })
 export class UserFeedbackComponent implements OnInit {
-  userFeedback: UserFeedback;
-  // userFeedback.ratings = 2;
+  // userFeedback: UserFeedback;
+ 
+  ratings: number = 2;
 
   constructor() { }
 

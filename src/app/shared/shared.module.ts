@@ -32,6 +32,7 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import {TagModule} from 'primeng/tag';
 import {InputMaskModule} from 'primeng/inputmask';
+import {CardModule} from 'primeng/card';
 
 @NgModule({
   declarations: [],
@@ -43,6 +44,7 @@ import {InputMaskModule} from 'primeng/inputmask';
     InputSwitchModule,
     ChartsModule,
     BsDropdownModule,
+    CardModule,
     CarouselModule,
     //ButtonsModule.forRoot(),
     ModalModule.forRoot(),

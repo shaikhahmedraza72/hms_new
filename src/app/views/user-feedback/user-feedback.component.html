@@ -1,10 +1,15 @@
 <p-toast position="bottom-right"></p-toast>
-<div class="p-card">
-    <!-- <div class="card-header">
-        <h2>FeedBack</h2>
-    </div> -->
+<div class="p-card" style="width:50%;">
     <div class="card-body">
-        <h4>Rating</h4>
-        <p-rating [(ngModel)]="val2" [cancel]="false"></p-rating>
+        <div class="p-grid p-flex-column">
+            <div class="p-col">
+                <h4>Rating</h4>
+                <p-rating [(ngModel)]="ratings" [cancel]="false"></p-rating>
+            </div>
+            <div class="p-col">
+                <h5>Your Review</h5>
+                <textarea rows="5" cols="30" style="width: 100%;" pInputTextarea></textarea>
+            </div>
+        </div>
     </div>
 </div>
