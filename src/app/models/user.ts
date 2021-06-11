@@ -20,4 +20,5 @@ export interface State {
 export interface UserFeedback {
     ratings?: number;
     opinionText?: string;
+    reviewTitle?: string;
 }

@@ -1,32 +1,6 @@
 {
   "dish": [
     {
-      "id": 1,
-      "name": "Chicken Tikka Roll",
-      "fullPrice": 425,
-      "qty": 1,
-      "description": "Chicken Tikka Roll",
-      "statuses": "active",
-      "categories": "Starter (Chicken)",
-      "nonVegCategory": "chicken",
-      "halfPrice": null,
-      "quantity": 1,
-      "serviceTime": 30
-    },
-    {
-      "name": "Reshmi Tikka Roll",
-      "statuses": "active",
-      "categories": "Starter (Chicken)",
-      "nonVegCategory": "chicken",
-      "fullPrice": 425,
-      "halfPrice": null,
-      "quantity": 1,
-      "serviceTime": 30,
-      "description": "Reshmi Tikka Roll",
-      "id": 2,
-      "imageUrl": "product-placeholder.svg"
-    },
-    {
       "name": "Malai Tikka Roll",
       "statuses": "active",
       "categories": "Starter (Chicken)",

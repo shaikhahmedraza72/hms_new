@@ -1,24 +1,95 @@
-<p-toast position="bottom-right"></p-toast>
 <div class="p-card" style="width:50%;">
     <div class="card-body">
         <div class="p-grid p-flex-column">
             <div class="p-col">
-                <h4>Rating</h4>
-                <p-rating [(ngModel)]="ratings" [cancel]="false"></p-rating>
+                <h5>Rating</h5>
+                <p-rating [(ngModel)]="userFeedback.ratings" [cancel]="false"></p-rating>
             </div>
             <div class="p-col">
                 <h5>Your Review</h5>
-                <textarea rows="5" cols="30" style="width: 100%;" pInputTextarea></textarea>
+                <textarea [(ngModel)]="userFeedback.opinionText" rows="5" cols="30" style="width: 100%;" pInputTextarea></textarea>
             </div>
             <div class="p-col">
                 <h5>Give your review a title</h5>
                 <span class="p-input-icon-right">
                     <i class="pi pi-pencil"></i>
-                    <input type="text" pInputText />
+                    <input [(ngModel)]="userFeedback.reviewTitle" type="text" pInputText />
                 </span>
+            </div>
+
+            <!-- <div class="p-col">
+                <span>
+                    <p-checkbox [(ngModel)]="checked" binary="true" inputId="termsCond"></p-checkbox>
+                </span>
+                <label for="termsCond">I confirm this review is about my own genuine experience. I am eligible to
+                leave this review, and have not been offered any incentive or payment to leave a review for this
+                company.</label>
+            </div> -->
+            <div class="p-col">
+
+                <p-checkbox [(ngModel)]="checked" inputId="termsCond"></p-checkbox>
+                <label for="termsCond">
+                    I confirm this review is about my own genuine experience. I am eligible to leave
+                    this review, and have not been offered any incentive or payment to leave a review for this company.
+                </label>
             </div>
             <div class="p-col">
                 <p-button label="Post Your Review" style="width: 100%;" icon="pi pi-check" iconPos="left" (ngSubmit)="submitFeedback()"></p-button>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="p-card" style="width:50%;">
+    <div class="card-body">
+        <div class="p-grid">
+            <span>
+                <div class="p-col">
+                    <img src="https://png.pngtree.com/png-vector/20190710/ourlarge/pngtree-user-vector-avatar-png-image_1541962.jpg"
+                        alt="Sample_User_Icon" style="border-radius: 50%; width:50px">
+                </div>
+            </span>
+            <div class="p-col">
+                <div class="box">
+                    <section>
+                        <b>User Name</b><br><span>Number_of_Reviews</span>
+                    </section>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="p-grid">
+            <div class="p-col">
+                <p-rating [ngModel]="val3" readonly="true" stars="5" [cancel]="false"></p-rating>
+            </div>
+            <div class="p-jc-end">
+                Time Stamp
+            </div>
+        </div>
+        <div class="p-grid p-flex-column">
+            <div class="p-col">
+                <h5>
+                    Review title.
+                </h5>
+            </div>
+            <div class="p-col">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet temporibus alias consectetur fugiat asperiores, molestiae rerum nemo quam repudiandae, officia maxime enim. Vero expedita eveniet eum, reprehenderit ut recusandae! Porro,
+                    aspernatur ullam animi esse libero repellat adipisci natus accusamus quibusdam.</p>
+            </div>
+        </div>
+        <hr>
+        <div class="p-grid p-jc-star">
+            <div class="p-col-2">
+                <a href="#"><i class="pi pi-pencil" style="width:1.2rem" id="edit"></i><label
+                        for="edit">Reply</label></a>
+            </div>
+            <div class="p-col-2">
+                <a href="#"><i class="pi pi-thumbs-up" style="width:1.2rem" id="edit"></i><label
+                        for="edit">Useful</label></a>
+            </div>
+            <div class="p-col-2">
+                <a href="#"><i class="pi pi-share-alt" style="width:1.2rem" id="edit"></i><label
+                        for="edit">Share</label></a>
             </div>
         </div>
     </div>

@@ -7,13 +7,19 @@ import { User, UserFeedback } from '../../models/user';
   styleUrls: ['./user-feedback.component.scss']
 })
 export class UserFeedbackComponent implements OnInit {
-  // userFeedback: UserFeedback;
- 
-  ratings: number = 2;
+  userFeedback: UserFeedback;
+  checked: boolean;
+  // ratings: number = 2;
 
+  val3: number = 2;
   constructor() { }
 
   ngOnInit(): void {
+    this.userFeedback = {}
+    this.userFeedback.ratings = 0;
+    this.userFeedback.opinionText = "";
+    this.userFeedback.reviewTitle = "";
+    console.log(this.userFeedback);
   }
 
   submitFeedback(){
