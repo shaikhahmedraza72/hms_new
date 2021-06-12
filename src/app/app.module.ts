@@ -80,7 +80,7 @@ import { UserFeedbackComponent } from './views/user-feedback/user-feedback.compo
     ClientConfigComponent,
     AdminSettingComponent,
     UserConfigComponent,
-    UserFeedbackComponent,
+    UserFeedbackComponent
 
    // EndUserComponent
   ],

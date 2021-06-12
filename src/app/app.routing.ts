@@ -72,13 +72,7 @@ export const routes: Routes = [
     path: 'UserFeedback',
     component: UserFeedbackComponent,
   },
-  // {
-  //   path: '',
-  //   component: DefaultLayoutComponent,
-  //   data: {
-  //     title: 'Home'
-  //   },
-  //   children: [
+  
       {
         path: 'dashboard',
         loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)
