@@ -26,21 +26,21 @@
                 company.</label>
             </div> -->
             <div class="p-col">
-
-                <p-checkbox [(ngModel)]="checked" inputId="termsCond"></p-checkbox>
+                <p-checkbox [(ngModel)]="userFeedback.termsAccept" inputId="termsCond"></p-checkbox>
                 <label for="termsCond">
                     I confirm this review is about my own genuine experience. I am eligible to leave
                     this review, and have not been offered any incentive or payment to leave a review for this company.
                 </label>
             </div>
             <div class="p-col">
-                <p-button label="Post Your Review" style="width: 100%;" icon="pi pi-check" iconPos="left" (ngSubmit)="submitFeedback()"></p-button>
+                <p-button label="Post Your Review" style="width: 100%;" icon="pi pi-check" iconPos="left" (click)="submitFeedback()"></p-button>
             </div>
         </div>
     </div>
 </div>
 <br>
-<div class="p-card" style="width:50%;">
+
+<div class="p-card" *ngFor="let list of feedbackList" style="width:50%; margin-bottom: 1.2rem;">
     <div class="card-body">
         <div class="p-grid">
             <span>
@@ -60,7 +60,7 @@
         <hr>
         <div class="p-grid">
             <div class="p-col">
-                <p-rating [ngModel]="val3" readonly="true" stars="5" [cancel]="false"></p-rating>
+                <p-rating [ngModel]="list.ratings" readonly="true" stars="5" [cancel]="false"></p-rating>
             </div>
             <div class="p-jc-end">
                 Time Stamp
@@ -69,12 +69,11 @@
         <div class="p-grid p-flex-column">
             <div class="p-col">
                 <h5>
-                    Review title.
+                    {{list.reviewTitle}}
                 </h5>
             </div>
             <div class="p-col">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet temporibus alias consectetur fugiat asperiores, molestiae rerum nemo quam repudiandae, officia maxime enim. Vero expedita eveniet eum, reprehenderit ut recusandae! Porro,
-                    aspernatur ullam animi esse libero repellat adipisci natus accusamus quibusdam.</p>
+                <p>{{list.opinionText}}</p>
             </div>
         </div>
         <hr>

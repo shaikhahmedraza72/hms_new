@@ -3,7 +3,7 @@ import { Observable, of, Subject } from 'rxjs';
 import { ApiConfig } from '../constant/api';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map } from 'rxjs/internal/operators'; 
-import { City, User } from '../models/user';
+import { User, UserFeedback } from '../models/user';
 
 
 @Injectable({
@@ -13,6 +13,9 @@ export class UserService {
   url = `${ApiConfig.URL}${ApiConfig.USER}`;
   cityUrl = `${ApiConfig.URL}${ApiConfig.CITY}`
   stateUrl = `${ApiConfig.URL}${ApiConfig.STATE}`
+  feedbackUrl = `${ApiConfig.URL}${ApiConfig.USERFEEDBACK}`
+  public feedback: UserFeedback | undefined;
+  public feedbackList: UserFeedback[] = []
   public user: User | undefined;
   public userList: User[] = [];
   modalSubject = new Subject();
@@ -44,7 +47,8 @@ export class UserService {
     );
   }
   deleteUserData(id: number): Observable<User> {
-    return this.http.delete<User>(`${this.url}/${id}`).pipe(catchError(this.handleError));
+    return this.http.delete<User>(`${this.url}/${id}`).pipe(
+      catchError(this.handleError('', this.user)));
   }
 
   getUserList(): Observable<User[]> {
@@ -56,21 +60,30 @@ export class UserService {
     );
   }
 
-  getCities(): Observable<City[]> {
-    return this.http.get<City[]>(this.cityUrl).pipe(
+  getFeedbacklist(): Observable<UserFeedback[]> {
+    return this.http.get<UserFeedback[]>(this.feedbackUrl).pipe(
       map(x => {
-        return x;
+        this.feedbackList = x;
+        return this.feedbackList;
       })
-    );
+    )
   }
 
-  getStates(): Observable<City[]> {
-    return this.http.get<City[]>(this.stateUrl).pipe(
-      map(x => {
-        return x;
-      })
-    );
-  }
+  // getCities(): Observable<City[]> {
+  //   return this.http.get<City[]>(this.cityUrl).pipe(
+  //     map(x => {
+  //       return x;
+  //     })
+  //   );
+  // }
+
+  // getStates(): Observable<City[]> {
+  //   return this.http.get<City[]>(this.stateUrl).pipe(
+  //     map(x => {
+  //       return x;
+  //     })
+  //   );
+  // }
   editEndUser(id: number): User {
     return this.userList.find(i => i.id === id);
   }
@@ -82,5 +95,15 @@ export class UserService {
 
       return of(result as T);
     };
+  }
+
+  postReview(feedback: UserFeedback): Observable<UserFeedback>{
+    return this.http.post<UserFeedback>(`${this.feedbackUrl}`, feedback).pipe(
+      map(x => {
+        this.feedbackList.push(x);
+        return feedback;
+      }),
+      catchError(this.handleError('', feedback))
+    );
   }
 }

@@ -54,7 +54,8 @@ export class DishService {
   }
 
   deleteData(id: number): Observable<Dish> {
-    return this.httpClient.delete<Dish>(`${this.url}/${id}`).pipe(catchError(this.handleError))
+    return this.httpClient.delete<Dish>(`${this.url}/${id}`).pipe(
+      catchError(this.handleError('', this.dish)))
   }
 
   handleError<T>(operation = 'operation', result?: T) {
@@ -103,7 +104,6 @@ export class DishService {
       );
    
   }
-
 
   openModal() {
     this.modalSubject.next();

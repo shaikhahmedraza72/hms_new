@@ -9,5 +9,6 @@ export class ApiConfig {
     public static USER = 'user'
     public static CITY = 'city'
     public static STATE = 'state'
+    public static USERFEEDBACK = 'userFeedback'
 }
 

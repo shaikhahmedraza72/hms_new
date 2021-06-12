@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { UserService } from '../../service/user.service';
+import { CommonService } from '../../service/common.service'
 
 @Component({
   selector: 'app-user-config',
@@ -16,7 +17,7 @@ export class UserConfigComponent implements OnInit {
   selectedUsers: User[];
   cities: any;
   states: any;
-  constructor(public userSvc: UserService, private msgService: MessageService, private confirmationService: ConfirmationService) { }
+  constructor(public userSvc: UserService,public commonSvc: CommonService, private msgService: MessageService, private confirmationService: ConfirmationService) { }
 
   ngOnInit(): void {
     this.loadData();
@@ -65,8 +66,11 @@ export class UserConfigComponent implements OnInit {
     if (this.user.userName.trim()) {
       if (this.user.id) {
         this.userSvc.updateUser(this.user).subscribe(res => {
-          this.userList[this.findIndexById(this.user.id)] = this.user;
-          this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'user Updated', life: 3000 });
+          if(res){
+            this.userList[this.findIndexById(this.user.id)] = this.user;
+            this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'user Updated', life: 3000 });
+          }
+         
         })
 
       } else {
@@ -98,7 +102,7 @@ export class UserConfigComponent implements OnInit {
 
   getCities() {
     // const cArray = [];
-    this.userSvc.getCities().subscribe(x => {
+    this.commonSvc.getCities().subscribe(x => {
       this.cities = x.map(cItem => {
         return { label: cItem.name, value: cItem.name }
       })
@@ -109,7 +113,7 @@ export class UserConfigComponent implements OnInit {
 
   getStates() {
     // const cArray = [];
-    this.userSvc.getStates().subscribe(x => {
+    this.commonSvc.getStates().subscribe(x => {
       this.states = x.map(cItem => {
         return { label: cItem.name, value: cItem.name }
       })
