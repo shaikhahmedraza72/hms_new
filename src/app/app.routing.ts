@@ -86,6 +86,10 @@ export const routes: Routes = [
         path: 'users',
         loadChildren: () => import('./views/user/user.module').then(m => m.UserModule)
       },
+      {
+        path: 'masterAdmin',
+        loadChildren: () => import('./views/master-admin/master-admin.module').then(m => m.MasterAdminModule)
+      },
   { path: '**', component: P404Component }
 ];
 

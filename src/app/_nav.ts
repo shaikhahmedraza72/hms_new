@@ -15,6 +15,11 @@ export const navItems: INavData[] = [
     name: 'Theme'
   },
   {
+    name: 'Master Admin',
+    url: '/masterAdmin',
+    icon: 'icon-drop'
+  },
+  {
     name: 'Dishes',
     url: '/dish',
     icon: 'icon-drop'
@@ -34,4 +39,5 @@ export const navItems: INavData[] = [
     url: '/admin-setting',
     icon: 'icon-drop'
   },
+
 ];

@@ -367,13 +367,13 @@
   ],
   "user": [
     {
-      "userName": "RNAME",
-      "email": "rNMAE@g.ocm",
-      "contact": 9876543456,
+      "userName": "Test User",
+      "email": "test@mail.com",
+      "contact": 1234567890,
       "cities": "Mumbai",
+      "address": "Test Address",
       "states": "Maharashtra",
-      "pincode": 4,
-      "address": "Addresss",
+      "pincode": 400008,
       "id": 1
     }
   ],
@@ -428,6 +428,32 @@
       "opinionText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
       "reviewTitle": "Card 5",
       "id": 5
+    },
+    {
+      "termsAccept": [
+        null
+      ],
+      "ratings": 4,
+      "opinionText": "New Card",
+      "reviewTitle": "New Card",
+      "id": 6
+    },
+    {
+      "termsAccept": [
+        null
+      ],
+      "ratings": 1,
+      "opinionText": "Card 6",
+      "reviewTitle": "Card 6",
+      "id": 7
+    }
+  ],
+  "masterAdmin": [
+    {
+      "id": 1,
+      "adminEmail": "TestAdmin@mail.com",
+      "adminPassword": "password",
+      "adminContact": 8956247859
     }
   ]
 }

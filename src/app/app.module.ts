@@ -41,7 +41,9 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { AppRoutingModule,  routingComponents} from './app.routing';
 import { ClientConfigComponent } from './views/client-config/client-config.component';
-import { AdminSettingComponent } from './views/admin-setting/admin-setting.component'; 
+import { AdminSettingComponent } from './views/admin-setting/admin-setting.component';
+import { MasterAdminModule } from '../app/views/master-admin/master-admin.module'
+// import { MasterAdminComponent } from './views/master-admin/master-admin.component'; 
 
 // import { SearchFilterPipe } from './helpers/search-filter.pipe';
 
@@ -66,7 +68,8 @@ import { AdminSettingComponent } from './views/admin-setting/admin-setting.compo
     IconModule,
     IconSetModule.forRoot(),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MasterAdminModule
   ],
   declarations: [
     AppComponent, 
@@ -76,7 +79,8 @@ import { AdminSettingComponent } from './views/admin-setting/admin-setting.compo
     RegisterComponent,
     routingComponents,
     ClientConfigComponent,
-    AdminSettingComponent
+    AdminSettingComponent,
+    // MasterAdminComponent
 
    // EndUserComponent
   ],

@@ -1,0 +1,34 @@
+<p-toast position="bottom-right"></p-toast>
+<div class="p-card" style="width: 50%;">
+    <div class="card-body">
+        <form name="adminForm" novalidate #val="ngForm" (ngSubmit)="onSubmit(val)">
+            <h5>Master Admin Login Credentials</h5>
+            <div class="p-field p-grid">
+                <label for="email" class="p-col-fixed" style="width:100px">Email</label>
+                <div class="p-col">
+                    <input id="email" name="email" [(ngModel)]="masterAdmin.adminEmail" placeholder="Email" type="email" #adminEmail="ngModel" pInputText required autofocus>
+                    <div *ngIf="adminEmail.touched && adminEmail.invalid && val.submitted"> <small class="p-error p-error-danger" *ngIf="adminEmail.errors.required">Email is required.</small> </div>
+                </div>
+            </div>
+            <div class="p-field p-grid">
+                <label for="password" class="p-col-fixed" style="width:100px">Password</label>
+                <div class="p-col">
+                    <input id="password" name="password" [(ngModel)]="masterAdmin.adminPassword" placeholder="Password" type="password" #adminPassword="ngModel" pInputText required autofocus>
+                    <div *ngIf="adminPassword.touched && adminPassword.invalid && val.submitted"> <small class="p-error p-error-danger" *ngIf="adminPassword.errors.required">Password is required.</small> </div>
+                </div>
+            </div>
+            <div class="p-field p-grid">
+                <label for="adminContact" class="p-col-fixed" style="width:100px">Contact</label>
+                <div class="p-col">
+                    <p-inputNumber maxlength="10" [(ngModel)]="masterAdmin.adminContact" placeholder="contact" name="contact" mode="decimal" inputId="withoutgrouping" #adminContact="ngModel" [useGrouping]="false" required autofocus>
+                    </p-inputNumber>
+                    <div *ngIf="adminContact.touched && adminContact.invalid && val.submitted"> <small class="p-error p-error-danger" *ngIf="adminContact.errors.required">Contact is required.</small> </div>
+                </div>
+            </div>
+            <div class="p-card-footer p-text-center">
+                <button pButton pRipple label="Login" icon="pi pi-check" class="p-button p-button-raised"></button>
+                <button pButton pRipple label="Reset" icon="pi pi-times" class="p-button-danger p-button-raised" type="reset"></button>
+            </div>
+        </form>
+    </div>
+</div>
