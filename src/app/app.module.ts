@@ -41,9 +41,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { AppRoutingModule,  routingComponents} from './app.routing';
 import { ClientConfigComponent } from './views/client-config/client-config.component';
-import { AdminSettingComponent } from './views/admin-setting/admin-setting.component';
-import { UserConfigComponent } from './views/user-config/user-config.component';
-import { UserFeedbackComponent } from './views/user-feedback/user-feedback.component';
+import { AdminSettingComponent } from './views/admin-setting/admin-setting.component'; 
 
 // import { SearchFilterPipe } from './helpers/search-filter.pipe';
 
@@ -78,9 +76,7 @@ import { UserFeedbackComponent } from './views/user-feedback/user-feedback.compo
     RegisterComponent,
     routingComponents,
     ClientConfigComponent,
-    AdminSettingComponent,
-    UserConfigComponent,
-    UserFeedbackComponent
+    AdminSettingComponent
 
    // EndUserComponent
   ],

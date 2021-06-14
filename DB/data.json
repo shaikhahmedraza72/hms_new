@@ -365,7 +365,18 @@
       "address": "addr3"
     }
   ],
-  "user": [],
+  "user": [
+    {
+      "userName": "RNAME",
+      "email": "rNMAE@g.ocm",
+      "contact": 9876543456,
+      "cities": "Mumbai",
+      "states": "Maharashtra",
+      "pincode": 4,
+      "address": "Addresss",
+      "id": 1
+    }
+  ],
   "city": [
     {
       "id": 1,
