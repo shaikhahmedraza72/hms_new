@@ -25,13 +25,17 @@
                 leave this review, and have not been offered any incentive or payment to leave a review for this
                 company.</label>
             </div> -->
-            <div class="p-col">
-                <p-checkbox [(ngModel)]="userFeedback.termsAccept" inputId="termsCond"></p-checkbox>
-                <label for="termsCond">
-                    I confirm this review is about my own genuine experience. I am eligible to leave
-                    this review, and have not been offered any incentive or payment to leave a review for this company.
-                </label>
-            </div>
+            <div class="p-grid">
+                <div class="p-col-fixed" style="width: 25px;">
+                    <p-checkbox [(ngModel)]="userFeedback.termsAccept" inputId="termsCond"></p-checkbox>
+                </div>
+                <div class="p-col">
+                    <label for="termsCond">
+                        I confirm this review is about my own genuine experience. I am eligible to leave
+                        this review, and have not been offered any incentive or payment to leave a review for this company.
+                    </label>
+                </div>         
+            </div>   
             <div class="p-col">
                 <p-button label="Post Your Review" style="width: 100%;" icon="pi pi-check" iconPos="left" (click)="submitFeedback()"></p-button>
             </div>
