@@ -11,5 +11,6 @@ export class ApiConfig {
     public static STATE = 'state'
     public static USERFEEDBACK = 'userFeedback'
     public static MASTERADMIN = 'masterAdmin'
+    public static USERLOGIN = 'userLogin'
 }
 

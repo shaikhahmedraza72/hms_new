@@ -25,7 +25,7 @@ export class MasterAdminService {
     )
   }
   addAdmin(admin : MasterAdmin): Observable<MasterAdmin> {
-    return this.http.post<MasterAdmin>(this.url, admin).pipe(
+    return this.http.post<MasterAdmin>(`${this.url}`, admin).pipe(
       map( x => {
         this.adminList.push(x);
         return admin;
@@ -34,7 +34,9 @@ export class MasterAdminService {
     );
   }
   updateAdmin(admin: MasterAdmin): Observable<MasterAdmin> {
-    return this.http.put<MasterAdmin>(`${this.url}/${this.admin.id}`, admin).pipe(
+    // tslint:disable-next-line:no-debugger
+    debugger;
+    return this.http.put<MasterAdmin>(`${this.url}`, admin).pipe(
       map(x => {
         const index = this.adminList.findIndex(i => i.id === x.id);
         this.adminList[index] = x;
@@ -47,7 +49,6 @@ export class MasterAdminService {
     return (error: any): Observable<T> => {
       console.error(error);
       //  this.log(`${operation} failed: ${error.message}`);
-
       return of(result as T);
     };
   }

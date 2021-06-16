@@ -7,7 +7,7 @@ import { TermsComponent } from './views/client/terms.component';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
-import { LoginComponent } from './views/login/login.component';
+import { LoginComponent } from './views/login/userLogin.component';
 import { MenuItemComponent } from './views/menu-item/menu-item.component';
 import { RegisterComponent } from './views/register/register.component'; 
 
@@ -89,6 +89,10 @@ export const routes: Routes = [
       {
         path: 'masterAdmin',
         loadChildren: () => import('./views/master-admin/master-admin.module').then(m => m.MasterAdminModule)
+      },
+      {
+        path: 'userLogin',
+        loadChildren: () => import('./views/login/user-module.module').then(m => m.UserModuleModule)
       },
   { path: '**', component: P404Component }
 ];

@@ -142,33 +142,6 @@
       "description": "Chicken Nizami Kebab (5 Pcs.)",
       "id": 11,
       "imageUrl": "product-placeholder.svg"
-    },
-    {
-      "name": "Chiken Bhuna",
-      "statuses": "active",
-      "categories": "Chicken (Bhuna)",
-      "nonVegCategory": "chicken",
-      "fullPrice": 120,
-      "halfPrice": null,
-      "quantity": 1,
-      "serviceTime": 20,
-      "description": "Tasty Food",
-      "id": 12,
-      "imageUrl": "product-placeholder.svg"
-    },
-    {
-      "name": "Kuch Naya",
-      "statuses": "active",
-      "categories": "Kuch New Wala",
-      "nonVegCategory": "chicken",
-      "fullPrice": 100,
-      "halfPrice": null,
-      "quantity": 1,
-      "serviceTime": 20,
-      "description": "Something",
-      "id": 13,
-      "imageUrl": "product-placeholder.svg",
-      "isVeg": true
     }
   ],
   "dishCategory": [
