@@ -22,32 +22,41 @@ export class MasterAdminComponent implements OnInit {
   ngOnInit(): void {
     this.masterAdmin = {adminEmail: '', adminPassword: '', adminContact: 7666478757}; 
     this.mAdminSvc.getAdminDetails().subscribe(res => {
-      if(res.length > 0){
+      if (res.length > 0) {
         const mAdmin = res[res.length - 1];
         mAdmin.id = 1;
         this.masterAdmin = mAdmin;
       }
-    })
+    });
   }
 
   onSubmit(val: any){
     console.log(this.masterAdmin);
-    if(val.invalid) return;
+    // tslint:disable-next-line:no-debugger
+    debugger;
+    if (val.invalid) { return; }
     let v = val.value;
     if(!this.masterAdmin.id){
-      this.mAdminSvc.addAdmin(val).subscribe(res => {
-        if(res){
+      this.mAdminSvc.addAdmin(v).subscribe(res => {
+        if (res) {
           this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Added!', life: 3000});
         }
       });
-    }
-    else {
+    } else {
       v.id = this.masterAdmin.id;
+<<<<<<< HEAD
       this.mAdminSvc.updateAdmin(val).subscribe(res => {
         if(res){
           this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Updated!', life: 3000});
         }
       })
+=======
+      this.mAdminSvc.updateAdmin(v).subscribe(res => {
+        if(res) {
+          this.msgService.add({severity: 'success', summary: 'Successful', detail: 'Admin Details Updated!', life: 3000});
+        }
+      });
+>>>>>>> e4bb0746b299eeef23fcce8d85fcdd409814a79a
     }
   }
 

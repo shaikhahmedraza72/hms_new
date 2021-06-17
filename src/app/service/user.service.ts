@@ -4,6 +4,7 @@ import { ApiConfig } from '../constant/api';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map } from 'rxjs/internal/operators'; 
 import { User, UserFeedback } from '../models/user';
+import { UserLogin } from '../models/userLogin';
 
 
 @Injectable({
@@ -14,6 +15,9 @@ export class UserService {
   cityUrl = `${ApiConfig.URL}${ApiConfig.CITY}`
   stateUrl = `${ApiConfig.URL}${ApiConfig.STATE}`
   feedbackUrl = `${ApiConfig.URL}${ApiConfig.USERFEEDBACK}`
+  loginInfoUrl = `${ApiConfig.URL}${ApiConfig.USERLOGIN}`;
+  public userLoginInfo: UserLogin | undefined;
+  public loginList: UserLogin[] = [];
   public feedback: UserFeedback | undefined;
   public feedbackList: UserFeedback[] = []
   public user: User | undefined;
@@ -22,6 +26,14 @@ export class UserService {
   modalObservable = this.modalSubject.subscribe();
 
   constructor(private http: HttpClient) { }
+  addLoginInfo(user: UserLogin): Observable<UserLogin> {
+    return this.http.post <User>(this.loginInfoUrl, user).pipe(
+      map( x => {
+        this.loginList.push(x);
+        return user;
+      })
+    )
+  }
   AddUser(user: User): Observable<User> {
     return this.http.post<User>(this.url, user).pipe(
       map(x => {
