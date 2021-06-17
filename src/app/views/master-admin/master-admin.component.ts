@@ -13,6 +13,7 @@ import { MessageService } from 'primeng/api';
 export class MasterAdminComponent implements OnInit {
   @ViewChild('f') form: any;
   masterAdmin: MasterAdmin;
+  masterAdminList: MasterAdmin[] = [];
   constructor(
     public mAdminSvc: MasterAdminService,
     public msgService: MessageService
@@ -43,7 +44,9 @@ export class MasterAdminComponent implements OnInit {
     else {
       v.id = this.masterAdmin.id;
       this.mAdminSvc.updateAdmin(val).subscribe(res => {
-        this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Updated!', life: 3000});
+        if(res){
+          this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Updated!', life: 3000});
+        }
       })
     }
   }
