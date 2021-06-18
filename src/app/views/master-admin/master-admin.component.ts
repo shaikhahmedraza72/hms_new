@@ -44,19 +44,11 @@ export class MasterAdminComponent implements OnInit {
       });
     } else {
       v.id = this.masterAdmin.id;
-<<<<<<< HEAD
-      this.mAdminSvc.updateAdmin(val).subscribe(res => {
-        if(res){
-          this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Updated!', life: 3000});
-        }
-      })
-=======
       this.mAdminSvc.updateAdmin(v).subscribe(res => {
         if(res) {
           this.msgService.add({severity: 'success', summary: 'Successful', detail: 'Admin Details Updated!', life: 3000});
         }
       });
->>>>>>> e4bb0746b299eeef23fcce8d85fcdd409814a79a
     }
   }
 
