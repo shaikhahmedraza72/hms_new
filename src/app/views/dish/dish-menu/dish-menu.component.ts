@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PrimeNGConfig, SelectItem } from 'primeng/api';
-import { Dish } from '../../../models/dish';
+import { Dish, DishCategory } from '../../../models/dish';
 import { DishService } from '../../../service/dish.service';
 
 @Component({
@@ -16,6 +16,7 @@ export class DishMenuComponent implements OnInit {
   sortOrder: number;
 
   sortField: string;
+    dishCategory: { label: string; value: string; }[];
 
   constructor(private dishService: DishService, private primengConfig: PrimeNGConfig) { }
 
@@ -23,11 +24,12 @@ export class DishMenuComponent implements OnInit {
       this.dishService.getList().subscribe(data => this.dishes = data);
 
       this.sortOptions = [
-          {label: 'Price High to Low', value: '!price'},
-          {label: 'Price Low to High', value: 'price'}
+          {label: 'Price High to Low', value: '!fullPrice'},
+          {label: 'Price Low to High', value: 'fullPrice'}
       ];
 
       this.primengConfig.ripple = true;
+      this.fnGetDishCategoy();
   }
   
   onSortChange(event) {
@@ -42,5 +44,29 @@ export class DishMenuComponent implements OnInit {
           this.sortField = value;
       }
   }
+  // Get Category
+  fnGetDishCategoy() {
+    this.dishService.getDishCategory().subscribe((x:DishCategory[]) => {
+      this.dishCategory = x.map(cItem => { 
+        return { label:cItem.name, value:cItem.name}
+         }) 
+    });
+  }
+  onCategoryChange(event) {
+    let value = event.value;
 
+    if (value.indexOf('!') === 0) {
+        this.sortOrder = -1;
+        this.sortField = value.substring(1, value.length);
+    }
+    else {
+        this.sortOrder = -1;
+        this.sortField = value;
+    }
+}
+  // Bookmark the menu Item
+
+  fnBookmarkMenu(dish:Dish){
+      dish.bookmark =  !dish.bookmark;
+  }
 }
