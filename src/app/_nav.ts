@@ -15,10 +15,14 @@ export const navItems: INavData[] = [
     name: 'Theme'
   },
   {
-    name: 'Dishes',
+    name: 'Dish Config',
     url: '/dish',
     icon: 'icon-drop'
-  }, {
+  },{
+    name: 'Dish Menu',
+    url: '/dish/dish-menu',
+    icon: 'icon-drop'
+  },  {
     name: 'Users',
     url: '/users',
     icon: 'icon-drop'
