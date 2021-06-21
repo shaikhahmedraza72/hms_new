@@ -14,6 +14,7 @@ export interface Dish {
     categories?:string;
     quantity?:any;
     serviceTime?: number;
+    bookmark?:boolean;
 }
 
 export class DishCategory{

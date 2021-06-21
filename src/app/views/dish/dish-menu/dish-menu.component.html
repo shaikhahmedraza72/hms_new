@@ -1,4 +1,6 @@
 <div class="card">
+    <div class="p-grid">
+    <div class="p-col-9">
     <p-dataView #dv [value]="dishes" [paginator]="true" [rows]="9" filterBy="name"
         [sortField]="sortField" [sortOrder]="sortOrder" layout="list">
         <ng-template pTemplate="header">
@@ -8,6 +10,8 @@
                     <i class="pi pi-search"></i>
                     <input type="search" pInputText placeholder="Search by Name" (input)="dv.filter($event.target.value)">
                 </span>
+                <p-dropdown [options]="dishCategory" [(ngModel)]="categories" placeholder="Sort By Category" (onChange)="onCategoryChange($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
+
                 <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
             </div>
         </ng-template>
@@ -15,9 +19,9 @@
             <div class="p-col-12">
                 <div class="product-list-item">
                    
-                    <div class="">
+                    <div class="imgWrap">
                         <img [src]="dish.imageUrl" alt="{{dish.name}}">
-                       
+                       <span class="icnBookmark" (click)="fnBookmarkMenu(dish)" [ngClass]="{'bMarked':dish.bookmark}"><i class="pi pi-bookmark"></i></span>
                     <div class="mAvailibility" [ngClass]="dish.statuses === 'active' ? '': 'unavailable'"><span>{{dish.statuses === 'active' ? 'Available':'Unavailable'}}</span></div>
                     </div>
 
@@ -25,13 +29,16 @@
                         
                         <div class="product-name"><span class="vegSymbol p-mr-1" [ngClass]="dish.isVeg ? 'txtSuccess':'txtDanger'"> <i class="pi pi-circle-on"></i></span>{{dish.name}}</div>
                         <div class="product-description">{{dish.description}}</div>
-                        <p-rating [ngModel]="dish.rating" [readonly]="true" [cancel]="false"></p-rating>
+                        <!-- <p-rating [ngModel]="dish.rating" [readonly]="true" [cancel]="false"></p-rating> -->
+                        <div><p-tag [value]="dish.rating ? dish.rating : 0" icon="pi pi-star" severity="success"></p-tag> 
+                            <span class="voteTxt">{{dish.rating ? 1 : 0}} votes</span>
+                        </div>
                         <i class="pi pi-tag product-category-icon"></i><span class="product-category">{{dish.categories}}</span>
                     </div>
                     <div class="product-list-action">
                         <span class="product-price">{{dish.fullPrice | currency:'INR'}}</span>
-                        <p-button icon="pi pi-shopping-cart" label="Add to Cart" [disabled]="dish.statuses === 'OUTOFSTOCK'"></p-button>
-                        <!-- <span [class]="'product-badge status-' + dish.statuses.toLowerCase()">{{dish.statuses}}</span> -->
+                        <p-button icon="pi pi-shopping-cart" styleClass="p-button-sm" label="Add to Cart" [disabled]="dish.statuses === 'OUTOFSTOCK'"></p-button>
+                        <div class="timeTxt"><i class="pi pi-clock p-mr-1"></i> {{dish.serviceTime}} mins</div>
 
                     </div>
                 </div>
@@ -45,22 +52,41 @@
                             <i class="pi pi-tag product-category-icon"></i>
                             <span class="product-category">{{dish.categories}}</span>
                         </div>
+                        <div class="timeTxt"><i class="pi pi-clock p-mr-1"></i> {{dish.serviceTime}} mins</div>
+
                         <!-- <span [class]="'product-badge status-' + dish.statuses.toLowerCase()">{{dish.statuses}}</span> -->
                     </div>
                     <div class="product-grid-item-content">
-                        <div class="p-mb-2">
+                        <div class="p-mb-2 imgWrap">
                             <img [src]="dish.imageUrl" alt="{{dish.name}}">
-                           
+                            <span class="icnBookmark" (click)="fnBookmarkMenu(dish)" [ngClass]="{'bMarked':dish.bookmark}"><i class="pi pi-bookmark"></i></span>
                         <div class="mAvailibility" [ngClass]="dish.statuses === 'active' ? '': 'unavailable'"><span>{{dish.statuses === 'active' ? 'Available':'Unavailable'}}</span></div>
                         </div>                        <div class="product-name"><span class="vegSymbol p-mr-1" [ngClass]="dish.isVeg ? 'txtSuccess':'txtDanger'"> <i class="pi pi-circle-on"></i></span>{{dish.name}}</div>
                         <div class="product-description">{{dish.description}}</div>
-                        <p-rating [ngModel]="dish.rating" [readonly]="true" [cancel]="false"></p-rating>
+                        <!-- <p-rating [ngModel]="dish.rating" [readonly]="true" [cancel]="false"></p-rating> -->
+                         <div class="p-mb-1"><p-tag [value]="dish.rating ? dish.rating : 0" icon="pi pi-star" severity="success"></p-tag> 
+                            <span class="voteTxt">{{dish.rating ? 1 : 0}} votes</span>
+                        </div>
                     </div>
                     <div class="product-grid-item-bottom">
                         <span class="product-price">{{dish.fullPrice | currency:'INR'}}</span>
-                        <p-button icon="pi pi-shopping-cart" [disabled]="dish.statuses === 'OUTOFSTOCK'"></p-button>
+                        <p-button styleClass="p-button-sm" icon="pi pi-shopping-cart" [disabled]="dish.statuses === 'OUTOFSTOCK'"></p-button>
                     </div>
                 </div>
             </div>
         </ng-template>
+       
     </p-dataView>
+</div>
+<div class="p-col-3">
+    <div class="cartHeader">
+        Cart Items
+    </div>
+    <div class="cartContent">
+        <p>Order some yummy and delicious food from menu!</p>
+        <!-- <p-button icon="pi pi-arrow" styleClass="p-button-sm" severit="success" label="Checkout" [disabled]="true"></p-button> -->
+
+    </div>
+</div>
+</div>
+</div>

@@ -1,11 +1,56 @@
 :host ::ng-deep {
-    .p-dropdown {
-        width: 14rem;
-        font-weight: normal;
+    .p-nogutter > .p-col, .p-nogutter > [class*=p-col-]{
+        padding:0 !important;
     }
-    
+    .imgWrap{
+        position: relative;
+        img {
+            width: 100%;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+            margin: 0.75rem 0 0;
+            // min-height: 180px;
+            // max-height: 180px;
+        }
+     span.icnBookmark {
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+    right: 5px;
+    background: rgba(255,255,255,0.5);
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+    border-radius: 20px;
+    padding: 2px 4px;
+    cursor: pointer;
+}
+span.icnBookmark.bMarked{
+    background-color: #e91e27;
+    i{
+        color:#fff;
+    }
+}
+    }
+    .timeTxt{border: 1px solid #dee2e6;
+    padding: 5px;
+    display: flex;
+    line-height: 0.5rem;
+    font-size: 0.75rem;
+    color: #898989;
+    align-items: center;
+    }
+    .p-dropdown {
+        width: 10rem;
+        font-weight: normal;
+        .p-dropdown-label{
+            font-size:0.813rem;
+        }
+    }
+    .p-inputtext{
+        font-size: 0.813rem;
+    }
     .product-name {
-        font-size: 1.2rem;
+        font-size: 1rem;
         font-weight: 700;
         color:#595353;
     }
@@ -13,16 +58,20 @@
     .product-description {
         margin: 0 0 1rem 0;
         color:666;
+        font-size:0.75rem;
     }
     
     .product-category-icon {
         vertical-align: middle;
-        margin-right: .5rem;
+        margin-right: 0.5rem;
+        font-size: 0.813rem;
     }
     
     .product-category {
         font-weight: 600;
         vertical-align: middle;
+        font-size: 0.813rem;
+    line-height: 0.50rem;
     }
     
     .product-list-item {
@@ -30,7 +79,9 @@
         align-items: center;
         padding: 1rem;
         width: 100%;
-    
+    span.icnBookmark{ 
+        right: 35px;
+    }
         img {
             width: 150px;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -46,7 +97,7 @@
         }
     
         .product-price {
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: .5rem;
             align-self: flex-end;
@@ -65,29 +116,27 @@
     .product-grid-item {
         margin: .5em;
         border: 1px solid #dee2e6;
-    
+        img{
+            min-height: 210px;
+            max-height: 210px;
+        }
         .product-grid-item-top,
         .product-grid-item-bottom {
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
-    
-        img {
-            width: 75%;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-            margin: 2rem 0 0;
-        }
-    
+   
         .product-grid-item-content {
-            text-align: center;
+            // text-align: center;
         }
     
         .product-price {
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             font-weight: 600;
         }
     }
+ 
 }
 .vegSymbol{
     
@@ -132,20 +181,33 @@
     }
 }
 .card {
-    padding: 2rem;
+    padding: 0.75rem;
     box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
     border-radius: 4px;
-    margin-bottom: 2rem;
+    // margin-bottom: rem;
 }
-
+.cartHeader {
+    background: #efefef;
+    color: #212529;
+    border: solid #dee2e6;
+    border-width: 1px 0 0 0;
+    padding: 1.30rem 1rem;
+    font-weight: 600;
+    font-size:1.2rem;
+}
+.cartContent {
+    padding: 15px;
+}
 @media screen and (max-width: 576px) {
 	:host ::ng-deep .product-list-item {
 		flex-direction: column;
 		align-items: center;
 
 		img {
-			width: 75%;
-			margin: 2rem 0;
+			width: 100%;
+			margin: 0.75rem 0;
+            // min-height: 180px;
+            // max-height: 180px;
 		}
 
 		.product-list-detail {

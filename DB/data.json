@@ -77,7 +77,7 @@
       "serviceTime": 20,
       "description": "Chicken Moroccon Kebab",
       "id": 6,
-      "imageUrl": "product-placeholder.svg"
+      "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg"
     },
     {
       "name": "Chicken Shole Kebab (5 Pcs.)",
@@ -89,7 +89,7 @@
       "serviceTime": 20,
       "description": "Chicken Moroccon Kebab",
       "id": 7,
-      "imageUrl": "product-placeholder.svg"
+      "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg"
     },
     {
       "name": "Chicken Pahadi Tikka (5 Pcs.)",
@@ -102,7 +102,7 @@
       "serviceTime": 30,
       "description": "Chicken Pahadi Tikka (5 Pcs.)",
       "id": 8,
-      "imageUrl": "product-placeholder.svg"
+      "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg"
     },
     {
       "name": "Chicken Tangdi Kebab (2 Pcs.)",
@@ -115,7 +115,7 @@
       "serviceTime": 20,
       "description": "Chicken Tangdi Kebab (2 Pcs.)",
       "id": 9,
-      "imageUrl": "product-placeholder.svg"
+      "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg"
     },
     {
       "name": "Chicken Nizami Kebab (5 Pcs.)",
@@ -128,7 +128,7 @@
       "serviceTime": 30,
       "description": "Chicken Nizami Kebab (5 Pcs.)",
       "id": 10,
-      "imageUrl": "product-placeholder.svg"
+      "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg"
     },
     {
       "name": "Chicken Zafrani Kebab (5 Pcs.)",
@@ -141,7 +141,38 @@
       "serviceTime": 20,
       "description": "Chicken Nizami Kebab (5 Pcs.)",
       "id": 11,
+<<<<<<< HEAD
       "imageUrl": "product-placeholder.svg"
+=======
+      "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg"
+    },
+    {
+      "name": "Chiken Bhuna",
+      "statuses": "active",
+      "categories": "Chicken (Bhuna)",
+      "nonVegCategory": "chicken",
+      "fullPrice": 120,
+      "halfPrice": null,
+      "quantity": 1,
+      "serviceTime": 20,
+      "description": "Tasty Food",
+      "id": 12,
+      "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg"
+    },
+    {
+      "name": "Kuch Naya",
+      "statuses": "active",
+      "categories": "Kuch New Wala",
+      "nonVegCategory": "chicken",
+      "fullPrice": 100,
+      "halfPrice": null,
+      "quantity": 1,
+      "serviceTime": 20,
+      "description": "Something",
+      "id": 13,
+      "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg",
+      "isVeg": true
+>>>>>>> 41107e53c7e5bd502a5efefdde84b1c17437e8c7
     }
   ],
   "dishCategory": [
