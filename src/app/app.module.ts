@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
-import { LoginComponent } from './views/login/userLogin.component';
+// import { LoginComponent } from './views/login/userLogin.component';
 import { RegisterComponent } from './views/register/register.component';
 import {
   AppAsideModule,
@@ -77,7 +77,7 @@ import { MasterAdminModule } from '../app/views/master-admin/master-admin.module
     AppComponent, 
     P404Component,
     P500Component,
-    LoginComponent,
+    // LoginComponent,
     RegisterComponent,
     routingComponents,
     ClientConfigComponent,

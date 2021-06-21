@@ -1,10 +1,12 @@
+import { style } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { UserLogin } from '../../models/userLogin';
 import { UserService } from '../../service/user.service';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: 'userLogin.component.html'
+  templateUrl: 'userLogin.component.html',
+  styleUrls:['./userLogin.component.css']
 })
 export class LoginComponent implements OnInit {
 

@@ -1,5 +1,5 @@
 export class ApiConfig {
-    public static URL = 'http://localhost:8000/'
+    public static URL = 'http://webapplication121-dev.us-east-2.elasticbeanstalk.com/';//'http://localhost:8000/'
     public static DISH = 'dish'
     public static DISHCATEGORY = 'dishCategory'
     public static CLIENT = 'client'
