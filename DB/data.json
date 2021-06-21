@@ -1,463 +1,444 @@
 {
-  "dish": [
-    {
-      "id": 1,
-      "name": "Chicken Tikka Roll",
-      "fullPrice": 425,
-      "qty": 1,
-      "description": "Chicken Tikka Roll",
-      "statuses": "active",
-      "categories": "Chicken (Tandoori)",
-      "nonVegCategory": "chicken",
-      "halfPrice": null,
-      "quantity": 1,
-      "serviceTime": 30,
-      "rating": 4,
-      "imageUrl": "https://images.pexels.com/photos/3186654/pexels-photo-3186654.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-    },
-    {
-      "name": "Reshmi Tikka Roll",
-      "statuses": "active",
-      "categories": "Starter (Chicken)",
-      "nonVegCategory": "chicken",
-      "fullPrice": 425,
-      "halfPrice": null,
-      "quantity": 1,
-      "serviceTime": 30,
-      "description": "Reshmi Tikka Roll",
-      "id": 2,
-      "imageUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1515&q=80"
-    },
-    {
-      "name": "Malai Tikka Roll",
-      "statuses": "active",
-      "categories": "Starter (Chicken)",
-      "nonVegCategory": "chicken",
-      "fullPrice": 425,
-      "quantity": 1,
-      "serviceTime": 30,
-      "description": "Malai Tikka Roll",
-      "id": 3,
-      "imageUrl": "https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
-    },
-    {
-      "name": "Chicken Seekh Roll",
-      "statuses": "inActive",
-      "nonVegCategory": "chicken",
-      "fullPrice": 350,
-      "halfPrice": null,
-      "quantity": 1,
-      "serviceTime": 30,
-      "description": "Chicken Seekh Roll",
-      "id": 4,
-      "imageUrl": "https://images.unsplash.com/photo-1562672623-11d8f6cbd35d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80",
-      "categories": "Starter (Chicken)"
-    },
-    {
-      "name": "Chicken Garlic Tikka (5 Pcs.)",
-      "statuses": "active",
-      "categories": "Starter (Chicken)",
-      "nonVegCategory": "chicken",
-      "fullPrice": 375,
-      "halfPrice": null,
-      "quantity": 1,
-      "serviceTime": 20,
-      "description": "Chicken Garlic Tikka (5 Pcs.)",
-      "id": 5,
-      "imageUrl": "https://images.unsplash.com/photo-1604734127294-ba12256bf794?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80"
-    },
-    {
-      "name": "Chicken Moroccon Kebab",
-      "statuses": "active",
-      "categories": "Starter (Chicken)",
-      "nonVegCategory": "chicken",
-      "fullPrice": 435,
-      "halfPrice": null,
-      "quantity": 1,
-      "serviceTime": 20,
-      "description": "Chicken Moroccon Kebab",
-      "id": 6,
-      "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg"
-    },
-    {
-      "name": "Chicken Shole Kebab (5 Pcs.)",
-      "statuses": "active",
-      "categories": "Starter (Chicken)",
-      "nonVegCategory": "chicken",
-      "fullPrice": 385,
-      "quantity": 1,
-      "serviceTime": 20,
-      "description": "Chicken Moroccon Kebab",
-      "id": 7,
-      "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg"
-    },
-    {
-      "name": "Chicken Pahadi Tikka (5 Pcs.)",
-      "statuses": "active",
-      "categories": "Starter (Chicken)",
-      "nonVegCategory": "chicken",
-      "fullPrice": 375,
-      "halfPrice": null,
-      "quantity": 1,
-      "serviceTime": 30,
-      "description": "Chicken Pahadi Tikka (5 Pcs.)",
-      "id": 8,
-      "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg"
-    },
-    {
-      "name": "Chicken Tangdi Kebab (2 Pcs.)",
-      "statuses": "active",
-      "categories": "Starter (Chicekn)",
-      "nonVegCategory": "chicken",
-      "fullPrice": 360,
-      "halfPrice": null,
-      "quantity": 1,
-      "serviceTime": 20,
-      "description": "Chicken Tangdi Kebab (2 Pcs.)",
-      "id": 9,
-      "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg"
-    },
-    {
-      "name": "Chicken Nizami Kebab (5 Pcs.)",
-      "statuses": "active",
-      "categories": "Starter (Chicken)",
-      "nonVegCategory": "chicken",
-      "fullPrice": 430,
-      "halfPrice": null,
-      "quantity": 1,
-      "serviceTime": 30,
-      "description": "Chicken Nizami Kebab (5 Pcs.)",
-      "id": 10,
-      "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg"
-    },
-    {
-      "name": "Chicken Zafrani Kebab (5 Pcs.)",
-      "statuses": "active",
-      "categories": "Starter (Chicken)",
-      "nonVegCategory": "chicken",
-      "fullPrice": 430,
-      "halfPrice": null,
-      "quantity": 1,
-      "serviceTime": 20,
-      "description": "Chicken Nizami Kebab (5 Pcs.)",
-      "id": 11,
-<<<<<<< HEAD
-      "imageUrl": "product-placeholder.svg"
-=======
-      "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg"
-    },
-    {
-      "name": "Chiken Bhuna",
-      "statuses": "active",
-      "categories": "Chicken (Bhuna)",
-      "nonVegCategory": "chicken",
-      "fullPrice": 120,
-      "halfPrice": null,
-      "quantity": 1,
-      "serviceTime": 20,
-      "description": "Tasty Food",
-      "id": 12,
-      "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg"
-    },
-    {
-      "name": "Kuch Naya",
-      "statuses": "active",
-      "categories": "Kuch New Wala",
-      "nonVegCategory": "chicken",
-      "fullPrice": 100,
-      "halfPrice": null,
-      "quantity": 1,
-      "serviceTime": 20,
-      "description": "Something",
-      "id": 13,
-      "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg",
-      "isVeg": true
->>>>>>> 41107e53c7e5bd502a5efefdde84b1c17437e8c7
-    }
-  ],
-  "dishCategory": [
-    {
-      "id": 1,
-      "name": "Starter",
-      "description": "cd1"
-    },
-    {
-      "id": 2,
-      "name": "Main Course (Chicken)",
-      "description": "cd2"
-    },
-    {
-      "id": 3,
-      "name": "Rice",
-      "description": "cd3"
-    },
-    {
-      "id": 4,
-      "name": "Main Course (Mutton)",
-      "description": "cd2"
-    },
-    {
-      "name": "Chicken (Tandoori)",
-      "id": 5
-    },
-    {
-      "name": "Starter (Chicken)",
-      "id": 6
-    },
-    {
-      "name": "Starter (Chicken)",
-      "id": 7
-    },
-    {
-      "name": "Starter (Chicken)",
-      "id": 8
-    },
-    {
-      "name": "Kuch New Wala",
-      "id": 9
-    }
-  ],
-  "people": [
-    {
-      "id": 1,
-      "name": "n1"
-    },
-    {
-      "id": 1,
-      "name": "n2"
-    }
-  ],
-  "client": [
-    {
-      "businessName": "Khana Restaurent",
-      "category": "Restaurent",
-      "gst": "GST785522024",
-      "address": "Khana Restaurent, Main Road, Near IT Park",
-      "foodLincNum": "A1135636",
-      "bankDetails": {
-        "accountName": "Some User",
-        "accountNumber": 494944949494949,
-        "bankName": "hdifdsl Bank",
-        "ifscCode": "IFCS33F",
-        "UPICodeNumber": "UPICODE4521"
-      },
-      "id": 13,
-      "pincode": "400001"
-    }
-  ],
-  "clientCategory": [
-    {
-      "id": 1,
-      "name": "Restaurent"
-    },
-    {
-      "id": 2,
-      "name": "IceCream Parlour"
-    },
-    {
-      "id": 3,
-      "name": "Juice Center"
-    },
-    {
-      "id": 4,
-      "name": "Coffee Cafe"
-    }
-  ],
-  "bankDetails": [
-    {
-      "id": 1,
-      "accountName": "Ahmed Raza Shaikh",
-      "accountNumber": 123,
-      "bankName": "Axis Bank",
-      "ifscCode": "AXB2000",
-      "address": "Byculla"
-    },
-    {
-      "id": 2,
-      "accountName": "Ibba ",
-      "address": "kalapani",
-      "accountNumber": 125,
-      "bankName": "MahaBank",
-      "ifscCode": "9874CC"
-    },
-    {
-      "accountName": "Bank",
-      "address": "USA",
-      "accountNumber": 125,
-      "bankName": "USABANK",
-      "ifscCode": "USAIFC",
-      "id": 3
-    },
-    {
-      "accountName": "Bank",
-      "address": "USA",
-      "accountNumber": 125,
-      "bankName": "USABANK",
-      "ifscCode": "USAIFC",
-      "id": 4
-    },
-    {
-      "accountName": "Bank",
-      "address": "USA",
-      "accountNumber": 125,
-      "bankName": "USABANK",
-      "ifscCode": "USAIFC",
-      "id": 5
-    },
-    {
-      "accountName": "Bank",
-      "address": "USA",
-      "accountNumber": 125,
-      "bankName": "USABANK",
-      "ifscCode": "USAIFC",
-      "id": 6
-    },
-    {
-      "accountName": "Bank",
-      "address": "USA",
-      "accountNumber": 125,
-      "bankName": "USABANK",
-      "ifscCode": "USAIFC",
-      "id": 7
-    },
-    {
-      "accountName": "L.A Bank",
-      "address": "L.A Bank ",
-      "accountNumber": 22,
-      "bankName": "la bank",
-      "ifscCode": "la1233",
-      "id": 8
-    },
-    {
-      "accountName": "L.A Bank",
-      "address": "L.A Bank ",
-      "accountNumber": 22,
-      "bankName": "la bank",
-      "ifscCode": "la1233",
-      "id": 9
-    },
-    {
-      "address": "LA",
-      "accountNumber": 12345,
-      "bankName": "Bank of LA",
-      "ifscCode": "la1233",
-      "id": 10
-    },
-    {
-      "accountName": "IPhone",
-      "address": "USA",
-      "accountNumber": 2112121,
-      "bankName": "212121",
-      "ifscCode": "2121221",
-      "id": 11
-    }
-  ],
-  "endUser": [
-    {
-      "id": 1,
-      "name": "name1",
-      "address": "addr1"
-    },
-    {
-      "id": 2,
-      "name": "name2",
-      "address": "addr2"
-    },
-    {
-      "id": 3,
-      "name": "name3",
-      "address": "addr3"
-    }
-  ],
-  "user": [
-    {
-      "userName": "Test User",
-      "email": "test@mail.com",
-      "contact": 1234567890,
-      "cities": "Mumbai",
-      "address": "Test Address",
-      "states": "Maharashtra",
-      "pincode": 400008,
-      "id": 1
-    }
-  ],
-  "city": [
-    {
-      "id": 1,
-      "name": "Mumbai"
-    },
-    {
-      "id": 2,
-      "name": "Delhi"
-    }
-  ],
-  "state": [
-    {
-      "id": 1,
-      "name": "Maharashtra"
-    },
-    {
-      "id": 2,
-      "name": "Rajasthan"
-    }
-  ],
-  "userFeedback": [
-    {
-      "id": 1,
-      "ratings": 1,
-      "opinionText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-      "reviewTitle": "Card 1",
-      "termsAccept": false
-    },
-    {
-      "ratings": 2,
-      "opinionText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-      "reviewTitle": "Card 2",
-      "id": 2
-    },
-    {
-      "ratings": 3,
-      "opinionText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-      "reviewTitle": "Card 3",
-      "id": 3
-    },
-    {
-      "ratings": 4,
-      "opinionText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-      "reviewTitle": "Card4",
-      "id": 4
-    },
-    {
-      "ratings": 5,
-      "opinionText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
-      "reviewTitle": "Card 5",
-      "id": 5
-    },
-    {
-      "termsAccept": [
-        null
-      ],
-      "ratings": 4,
-      "opinionText": "New Card",
-      "reviewTitle": "New Card",
-      "id": 6
-    },
-    {
-      "termsAccept": [
-        null
-      ],
-      "ratings": 1,
-      "opinionText": "Card 6",
-      "reviewTitle": "Card 6",
-      "id": 7
-    }
-  ],
-  "masterAdmin": [
-    {
-      "id": 1,
-      "adminEmail": "TestAdmin@mail.com",
-      "adminPassword": "password",
-      "adminContact": 8956247859
-    }
-  ]
+    "dish": [{
+            "id": 1,
+            "name": "Chicken Tikka Roll",
+            "fullPrice": 425,
+            "qty": 1,
+            "description": "Chicken Tikka Roll",
+            "statuses": "active",
+            "categories": "Chicken (Tandoori)",
+            "nonVegCategory": "chicken",
+            "halfPrice": null,
+            "quantity": 1,
+            "serviceTime": 30,
+            "rating": 4,
+            "imageUrl": "https://images.pexels.com/photos/3186654/pexels-photo-3186654.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        },
+        {
+            "name": "Reshmi Tikka Roll",
+            "statuses": "active",
+            "categories": "Starter (Chicken)",
+            "nonVegCategory": "chicken",
+            "fullPrice": 425,
+            "halfPrice": null,
+            "quantity": 1,
+            "serviceTime": 30,
+            "description": "Reshmi Tikka Roll",
+            "id": 2,
+            "imageUrl": "https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1515&q=80"
+        },
+        {
+            "name": "Malai Tikka Roll",
+            "statuses": "active",
+            "categories": "Starter (Chicken)",
+            "nonVegCategory": "chicken",
+            "fullPrice": 425,
+            "quantity": 1,
+            "serviceTime": 30,
+            "description": "Malai Tikka Roll",
+            "id": 3,
+            "imageUrl": "https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+        },
+        {
+            "name": "Chicken Seekh Roll",
+            "statuses": "inActive",
+            "nonVegCategory": "chicken",
+            "fullPrice": 350,
+            "halfPrice": null,
+            "quantity": 1,
+            "serviceTime": 30,
+            "description": "Chicken Seekh Roll",
+            "id": 4,
+            "imageUrl": "https://images.unsplash.com/photo-1562672623-11d8f6cbd35d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1534&q=80",
+            "categories": "Starter (Chicken)"
+        },
+        {
+            "name": "Chicken Garlic Tikka (5 Pcs.)",
+            "statuses": "active",
+            "categories": "Starter (Chicken)",
+            "nonVegCategory": "chicken",
+            "fullPrice": 375,
+            "halfPrice": null,
+            "quantity": 1,
+            "serviceTime": 20,
+            "description": "Chicken Garlic Tikka (5 Pcs.)",
+            "id": 5,
+            "imageUrl": "https://images.unsplash.com/photo-1604734127294-ba12256bf794?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80"
+        },
+        {
+            "name": "Chicken Moroccon Kebab",
+            "statuses": "active",
+            "categories": "Starter (Chicken)",
+            "nonVegCategory": "chicken",
+            "fullPrice": 435,
+            "halfPrice": null,
+            "quantity": 1,
+            "serviceTime": 20,
+            "description": "Chicken Moroccon Kebab",
+            "id": 6,
+            "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg"
+        },
+        {
+            "name": "Chicken Shole Kebab (5 Pcs.)",
+            "statuses": "active",
+            "categories": "Starter (Chicken)",
+            "nonVegCategory": "chicken",
+            "fullPrice": 385,
+            "quantity": 1,
+            "serviceTime": 20,
+            "description": "Chicken Moroccon Kebab",
+            "id": 7,
+            "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg"
+        },
+        {
+            "name": "Chicken Pahadi Tikka (5 Pcs.)",
+            "statuses": "active",
+            "categories": "Starter (Chicken)",
+            "nonVegCategory": "chicken",
+            "fullPrice": 375,
+            "halfPrice": null,
+            "quantity": 1,
+            "serviceTime": 30,
+            "description": "Chicken Pahadi Tikka (5 Pcs.)",
+            "id": 8,
+            "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg"
+        },
+        {
+            "name": "Chicken Tangdi Kebab (2 Pcs.)",
+            "statuses": "active",
+            "categories": "Starter (Chicekn)",
+            "nonVegCategory": "chicken",
+            "fullPrice": 360,
+            "halfPrice": null,
+            "quantity": 1,
+            "serviceTime": 20,
+            "description": "Chicken Tangdi Kebab (2 Pcs.)",
+            "id": 9,
+            "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg"
+        },
+        {
+            "name": "Chicken Nizami Kebab (5 Pcs.)",
+            "statuses": "active",
+            "categories": "Starter (Chicken)",
+            "nonVegCategory": "chicken",
+            "fullPrice": 430,
+            "halfPrice": null,
+            "quantity": 1,
+            "serviceTime": 30,
+            "description": "Chicken Nizami Kebab (5 Pcs.)",
+            "id": 10,
+            "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg"
+        },
+        {
+            "name": "Chicken Zafrani Kebab (5 Pcs.)",
+            "statuses": "active",
+            "categories": "Starter (Chicken)",
+            "nonVegCategory": "chicken",
+            "fullPrice": 430,
+            "halfPrice": null,
+            "quantity": 1,
+            "serviceTime": 20,
+            "description": "Chicken Nizami Kebab (5 Pcs.)",
+            "id": 11,
+            "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg"
+        },
+        {
+            "name": "Chiken Bhuna",
+            "statuses": "active",
+            "categories": "Chicken (Bhuna)",
+            "nonVegCategory": "chicken",
+            "fullPrice": 120,
+            "halfPrice": null,
+            "quantity": 1,
+            "serviceTime": 20,
+            "description": "Tasty Food",
+            "id": 12,
+            "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg"
+        },
+        {
+            "name": "Kuch Naya",
+            "statuses": "active",
+            "categories": "Kuch New Wala",
+            "nonVegCategory": "chicken",
+            "fullPrice": 100,
+            "halfPrice": null,
+            "quantity": 1,
+            "serviceTime": 20,
+            "description": "Something",
+            "id": 13,
+            "imageUrl": "./assets/img/dishes/img-menu-placeholder.jpg",
+            "isVeg": true
+        }
+    ],
+    "dishCategory": [{
+            "id": 1,
+            "name": "Starter",
+            "description": "cd1"
+        },
+        {
+            "id": 2,
+            "name": "Main Course (Chicken)",
+            "description": "cd2"
+        },
+        {
+            "id": 3,
+            "name": "Rice",
+            "description": "cd3"
+        },
+        {
+            "id": 4,
+            "name": "Main Course (Mutton)",
+            "description": "cd2"
+        },
+        {
+            "name": "Chicken (Tandoori)",
+            "id": 5
+        },
+        {
+            "name": "Starter (Chicken)",
+            "id": 6
+        },
+        {
+            "name": "Starter (Chicken)",
+            "id": 7
+        },
+        {
+            "name": "Starter (Chicken)",
+            "id": 8
+        },
+        {
+            "name": "Kuch New Wala",
+            "id": 9
+        }
+    ],
+    "people": [{
+            "id": 1,
+            "name": "n1"
+        },
+        {
+            "id": 1,
+            "name": "n2"
+        }
+    ],
+    "client": [{
+        "businessName": "Khana Restaurent",
+        "category": "Restaurent",
+        "gst": "GST785522024",
+        "address": "Khana Restaurent, Main Road, Near IT Park",
+        "foodLincNum": "A1135636",
+        "bankDetails": {
+            "accountName": "Some User",
+            "accountNumber": 494944949494949,
+            "bankName": "hdifdsl Bank",
+            "ifscCode": "IFCS33F",
+            "UPICodeNumber": "UPICODE4521"
+        },
+        "id": 13,
+        "pincode": "400001"
+    }],
+    "clientCategory": [{
+            "id": 1,
+            "name": "Restaurent"
+        },
+        {
+            "id": 2,
+            "name": "IceCream Parlour"
+        },
+        {
+            "id": 3,
+            "name": "Juice Center"
+        },
+        {
+            "id": 4,
+            "name": "Coffee Cafe"
+        }
+    ],
+    "bankDetails": [{
+            "id": 1,
+            "accountName": "Ahmed Raza Shaikh",
+            "accountNumber": 123,
+            "bankName": "Axis Bank",
+            "ifscCode": "AXB2000",
+            "address": "Byculla"
+        },
+        {
+            "id": 2,
+            "accountName": "Ibba ",
+            "address": "kalapani",
+            "accountNumber": 125,
+            "bankName": "MahaBank",
+            "ifscCode": "9874CC"
+        },
+        {
+            "accountName": "Bank",
+            "address": "USA",
+            "accountNumber": 125,
+            "bankName": "USABANK",
+            "ifscCode": "USAIFC",
+            "id": 3
+        },
+        {
+            "accountName": "Bank",
+            "address": "USA",
+            "accountNumber": 125,
+            "bankName": "USABANK",
+            "ifscCode": "USAIFC",
+            "id": 4
+        },
+        {
+            "accountName": "Bank",
+            "address": "USA",
+            "accountNumber": 125,
+            "bankName": "USABANK",
+            "ifscCode": "USAIFC",
+            "id": 5
+        },
+        {
+            "accountName": "Bank",
+            "address": "USA",
+            "accountNumber": 125,
+            "bankName": "USABANK",
+            "ifscCode": "USAIFC",
+            "id": 6
+        },
+        {
+            "accountName": "Bank",
+            "address": "USA",
+            "accountNumber": 125,
+            "bankName": "USABANK",
+            "ifscCode": "USAIFC",
+            "id": 7
+        },
+        {
+            "accountName": "L.A Bank",
+            "address": "L.A Bank ",
+            "accountNumber": 22,
+            "bankName": "la bank",
+            "ifscCode": "la1233",
+            "id": 8
+        },
+        {
+            "accountName": "L.A Bank",
+            "address": "L.A Bank ",
+            "accountNumber": 22,
+            "bankName": "la bank",
+            "ifscCode": "la1233",
+            "id": 9
+        },
+        {
+            "address": "LA",
+            "accountNumber": 12345,
+            "bankName": "Bank of LA",
+            "ifscCode": "la1233",
+            "id": 10
+        },
+        {
+            "accountName": "IPhone",
+            "address": "USA",
+            "accountNumber": 2112121,
+            "bankName": "212121",
+            "ifscCode": "2121221",
+            "id": 11
+        }
+    ],
+    "endUser": [{
+            "id": 1,
+            "name": "name1",
+            "address": "addr1"
+        },
+        {
+            "id": 2,
+            "name": "name2",
+            "address": "addr2"
+        },
+        {
+            "id": 3,
+            "name": "name3",
+            "address": "addr3"
+        }
+    ],
+    "user": [{
+        "userName": "Test User",
+        "email": "test@mail.com",
+        "contact": 1234567890,
+        "cities": "Mumbai",
+        "address": "Test Address",
+        "states": "Maharashtra",
+        "pincode": 400008,
+        "id": 1
+    }],
+    "city": [{
+            "id": 1,
+            "name": "Mumbai"
+        },
+        {
+            "id": 2,
+            "name": "Delhi"
+        }
+    ],
+    "state": [{
+            "id": 1,
+            "name": "Maharashtra"
+        },
+        {
+            "id": 2,
+            "name": "Rajasthan"
+        }
+    ],
+    "userFeedback": [{
+            "id": 1,
+            "ratings": 1,
+            "opinionText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+            "reviewTitle": "Card 1",
+            "termsAccept": false
+        },
+        {
+            "ratings": 2,
+            "opinionText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+            "reviewTitle": "Card 2",
+            "id": 2
+        },
+        {
+            "ratings": 3,
+            "opinionText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+            "reviewTitle": "Card 3",
+            "id": 3
+        },
+        {
+            "ratings": 4,
+            "opinionText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+            "reviewTitle": "Card4",
+            "id": 4
+        },
+        {
+            "ratings": 5,
+            "opinionText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+            "reviewTitle": "Card 5",
+            "id": 5
+        },
+        {
+            "termsAccept": [
+                null
+            ],
+            "ratings": 4,
+            "opinionText": "New Card",
+            "reviewTitle": "New Card",
+            "id": 6
+        },
+        {
+            "termsAccept": [
+                null
+            ],
+            "ratings": 1,
+            "opinionText": "Card 6",
+            "reviewTitle": "Card 6",
+            "id": 7
+        }
+    ],
+    "masterAdmin": [{
+        "id": 1,
+        "adminEmail": "TestAdmin@mail.com",
+        "adminPassword": "password",
+        "adminContact": 8956247859
+    }]
 }

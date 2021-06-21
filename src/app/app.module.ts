@@ -35,13 +35,13 @@ import {
 // import { AppRoutingModule, routingComponents } from './app.routing';
 
 // Import 3rd party components
+import { AdminModule } from '../app/views/admin-setting/admin.module'
 import { SharedModule } from './shared/shared.module'
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { AppRoutingModule,  routingComponents} from './app.routing';
 import { ClientConfigComponent } from './views/client-config/client-config.component';
-import { AdminSettingComponent } from './views/admin-setting/admin-setting.component';
 import { MasterAdminModule } from '../app/views/master-admin/master-admin.module';
 // import { UserModuleModule } from '../app/views/login/user-module.module';
 // import { MasterAdminComponent } from './views/master-admin/master-admin.component'; 
@@ -58,6 +58,7 @@ import { MasterAdminModule } from '../app/views/master-admin/master-admin.module
     AppRoutingModule,
     SharedModule,
     AppAsideModule,
+    AdminModule,
     AppBreadcrumbModule.forRoot(),
     AppFooterModule,
     AppHeaderModule,
@@ -80,9 +81,7 @@ import { MasterAdminModule } from '../app/views/master-admin/master-admin.module
     // LoginComponent,
     RegisterComponent,
     routingComponents,
-    ClientConfigComponent,
-    AdminSettingComponent,
-    
+    ClientConfigComponent,    
     // MasterAdminComponent
 
    // EndUserComponent

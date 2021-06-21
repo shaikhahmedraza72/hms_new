@@ -1,10 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminSettingComponent } from './views/admin-setting/admin-setting.component';
-import { ClientConfigComponent } from './views/client-config/client-config.component';
-import { AddClientComponent } from './views/client/add.component';
-import { TermsComponent } from './views/client/terms.component';
-
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/userLogin.component';
@@ -51,14 +47,6 @@ export const routes: Routes = [
 
   },
   {
-    path: 'TermsComponent',
-    component: TermsComponent,
-  },
-  {
-    path: 'ClientConfigComponent',
-    component: ClientConfigComponent,
-  },
-  {
     path: 'menuItem',
     component: MenuItemComponent,
   },
@@ -74,14 +62,8 @@ export const routes: Routes = [
       },
       {
         path: 'admin-config',
-        loadChildren: () => import('./views/client/client.module').then(m => m.ClientModule)
+        loadChildren: () => import('./views/admin-setting/admin.module').then(m => m.AdminModule)
       },
-      {
-        path: 'bankDetail',
-        loadChildren: () => import('./views/client/client.module').then(m => m.ClientModule)
-      // },
-    // ]
-  },
     {
         path: 'users',
         loadChildren: () => import('./views/user/user.module').then(m => m.UserModule)
@@ -102,4 +84,4 @@ export const routes: Routes = [
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {}
-export const routingComponents = [AddClientComponent, TermsComponent, MenuItemComponent];
+export const routingComponents = [MenuItemComponent];

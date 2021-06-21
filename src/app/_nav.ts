@@ -15,21 +15,7 @@ export const navItems: INavData[] = [
     name: 'Theme'
   },
   {
-<<<<<<< HEAD
-    name: 'Master Admin',
-    url: '/masterAdmin',
-    icon: 'icon-drop'
-  },
-  {
-    name: 'User Login',
-    url: '/userLogin',
-    icon: 'icon-drop'
-  },
-  {
-    name: 'Dishes',
-=======
     name: 'Dish Config',
->>>>>>> 41107e53c7e5bd502a5efefdde84b1c17437e8c7
     url: '/dish',
     icon: 'icon-drop'
   },{

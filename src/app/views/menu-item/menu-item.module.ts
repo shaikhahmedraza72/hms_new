@@ -5,11 +5,10 @@ import { MenuItemComponent } from '../../views/menu-item/menu-item.component'
 
 
 @NgModule({
-  declarations: [],
+  declarations: [MenuItemComponent],
   imports: [
     CommonModule,
     SharedModule,
-    MenuItemComponent
   ]
 })
 export class MenuItemModule { }

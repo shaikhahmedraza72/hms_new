@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-import { ClientComponent } from './client.component';
+import { AdminSettingComponent } from './admin-setting.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: ClientComponent,
+    component: AdminSettingComponent,
     data: {
       title: 'Client Component'
     }
@@ -17,4 +16,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ClientRoutingModule {}
+export class adminRoutingModule {}
