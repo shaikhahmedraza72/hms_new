@@ -11,6 +11,8 @@ public restaurentLogo?:string,
 public restaurentSeal?:string,
 public signature?:string,
 public termAndCondition?:string,
+public city?: string,
+public selectedState?: string,
 public bankDetails?: Bankdetails
   ){}
 }
