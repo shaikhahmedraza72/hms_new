@@ -22,11 +22,7 @@ export class UserFeedbackComponent implements OnInit {
 
   ngOnInit(): void {
     this.getFeedback();
-    this.userFeedback = {}
-    this.userFeedback.termsAccept = false;
-    this.userFeedback.ratings = 0;
-    this.userFeedback.opinionText = "";
-    this.userFeedback.reviewTitle = "";
+    this.userFeedback = {termsAccept:false ,ratings:0,opinionText:'',reviewTitle:''}
     console.log(this.userFeedback);
   }
 
@@ -48,3 +44,5 @@ export class UserFeedbackComponent implements OnInit {
     console.log(this.feedback);
   }
 }
+
+
