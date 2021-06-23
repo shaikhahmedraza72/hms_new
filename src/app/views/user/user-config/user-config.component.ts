@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/user';
+import { User } from './../../../models/user';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { UserService } from '../../service/user.service';
-import { CommonService } from '../../service/common.service'
+import { UserService } from './../../../service/user.service';
+import { CommonService } from './../../../service/common.service'
 
 @Component({
   selector: 'app-user-config',
@@ -74,7 +74,12 @@ export class UserConfigComponent implements OnInit {
         })
 
       } else {
-        this.user.id = this.userList[this.userList.length - 1].id + 1;
+        if(this.user.id){
+          this.user.id = this.userList[this.userList.length - 1].id + 1;
+        } else {
+          this.user.id = 1;
+        }
+       
         // this.user.imageUrl = 'product-placeholder.svg';
         this.userSvc.AddUser(this.user).subscribe(res => {
           if (res) {

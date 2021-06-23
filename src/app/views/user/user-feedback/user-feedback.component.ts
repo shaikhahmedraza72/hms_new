@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User, UserFeedback } from '../../models/user';
-import { UserService } from '../../service/user.service';
+import { User, UserFeedback } from './../../../models/user';
+import { UserService } from './../../../service/user.service';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
 

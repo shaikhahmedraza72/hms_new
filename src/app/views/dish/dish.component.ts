@@ -128,7 +128,7 @@ onSubmit(f) {
          
       } else {
           this.dish.id = this.dishList[this.dishList.length - 1].id + 1;
-          this.dish.imageUrl = 'product-placeholder.svg';
+          this.dish.imageUrl = './assets/img/dishes/img-menu-placeholder.jpg';
           this.dishSvc.Add(this.dish).subscribe(resp => {
             if(resp){
                this.dishList.push(this.dish);

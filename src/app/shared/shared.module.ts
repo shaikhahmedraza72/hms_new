@@ -33,6 +33,8 @@ import { SelectButtonModule } from 'primeng/selectbutton';
 import {TagModule} from 'primeng/tag';
 import {InputMaskModule} from 'primeng/inputmask';
 import {CardModule} from 'primeng/card';
+import {RippleModule} from 'primeng/ripple';
+import {DataViewModule} from 'primeng/dataview';
 
 @NgModule({
   declarations: [],
@@ -70,7 +72,9 @@ import {CardModule} from 'primeng/card';
     InputTextareaModule,
     SelectButtonModule,
     TagModule,
-    InputMaskModule
+    InputMaskModule,
+    RippleModule,
+    DataViewModule
   ],
   exports:[
     CommonModule,
@@ -104,7 +108,9 @@ import {CardModule} from 'primeng/card';
     InputSwitchModule,
     SelectButtonModule,
     TagModule,
-    InputMaskModule
+    InputMaskModule,
+    RippleModule,
+    DataViewModule
   ],
   providers:[MessageService, ConfirmationService]
 })

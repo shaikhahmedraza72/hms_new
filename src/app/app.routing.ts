@@ -2,16 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminSettingComponent } from './views/admin-setting/admin-setting.component';
 import { ClientConfigComponent } from './views/client-config/client-config.component';
-import { AddClientComponent } from './views/client/add.component';
-import { TermsComponent } from './views/client/terms.component';
-
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
-import { LoginComponent } from './views/login/login.component';
-import { MenuItemComponent } from './views/menu-item/menu-item.component';
-import { RegisterComponent } from './views/register/register.component';
-import { UserConfigComponent } from './views/user-config/user-config.component';
-import { UserFeedbackComponent } from './views/user-feedback/user-feedback.component';
+import { LoginComponent } from './views/login/login.component'; 
+import { RegisterComponent } from './views/register/register.component'; 
 
 export const routes: Routes = [
   {
@@ -51,34 +45,11 @@ export const routes: Routes = [
     path: 'admin-setting',
     component: AdminSettingComponent,
 
-  },
-  {
-    path: 'TermsComponent',
-    component: TermsComponent,
-  },
+  }, 
   {
     path: 'ClientConfigComponent',
     component: ClientConfigComponent,
-  },
-  {
-    path: 'menuItem',
-    component: MenuItemComponent,
-  },
-  {
-    path: 'UserConfig',
-    component: UserConfigComponent,
-  },
-  {
-    path: 'UserFeedback',
-    component: UserFeedbackComponent,
-  },
-  // {
-  //   path: '',
-  //   component: DefaultLayoutComponent,
-  //   data: {
-  //     title: 'Home'
-  //   },
-  //   children: [
+  },  
       {
         path: 'dashboard',
         loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)
@@ -98,6 +69,10 @@ export const routes: Routes = [
       // },
     // ]
   },
+    {
+        path: 'users',
+        loadChildren: () => import('./views/user/user.module').then(m => m.UserModule)
+      },
   { path: '**', component: P404Component }
 ];
 
@@ -106,4 +81,4 @@ export const routes: Routes = [
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {}
-export const routingComponents = [AddClientComponent, TermsComponent, MenuItemComponent];
+export const routingComponents = [];
