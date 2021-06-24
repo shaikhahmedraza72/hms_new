@@ -12,27 +12,26 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class UserFeedbackComponent implements OnInit {
   userFeedback: UserFeedback;
-  feedback: UserFeedback;
+  terms: boolean;
+  disableBTN: boolean = false;
+  feedback: UserFeedback; 
   feedbackList: UserFeedback[] = [];
-
-  // ratings: number = 2;
-
-  val3: number = 2;
   constructor(public userSvc: UserService, public msgService: MessageService) { }
 
   ngOnInit(): void {
     this.getFeedback();
-    this.userFeedback = {termsAccept:false ,ratings:0,opinionText:'',reviewTitle:''}
+    this.userFeedback = {rating: 0,opinionText:'',reviewTitle:''}
     console.log(this.userFeedback);
   }
 
   getFeedback(){
     this.userSvc.getFeedbacklist().subscribe(res => {
+      console.log(res);
       this.feedbackList = res;
     });
   }
 
-  submitFeedback(){
+  onSubmit(){
     debugger;
     // this.userFeedback.id = this.feedbackList[this.feedbackList.length - 1].id + 1;
     this.userSvc.postReview(this.userFeedback).subscribe(res => {
@@ -41,7 +40,8 @@ export class UserFeedbackComponent implements OnInit {
         this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Feedback Posted', life: 3000 });
       }
     })
-    console.log(this.feedback);
+    console.log(this.userFeedback);
+    this.userFeedback = {};
   }
 }
 
