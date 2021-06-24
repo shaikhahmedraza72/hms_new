@@ -1,4 +1,4 @@
-<div class="p-card" style="width:50%;">
+<!-- <div class="p-card" style="width:50%;">
     <div class="card-body">
         <form name="userFeedback" #value="ngForm" (ngSubmit)="onSubmit()">
             <div class="p-grid p-flex-column">
@@ -37,9 +37,57 @@
             </div>
         </form>
     </div>
-</div>
-<br>
+</div> -->
 
+
+
+
+
+<p-dialog header="Add Review" [(visible)]="displayDialog" [style]="{width: '50vw'}" [baseZIndex]="10000">
+    <ng-template pTemplate="content">
+        <div class="p-grid p-flex-column">
+            <div class="p-field p-col">
+                <h5>Rating</h5>
+                <p-rating name="rating" #rating="ngModel" [(ngModel)]="userFeedback.rating" [cancel]="false" required>
+                </p-rating>
+            </div>
+            <div class="p-field p-col">
+                <h5>Your Review</h5>
+                <textarea name="opinion" #opText="ngModel" [(ngModel)]="userFeedback.opinionText" rows="5" cols="30" style="width: 100%;" pInputTextarea required></textarea>
+                <!-- <small id="username-help" class="p-error"></small> -->
+            </div>
+            <div class="p-field p-col">
+                <h5>Give your review a title</h5>
+                <span class="p-input-icon-right">
+                    <i class="pi pi-pencil"></i>
+                    <input name="titleText" #rTitle="ngModel" [(ngModel)]="userFeedback.reviewTitle" type="text"
+                        pInputText required />
+                </span>
+            </div>
+            <div class="p-field p-grid">
+                <div class="p-col-fixed" style="width: 25px;">
+                    <p-checkbox name="chkbox" [(ngModel)]="terms" inputId="termsCond" [binary]="true"></p-checkbox>
+                </div>
+                <div class="p-col">
+                    <label for="termsCond">
+                        I confirm this review is about my own genuine experience. I am eligible to leave
+                        this review, and have not been offered any incentive or payment to leave a review for this
+                        company.
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <p-button icon="pi pi-check" (click)="displayDialog=false" label="Post your review" styleClass="p-button-text" (click)="onSubmit(feedback)">
+        </p-button>
+    </ng-template>
+    <!-- <ng-template pTemplate="footer">
+        <p-button [disabled]="disableBTN" label="Post Your Review" icon="pi pi-check" iconPos="left"></p-button>
+    </ng-template> -->
+</p-dialog>
+<p-button (click)="showFeedbackDialog()" label="Write your review"></p-button>
+<br>
+<br>
 <div class="p-card" *ngFor="let list of feedbackList" style="width: 50%; margin-bottom: 1.2rem;">
     <div class="card-body">
         <div class="p-grid">
@@ -93,3 +141,6 @@
         </div>
     </div>
 </div>
+
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
