@@ -1,46 +1,94 @@
-<div class="p-card" style="width:50%;">
+<!-- <div class="p-card" style="width:50%;">
     <div class="card-body">
+        <form name="userFeedback" #value="ngForm" (ngSubmit)="onSubmit()">
+            <div class="p-grid p-flex-column">
+                <div class="p-col">
+                    <h5>Rating</h5>
+                    <p-rating name="rating" #rating="ngModel" [(ngModel)]="userFeedback.rating" [cancel]="false" required></p-rating>
+                    <div *ngIf="rating.touched && rating.invalid && value.submitted"> <small class="p-error p-error-danger" *ngIf="rating.errors.required">Please rate us.</small> </div>
+                </div>
+                <div class="p-col">
+                    <h5>Your Review</h5>
+                    <textarea name="opinion" #opText="ngModel" [(ngModel)]="userFeedback.opinionText" rows="5" cols="30" style="width: 100%;" pInputTextarea required></textarea>
+                    <div *ngIf="opText.touched && opText.invalid && value.submitted"> <small class="p-error p-error-danger" *ngIf="opText.errors.required">Please write your opinion.</small> </div>
+                </div>
+                <div class="p-col">
+                    <h5>Give your review a title</h5>
+                    <span class="p-input-icon-right">
+                    <i class="pi pi-pencil"></i>
+                    <input name="titleText" #rTitle="ngModel" [(ngModel)]="userFeedback.reviewTitle" type="text" pInputText required/>
+                    <div *ngIf="rTitle.touched && rTitle.invalid && value.submitted"> <small class="p-error p-error-danger" *ngIf="rTitle.errors.required">Please give your opinion a title.</small> </div>
+                </span>
+                </div>
+                <div class="p-grid">
+                    <div class="p-col-fixed" style="width: 25px;">
+                        <p-checkbox name="chkbox" [(ngModel)]="terms" inputId="termsCond" required></p-checkbox>
+                    </div>
+                    <div class="p-col">
+                        <label for="termsCond">
+                        I confirm this review is about my own genuine experience. I am eligible to leave
+                        this review, and have not been offered any incentive or payment to leave a review for this company.
+                    </label>
+                    </div>
+                </div>
+                <div class="p-col">
+                    <p-button [disabled]="disableBTN" label="Post Your Review" icon="pi pi-check" iconPos="left"></p-button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div> -->
+
+
+
+
+
+<p-dialog header="Add Review" [(visible)]="displayDialog" [style]="{width: '50vw'}" [baseZIndex]="10000">
+    <ng-template pTemplate="content">
         <div class="p-grid p-flex-column">
-            <div class="p-col">
+            <div class="p-field p-col">
                 <h5>Rating</h5>
-                <p-rating [(ngModel)]="userFeedback.ratings" [cancel]="false"></p-rating>
+                <p-rating name="rating" #rating="ngModel" [(ngModel)]="userFeedback.rating" [cancel]="false" required>
+                </p-rating>
             </div>
-            <div class="p-col">
+            <div class="p-field p-col">
                 <h5>Your Review</h5>
-                <textarea [(ngModel)]="userFeedback.opinionText" rows="5" cols="30" style="width: 100%;" pInputTextarea></textarea>
+                <textarea name="opinion" #opText="ngModel" [(ngModel)]="userFeedback.opinionText" rows="5" cols="30" style="width: 100%;" pInputTextarea required></textarea>
+                <!-- <small id="username-help" class="p-error"></small> -->
             </div>
-            <div class="p-col">
+            <div class="p-field p-col">
                 <h5>Give your review a title</h5>
                 <span class="p-input-icon-right">
                     <i class="pi pi-pencil"></i>
-                    <input [(ngModel)]="userFeedback.reviewTitle" type="text" pInputText />
+                    <input name="titleText" #rTitle="ngModel" [(ngModel)]="userFeedback.reviewTitle" type="text"
+                        pInputText required />
                 </span>
             </div>
-
-            <!-- <div class="p-col">
-                <span>
-                    <p-checkbox [(ngModel)]="checked" binary="true" inputId="termsCond"></p-checkbox>
-                </span>
-                <label for="termsCond">I confirm this review is about my own genuine experience. I am eligible to
-                leave this review, and have not been offered any incentive or payment to leave a review for this
-                company.</label>
-            </div> -->
-            <div class="p-col">
-                <p-checkbox [(ngModel)]="userFeedback.termsAccept" inputId="termsCond"></p-checkbox>
-                <label for="termsCond">
-                    I confirm this review is about my own genuine experience. I am eligible to leave
-                    this review, and have not been offered any incentive or payment to leave a review for this company.
-                </label>
-            </div>
-            <div class="p-col">
-                <p-button label="Post Your Review" style="width: 100%;" icon="pi pi-check" iconPos="left" (click)="submitFeedback()"></p-button>
+            <div class="p-field p-grid">
+                <div class="p-col-fixed" style="width: 25px;">
+                    <p-checkbox name="chkbox" [(ngModel)]="terms" inputId="termsCond" [binary]="true"></p-checkbox>
+                </div>
+                <div class="p-col">
+                    <label for="termsCond">
+                        I confirm this review is about my own genuine experience. I am eligible to leave
+                        this review, and have not been offered any incentive or payment to leave a review for this
+                        company.
+                    </label>
+                </div>
             </div>
         </div>
-    </div>
-</div>
-<br>
 
-<div class="p-card" *ngFor="let list of feedbackList" style="width:50%; margin-bottom: 1.2rem;">
+        <p-button icon="pi pi-check" (click)="displayDialog=false" label="Post your review" styleClass="p-button-text" (click)="onSubmit(feedback)">
+        </p-button>
+    </ng-template>
+    <!-- <ng-template pTemplate="footer">
+        <p-button [disabled]="disableBTN" label="Post Your Review" icon="pi pi-check" iconPos="left"></p-button>
+    </ng-template> -->
+</p-dialog>
+<p-button (click)="showFeedbackDialog()" label="Write your review"></p-button>
+<br>
+<br>
+<div class="p-card" *ngFor="let list of feedbackList" style="width: 50%; margin-bottom: 1.2rem;">
     <div class="card-body">
         <div class="p-grid">
             <span>
@@ -60,7 +108,7 @@
         <hr>
         <div class="p-grid">
             <div class="p-col">
-                <p-rating [ngModel]="list.ratings" readonly="true" stars="5" [cancel]="false"></p-rating>
+                <p-rating [ngModel]="list.rating" readonly="true" stars="5" [cancel]="false"></p-rating>
             </div>
             <div class="p-jc-end">
                 Time Stamp
@@ -93,3 +141,6 @@
         </div>
     </div>
 </div>
+
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

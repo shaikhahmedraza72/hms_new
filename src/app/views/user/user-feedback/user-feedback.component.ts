@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { User, UserFeedback } from './../../../models/user';
+import { UserFeedback } from './../../../models/user';
 import { UserService } from './../../../service/user.service';
-import { ConfirmationService, MessageService } from 'primeng/api';
+import { MessageService } from 'primeng/api';
 
 
 
@@ -12,36 +12,51 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 })
 export class UserFeedbackComponent implements OnInit {
   userFeedback: UserFeedback;
+  terms: boolean = true;
+  displayDialog: boolean;
+  disableBTN: boolean = false;
   feedback: UserFeedback;
   feedbackList: UserFeedback[] = [];
-
-  // ratings: number = 2;
-
-  val3: number = 2;
   constructor(public userSvc: UserService, public msgService: MessageService) { }
 
   ngOnInit(): void {
     this.getFeedback();
-    this.userFeedback = {termsAccept:false ,ratings:0,opinionText:'',reviewTitle:''}
+    this.userFeedback = { rating: 0, opinionText: '', reviewTitle: '' }
     console.log(this.userFeedback);
   }
 
-  getFeedback(){
+  getFeedback() {
     this.userSvc.getFeedbacklist().subscribe(res => {
+      console.log(res);
       this.feedbackList = res;
     });
   }
+  showFeedbackDialog() {
+    this.displayDialog = true;
+  }
+  onSubmit() {
+    // debugger;
+    if (this.userFeedback.opinionText === "" && this.userFeedback.rating === 0 && this.userFeedback.reviewTitle === "") {
+      alert("Please provide Info");
+      this.displayDialog = true;
+    } else if(!this.terms) {
+      alert("Please accept the terms and conditions");
+      this.displayDialog = true;
+    } else{
 
-  submitFeedback(){
-    debugger;
-    // this.userFeedback.id = this.feedbackList[this.feedbackList.length - 1].id + 1;
-    this.userSvc.postReview(this.userFeedback).subscribe(res => {
-      if(res){
-        this.feedbackList.push(this.userFeedback);
-        this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Feedback Posted', life: 3000 });
-      }
-    })
-    console.log(this.feedback);
+      console.log(this.userFeedback);
+      console.log(this.feedbackList.length);
+   
+      // this.userFeedback.id = this.feedbackList[this.feedbackList.length - 1].id + 1;
+      this.userSvc.postReview(this.userFeedback).subscribe(res => {
+        if (res) {
+          this.feedbackList.push(this.userFeedback);
+          this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Feedback Posted', life: 3000 });      
+        }
+      })
+      this.userFeedback = {};
+      this.displayDialog = false;
+    }
   }
 }
 

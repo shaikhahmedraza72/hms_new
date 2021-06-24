@@ -100,7 +100,8 @@ export class UserService {
   postReview(feedback: UserFeedback): Observable<UserFeedback>{
     return this.http.post<UserFeedback>(`${this.feedbackUrl}`, feedback).pipe(
       map(x => {
-        this.feedbackList.push(x);
+        if(x!=null)
+          this.feedbackList.push(x);
         return feedback;
       }),
       catchError(this.handleError('', feedback))
