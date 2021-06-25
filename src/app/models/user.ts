@@ -18,9 +18,9 @@ export interface State {
 }
 
 export interface UserFeedback {
-    id?: number; // user ID
-    ratings?: number;
+    id?: number; //user ID
+    rating?: number;
     opinionText?: string;
     reviewTitle?: string;
-    termsAccept?: boolean;
+    // termsAccept?: boolean;
 }
