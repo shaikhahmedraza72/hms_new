@@ -11,4 +11,5 @@ export class ApiConfig {
     public static CITY = 'city'
     public static STATE = 'state'
     public static USERFEEDBACK = 'userFeedback'
+    public static MASTERADMIN = 'masterAdmin'
 }

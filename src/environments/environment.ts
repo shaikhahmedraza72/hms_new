@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  apiURL : 'http://webapplication121-dev.us-east-2.elasticbeanstalk.com/'//'http://localhost:8000/'  
+  apiURL : 'http://webapplication121-dev.us-east-2.elasticbeanstalk.com/'    //'http://localhost:8000/'
 };

@@ -23,4 +23,5 @@ export interface UserFeedback {
     opinionText?: string;
     reviewTitle?: string;
     // termsAccept?: boolean;
+    timeStamp?: string;
 }

@@ -21,7 +21,7 @@ export class UserFeedbackComponent implements OnInit {
 
   ngOnInit(): void {
     this.getFeedback();
-    this.userFeedback = { rating: 0, opinionText: '', reviewTitle: '' }
+    this.userFeedback = { rating: 0, opinionText: '', reviewTitle: '' , timeStamp: 'none'}
     console.log(this.userFeedback);
   }
 
