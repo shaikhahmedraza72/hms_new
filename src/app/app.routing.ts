@@ -4,7 +4,7 @@ import { AdminSettingComponent } from './views/admin-setting/admin-setting.compo
 import { ClientConfigComponent } from './views/client-config/client-config.component';
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
-import { LoginComponent } from './views/login/login.component'; 
+import { LoginComponent } from './views/login/userLogin.component'; 
 import { RegisterComponent } from './views/register/register.component'; 
 
 export const routes: Routes = [

@@ -1,0 +1,6 @@
+{
+    "/api": {
+        "target": "http://webapplication121-dev.us-east-2.elasticbeanstalk.com",
+        "secure": false
+    }
+}

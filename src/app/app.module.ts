@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
-import { LoginComponent } from './views/login/login.component';
+// import { LoginComponent } from './views/login/userLogin.component';
 import { RegisterComponent } from './views/register/register.component';
 import {
   AppAsideModule,
@@ -35,13 +35,16 @@ import {
 // import { AppRoutingModule, routingComponents } from './app.routing';
 
 // Import 3rd party components
+import { AdminModule } from '../app/views/admin-setting/admin.module'
 import { SharedModule } from './shared/shared.module'
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
 import { AppRoutingModule,  routingComponents} from './app.routing';
 import { ClientConfigComponent } from './views/client-config/client-config.component';
-import { AdminSettingComponent } from './views/admin-setting/admin-setting.component'; 
+import { MasterAdminModule } from '../app/views/master-admin/master-admin.module';
+// import { UserModuleModule } from '../app/views/login/user-module.module';
+// import { MasterAdminComponent } from './views/master-admin/master-admin.component'; 
 
 // import { SearchFilterPipe } from './helpers/search-filter.pipe';
 
@@ -55,6 +58,7 @@ import { AdminSettingComponent } from './views/admin-setting/admin-setting.compo
     AppRoutingModule,
     SharedModule,
     AppAsideModule,
+    AdminModule,
     AppBreadcrumbModule.forRoot(),
     AppFooterModule,
     AppHeaderModule,
@@ -66,17 +70,19 @@ import { AdminSettingComponent } from './views/admin-setting/admin-setting.compo
     IconModule,
     IconSetModule.forRoot(),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MasterAdminModule,
+   
   ],
   declarations: [
     AppComponent, 
     P404Component,
     P500Component,
-    LoginComponent,
+    // LoginComponent,
     RegisterComponent,
     routingComponents,
-    ClientConfigComponent,
-    AdminSettingComponent
+    ClientConfigComponent,    
+    // MasterAdminComponent
 
    // EndUserComponent
   ],

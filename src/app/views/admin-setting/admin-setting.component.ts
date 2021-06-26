@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ModalDirective } from 'ngx-bootstrap/modal';
-// import { Client, ClientBankDetails, CLientCategory } from './../../models/client';
 import { ClientService } from '../../service/client.service';
 import { Admin, Bankdetails } from '../../models/admin';
 import { MessageService } from 'primeng/api';
