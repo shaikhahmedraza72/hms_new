@@ -6,14 +6,20 @@ public gst?: string,
 public address?: string,
 public foodLincNum?: string,
 public id?: number,
-public pincode?: number,
+public pinCode?: number,
 public restaurentLogo?:string,
 public restaurentSeal?:string,
 public signature?:string,
 public termAndCondition?:string,
 public city?: string,
 public selectedState?: string,
-public bankDetails?: Bankdetails
+public bankDetails?: Bankdetails,
+public accountName?: string,
+public accountNumber?: number,
+public bankName?: string,
+public ifscCode?: string,
+public UPICodeImg?:string,
+public UPICodeNumber?:string
   ){}
 }
 export class Bankdetails {
