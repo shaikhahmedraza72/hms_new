@@ -3,8 +3,6 @@ import { UserFeedback } from './../../../models/user';
 import { UserService } from './../../../service/user.service';
 import { MessageService } from 'primeng/api';
 
-
-
 @Component({
   selector: 'app-user-feedback',
   templateUrl: './user-feedback.component.html',
@@ -36,7 +34,7 @@ export class UserFeedbackComponent implements OnInit {
   }
   onSubmit() {
     // debugger;
-    if (this.userFeedback.opinionText === "" && this.userFeedback.rating === 0 && this.userFeedback.reviewTitle === "") {
+    if (this.userFeedback.rating === 0 && this.userFeedback.opinionText === "" && this.userFeedback.rating === 0 && this.userFeedback.reviewTitle === "") {
       alert("Please provide Info");
       this.displayDialog = true;
     } else if(!this.terms) {
@@ -46,7 +44,7 @@ export class UserFeedbackComponent implements OnInit {
 
       console.log(this.userFeedback);
       console.log(this.feedbackList.length);
-   
+      this.userFeedback.timeStamp =null;
       // this.userFeedback.id = this.feedbackList[this.feedbackList.length - 1].id + 1;
       this.userSvc.postReview(this.userFeedback).subscribe(res => {
         if (res) {

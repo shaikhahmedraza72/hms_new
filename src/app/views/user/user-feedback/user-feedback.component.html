@@ -41,7 +41,7 @@
 
 
 
-
+<p-toast position="bottom-right"></p-toast>
 
 <p-dialog header="Add Review" [(visible)]="displayDialog" [style]="{width: '50vw'}" [baseZIndex]="10000">
     <ng-template pTemplate="content">
@@ -82,7 +82,8 @@
             </div>
         </div>
 
-        <p-button icon="pi pi-check" (click)="displayDialog=false" label="Post your review" styleClass="p-button-text" (click)="onSubmit(feedback)">
+        <p-button *ngIf='!(this.userFeedback.rating === 0) || !(this.userFeedback.opinionText === "") || !(this.userFeedback.reviewTitle === "")' icon="pi pi-check" (click)="displayDialog=false" label="Post your review" styleClass="p-button-outlined p-button-success"
+            (click)="onSubmit(feedback)">
         </p-button>
     </ng-template>
     <!-- <ng-template pTemplate="footer">
