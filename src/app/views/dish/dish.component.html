@@ -50,11 +50,11 @@
                     <!-- <td title="{{item.description}} ">{{item.description}}</td> -->
                     <td>{{item.halfPrice | currency:'INR'}}</td>
                     <td>{{item.fullPrice | currency:'INR'}}</td>
-                    <td>{{item.categories}}</td>
-                    <td>{{item.serviceTime}} mins</td>
+                    <td>{{item.dishCategory}}</td>
+                    <td>{{item.timeForCook}} mins</td>
                     <td>
 
-                        <p-tag [value]="item.statuses" *ngIf="item.statuses" class="p-text-uppercase" [severity]="item.statuses =='active' ? 'success':'danger'"></p-tag>
+                        <p-tag [value]="item.status" *ngIf="item.status" class="p-text-uppercase" [severity]="item.status =='active' ? 'success':'danger'"></p-tag>
 
 
                         <!-- <span class="p-text-capitalize product-badge" [ngClass]="item.statuses =='active' ? 'status-instock':'status-outofstock'">{{item.statuses}}</span></td> -->
@@ -95,7 +95,7 @@
 
                 <div class="p-field p-col-6">
                     <label for="inventoryStatus">Inventory Status</label>
-                    <p-dropdown [(ngModel)]="dish.statuses" class="p-inputtext-sm" #invStatus="ngModel" name="inventoryStatus" inputId="inventoryStatus" [options]="statuses" name="statuses" placeholder="Select" required>
+                    <p-dropdown [(ngModel)]="dish.status" class="p-inputtext-sm" #invStatus="ngModel" name="inventoryStatus" inputId="inventoryStatus" [options]="status" name="statuses" placeholder="Select" required>
                         <ng-template let-option pTemplate="item">
                             <span [class]="'dish-badge status-' + option.value">{{option.label}}</span>
                         </ng-template>

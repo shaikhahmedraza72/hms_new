@@ -18,8 +18,8 @@ public accountName?: string,
 public accountNumber?: number,
 public bankName?: string,
 public ifscCode?: string,
-public UPICodeImg?:string,
-public UPICodeNumber?:string
+public codeImage?:string,
+public codeNumber?:string
   ){}
 }
 export class Bankdetails {
