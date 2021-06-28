@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';  
+// import { debug } from 'console';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Dish, DishCategory } from '../../models/dish';
 import { DishService } from '../../service/dish.service';
@@ -12,7 +13,7 @@ export class DishComponent implements OnInit {
   dishDialog: boolean;
   checked: boolean = true;
   isEdit: boolean; 
-  statuses: { label: string; value: string; }[]; 
+  status: { label: string; value: string; }[]; 
   constructor(public dishSvc: DishService, private confirmationService: ConfirmationService, private msgService: MessageService) { }
   dishList: Dish[] = [];
   uploadedFiles: any[] = [];
@@ -27,7 +28,7 @@ export class DishComponent implements OnInit {
   isVeg = true;
   ngOnInit(): void {
     this.loadData();
-    this.statuses = [  {label: 'Active', value: 'active'},
+    this.status = [  {label: 'Active', value: 'active'},
     {label: 'InActive', value: 'inActive'}];
      this.nonVegTypes = [
       { label: "Chicken", value: "chicken" },
@@ -114,13 +115,17 @@ hideDialog() {
 
 // add/ update dish 
 onSubmit(f) {
+  debugger;
   this.submitted = true;
   if(f.invalid) return;
   const isNewCategory = this.dishCategory.some(citem => citem.value === this.dish.categories);
  // if (this.dish.name.trim()) {
       if (this.dish.id) {
         this.dishList[this.findIndexById(this.dish.id)] = this.dish;
+        this.dish.imageUrl = './assets/img/dishes/img-menu-placeholder.jpg';
+        // this.dish.mainCategoryId = 1;
         this.dishSvc.update(this.dish).subscribe(resp => {
+          debugger;
           if(resp){
             this.msgService.add({severity:'success', summary: 'Successful', detail: 'Dish Updated', life: 3000});
           }
@@ -129,6 +134,7 @@ onSubmit(f) {
       } else {
           this.dish.id = this.dishList[this.dishList.length - 1].id + 1;
           this.dish.imageUrl = './assets/img/dishes/img-menu-placeholder.jpg';
+          this.dish.mainCategoryId = 1;
           this.dishSvc.Add(this.dish).subscribe(resp => {
             if(resp){
                this.dishList.push(this.dish);

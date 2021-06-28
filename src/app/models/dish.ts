@@ -8,9 +8,10 @@ export interface Dish {
     isVeg?:boolean; 
     imageUrl?:any;
     nonVegCategory?:string;
+    mainCategoryId?: number;
     cookingTime?: any;
     minHr?: string;   
-    statuses?:string;
+    status?:string;
     categories?:string;
     quantity?:any;
     serviceTime?: number;

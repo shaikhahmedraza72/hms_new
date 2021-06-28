@@ -1,5 +1,5 @@
 {
-    "dish": [{
+    "Dish": [{
             "id": 1,
             "name": "Chicken Tikka Roll",
             "fullPrice": 425,
@@ -170,7 +170,7 @@
             "isVeg": true
         }
     ],
-    "dishCategory": [{
+    "DishCategory": [{
             "id": 1,
             "name": "Starter",
             "description": "cd1"
