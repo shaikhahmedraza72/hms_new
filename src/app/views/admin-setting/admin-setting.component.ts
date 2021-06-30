@@ -54,7 +54,8 @@ export class AdminSettingComponent implements OnInit {
    
   }
 
-  onSubmit(fData:any){ 
+  onSubmit(fData:any){
+    debugger;
     if(fData.invalid) return;
     let f = fData.value ;
     if(!this.admin.id){
@@ -73,6 +74,9 @@ export class AdminSettingComponent implements OnInit {
   }
 
   fnGetCitiesList(){
+    // if(this.admin.category){
+      
+    // }
     this.commonService.getCities().subscribe(x => {
       this.cities = x.map(cItem => {
         return { label: cItem.name, value: cItem.name }
