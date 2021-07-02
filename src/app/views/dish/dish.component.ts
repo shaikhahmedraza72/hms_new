@@ -45,7 +45,7 @@ export class DishComponent implements OnInit {
   }
 
   fnGetDishCategoy() {
-    this.dishSvc.getDishCategory().subscribe((x:DishCategory[]) => {
+    this.dishSvc.getDishCategory().subscribe(x => {
       this.dishCategory = x.map(cItem => { 
         return { label:cItem.name, value:cItem.name}
          }) 

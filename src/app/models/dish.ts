@@ -3,27 +3,27 @@ export interface Dish {
     name?: string;
     description?: string | undefined;
     halfPrice?: number;
-    fullPrice?: number; 
+    fullPrice?: number;
     image?: any
-    isVeg?:boolean; 
-    imageUrl?:any;
-    nonVegCategory?:string;
+    isVeg?: boolean;
+    imageUrl?: any;
+    nonVegCategory?: string;
+    selectedCategory?: string;
     mainCategoryId?: number;
     cookingTime?: any;
-    minHr?: string;   
-    status?:string;
-    categories?:string;
-    quantity?:any;
+    minHr?: string;
+    status?: string;
+    categories?: string;
+    quantity?: any;
     serviceTime?: number;
-    bookmark?:boolean;
+    bookmark?: boolean;
 }
 
-export class DishCategory{
-    public id? : number;
-    public name!: string;
-    public description: string | undefined;
+export class DishCategory {
     constructor(
-        ) { }
-} 
- 
-  
+        public id?: number,
+        public name?: string,
+        public description?: string | undefined
+    ) { }
+}
+
