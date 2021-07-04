@@ -1,0 +1,29 @@
+.checkoutGrid {
+    margin: 0;
+    padding: 10px 5px;
+    list-style: none;
+    border-bottom: 1px solid #dcdcdc;
+    margin-bottom: 10px;
+    padding-bottom:10px;
+    img{
+                width: 100px;
+            }
+        h1{
+            font-size: 1rem;
+            color:#666;
+        }
+        .itemTotal{
+            font-weight: bold;
+            color:#666;
+        }
+    
+}
+.btnWrap {
+display: flex;
+align-items: center;
+justify-content: flex-end;
+width: 100%; 
+font-weight: bold;
+color:#666;
+
+}

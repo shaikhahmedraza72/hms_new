@@ -3,11 +3,14 @@ import { DishRoutingModule } from './dish-routing.module';
 import { DishComponent } from './dish.component';
 import { DishMenuComponent } from './dish-menu/dish-menu.component';
 import { SharedModule} from './../../shared/shared.module';
+import { CardDetailsComponent } from './card-details/card-details.component';
+import { CheckoutComponent } from './checkout/checkout.component'; 
 @NgModule({
   imports: [
     SharedModule,
     DishRoutingModule,    
   ],
-  declarations: [DishComponent,DishMenuComponent ]
+  declarations: [DishComponent,DishMenuComponent, CardDetailsComponent, CheckoutComponent ],
+ 
 })
 export class DashboardModule { }

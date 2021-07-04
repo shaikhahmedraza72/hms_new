@@ -1,0 +1,22 @@
+<div class="p-card p-p-2">
+    <div *ngIf="cartItems?.items.length > 0">
+        <div class="p-grid checkoutGrid" *ngFor="let item of cartItems.items">
+            <div class="p-col-2"> <img [src]="item.image" alt="{{item.name}}"></div>
+            <div class="p-col-4"><h1>{{ item.name }}</h1></div>
+            <div class="p-col-3"><span class="quantity text-success">{{item.quantity}} X {{item.price}}</span></div>
+            <div class="p-col-3 text-right"><span class="itemTotal">{{ item.quantity * item.price | currency:'INR':true }}</span></div>
+        </div> 
+        <div class="btnWrap">
+           <button pButton type="button" label="Make Payment" routerLink="/dish/dish-menu" (click)="fnCompleteOrder()"
+                class="p-button-sm p-button-success p-mr-4"></button>
+                 <!-- <span>Total:</span> -->
+                 {{cartItems.grossTotal | currency:'INR':true}} 
+
+        </div>
+
+    </div>
+
+    <p *ngIf="cartItems?.items.length == 0">Place the order first! <a class="link" routerLink="/dish-menu"> click here
+        </a>to visit dish menu page.</p>
+
+</div>

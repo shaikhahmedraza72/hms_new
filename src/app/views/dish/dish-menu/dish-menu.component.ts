@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PrimeNGConfig, SelectItem } from 'primeng/api';
 import { Dish, DishCategory } from '../../../models/dish';
+import { CartService } from '../../../service/cart.service';
 import { DishService } from '../../../service/dish.service';
 
 @Component({
@@ -17,8 +18,12 @@ export class DishMenuComponent implements OnInit {
 
   sortField: string;
     dishCategory: { label: string; value: string; }[];
+  cartItems: Array<any> = [];
 
-  constructor(private dishService: DishService, private primengConfig: PrimeNGConfig) { }
+  constructor(
+    private dishService: DishService, 
+    private primengConfig: PrimeNGConfig,
+    private cartService:CartService) { }
 
   ngOnInit() {
       this.dishService.getList().subscribe(data => this.dishes = data);
@@ -68,5 +73,23 @@ export class DishMenuComponent implements OnInit {
 
   fnBookmarkMenu(dish:Dish){
       dish.bookmark =  !dish.bookmark;
+  }
+  
+  //Add to cart Function
+  fnAddtoCart(cartItem:Dish){
+    this.cartService.addItem(cartItem,1)
+  //   if(this.cartItems.length > 0) { 
+  //   this.cartItems.push({Id:cartItem.id,price:cartItem.fullPrice,name:cartItem.name,quantity:1})
+
+  // } else {
+  //   this.cartItems.push({Id:cartItem.id,price:cartItem.fullPrice,name:cartItem.name, quantity:1})
+
+  // }
+
+  
+}
+  fnGetTotal(){
+  const totVal = (accumulator:any, curVal:any) => accumulator + curVal.price;
+  return this.cartItems.reduce(totVal);
   }
 }

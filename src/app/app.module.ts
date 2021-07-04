@@ -43,6 +43,7 @@ import { ChartsModule } from 'ng2-charts';
 import { AppRoutingModule,  routingComponents} from './app.routing';
 import { ClientConfigComponent } from './views/client-config/client-config.component';
 import { MasterAdminModule } from '../app/views/master-admin/master-admin.module';
+import { LocalStorageService, StorageService } from './service/storage.service';
 // import { UserModuleModule } from '../app/views/login/user-module.module';
 // import { MasterAdminComponent } from './views/master-admin/master-admin.component'; 
 
@@ -91,7 +92,8 @@ import { MasterAdminModule } from '../app/views/master-admin/master-admin.module
       provide: LocationStrategy,
       useClass: HashLocationStrategy
     },
-    IconSetService,
+    IconSetService, 
+      { provide: StorageService, useClass: LocalStorageService },
   ],
   bootstrap: [ AppComponent ]
 })

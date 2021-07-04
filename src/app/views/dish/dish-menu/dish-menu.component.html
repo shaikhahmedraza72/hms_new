@@ -41,7 +41,7 @@
                             </div>
                             <div class="product-list-action">
                                 <span class="product-price">{{dish.fullPrice | currency:'INR'}}</span>
-                                <p-button icon="pi pi-shopping-cart" styleClass="p-button-sm" label="Add to Cart" [disabled]="dish.statuses === 'OUTOFSTOCK'"></p-button>
+                                <p-button icon="pi pi-shopping-cart" styleClass="p-button-sm" label="Add to Cart" (click)="fnAddtoCart(dish)" [disabled]="dish.statuses === 'OUTOFSTOCK'"></p-button>
                                 <div class="timeTxt"><i class="pi pi-clock p-mr-1"></i> {{dish.serviceTime}} mins</div>
 
                             </div>
@@ -79,7 +79,7 @@
                             </div>
                             <div class="product-grid-item-bottom">
                                 <span class="product-price">{{dish.fullPrice | currency:'INR'}}</span>
-                                <p-button styleClass="p-button-sm" icon="pi pi-shopping-cart" [disabled]="dish.statuses === 'OUTOFSTOCK'"></p-button>
+                                <p-button styleClass="p-button-sm" icon="pi pi-shopping-cart" (click)="fnAddtoCart(dish)" [disabled]="dish.statuses === 'OUTOFSTOCK'"></p-button>
                             </div>
                         </div>
                     </div>
@@ -92,9 +92,7 @@
                 Cart Items
             </div>
             <div class="cartContent">
-                <p>Order some yummy and delicious food from menu!</p>
-                <!-- <p-button icon="pi pi-arrow" styleClass="p-button-sm" severit="success" label="Checkout" [disabled]="true"></p-button> -->
-            </div>
+                <app-card-details></app-card-details>   </div>
         </div>
     </div>
 </div>

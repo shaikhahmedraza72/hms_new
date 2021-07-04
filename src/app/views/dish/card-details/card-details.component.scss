@@ -1,0 +1,53 @@
+ul.ulCart {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+ li {
+    padding: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    span:first-child{
+        width:40%;
+    }
+    span:last-child{
+        width:30%;
+        text-align: right;
+    }
+}
+li:last-child{
+    font-weight: bold;
+    border-top: 1px solid #dcdcdc;
+    margin: 5px 0;
+}
+}
+.btnPlusMinusWrap {
+    border:1px solid #dcdcdc;
+    padding: 0 2px;
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    button{
+        width:10px;
+        height: 10px;
+        .pi{
+        font-size:0.7rem;
+    } 
+    }
+    button:focus,button:visited,button:focus-visible{
+        border:0;
+        outline: 0;
+        box-shadow: none;
+     
+}
+   
+}
+.btnWrap{
+    display: flex;
+    justify-content: space-between;
+
+    button{
+        width:45%;
+    }
+}
