@@ -4,7 +4,7 @@ export interface User {
     email?: string;
     contact?: number;
     address?: string;
-    pincode?: number;
+    pinCode?: number;
 }
 
 export interface City {

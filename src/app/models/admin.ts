@@ -1,7 +1,7 @@
 export class Admin{
   constructor(
 public businessName?:string,
-public category?: string,
+public businessCatId?: number,
 public gst?: string,
 public address?: string,
 public foodLincNum?: string,
@@ -11,15 +11,16 @@ public restaurentLogo?:string,
 public restaurentSeal?:string,
 public signature?:string,
 public termAndCondition?:string,
-public city?: string,
-public selectedState?: string,
+public cityId?: number,
+public stateId?: number,
 public bankDetails?: Bankdetails,
 public accountName?: string,
 public accountNumber?: number,
 public bankName?: string,
 public ifscCode?: string,
 public codeImage?:string,
-public codeNumber?:string
+public codeNumber?:string,
+public categoryId?:number
   ){}
 }
 export class Bankdetails {

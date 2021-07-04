@@ -104,7 +104,7 @@
                 </div>
                 <div class="p-field p-col-6">
                     <label for="categories">Select Category</label>
-                    <p-dropdown [(ngModel)]="dish.categories" editable="true" class="p-inputtext-sm" name="categories" inputId="dishCategory" [options]="dishCategory" placeholder="Type for new or Select" required #category="ngModel">
+                    <p-dropdown [(ngModel)]="dish.selectedCategory" editable="true" class="p-inputtext-sm" name="categories" inputId="dishCategory" [options]="dishCategory" placeholder="Type for new or Select" required #category="ngModel">
                         <ng-template let-option pTemplate="item">
                             <span [class]="'dish-badge status-' + option.value">{{option.label}}</span>
                         </ng-template>

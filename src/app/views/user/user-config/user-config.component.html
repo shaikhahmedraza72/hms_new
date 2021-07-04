@@ -3,22 +3,17 @@
     <div class="card-header">
         <p-toolbar class="pToolbar">
             <ng-template pTemplate="left">
-                <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2"
-                    (click)="openNew()"></button>
-                <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger"
-                    (click)="deleteSelectedUser(item)" [disabled]="!selectedUsers || !selectedUsers.length"></button>
+                <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
+                <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedUser(item)" [disabled]="!selectedUsers || !selectedUsers.length"></button>
             </ng-template>
             <ng-template pTemplate="right">
-                <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import"
-                    class="p-mr-2 p-d-inline-block"></p-fileUpload>
+                <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block"></p-fileUpload>
                 <button pButton pRipple label="Export" icon="pi pi-upload" class="p-button-help my-2"></button>
             </ng-template>
         </p-toolbar>
     </div>
     <div class="card-body">
-        <p-table #d2 [value]="userList" styleClass="p-datatable-customcss" [paginator]="true" [rows]="10"
-            [showCurrentPageReport]="true" [(selection)]="selectedUsers" [rowHover]="true" dataKey="id"
-            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        <p-table #d2 [value]="userList" styleClass="p-datatable-customcss" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" [(selection)]="selectedUsers" [rowHover]="true" dataKey="id" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
             [rowsPerPageOptions]="[10,25,50]">
             <ng-template pTemplate="header">
                 <tr>
@@ -48,13 +43,11 @@
                     <td>{{item.userName}}</td>
                     <td>{{item.email}}</td>
                     <td>{{item.contact}}</td>
-                    <td>{{item.cities}}</td>
-                    <td>{{item.pincode}}</td>
+                    <td>{{item.city}}</td>
+                    <td>{{item.pinCode}}</td>
                     <td>
-                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2"
-                            (click)="editUser(item)"></button>
-                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning"
-                            (click)="deleteUser(item)"></button>
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editUser(item)"></button>
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteUser(item)"></button>
                     </td>
                 </tr>
             </ng-template>
@@ -62,26 +55,22 @@
     </div>
 </div>
 
-<p-dialog [(visible)]="userDialog" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}"
-    header="User Configuration" [modal]="true">
+<p-dialog [(visible)]="userDialog" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}" header="User Configuration" [modal]="true">
     <ng-template pTemplate="content">
         <div class="p-fluid p-formgrid p-grid">
             <div class="p-field p-col-6">
                 <label for="userName">Name</label>
-                <input type="text" name="userName" class="p-inputtext-sm" pInputText id="userName"
-                    [(ngModel)]="user.userName" placeholder="Name" required autofocus />
+                <input type="text" name="userName" class="p-inputtext-sm" pInputText id="userName" [(ngModel)]="user.userName" placeholder="Name" required autofocus />
                 <small class="p-error" *ngIf="submitted && !user.userName">Name is required.</small>
             </div>
             <div class="p-field p-col-6">
                 <label for="email">Email</label>
-                <input type="email" name="email" class="p-inputtext-sm" pInputText id="email" [(ngModel)]="user.email"
-                    placeholder="Email" required autofocus />
+                <input type="email" name="email" class="p-inputtext-sm" pInputText id="email" [(ngModel)]="user.email" placeholder="Email" required autofocus />
                 <small class="p-error" *ngIf="submitted && !user.email">Email is required.</small>
             </div>
             <div class="p-field p-col-6">
                 <label for="contact">Contact</label>
-                <p-inputNumber [(ngModel)]="user.contact" mode="decimal" maxlength="10  " inputId="contact"
-                    [useGrouping]="false" required autofocus>
+                <p-inputNumber [(ngModel)]="user.contact" mode="decimal" maxlength="10  " inputId="contact" [useGrouping]="false" required autofocus>
                 </p-inputNumber>
                 <small class="p-error" *ngIf="submitted && !user.contact">Contact is required.</small><br>
                 <label for="city">City</label>
@@ -95,8 +84,7 @@
             </div>
             <div class="p-field p-col-6">
                 <label for="address">Address</label>
-                <textarea rows="4" cols="30" id="address" [(ngModel)]="user.address" pInputTextarea
-                    autoResize="autoResize" placeholder="Address" required autofocus></textarea>
+                <textarea rows="4" cols="30" id="address" [(ngModel)]="user.address" pInputTextarea autoResize="autoResize" placeholder="Address" required autofocus></textarea>
                 <small class="p-error" *ngIf="submitted && !user.address">Address is required.</small>
             </div>
             <div class="p-field p-col-6">
@@ -111,16 +99,13 @@
             </div>
             <div class="p-field p-col-6">
                 <label for="pincode">Pincode</label>
-                <p-inputNumber [(ngModel)]="user.pincode" minlength="6" maxlength="6" mode="decimal" inputId="pincode"
-                    [useGrouping]="false">
+                <p-inputNumber [(ngModel)]="user.pincode" minlength="6" maxlength="6" mode="decimal" inputId="pincode" [useGrouping]="false">
                 </p-inputNumber>
             </div>
         </div>
         <div class="p-card-footer p-text-right">
-            <button pButton pRipple label="Save" icon="pi pi-check" class="p-button p-button-raised"
-                (click)="saveUser(user)"></button>
-            <button pButton pRipple label="Reset" icon="pi pi-refresh" class="p-button-danger p-button-raised"
-                (click)="reset()"></button>
+            <button pButton pRipple label="Save" icon="pi pi-check" class="p-button p-button-raised" (click)="saveUser(user)"></button>
+            <button pButton pRipple label="Reset" icon="pi pi-refresh" class="p-button-danger p-button-raised" (click)="reset()"></button>
         </div>
     </ng-template>
 </p-dialog>

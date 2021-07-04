@@ -15,8 +15,9 @@ export class AdminSettingComponent implements OnInit {
   @ViewChild('largeModal') public largeModal: ModalDirective;
   @ViewChild('f') form: any;
   admin: Admin;
-  states: { label: string; value: string; }[];
-  cities: { label: string; value: string; }[];
+  states: any;
+  cities: any;
+  selectedCategory:any;
   constructor(
     public clientSvc: ClientService,
     private msgService: MessageService,
@@ -37,6 +38,9 @@ export class AdminSettingComponent implements OnInit {
        const adminItm = resp[resp.length-1];
         adminItm.id = 1;
        this.admin = adminItm;
+       this.admin.categoryId = 2;
+       console.log(this.admin )
+       this.selectedCategory = this.admin.categoryId // { label:'business1', value:1};
       }
     })
     this.getClientCategory();
@@ -54,7 +58,8 @@ export class AdminSettingComponent implements OnInit {
    
   }
 
-  onSubmit(fData:any){ 
+  onSubmit(fData:any){
+    debugger;
     if(fData.invalid) return;
     let f = fData.value ;
     if(!this.admin.id){
@@ -73,6 +78,9 @@ export class AdminSettingComponent implements OnInit {
   }
 
   fnGetCitiesList(){
+    // if(this.admin.category){
+      
+    // }
     this.commonService.getCities().subscribe(x => {
       this.cities = x.map(cItem => {
         return { label: cItem.name, value: cItem.name }
