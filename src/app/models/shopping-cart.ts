@@ -6,6 +6,7 @@ export class CartItem {
     public price: number;
     public quantity: number = 0;
     public image: string;
+    public description:string;
   }
 export class ShoppingCart {
     public items: CartItem[] = new Array<CartItem>();

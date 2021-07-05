@@ -35,6 +35,7 @@ public addItem(product: any, quantity: number): void {
     item.productId = product.id;
     item.name = product.name;
     item.price = product.price ? product.price : product.fullPrice ;
+    item.description = product.description;
     item.image= product.imageUrl ? product.imageUrl : './assets/img/dishes/img-menu-placeholder.jpg'
     cart.items.push(item);
   }
