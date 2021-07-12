@@ -2,7 +2,7 @@ export interface Registration {
     id?: number;
     name?: string;
     userType?: number;
-    username?: string;
+    userName?: string;
     email?: string;
     mobile?: string;
     password?: string;
