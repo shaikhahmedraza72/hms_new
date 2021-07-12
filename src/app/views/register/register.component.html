@@ -1,53 +1,153 @@
 <div class="app-body">
-  <main class="main d-flex align-items-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 mx-auto">
-          <div class="card mx-4">
-            <div class="card-body p-4">
-              <form>
-                <h1>Register</h1>
-                <p class="text-muted">Create your account</p>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-user"></i></span>
-                  </div>
-                  <input type="text" class="form-control" placeholder="Username" autocomplete="username" required>
+    <main class="main d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card mx-4">
+                        <div class="card-body p-4">
+                            <form (ngSubmit)="register()" #registerForm="ngForm">
+                                <h1>Register</h1>
+                                <p class="text-muted">Create your account</p>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="pi pi-user"></i></span>
+                                    </div>
+                                    <input [(ngModel)]="users.username" type="text" class="form-control" placeholder="Username" id="username" name="username" #username="ngModel" required>
+                                    <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+                                        Username is required
+                                    </div>
+                                </div>
+                                <div class="p-field p-col-6">
+                                    <label for="userType">Select Category</label>
+                                    <p-dropdown [(ngModel)]="users.userType" class="p-inputtext-sm" name="userType" inputId="typeUser" [options]="typeUser" placeholder="Type for new or Select" required #category="ngModel">
+                                        <ng-template let-option pTemplate="item">
+                                            <span [class]="'dish-badge status-' + option.value">{{option.label}}</span>
+                                        </ng-template>
+                                    </p-dropdown>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">@</span>
+                                    </div>
+                                    <input [(ngModel)]="users.email" type="text" class="form-control" placeholder="Email" id="email" name="email" #email="ngModel" required>
+                                    <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+                                        Email is required
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="pi pi-phone input-group-text"></span>
+                                    </div>
+                                    <input [(ngModel)]="users.mobile" type="number" class="form-control" placeholder="Mobile" id="mobile" name="mobile" #mobile="ngModel" required>
+                                    <div [hidden]="mobile.valid || mobile.pristine" class="alert alert-danger">
+                                        Mobile number is required
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="pi pi-lock"></i></span>
+                                    </div>
+                                    <input [(ngModel)]="users.password" type="password" class="form-control" placeholder="Password" id="password" name="password" #password="ngModel" required>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="pi pi-lock"></i></span>
+                                    </div>
+                                    <input [(ngModel)]="users.password" type="password" class="form-control" placeholder="Repeat password" id="password" name="password" #password="ngModel" required>
+                                    <small *ngIf="users.password !== users.password" id="username2-help" class="p-error">Password does not match.</small>
+                                </div>
+                                <button [disabled]="registerForm.form.valid" type="button" class="btn btn-block btn-success" (click)="submitted=false">Create Account</button>
+                            </form>
+                        </div>
+                        <div class="card-footer p-4">
+                            <div class="row">
+                                <div class="col-6">
+                                    <button class="btn btn-block btn-facebook" type="button"><span>facebook</span></button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-block btn-twitter" type="button"><span>twitter</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">@</span>
-                  </div>
-                  <input type="text" class="form-control" placeholder="Email" autocomplete="email" required>
-                </div>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-lock"></i></span>
-                  </div>
-                  <input type="password" class="form-control" placeholder="Password" autocomplete="new-password" required>
-                </div>
-                <div class="input-group mb-4">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-lock"></i></span>
-                  </div>
-                  <input type="password" class="form-control" placeholder="Repeat password" autocomplete="new-password" required>
-                </div>
-                <button type="button" class="btn btn-block btn-success">Create Account</button>
-              </form>
             </div>
-            <div class="card-footer p-4">
-              <div class="row">
-                <div class="col-6">
-                  <button class="btn btn-block btn-facebook" type="button"><span>facebook</span></button>
-                </div>
-                <div class="col-6">
-                  <button class="btn btn-block btn-twitter" type="button"><span>twitter</span></button>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
+    </main>
+</div>
+
+<!-- <div class="p-card">
+    <div class="card-body">
+        <div class="row">
+            <form (ngSubmit)="register()" #registerForm="ngForm">
+                <h1>Register</h1>
+                <div class="p-fluid">
+                    <div class="p-field">
+                        <p-dropdown [options]="userType" [(ngModel)]="users.userType" optionLabel="name">
+                        </p-dropdown>
+                    </div>
+                    <div class="p-field">
+                        <i class="pi pi-user"></i>
+                        <input [(ngModel)]="users.username" type="text" class="form-control" placeholder="Username" id="username" name="username" #username="ngModel" required>
+                        <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+                            Username is required
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-  </main>
+</div> -->
+
+<!-- <div class="p-card">
+    <div class="card-body">
+        <ng-template pTemplate="content">
+            <form name="registerationForm" #regForm="ngForm" novalidate (ngSubmit)="register()">
+                <div class="p-fluid p-formgrid p-grid">
+                    <div class="p-field">
+                        <p-dropdown [(ngModel)]="users.userType" class="p-inputtext-sm" name="userType" inputId="typeUser" [options]="typeUser" placeholder="Type for new or Select" required #category="ngModel">
+                            <ng-template let-option pTemplate="item">
+                                <span [class]="'dish-badge status-' + option.value">{{option.label}}</span>
+                            </ng-template>
+                        </p-dropdown>
+                    </div>
+                    <div class="p-field">
+                        <input [(ngModel)]="users.username" type="text" class="form-control" placeholder="Username" id="username" name="username" #username="ngModel" required>
+                        <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+                            Username is required
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </ng-template>
+    </div>
+</div> -->
+<br><br>
+<!-- Listing of registered users -->
+<div class="card">
+    <h5>Admin/User Details</h5>
+    <p-table [value]="users" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [rowsPerPageOptions]="[10,25,50]">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Mobile</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user>
+            <tr>
+                <td>{{user.name}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.mobile}}</td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="paginatorleft">
+            <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+        </ng-template>
+        <ng-template pTemplate="paginatorright">
+            <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+        </ng-template>
+    </p-table>
 </div>
