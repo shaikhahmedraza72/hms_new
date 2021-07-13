@@ -118,7 +118,8 @@ onSubmit(f) {
   debugger;
   this.submitted = true;
   if(f.invalid) return;
-  const isNewCategory = this.dishCategory.some(citem => citem.value === this.dish.categories);
+  const isNewCategory = this.dishCategory.some(citem => citem.value === this.dish.dishCategory);
+  debugger
  // if (this.dish.name.trim()) {
       if (this.dish.id) {
         this.dishList[this.findIndexById(this.dish.id)] = this.dish;
