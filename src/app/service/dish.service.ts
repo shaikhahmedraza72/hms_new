@@ -45,14 +45,15 @@ export class DishService {
   
   //updating exisiting data
   update(dish: Dish): Observable<Dish> {
-    return this.httpClient.put<Dish>(`${this.url}`, dish).pipe(
-      map(x => {
-        var index = this.dishList.findIndex(i => i.id == x.id)
-        this.dishList[index] = x;
-        return dish;
-      }),
-      catchError(this.handleError('', dish))
-    );
+    return this.httpClient.put<Dish>(`${this.url}`, dish);
+    // .pipe(
+    //   map(x => {
+    //     var index = this.dishList.findIndex(i => i.id == x.id)
+    //     this.dishList[index] = x;
+    //     return dish;
+    //   }),
+    //   catchError(this.handleError('', dish))
+    // );
   }
 
   deleteData(id: number): Observable<Dish> {
