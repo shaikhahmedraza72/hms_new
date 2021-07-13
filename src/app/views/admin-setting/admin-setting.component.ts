@@ -51,7 +51,7 @@ export class AdminSettingComponent implements OnInit {
     const cArray = [];
     this.adminService.getClientCategory().subscribe(x => {
       this.categories = x.map(cItem => { 
-        return { label:cItem.name, value:cItem.name}
+        return { label:cItem.name, value:cItem.id}
          })  
     });
    
@@ -82,14 +82,14 @@ export class AdminSettingComponent implements OnInit {
     // }
     this.commonService.getCities().subscribe(x => {
       this.cities = x.map(cItem => {
-        return { label: cItem.name, value: cItem.name }
+        return { label: cItem.name, value: cItem.id }
       }) 
     });
   }
   fnGetStatesList(){
     this.commonService.getStates().subscribe(x => {
       this.states = x.map(cItem => {
-        return { label: cItem.name, value: cItem.name }
+        return { label: cItem.name, value: cItem.id }
       }) 
     });
   }

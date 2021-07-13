@@ -29,7 +29,7 @@ export class DishComponent implements OnInit {
   ngOnInit(): void {
     this.loadData();
     this.status = [  {label: 'Active', value: 'active'},
-    {label: 'InActive', value: 'inActive'}];
+    {label: 'InActive', value: 'inactive'}];
      this.nonVegTypes = [
       { label: "Chicken", value: "chicken" },
       { label: "Mutton", value: "mutton" },
