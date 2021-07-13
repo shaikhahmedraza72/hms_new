@@ -10,12 +10,8 @@
                 </div>
                 <div class="p-field p-col-3">
                     <label for="inventoryStatus">Business Category</label>
-                    <p-dropdown [(ngModel)]="admin.categoryId" class="p-inputtext-sm" name="category" inputId="categories" [options]="categories" required #category="ngModel" placeholder="Select Category">
-                        <ng-template let-option pTemplate="item">
-                            <span [class]="'dish-badge status-' + option.value">{{
-              option.label
-              }}</span>
-                        </ng-template>
+                    <p-dropdown [(ngModel)]="admin.categoryId" class="p-inputtext-sm" name="category" inputId="categories" [options]="categories" required #category="ngModel"  optionLabel="label"  optionValue="value" placeholder="Select Category">
+                      
                     </p-dropdown>
                     <div *ngIf="category.touched && category.invalid && f.submitted"> <small class="p-error p-error-danger" *ngIf="category.errors.required">Business category is required.</small> </div>
                 </div>
@@ -36,11 +32,12 @@
                 </div>
                 <div class="p-field p-col-3">
                     <label for="city">City</label>
-                    <!-- <input id="city" type="text" name="city" [(ngModel)]="admin.city" pInputText /> -->
-                    <p-dropdown inputId="cities" name="city" [options]="cities" [(ngModel)]="admin.cityId" placeholder="Select" optionLabel="label"></p-dropdown>
+                    <p-dropdown inputId="cities" name="city" [options]="cities" [(ngModel)]="admin.cityId" placeholder="Select" optionLabel="label" optionValue="value">
+
+                    </p-dropdown>
 
                     <label for="state">State</label>
-                    <p-dropdown inputId="state" name="state" [options]="states" [(ngModel)]="admin.stateId" placeholder="Select" optionLabel="label"></p-dropdown>
+                    <p-dropdown inputId="state" name="state" [options]="states" [(ngModel)]="admin.stateId" placeholder="Select" optionLabel="label" optionValue="value"></p-dropdown>
                 </div>
 
                 <div class="p-field p-col-3">
