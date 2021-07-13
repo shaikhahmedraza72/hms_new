@@ -12,4 +12,5 @@ export class ApiConfig {
     public static STATE = 'StateCity/GetState'
     public static USERFEEDBACK = 'UserFeedback'
     public static MASTERADMIN = 'masterAdmin'
+    public static REGISTERED = 'User'
 }
