@@ -150,7 +150,7 @@ onSubmit(f) {
       this.dishDialog = false;
  // }
   if(!isNewCategory){
-    this.dishSvc.addDishCategory(this.dish.categories).subscribe(resp => {
+    this.dishSvc.addDishCategory(this.dish.dishCategory).subscribe(resp => {
       if(resp){
         this.dishCategory.push({label:this.dish.categories,value:this.dish.categories})
         this.msgService.add({severity:'success', summary: 'Successful', detail: 'New Category Added', life: 3000});
