@@ -7,18 +7,18 @@ import { RegisterService } from '../../service/register.service';
   templateUrl: 'register.component.html'
 })
 export class RegisterComponent {
-  users: Registration;
+  users: Registration = {};
   submitted = false;
   registeredList: Registration[] = [];
   typeUser: { label: string; value: string; }[];
   constructor(public regSvc: RegisterService) {
-
 
   }
 
 
   ngOnInit(): void {
     this.getUsers();
+    this.users = {};
     this.typeUser = [{
       label: 'Admin', value: 'admin'
     },

@@ -5,17 +5,17 @@
                 <div class="col-md-6 mx-auto">
                     <div class="card mx-4">
                         <div class="card-body p-4">
-                            <form (ngSubmit)="register()" #registerForm="ngForm">
+                            <form (ngSubmit)="register()" name="registerForm" #registerForm="ngForm">
                                 <h1>Register</h1>
                                 <p class="text-muted">Create your account</p>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="pi pi-user"></i></span>
                                     </div>
-                                    <input [(ngModel)]="users.username" type="text" class="form-control" placeholder="Username" id="username" name="username" #username="ngModel" required>
-                                    <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
+                                    <input [(ngModel)]="users.userName" type="text" class="form-control" placeholder="Username" id="username" name="username" #username="ngModel" required>
+                                    <!-- <div [hidden]="username.valid || username.pristine" class="alert alert-danger">
                                         Username is required
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="p-field p-col-6">
                                     <label for="userType">Select Category</label>

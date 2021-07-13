@@ -1,10 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { ModalDirective } from 'ngx-bootstrap/modal';
-import { ClientService } from '../../service/client.service';
+import { Component, OnInit, ViewChild } from '@angular/core'; 
+import { ModalDirective } from 'ngx-bootstrap/modal'; 
 import { Admin, Bankdetails } from '../../models/admin';
 import { MessageService } from 'primeng/api';
 import { CommonService } from '../../service/common.service';
+import { AdminService } from '../../service/admin.service';
 
 @Component({
   selector: 'app-admin-setting',
@@ -19,7 +18,7 @@ export class AdminSettingComponent implements OnInit {
   cities: any;
   selectedCategory:any;
   constructor(
-    public clientSvc: ClientService,
+    public adminService: AdminService,
     private msgService: MessageService,
     private commonService: CommonService
     ) { 
@@ -33,7 +32,7 @@ export class AdminSettingComponent implements OnInit {
   // bankDetaials: ClientBankDetails = new ClientBankDetails();
 
   ngOnInit(): void { 
-    this.clientSvc.getClientList().subscribe(resp => {
+    this.adminService.getClientList().subscribe(resp => {
       if(resp.length > 0){  
        const adminItm = resp[resp.length-1];
         adminItm.id = 1;
@@ -50,7 +49,7 @@ export class AdminSettingComponent implements OnInit {
 
   getClientCategory() {
     const cArray = [];
-    this.clientSvc.getClientCategory().subscribe(x => {
+    this.adminService.getClientCategory().subscribe(x => {
       this.categories = x.map(cItem => { 
         return { label:cItem.name, value:cItem.name}
          })  
@@ -63,14 +62,14 @@ export class AdminSettingComponent implements OnInit {
     if(fData.invalid) return;
     let f = fData.value ;
     if(!this.admin.id){
-      this.clientSvc.AddClient(f).subscribe(resp => {
+      this.adminService.AddClient(f).subscribe(resp => {
         if(resp){
           this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Added!', life: 3000});
         }
       });
     } else { 
       f.id = this.admin.id;
-      this.clientSvc.updateCLient(f).subscribe(resp => {
+      this.adminService.updateCLient(f).subscribe(resp => {
         this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Updated!', life: 3000});
 
       });
