@@ -95,19 +95,15 @@
 
                 <div class="p-field p-col-6">
                     <label for="inventoryStatus">Inventory Status</label>
-                    <p-dropdown [(ngModel)]="dish.status" 
-                    class="p-inputtext-sm" #invStatus="ngModel" name="inventoryStatus" optionLabel="label" optionValue="value"
-                     inputId="inventoryStatus" [options]="status" name="statuses" placeholder="Select" required>
-                      
+                    <p-dropdown [(ngModel)]="dish.status" class="p-inputtext-sm" #invStatus="ngModel" name="inventoryStatus" optionLabel="label" optionValue="value" inputId="inventoryStatus" [options]="status" name="statuses" placeholder="Select" required>
+
                     </p-dropdown>
                     <div *ngIf="invStatus.touched && invStatus.invalid && f.submitted"><small class="p-error" *ngIf="invStatus.errors.required">Inventory Status is required.</small></div>
                 </div>
                 <div class="p-field p-col-6">
                     <label for="categories">Select Category</label>
-                    <p-dropdown [(ngModel)]="dish.dishCategory" editable="true" 
-                    class="p-inputtext-sm" name="categories" inputId="dishCategory" optionLabel="label" optionValue="value"
-                    [options]="dishCategory" placeholder="Type for new or Select" required #category="ngModel">
-                      
+                    <p-dropdown [(ngModel)]="dish.dishCategory" editable="true" class="p-inputtext-sm" name="dishCategory" inputId="dishCategory" optionLabel="label" optionValue="value" [options]="dishCategory" placeholder="Type for new or Select" required #category="ngModel">
+
                     </p-dropdown>
                     <div *ngIf="category.touched && category.invalid && f.submitted"><small class="p-error" *ngIf="category.errors.required">Category is required.</small></div>
 
@@ -161,7 +157,7 @@
                 </div>
                 <div class="p-field p-col-3">
                     <label for="serviceTime">Time for Cook</label>
-                    <p-inputNumber type="time" class="p-inputtext-sm" name="serviceTime" id="serviceTime" suffix=" mins" [(ngModel)]="dish.serviceTime"></p-inputNumber>
+                    <p-inputNumber type="time" class="p-inputtext-sm" name="timeForCook" id="timeForCook" suffix=" mins" [(ngModel)]="dish.timeForCook"></p-inputNumber>
                 </div>
                 <div class="p-field p-col-12">
                     <label for="description">Description</label>
