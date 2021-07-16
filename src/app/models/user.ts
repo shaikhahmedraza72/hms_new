@@ -2,7 +2,7 @@ export interface User {
     id?: number;
     userName?: string;
     email?: string;
-    contact?: number;
+    contact?: string;
     address?: string;
     pinCode?: number;
 }
@@ -22,6 +22,6 @@ export interface UserFeedback {
     rating?: number;
     opinionText?: string;
     reviewTitle?: string;
-    // termsAccept?: boolean;
+    termsAccept?: boolean;
     timeStamp?: string;
 }

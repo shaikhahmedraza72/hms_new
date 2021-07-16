@@ -21,7 +21,7 @@ import { AppComponent } from './app.component';
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 // import { LoginComponent } from './views/login/userLogin.component';
-import { RegisterComponent } from './views/register/register.component';
+// import { RegisterComponent } from './views/register/register.component';
 import {
   AppAsideModule,
   AppBreadcrumbModule,
@@ -44,6 +44,7 @@ import { AppRoutingModule,  routingComponents} from './app.routing';
 import { ClientConfigComponent } from './views/client-config/client-config.component';
 import { MasterAdminModule } from '../app/views/master-admin/master-admin.module';
 import { LocalStorageService, StorageService } from './service/storage.service';
+import { RegisterComponent } from '../app/views/register/register.component'
 // import { UserModuleModule } from '../app/views/login/user-module.module';
 // import { MasterAdminComponent } from './views/master-admin/master-admin.component'; 
 
@@ -82,7 +83,7 @@ import { LocalStorageService, StorageService } from './service/storage.service';
     // LoginComponent,
     RegisterComponent,
     routingComponents,
-    ClientConfigComponent,    
+    ClientConfigComponent,   
     // MasterAdminComponent
 
    // EndUserComponent

@@ -90,15 +90,16 @@ export class ClientService {
 
   // updating exisiting client's data
   updateCLient(client: Client): Observable<Client> {
-    return this.httpClient.put<Client>(`${this.url}`, client).pipe(
-      map(x => {
-        // tslint:disable-next-line:prefer-const
-        let index = this.clientList.findIndex(i => i.id === x.id)
-        this.clientList[index] = x;
-        return client;
-      }),
-      catchError(this.handleError('', client))
-    );
+    return this.httpClient.put<Client>(`${this.url}`, client);
+    // .pipe(
+    //   map(x => {
+    //     // tslint:disable-next-line:prefer-const
+    //     let index = this.clientList.findIndex(i => i.id === x.id)
+    //     this.clientList[index] = x;
+    //     return client;
+    //   }),
+    //   catchError(this.handleError('', client))
+    // );
   }
 
   // updating exisiting bank details

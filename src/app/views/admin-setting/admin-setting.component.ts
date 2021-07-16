@@ -16,7 +16,6 @@ export class AdminSettingComponent implements OnInit {
   admin: Admin;
   states: any;
   cities: any;
-  selectedCategory:any;
   constructor(
     public adminService: AdminService,
     private msgService: MessageService,
@@ -29,24 +28,22 @@ export class AdminSettingComponent implements OnInit {
   categories:any;
   isEdit: boolean;
 
-  // bankDetaials: ClientBankDetails = new ClientBankDetails();
-
   ngOnInit(): void { 
-    this.adminService.getClientList().subscribe(resp => {
-      if(resp.length > 0){  
-       const adminItm = resp[resp.length-1];
-        adminItm.id = 1;
-       this.admin = adminItm;
-       this.admin.categoryId = 2;
-       console.log(this.admin )
-       this.selectedCategory = this.admin.categoryId // { label:'business1', value:1};
-      }
-    })
+    this.loadClient();
     this.getClientCategory();
     this.fnGetCitiesList();
     this.fnGetStatesList();
   }
 
+  loadClient(){
+    this.adminService.getClientList().subscribe(resp => {
+      if(resp.length > 0){  
+       const adminItm = resp[resp.length-1];
+       this.admin = adminItm;
+       
+      }
+    })
+  }
   getClientCategory() {
     const cArray = [];
     this.adminService.getClientCategory().subscribe(x => {
@@ -61,25 +58,23 @@ export class AdminSettingComponent implements OnInit {
     debugger;
     if(fData.invalid) return;
     let f = fData.value ;
+    console.log(this.admin);
     if(!this.admin.id){
-      this.adminService.AddClient(f).subscribe(resp => {
+      this.adminService.AddClient(this.admin).subscribe(resp => {
         if(resp){
           this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Added!', life: 3000});
+          this.loadClient();
         }
       });
     } else { 
-      f.id = this.admin.id;
-      this.adminService.updateCLient(f).subscribe(resp => {
+      this.adminService.updateCLient(this.admin).subscribe(resp => {
         this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Updated!', life: 3000});
-
+        this.loadClient();
       });
     } 
   }
 
   fnGetCitiesList(){
-    // if(this.admin.category){
-      
-    // }
     this.commonService.getCities().subscribe(x => {
       this.cities = x.map(cItem => {
         return { label: cItem.name, value: cItem.id }

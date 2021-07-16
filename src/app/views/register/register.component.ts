@@ -32,6 +32,7 @@ export class RegisterComponent {
 
   getUsers() {
     this.regSvc.getRegisteredUser().subscribe(res => {
+      debugger;
       this.registeredList = res;
     })
   }

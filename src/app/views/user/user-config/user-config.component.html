@@ -70,11 +70,10 @@
             </div>
             <div class="p-field p-col-6">
                 <label for="contact">Contact</label>
-                <p-inputNumber [(ngModel)]="user.contact" mode="decimal" maxlength="10  " inputId="contact" [useGrouping]="false" required autofocus>
-                </p-inputNumber>
+                <input pInputText [(ngModel)]="user.contact" mode="decimal" maxlength="10  " inputId="contact" required autofocus />
                 <small class="p-error" *ngIf="submitted && !user.contact">Contact is required.</small><br>
-                <label for="city">City</label>
-                <p-dropdown [options]="cities" [(ngModel)]="user.cities" id="city" [showClear]="true" placeholder="City">
+                <label for="state">State</label>
+                <p-dropdown [options]="states" [(ngModel)]="user.states" id="state" [showClear]="true" placeholder="State">
                     <ng-template let-option pTemplate="item">
                         <span [class]="'user-badge status-' + option.value">{{
                             option.label
@@ -88,8 +87,8 @@
                 <small class="p-error" *ngIf="submitted && !user.address">Address is required.</small>
             </div>
             <div class="p-field p-col-6">
-                <label for="state">State</label>
-                <p-dropdown [options]="states" [(ngModel)]="user.states" id="state" [showClear]="true" placeholder="State">
+                <label for="city">City</label>
+                <p-dropdown [options]="cities" [(ngModel)]="user.cities" id="city" [showClear]="true" placeholder="City">
                     <ng-template let-option pTemplate="item">
                         <span [class]="'user-badge status-' + option.value">{{
                             option.label

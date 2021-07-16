@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/internal/operators';
 import { ApiConfig } from '../constant/api';
 import { Client, CLientCategory } from '../models/client';
+import { Admin } from '../models/admin';
 
 @Injectable({
   providedIn: 'root'
@@ -12,11 +13,11 @@ export class AdminService {
 
   url = `${ApiConfig.URL}${ApiConfig.CLIENT}`;
   categoryUrl = `${ApiConfig.URL}${ApiConfig.CLIENTCATEGORY}`;
-  clientList: Client[] = [];
+  clientList: Admin[] = [];
   constructor(private httpClient: HttpClient) { }
   // Add Client
-  AddClient(client: Client): Observable<Client> {
-    return this.httpClient.post<Client>(this.url, client).pipe(
+  AddClient(client: Admin): Observable<Admin> {
+    return this.httpClient.post<Admin>(this.url, client).pipe(
       map(x => {
         this.clientList.push(x);
         return client;
@@ -25,20 +26,21 @@ export class AdminService {
     );
   }
   // updating exisiting client's data
-  updateCLient(client: Client): Observable<Client> {
-    return this.httpClient.put<Client>(`${this.url}`, client).pipe(
-      map(x => {
-        // tslint:disable-next-line:prefer-const
-        let index = this.clientList.findIndex(i => i.id === x.id)
-        this.clientList[index] = x;
-        return client;
-      }),
-      catchError(this.handleError('', client))
-    );
+  updateCLient(client: Admin): Observable<Admin> {
+    return this.httpClient.put<Admin>(`${this.url}`, client)
+    // .pipe(
+    //   map(x => {
+    //     // tslint:disable-next-line:prefer-const
+    //     let index = this.clientList.findIndex(i => i.id === x.id)
+    //     this.clientList[index] = x;
+    //     return client;
+    //   }),
+    //   catchError(this.handleError('', client))
+    // );
   }
   // Get client list
-  getClientList(): Observable<Client[]> {
-    return this.httpClient.get<Client[]>(this.url).pipe(
+  getClientList(): Observable<Admin[]> {
+    return this.httpClient.get<Admin[]>(this.url).pipe(
       map(x => {
         this.clientList = x;
         return this.clientList;
