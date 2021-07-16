@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserFeedback } from './../../../models/user';
 import { UserService } from './../../../service/user.service';
 import { MessageService } from 'primeng/api';
+import { cibDynatrace } from '@coreui/icons';
 
 @Component({
   selector: 'app-user-feedback',
@@ -44,12 +45,13 @@ export class UserFeedbackComponent implements OnInit {
 
       console.log(this.userFeedback);
       console.log(this.feedbackList.length);
-      this.userFeedback.timeStamp =null;
+      this.userFeedback.timeStamp = new Date().toISOString();
       // this.userFeedback.id = this.feedbackList[this.feedbackList.length - 1].id + 1;
       this.userSvc.postReview(this.userFeedback).subscribe(res => {
         if (res) {
           this.feedbackList.push(this.userFeedback);
-          this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Feedback Posted', life: 3000 });      
+          this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Feedback Posted', life: 3000 }); 
+          this.getFeedback();     
         }
       })
       this.userFeedback = {};

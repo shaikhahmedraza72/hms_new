@@ -1,6 +1,6 @@
 import {environment} from './../../environments/environment'
 export class ApiConfig {
-    public static URL = environment.apiURL //'http://localhost:8000/'
+    public static URL ="http://webapplication121-dev.us-east-2.elasticbeanstalk.com/";// environment.apiURL //'http://localhost:8000/'
     public static DISH = 'Dish';
     public static DISHCATEGORY = 'DishCategory';
     public static CLIENT = 'admin';

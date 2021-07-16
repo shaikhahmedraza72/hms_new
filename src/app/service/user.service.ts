@@ -36,15 +36,15 @@ export class UserService {
     return this.userList.find(i => i.id == id);
   }
   updateUser(user: User): Observable<User> {
-    return this.http.put<User>(`${this.url}`, user).pipe(
-      map(x => {
-        // tslint:disable-next-line:prefer-const
-        let index = this.userList.findIndex(i => i.id === x.id)
-        this.userList[index] = x;
-        return user;
-      }),
-      catchError(this.handleError('', user))
-    );
+    return this.http.put<User>(`${this.url}`, user);
+    // .pipe(
+    //   map(x => {
+    //     let index = this.userList.findIndex(i => i.id === x.id)
+    //     this.userList[index] = x;
+    //     return user;
+    //   }),
+    //   catchError(this.handleError('', user))
+    // );
   }
   deleteUserData(id: number): Observable<User> {
     return this.http.delete<User>(`${this.url}/${id}`).pipe(

@@ -39,6 +39,7 @@ export class UserConfigComponent implements OnInit {
   // }
 
   loadData() {
+    debugger;
     this.userSvc.getUserList().subscribe(res => {
       this.userList = res;
     });
@@ -50,7 +51,7 @@ export class UserConfigComponent implements OnInit {
     // this.dishSvc.openModal();
   }
   reset() {
-    this.user = {};
+    this.user = {}
     // this.userDialog = false;
     this.submitted = false;
   }
@@ -60,17 +61,16 @@ export class UserConfigComponent implements OnInit {
     this.userDialog = true;
   }
   saveUser() {
+    debugger;
     this.submitted = true;
     console.log(this.user);
     // console.log(this.dish.imageUrl);
     if (this.user.userName.trim()) {
       if (this.user.id) {
-        this.userSvc.updateUser(this.user).subscribe(res => {
-          if(res){
+        this.userSvc.updateUser(this.user).subscribe(() => {
             this.userList[this.findIndexById(this.user.id)] = this.user;
             this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'user Updated', life: 3000 });
-          }
-         
+            this.loadData();
         })
 
       } else {
@@ -81,11 +81,10 @@ export class UserConfigComponent implements OnInit {
         }
        
         // this.user.imageUrl = 'product-placeholder.svg';
-        this.userSvc.AddUser(this.user).subscribe(res => {
-          if (res) {
+        this.userSvc.AddUser(this.user).subscribe(() => {
             this.userList.push(this.user);
             this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'user Created', life: 3000 });
-          }
+            this.loadData();
         })
 
       }
