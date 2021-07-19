@@ -2,9 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { DishMenuComponent } from './dish-menu/dish-menu.component';
- 
 import { DishComponent } from './dish.component';
-
+import { DishCategoryConfigComponent } from './dish-category-config/dish-category-config.component';
 const routes: Routes = [
   {
     path: '',
@@ -18,6 +17,13 @@ const routes: Routes = [
     component:DishMenuComponent,
     data:{
       title:"Dish Menu"
+    }
+  },
+  {
+    path: 'dishCategoryConfig',
+    component: DishCategoryConfigComponent,
+    data: {
+      title: 'Dish Category Config'
     }
   },
   {
