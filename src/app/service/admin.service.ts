@@ -27,16 +27,15 @@ export class AdminService {
   }
   // updating exisiting client's data
   updateCLient(client: Admin): Observable<Admin> {
-    return this.httpClient.put<Admin>(`${this.url}`, client)
-    // .pipe(
-    //   map(x => {
-    //     // tslint:disable-next-line:prefer-const
-    //     let index = this.clientList.findIndex(i => i.id === x.id)
-    //     this.clientList[index] = x;
-    //     return client;
-    //   }),
-    //   catchError(this.handleError('', client))
-    // );
+    return this.httpClient.put<Admin>(`${this.url}`, client).pipe(
+      map(x => {
+        // tslint:disable-next-line:prefer-const
+        let index = this.clientList.findIndex(i => i.id === x.id)
+        this.clientList[index] = x;
+        return client;
+      }),
+      catchError(this.handleError('', client))
+    );
   }
   // Get client list
   getClientList(): Observable<Admin[]> {

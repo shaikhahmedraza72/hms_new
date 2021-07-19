@@ -67,7 +67,7 @@ export class AdminSettingComponent implements OnInit {
         }
       });
     } else { 
-      this.adminService.updateCLient(this.admin).subscribe(resp => {
+      this.adminService.updateCLient(this.admin).subscribe(() => {
         this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Updated!', life: 3000});
         this.loadClient();
       });
