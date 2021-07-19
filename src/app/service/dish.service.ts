@@ -33,7 +33,6 @@ export class DishService {
   // Adding new data
   
   Add(dish: Dish): Observable<Dish> {
-    debugger;
     return this.httpClient.post<Dish>(this.url, dish).pipe(
       map(x => {
         this.dishList.push(x);
@@ -45,15 +44,14 @@ export class DishService {
   
   //updating exisiting data
   update(dish: Dish): Observable<Dish> {
-    return this.httpClient.put<Dish>(`${this.url}`, dish);
-    // .pipe(
-    //   map(x => {
-    //     var index = this.dishList.findIndex(i => i.id == x.id)
-    //     this.dishList[index] = x;
-    //     return dish;
-    //   }),
-    //   catchError(this.handleError('', dish))
-    // );
+    return this.httpClient.put<Dish>(`${this.url}`, dish).pipe(
+      map(x => {
+        var index = this.dishList.findIndex(i => i.id == x.id)
+        this.dishList[index] = x;
+        return dish;
+      }),
+      catchError(this.handleError('', dish))
+    );
   }
 
   deleteData(id: number): Observable<Dish> {
@@ -95,17 +93,8 @@ export class DishService {
   }
 
   // add new dishcategory
-  addDishCategory(CategoryItm:string): Observable<any>{
-      
-      let category = new DishCategory(); 
-      category.name = CategoryItm;
-      return this.httpClient.post<Dish>(this.categoryUrl, category).pipe(
-        map(x => {
-          console.log(x);          
-        }),
-        catchError(this.handleError('', CategoryItm))
-      );
-   
+  addDishCategory(CategoryItm:DishCategory):Observable<DishCategory>{ 
+      return this.httpClient.post<DishCategory>(this.categoryUrl, CategoryItm);   
   }
 
   openModal() {
