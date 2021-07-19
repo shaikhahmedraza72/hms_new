@@ -5,6 +5,10 @@ export interface User {
     contact?: string;
     address?: string;
     pinCode?: number;
+    cityId?: number;
+    stateId?: number;
+    city?: string;
+    state?: string;
 }
 
 export interface City {
