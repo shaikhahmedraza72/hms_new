@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-// import { debug } from 'console';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Dish, DishCategory } from '../../models/dish';
 import { DishService } from '../../service/dish.service';
