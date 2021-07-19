@@ -73,13 +73,7 @@
                 <input pInputText [(ngModel)]="user.contact" mode="decimal" maxlength="10  " inputId="contact" required autofocus />
                 <small class="p-error" *ngIf="submitted && !user.contact">Contact is required.</small><br>
                 <label for="state">State</label>
-                <p-dropdown [options]="states" [(ngModel)]="user.states" id="state" [showClear]="true" placeholder="State">
-                    <ng-template let-option pTemplate="item">
-                        <span [class]="'user-badge status-' + option.value">{{
-                            option.label
-                            }}</span>
-                    </ng-template>
-                </p-dropdown>
+                <p-dropdown inputId="state" name="state" [options]="states" [(ngModel)]="user.stateId" placeholder="State" optionLabel="label" optionValue="value"></p-dropdown>
             </div>
             <div class="p-field p-col-6">
                 <label for="address">Address</label>
@@ -88,17 +82,11 @@
             </div>
             <div class="p-field p-col-6">
                 <label for="city">City</label>
-                <p-dropdown [options]="cities" [(ngModel)]="user.cities" id="city" [showClear]="true" placeholder="City">
-                    <ng-template let-option pTemplate="item">
-                        <span [class]="'user-badge status-' + option.value">{{
-                            option.label
-                            }}</span>
-                    </ng-template>
-                </p-dropdown>
+                <p-dropdown inputId="cities" name="city" [options]="cities" [(ngModel)]="user.cityId" placeholder="City" optionLabel="label" optionValue="value"></p-dropdown>
             </div>
             <div class="p-field p-col-6">
                 <label for="pincode">Pincode</label>
-                <p-inputNumber [(ngModel)]="user.pincode" minlength="6" maxlength="6" mode="decimal" inputId="pincode" [useGrouping]="false">
+                <p-inputNumber [(ngModel)]="user.pinCode" minlength="6" maxlength="6" mode="decimal" inputId="pincode" [useGrouping]="false">
                 </p-inputNumber>
             </div>
         </div>

@@ -24,22 +24,8 @@ export class UserConfigComponent implements OnInit {
     this.getCities();
     this.getStates();
   }
-  // saveUser(d){
-  //   console.log('USERDATA', d)
-  //   if(!d.id){
-  //     this.userSvc.AddUser(d).subscribe(resp => {
-
-  //     });
-  //   } else { 
-  //     this.userSvc.updateUser(d).subscribe(resp => {
-
-  //     });
-  //   }
-
-  // }
 
   loadData() {
-    debugger;
     this.userSvc.getUserList().subscribe(res => {
       this.userList = res;
     });
@@ -58,19 +44,20 @@ export class UserConfigComponent implements OnInit {
 
   editUser(user: User) {
     this.user = { ...user };
+    console.log(this.user);
     this.userDialog = true;
   }
   saveUser() {
     debugger;
     this.submitted = true;
     console.log(this.user);
-    // console.log(this.dish.imageUrl);
     if (this.user.userName.trim()) {
       if (this.user.id) {
         this.userSvc.updateUser(this.user).subscribe(() => {
-            this.userList[this.findIndexById(this.user.id)] = this.user;
             this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'user Updated', life: 3000 });
             this.loadData();
+            this.getCities();
+            this.getStates();
         })
 
       } else {
@@ -79,12 +66,12 @@ export class UserConfigComponent implements OnInit {
         } else {
           this.user.id = 1;
         }
-       
-        // this.user.imageUrl = 'product-placeholder.svg';
         this.userSvc.AddUser(this.user).subscribe(() => {
             this.userList.push(this.user);
             this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'user Created', life: 3000 });
             this.loadData();
+            this.getCities();
+            this.getStates();
         })
 
       }
@@ -92,15 +79,6 @@ export class UserConfigComponent implements OnInit {
       this.userList = [...this.userList];
       this.userDialog = false;
     }
-    // if (this.isEdit) {
-    //   this.dishSvc.update(this.dish).subscribe(resp => {
-    //   });
-    // }
-    // else {
-    //   this.dishSvc.Add(this.dish).subscribe(resp => {
-    //   });
-    // }
-    // this.hideDialog();
   }
 
 
@@ -108,7 +86,7 @@ export class UserConfigComponent implements OnInit {
     // const cArray = [];
     this.commonSvc.getCities().subscribe(x => {
       this.cities = x.map(cItem => {
-        return { label: cItem.name, value: cItem.name }
+        return { label: cItem.name, value: cItem.id }
       })
       console.log(this.cities)
     });
@@ -119,7 +97,7 @@ export class UserConfigComponent implements OnInit {
     // const cArray = [];
     this.commonSvc.getStates().subscribe(x => {
       this.states = x.map(cItem => {
-        return { label: cItem.name, value: cItem.name }
+        return { label: cItem.name, value: cItem.id }
       })
       console.log(this.cities)
     });

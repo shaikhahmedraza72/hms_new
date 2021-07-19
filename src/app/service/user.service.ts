@@ -36,15 +36,14 @@ export class UserService {
     return this.userList.find(i => i.id == id);
   }
   updateUser(user: User): Observable<User> {
-    return this.http.put<User>(`${this.url}`, user);
-    // .pipe(
-    //   map(x => {
-    //     let index = this.userList.findIndex(i => i.id === x.id)
-    //     this.userList[index] = x;
-    //     return user;
-    //   }),
-    //   catchError(this.handleError('', user))
-    // );
+    return this.http.put<User>(`${this.url}`, user).pipe(
+      map(x => {
+        let index = this.userList.findIndex(i => i.id === x.id)
+        this.userList[index] = x;
+        return user;
+      }),
+      catchError(this.handleError('', user))
+    );
   }
   deleteUserData(id: number): Observable<User> {
     return this.http.delete<User>(`${this.url}/${id}`).pipe(
@@ -68,22 +67,7 @@ export class UserService {
       })
     )
   }
-
-  // getCities(): Observable<City[]> {
-  //   return this.http.get<City[]>(this.cityUrl).pipe(
-  //     map(x => {
-  //       return x;
-  //     })
-  //   );
-  // }
-
-  // getStates(): Observable<City[]> {
-  //   return this.http.get<City[]>(this.stateUrl).pipe(
-  //     map(x => {
-  //       return x;
-  //     })
-  //   );
-  // }
+  
   editEndUser(id: number): User {
     return this.userList.find(i => i.id === id);
   }
