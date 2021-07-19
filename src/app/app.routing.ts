@@ -66,8 +66,6 @@ export const routes: Routes = [
       {
         path: 'bankDetail',
         loadChildren: () => import('./views/client/client.module').then(m => m.ClientModule)
-      // },
-    // ]
   },
     {
         path: 'users',

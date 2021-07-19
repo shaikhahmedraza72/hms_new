@@ -22,7 +22,13 @@ export const navItems: INavData[] = [
     name: 'Dish Menu',
     url: '/dish/dish-menu',
     icon: 'icon-drop'
-  },  {
+  },
+  {
+    name: 'Dish Category Config',
+    url: '/dish/dishCategoryConfig',
+    icon: 'icon-drop'
+  },
+  {
     name: 'Users',
     url: '/users',
     icon: 'icon-drop'
