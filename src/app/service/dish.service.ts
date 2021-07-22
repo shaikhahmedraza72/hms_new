@@ -13,7 +13,6 @@ export class DishService {
   // #region properties
     url = `${ApiConfig.URL}${ApiConfig.DISH}`;
     categoryUrl = `${ApiConfig.URL}${ApiConfig.DISHCATEGORY}`;
-
   public dish: Dish | undefined;
   public dishList: Dish[] = [];
   modalSubject = new Subject();
@@ -55,7 +54,7 @@ export class DishService {
   }
 
   deleteData(id: number): Observable<Dish> {
-    return this.httpClient.delete<Dish>(`${this.url}/${id}`).pipe(
+    return this.httpClient.delete<Dish>(`${this.url}?id=${id}`).pipe(
       catchError(this.handleError('', this.dish)))
   }
 

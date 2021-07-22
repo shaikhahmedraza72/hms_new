@@ -77,11 +77,9 @@ export class DishComponent implements OnInit {
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.dishSvc.deleteData(dish.id).subscribe(resp => {
-          if (resp) {
+        this.dishSvc.deleteData(dish.id).subscribe(() => {
             this.dishList = this.dishList.filter(val => val.id !== dish.id);
             this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Dish Deleted', life: 3000 });
-          }
         })
       }
     });
@@ -94,12 +92,9 @@ export class DishComponent implements OnInit {
       accept: () => {
         this.dishList = this.dishList.filter(val => !this.selectedDishes.includes(val));
         this.selectedDishes.map((dishId: Dish) => {
-          debugger
-          this.dishSvc.deleteData(dishId.id).subscribe(resp => {
-            if (resp) {
+          this.dishSvc.deleteData(dishId.id).subscribe(() => {
               this.selectedDishes = null;
-              this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Products Deleted', life: 3000 });
-            }
+              this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Dishes Deleted', life: 3000 });
           })
         })
       }
@@ -114,14 +109,12 @@ export class DishComponent implements OnInit {
 
   // add/ update dish 
   onSubmit(f) {
-    debugger;
     this.submitted = true;
     if (f.invalid) return;
-    console.log(this.dish.dishCategory);
     if (this.dish.id) {
       this.dishList[this.findIndexById(this.dish.id)] = this.dish;
       this.dish.imageUrl = './assets/img/dishes/img-menu-placeholder.jpg';
-      this.dishSvc.update(this.dish).subscribe(resp => {
+      this.dishSvc.update(this.dish).subscribe(() => {
         this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Dish Updated', life: 3000 });
         this.loadData();
       });
