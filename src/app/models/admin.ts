@@ -13,6 +13,8 @@ public signature?:string,
 public termAndCondition?:string,
 public cityId?: number,
 public stateId?: number,
+public city?: string,
+public state?: string,
 public bankDetails?: Bankdetails,
 public accountName?: string,
 public accountNumber?: number,
@@ -20,7 +22,8 @@ public bankName?: string,
 public ifscCode?: string,
 public codeImage?:string,
 public codeNumber?:string,
-public categoryId?:number
+public categoryId?:number,
+public category?: string
   ){}
 }
 export class Bankdetails {
