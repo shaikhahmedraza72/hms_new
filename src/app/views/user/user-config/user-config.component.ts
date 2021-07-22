@@ -44,7 +44,6 @@ export class UserConfigComponent implements OnInit {
 
   editUser(user: User) {
     this.user = { ...user };
-    console.log(this.user);
     this.userDialog = true;
   }
   saveUser() {
@@ -83,7 +82,6 @@ export class UserConfigComponent implements OnInit {
 
 
   getCities() {
-    // const cArray = [];
     this.commonSvc.getCities().subscribe(x => {
       this.cities = x.map(cItem => {
         return { label: cItem.name, value: cItem.id }
@@ -94,56 +92,43 @@ export class UserConfigComponent implements OnInit {
   }
 
   getStates() {
-    // const cArray = [];
     this.commonSvc.getStates().subscribe(x => {
       this.states = x.map(cItem => {
         return { label: cItem.name, value: cItem.id }
       })
       console.log(this.cities)
     });
-
   }
 
 
 
 
   deleteUser(user: User) {
-    // tslint:disable-next-line:no-debugger
-    // console.log(user);
-
-    // this.userSvc.deleteUser(user.id).subscribe(res => {
-    //   this.userList[this.findIndexById(this.user.id)] = this.user;
-    //   this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'User Deleted', life: 3000 });
-    // })
     this.confirmationService.confirm({
       message: 'Are you sure you want to delete ' + user.userName + '?',
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.userSvc.deleteUserData(user.id).subscribe(res => {
-          if (res) {
+        this.userSvc.deleteUserData(user.id).subscribe(() => {
             this.userList = this.userList.filter(val => val.userName !== user.userName);
             this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'User Deleted', life: 3000 });
-          }
         });
       }
     });
   }
-  deleteSelectedUser(user: User) {
+  deleteSelectedUser() {
     this.confirmationService.confirm({
       message: 'Are you sure you want to delete the selected Users?',
       header: 'Confirm',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.userList = this.userList.filter(val => !this.selectedUsers.includes(val));
-        this.userSvc.deleteUserData(user.id).subscribe(res => {
-          if(res){
+        this.selectedUsers.map((userId: User) => {
+          this.userSvc.deleteUserData(userId.id).subscribe(() => {
             this.selectedUsers = null;
-            this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'User Deleted', life: 3000 });
-          }
-          
+            this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Users Deleted', life: 3000 })
         })
-
+        })
       }
     });
   }
