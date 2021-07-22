@@ -13,6 +13,7 @@ export class AdminService {
 
   url = `${ApiConfig.URL}${ApiConfig.CLIENT}`;
   categoryUrl = `${ApiConfig.URL}${ApiConfig.CLIENTCATEGORY}`;
+  client: Admin | undefined;
   clientList: Admin[] = [];
   constructor(private httpClient: HttpClient) { }
   // Add Client
@@ -37,6 +38,12 @@ export class AdminService {
       catchError(this.handleError('', client))
     );
   }
+
+  deleteAdminData(id: number): Observable<Admin> {
+    return this.httpClient.delete<Admin>(`${this.url}?id=${id}`).pipe(
+      catchError(this.handleError('', this.client)))
+  }
+
   // Get client list
   getClientList(): Observable<Admin[]> {
     return this.httpClient.get<Admin[]>(this.url).pipe(
