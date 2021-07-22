@@ -26,7 +26,6 @@ export class UserFeedbackComponent implements OnInit {
 
   getFeedback() {
     this.userSvc.getFeedbacklist().subscribe(res => {
-      console.log(res);
       this.feedbackList = res;
     });
   }
@@ -34,7 +33,6 @@ export class UserFeedbackComponent implements OnInit {
     this.displayDialog = true;
   }
   onSubmit() {
-    // debugger;
     if (this.userFeedback.rating === 0 && this.userFeedback.opinionText === "" && this.userFeedback.rating === 0 && this.userFeedback.reviewTitle === "") {
       alert("Please provide Info");
       this.displayDialog = true;
@@ -42,9 +40,6 @@ export class UserFeedbackComponent implements OnInit {
       alert("Please accept the terms and conditions");
       this.displayDialog = true;
     } else{
-
-      console.log(this.userFeedback);
-      console.log(this.feedbackList.length);
       this.userFeedback.timeStamp = new Date().toISOString();
       // this.userFeedback.id = this.feedbackList[this.feedbackList.length - 1].id + 1;
       this.userSvc.postReview(this.userFeedback).subscribe(res => {
