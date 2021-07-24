@@ -4,7 +4,7 @@
         <p-toolbar class="pToolbar">
             <ng-template pTemplate="left">
                 <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
-                <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedDishes()" [disabled]="!selectedDishes || !selectedDishes.length"></button>
+                <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedDishes()" [disabled]="!selectedDishes || !selectedDishes.length" pTooltip="Delete Dishes" tooltipPosition="bottom"></button>
             </ng-template>
             <ng-template pTemplate="right">
                 <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block"></p-fileUpload>
@@ -60,8 +60,8 @@
                     <td>
                         <p-tag [value]="item.status" *ngIf="item.status" class="p-text-uppercase" [severity]="item.status =='active' ? 'success':'danger'"></p-tag>
                         <td>
-                            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editDish(item)"></button>
-                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteDish(item)"></button>
+                            <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editDish(item)" pTooltip="Edit Dish" tooltipPosition="left"></button>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteDish(item)" pTooltip="Delete Dish" tooltipPosition="left"></button>
                             <!-- <p-checkbox name="groupname{{item.id}}" [value]="item.selectedDish" [inputId]="item.id" [(ngModel)]="selectedValues" (change)="onCheckboxChange(item.id, $event)"></p-checkbox> -->
                         </td>
                 </tr>
@@ -89,14 +89,13 @@
                         </ul>
                     </ng-template>
                 </p-fileUpload>  -->
-                <p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)"
-                multiple="multiple" accept="image/*" maxFileSize="1000000">
-                <ng-template pTemplate="content">
-                    <ul *ngIf="uploadedFiles.length">
-                        <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
-                    </ul>
-                </ng-template>
-        </p-fileUpload>
+                    <p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)" multiple="multiple" accept="image/*" maxFileSize="1000000">
+                        <ng-template pTemplate="content">
+                            <ul *ngIf="uploadedFiles.length">
+                                <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                            </ul>
+                        </ng-template>
+                    </p-fileUpload>
                 </div>
                 <!-- <div class="card"> -->
                 <!-- <div>Dish image</div>-->
