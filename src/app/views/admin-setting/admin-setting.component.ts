@@ -80,7 +80,7 @@ export class AdminSettingComponent implements OnInit {
   onSubmit(fData:any){
     if(fData.invalid) return;
     if(!this.admin.id){
-      this.adminList[this.findIndexById(this.admin.id)] = this.admin;
+      this.admin.id = this.adminList[this.adminList.length - 1].id + 1;
       this.adminService.AddClient(this.admin).subscribe(() => {
           this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Added!', life: 3000});
           this.loadClient();  
@@ -89,7 +89,7 @@ export class AdminSettingComponent implements OnInit {
           this.fnGetStatesList();                                                                                                          
       });
     } else {
-      this.admin.id = this.adminList[this.adminList.length - 1].id + 1;
+      this.adminList[this.findIndexById(this.admin.id)] = this.admin;
       this.adminService.updateCLient(this.admin).subscribe(() => {
         this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Updated!', life: 3000});
         this.loadClient();
