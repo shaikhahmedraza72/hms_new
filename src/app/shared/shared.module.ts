@@ -4,6 +4,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms'
 import {HttpClientModule } from '@angular/common/http';
 import { ChartsModule } from 'ng2-charts';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import {TooltipModule} from 'primeng/tooltip';
 // import { ButtonsModule } from 'ngx-bootstrap/buttons'; 
 import { ModalModule } from 'ngx-bootstrap/modal'; 
 import {CarouselModule} from 'primeng/carousel';
@@ -48,6 +49,7 @@ import {DataViewModule} from 'primeng/dataview';
     BsDropdownModule,
     CardModule,
     CarouselModule,
+    TooltipModule,
     //ButtonsModule.forRoot(),
     ModalModule.forRoot(),
     TableModule,
@@ -83,6 +85,7 @@ import {DataViewModule} from 'primeng/dataview';
     ReactiveFormsModule,
     ChartsModule,
     BsDropdownModule,
+    TooltipModule,
     // ButtonsModule,
     ModalModule,
     TableModule,
