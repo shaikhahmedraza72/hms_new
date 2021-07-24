@@ -108,9 +108,9 @@
                 </div>
                 <div class="p-field p-col-6">
                     <label for="categories">Select Category</label>
-                    <p-dropdown [(ngModel)]="dish.mainCategoryId" class="p-inputtext-sm" name="dishCategory" inputId="dishCategory" optionLabel="label" optionValue="value" [options]="dishCategory" placeholder="Type for new or Select" required #category="ngModel">
-
-                    </p-dropdown>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editDish(item)" pTooltip="Edit Dish" tooltipPosition="left"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteDish(item)" pTooltip="Delete Dish" tooltipPosition="left"></button>
+                    <p-dropdown [(ngModel)]="dish.mainCategoryId" class="p-inputtext-sm" name="dishCategory" inputId="dishCategory" optionLabel="label" optionValue="value" [options]="dishCategory" placeholder="Type for new or Select" required #category="ngModel"></p-dropdown>
                     <div *ngIf="category.touched && category.invalid && f.submitted"><small class="p-error" *ngIf="category.errors.required">Category is required.</small></div>
 
                 </div>
