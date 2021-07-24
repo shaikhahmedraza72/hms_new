@@ -5,7 +5,7 @@
         <p-toolbar class="pToolbar">
             <ng-template pTemplate="left">
                 <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
-                <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedAdmin()" [disabled]="!selectedAdmins || !selectedAdmins.length"></button>
+                <button pButton pRipple [label]="Delete" icon="pi pi-trash" class="p-button-danger" (click)="deleteSelectedAdmin()" [disabled]="!selectedAdmins || !selectedAdmins.length" pTooltip="Delete Admin" tooltipPosition="bottom"></button>
             </ng-template>
             <ng-template pTemplate="right">
                 <p-fileUpload mode="basic" accept="image/*" [maxFileSize]="1000000" label="Import" chooseLabel="Import" class="p-mr-2 p-d-inline-block"></p-fileUpload>
@@ -49,8 +49,8 @@
                     <td>{{item.city}}</td>
                     <td>{{item.pinCode}}</td>
                     <td>
-                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editAdmin(item)"></button>
-                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteAdmin(item)"></button>
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editAdmin(item)" pTooltip="Edit Admin" tooltipPosition="left"></button>
+                        <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteAdmin(item)" pTooltip="Delete Admin" tooltipPosition="left"></button>
                     </td>
                 </tr>
             </ng-template>

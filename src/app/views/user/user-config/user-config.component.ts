@@ -34,7 +34,6 @@ export class UserConfigComponent implements OnInit {
     this.user = {};
     this.submitted = false;
     this.userDialog = true;
-    // this.dishSvc.openModal();
   }
   reset() {
     this.user = {}
@@ -47,7 +46,6 @@ export class UserConfigComponent implements OnInit {
     this.userDialog = true;
   }
   saveUser() {
-    debugger;
     this.submitted = true;
     console.log(this.user);
     if (this.user.userName.trim()) {
@@ -72,9 +70,7 @@ export class UserConfigComponent implements OnInit {
             this.getCities();
             this.getStates();
         })
-
       }
-
       this.userList = [...this.userList];
       this.userDialog = false;
     }
