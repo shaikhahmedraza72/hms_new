@@ -7,7 +7,7 @@ const routes: Routes = [
     path: '',
     component: AdminSettingComponent,
     data: {
-      title: 'Admin Component'
+      title: 'Admin config'
     }
   }
 ];
