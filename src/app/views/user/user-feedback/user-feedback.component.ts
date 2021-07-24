@@ -55,4 +55,3 @@ export class UserFeedbackComponent implements OnInit {
   }
 }
 
-
