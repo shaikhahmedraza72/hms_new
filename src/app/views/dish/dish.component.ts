@@ -122,7 +122,6 @@ export class DishComponent implements OnInit {
     } else {
       this.dish.id = this.dishList[this.dishList.length - 1].id + 1;
       this.dish.imageUrl = './assets/img/dishes/img-menu-placeholder.jpg';
-      this.dish.mainCategoryId = 1;
       this.dishSvc.Add(this.dish).subscribe(resp => {
         if (resp) {
           this.dishList.push(this.dish);
@@ -138,7 +137,7 @@ export class DishComponent implements OnInit {
     this.dishDialog = false;
   }
 
-  findIndexById(id: number) {
+    findIndexById(id: number) {
     let index = -1;
     for (let i = 0; i < this.dishList.length; i++) {
       if (this.dishList[i].id == id) {
