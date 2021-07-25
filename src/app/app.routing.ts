@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './helpers/auth.guard';
 import { AdminSettingComponent } from './views/admin-setting/admin-setting.component';
 import { ClientConfigComponent } from './views/client-config/client-config.component';
 import { P404Component } from './views/error/404.component';
@@ -44,6 +45,7 @@ export const routes: Routes = [
   {
     path: 'admin-setting',
     component: AdminSettingComponent,
+    canActivate:[AuthGuard]
 
   }, 
   {
@@ -52,16 +54,19 @@ export const routes: Routes = [
   },  
       {
         path: 'dashboard',
-        loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)
+        loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule),
+    canActivate:[AuthGuard]
       },
     
       {
         path: 'dish',
-        loadChildren: () => import('./views/dish/dish.module').then(m => m.DashboardModule)
+        loadChildren: () => import('./views/dish/dish.module').then(m => m.DashboardModule),
+        canActivate:[AuthGuard]
       },
       {
         path: 'admin-config',
-        loadChildren: () => import('./views/client/client.module').then(m => m.ClientModule)
+        loadChildren: () => import('./views/client/client.module').then(m => m.ClientModule),
+        canActivate:[AuthGuard]
       },
       {
         path: 'bankDetail',
@@ -69,7 +74,8 @@ export const routes: Routes = [
   },
     {
         path: 'users',
-        loadChildren: () => import('./views/user/user.module').then(m => m.UserModule)
+        loadChildren: () => import('./views/user/user.module').then(m => m.UserModule),
+        canActivate:[AuthGuard]
       },
   { path: '**', component: P404Component }
 ];

@@ -115,7 +115,7 @@ export class DishComponent implements OnInit {
       this.dishList[this.findIndexById(this.dish.id)] = this.dish;
       this.dish.imageUrl = './assets/img/dishes/img-menu-placeholder.jpg';
       this.dishSvc.update(this.dish).subscribe(() => {
-        this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Dish Updated', life: 3000 });
+        this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Dish Updated', life: 30000 });
         this.loadData();
       });
 
