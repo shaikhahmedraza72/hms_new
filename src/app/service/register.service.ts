@@ -20,6 +20,7 @@ export class RegisterService {
   AddUser(user: Registration): Observable<Registration> {
     return this.http.post<Registration>(this.url, user).pipe(
       map(x => {
+        debugger
         this.registeredList.push(x);
         return user;
       }),
