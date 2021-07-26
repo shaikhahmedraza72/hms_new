@@ -4,6 +4,7 @@ import { AdminSettingComponent } from './views/admin-setting/admin-setting.compo
 import { ClientConfigComponent } from './views/client-config/client-config.component';
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
+import { HotelAdminComponent } from './views/hotel-admin/hotel-admin.component';
 import { LoginComponent } from './views/login/userLogin.component'; 
 import { RegisterComponent } from './views/register/register.component'; 
 
@@ -47,6 +48,10 @@ export const routes: Routes = [
 
   }, 
   {
+    path: 'master-admin',
+    component: HotelAdminComponent,
+  },
+  {
     path: 'ClientConfigComponent',
     component: ClientConfigComponent,
   },  
@@ -60,8 +65,12 @@ export const routes: Routes = [
         loadChildren: () => import('./views/dish/dish.module').then(m => m.DashboardModule)
       },
       {
-        path: 'admin-config',
-        loadChildren: () => import('./views/client/client.module').then(m => m.ClientModule)
+        path: 'admin-setting',
+        loadChildren: () => import('./views/admin-setting/admin.module').then(m => m.AdminModule)
+      },
+      {
+        path: 'hotel-admin',
+        loadChildren: () => import('./views/hotel-admin/hotel-admin.module').then(m => m.HotelAdminModule)
       },
       {
         path: 'bankDetail',
