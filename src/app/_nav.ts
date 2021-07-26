@@ -40,8 +40,13 @@ export const navItems: INavData[] = [
   },
   
   {
-    name: 'Admin-Setting',
+    name: 'Master Admin',
     url: '/admin-setting',
+    icon: 'icon-drop'
+  },
+  {
+    name: 'Hotel Admin',
+    url: '/hotel-admin',
     icon: 'icon-drop'
   },
 

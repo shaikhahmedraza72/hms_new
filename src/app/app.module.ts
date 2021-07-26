@@ -44,10 +44,6 @@ import { AppRoutingModule,  routingComponents} from './app.routing';
 import { ClientConfigComponent } from './views/client-config/client-config.component';
 import { MasterAdminModule } from '../app/views/master-admin/master-admin.module';
 import { LocalStorageService, StorageService } from './service/storage.service';
-import { RegisterComponent } from '../app/views/register/register.component'
-import { AuthService } from './service/auth.service';
-import { AuthGuard } from './helpers/auth.guard'; 
-import { TokenInterceptorService } from './helpers/token-interceptor.service';
 @NgModule({
   imports: [
     BrowserModule,
@@ -78,7 +74,7 @@ import { TokenInterceptorService } from './helpers/token-interceptor.service';
     LoginComponent,
     RegisterComponent,
     routingComponents,
-    ClientConfigComponent,   
+    ClientConfigComponent,  
     // MasterAdminComponent
 
    // EndUserComponent
