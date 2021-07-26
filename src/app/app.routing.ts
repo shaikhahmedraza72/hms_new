@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from './helpers/auth.guard';
 import { AdminSettingComponent } from './views/admin-setting/admin-setting.component';
 import { ClientConfigComponent } from './views/client-config/client-config.component';
 import { P404Component } from './views/error/404.component';
@@ -45,6 +46,7 @@ export const routes: Routes = [
   {
     path: 'admin-setting',
     component: AdminSettingComponent,
+    canActivate:[AuthGuard]
 
   }, 
   {
@@ -57,20 +59,28 @@ export const routes: Routes = [
   },  
       {
         path: 'dashboard',
-        loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)
+        loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule),
+    canActivate:[AuthGuard]
       },
     
       {
         path: 'dish',
-        loadChildren: () => import('./views/dish/dish.module').then(m => m.DashboardModule)
+        loadChildren: () => import('./views/dish/dish.module').then(m => m.DashboardModule),
+        canActivate:[AuthGuard]
       },
       {
+<<<<<<< HEAD
         path: 'admin-setting',
         loadChildren: () => import('./views/admin-setting/admin.module').then(m => m.AdminModule)
       },
       {
         path: 'hotel-admin',
         loadChildren: () => import('./views/hotel-admin/hotel-admin.module').then(m => m.HotelAdminModule)
+=======
+        path: 'admin-config',
+        loadChildren: () => import('./views/client/client.module').then(m => m.ClientModule),
+        canActivate:[AuthGuard]
+>>>>>>> 8a5add15ed6c66a9152a18745043ecb43eca3f4f
       },
       {
         path: 'bankDetail',
@@ -78,7 +88,8 @@ export const routes: Routes = [
   },
     {
         path: 'users',
-        loadChildren: () => import('./views/user/user.module').then(m => m.UserModule)
+        loadChildren: () => import('./views/user/user.module').then(m => m.UserModule),
+        canActivate:[AuthGuard]
       },
   { path: '**', component: P404Component }
 ];

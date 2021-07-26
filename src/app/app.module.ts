@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
@@ -20,7 +20,7 @@ import { AppComponent } from './app.component';
 
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
-// import { LoginComponent } from './views/login/userLogin.component';
+ import { LoginComponent } from './views/login/userLogin.component';
 // import { RegisterComponent } from './views/register/register.component';
 import {
   AppAsideModule,
@@ -44,6 +44,7 @@ import { AppRoutingModule,  routingComponents} from './app.routing';
 import { ClientConfigComponent } from './views/client-config/client-config.component';
 import { MasterAdminModule } from '../app/views/master-admin/master-admin.module';
 import { LocalStorageService, StorageService } from './service/storage.service';
+<<<<<<< HEAD
 import { RegisterComponent } from '../app/views/register/register.component';
 // import { UserModuleModule } from '../app/views/login/user-module.module';
 // import { MasterAdminComponent } from './views/master-admin/master-admin.component'; 
@@ -53,6 +54,12 @@ import { RegisterComponent } from '../app/views/register/register.component';
 // import { EndUserComponent } from './views/client/end-user/end-user.component';
 
 
+=======
+import { RegisterComponent } from '../app/views/register/register.component'
+import { AuthService } from './service/auth.service';
+import { AuthGuard } from './helpers/auth.guard'; 
+import { TokenInterceptorService } from './helpers/token-interceptor.service';
+>>>>>>> 8a5add15ed6c66a9152a18745043ecb43eca3f4f
 @NgModule({
   imports: [
     BrowserModule,
@@ -80,7 +87,7 @@ import { RegisterComponent } from '../app/views/register/register.component';
     AppComponent, 
     P404Component,
     P500Component,
-    // LoginComponent,
+    LoginComponent,
     RegisterComponent,
     routingComponents,
     ClientConfigComponent,  
@@ -89,12 +96,15 @@ import { RegisterComponent } from '../app/views/register/register.component';
    // EndUserComponent
   ],
   providers: [
+    AuthService,
+    AuthGuard,
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy
     },
     IconSetService, 
       { provide: StorageService, useClass: LocalStorageService },
+      {provide: HTTP_INTERCEPTORS,useClass:TokenInterceptorService, multi:true}
   ],
   bootstrap: [ AppComponent ]
 })
