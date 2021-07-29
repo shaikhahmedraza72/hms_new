@@ -69,20 +69,6 @@ export const routes: Routes = [
         canActivate:[AuthGuard]
       },
       {
-<<<<<<< HEAD
-        path: 'admin-setting',
-        loadChildren: () => import('./views/admin-setting/admin.module').then(m => m.AdminModule)
-      },
-      {
-        path: 'hotel-admin',
-        loadChildren: () => import('./views/hotel-admin/hotel-admin.module').then(m => m.HotelAdminModule)
-=======
-        path: 'admin-config',
-        loadChildren: () => import('./views/client/client.module').then(m => m.ClientModule),
-        canActivate:[AuthGuard]
->>>>>>> 8a5add15ed6c66a9152a18745043ecb43eca3f4f
-      },
-      {
         path: 'bankDetail',
         loadChildren: () => import('./views/client/client.module').then(m => m.ClientModule)
   },
