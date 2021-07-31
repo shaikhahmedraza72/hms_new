@@ -15,6 +15,8 @@ export class DishService {
     categoryUrl = `${ApiConfig.URL}${ApiConfig.DISHCATEGORY}`;
   public dish: Dish | undefined;
   public dishList: Dish[] = [];
+  public categoryList: DishCategory[] = [];
+  public category: DishCategory;
   modalSubject = new Subject();
   modalObservable = this.modalSubject.subscribe();
 
@@ -93,7 +95,13 @@ export class DishService {
 
   // add new dishcategory
   addDishCategory(CategoryItm:DishCategory):Observable<DishCategory>{ 
-      return this.httpClient.post<DishCategory>(this.categoryUrl, CategoryItm);   
+      return this.httpClient.post<DishCategory>(this.categoryUrl, CategoryItm).pipe(
+        map(x => {
+          this.categoryList.push(x);
+          return this.category;
+        }),
+        catchError(this.handleError('', this.category))
+      );
   }
 
   openModal() {

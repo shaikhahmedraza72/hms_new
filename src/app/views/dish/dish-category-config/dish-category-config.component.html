@@ -53,9 +53,9 @@
                 </div>
                 <div class="p-field p-col-6">
                     <label for="inventoryStatus">Inventory Status</label>
-                    <p-dropdown [(ngModel)]="category.isActive" class="p-inputtext-sm" #invStatus="ngModel" name="inventoryStatus" optionLabel="label" optionValue="value" inputId="inventoryStatus" [options]="status" name="statuses" placeholder="Select" required>
+                    <p-dropdown [(ngModel)]="dish.status" class="p-inputtext-sm" #invStatus="ngModel" name="inventoryStatus" optionLabel="label" optionValue="value" inputId="inventoryStatus" [options]="status" placeholder="Select" required>
                     </p-dropdown>
-                    <div *ngIf="invStatus.touched && invStatus.invalid && f.submitted"><small class="p-error" *ngIf="invStatus.errors.required">Inventory Status is required.</small></div>
+                    <!-- <div *ngIf="invStatus.touched && invStatus.invalid && f.submitted"><small class="p-error" *ngIf="invStatus.errors.required">Inventory Status is required.</small></div> -->
                 </div>
             </div>
             <div class="p-d-flex p-jc-end">

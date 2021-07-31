@@ -50,8 +50,9 @@ export const routes: Routes = [
 
   }, 
   {
-    path: 'master-admin',
+    path: 'hotel-admin',
     component: HotelAdminComponent,
+    canActivate:[AuthGuard]
   },
   {
     path: 'ClientConfigComponent',
@@ -60,12 +61,17 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule),
-    canActivate:[AuthGuard]
+        canActivate:[AuthGuard]
       },
     
       {
         path: 'dish',
         loadChildren: () => import('./views/dish/dish.module').then(m => m.DashboardModule),
+        canActivate:[AuthGuard]
+      },
+      {
+        path: 'hotel-admin',
+        loadChildren: () => import('./views/hotel-admin/hotel-admin.module').then(m => m.HotelAdminModule),
         canActivate:[AuthGuard]
       },
       {

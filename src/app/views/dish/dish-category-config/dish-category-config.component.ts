@@ -29,6 +29,8 @@ export class DishCategoryConfigComponent implements OnInit {
   loadData() {
     this.categorySvc.getList().subscribe(res => {
       this.dishList = res;
+      this.dish = res.find(x => x);
+      console.log(this.dish);
     });
   }
   loadCategory(){
@@ -58,7 +60,7 @@ export class DishCategoryConfigComponent implements OnInit {
     if (f.invalid) return;
     if (this.category.id) {
       this.CategoryList[this.findIndexById(this.category.id)] = this.category;
-      this.categorySvc.update(this.dish).subscribe(() => {
+      this.categorySvc.update(this.category).subscribe(() => {
         this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Dish Updated', life: 3000 });
         this.loadData();
         this.loadCategory();

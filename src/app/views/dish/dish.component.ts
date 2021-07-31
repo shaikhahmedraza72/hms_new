@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Dish, DishCategory } from '../../models/dish';
 import { DishService } from '../../service/dish.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'dish-Component',
@@ -13,7 +14,11 @@ export class DishComponent implements OnInit {
   checked: boolean = true;
   isEdit: boolean;
   status: { label: string; value: string; }[];
-  constructor(public dishSvc: DishService, private confirmationService: ConfirmationService, private msgService: MessageService) { }
+  selectedFile: File;
+  constructor(public dishSvc: DishService, 
+    private confirmationService: ConfirmationService, 
+    private msgService: MessageService,
+    private http: HttpClient) { }
   dishList: Dish[] = [];
   uploadedFiles: any[] = [];
   dish: Dish;
@@ -51,10 +56,14 @@ export class DishComponent implements OnInit {
     });
   }
   onUpload(event) {
-    for (let file of event) {
-      this.dish.imageUrl.push(file);
-    }
+    this.selectedFile = <File>event.target.files[0];
+    const fd = new FormData();
+    fd.append('image', this.selectedFile, this.selectedFile.name);
+    this.http.post('assets/img/dishes', fd);
 
+    // for (let file of event) {
+    //   this.dish.imageUrl.push(file);
+    // }
     this.msgService.add({ severity: 'info', summary: 'File Uploaded', detail: '' });
   }
   // to Open fresh form  
