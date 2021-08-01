@@ -33,9 +33,7 @@ export class MasterAdminService {
       catchError(this.handleError('', admin))
     );
   }
-  updateAdmin(admin: MasterAdmin): Observable<MasterAdmin> {
-    // tslint:disable-next-line:no-debugger
-    debugger;
+  updateAdmin(admin: MasterAdmin): Observable<MasterAdmin> { 
     return this.http.put<MasterAdmin>(`${this.url}`, admin).pipe(
       map(x => {
         const index = this.adminList.findIndex(i => i.id === x.id);

@@ -15,6 +15,9 @@
     <li class="nav-item px-3">
       <a class="nav-link" href="#">Settings</a>
     </li>
+    <li class="nav-item px-3" (click)="logout()" *ngIf="uLoggedIn" >
+      <a class="nav-link" href="javascript:void(0)">Logout</a>
+    </li>
   </ul>
   <ul class="nav navbar-nav ml-auto">
     <li class="nav-item d-md-down-none">
@@ -49,15 +52,15 @@
   </ul>
 </app-header>
 <div class="app-body">
-  <app-sidebar #appSidebar [fixed]="true" [display]="'lg'" [minimized]="sidebarMinimized" (minimizedChange)="toggleMinimize($event)">
-    <app-sidebar-nav [navItems]="navItems" [perfectScrollbar] [disabled]="appSidebar.minimized"></app-sidebar-nav>
+  <app-sidebar #appSidebar *ngIf="uLoggedIn" [fixed]="true" [display]="'lg'" [minimized]="sidebarMinimized" (minimizedChange)="toggleMinimize($event)">
+    <app-sidebar-nav *ngIf="uLoggedIn" [navItems]="navItems" [perfectScrollbar] [disabled]="appSidebar.minimized"></app-sidebar-nav>
     <app-sidebar-minimizer></app-sidebar-minimizer>
   </app-sidebar>
   <!-- Main content -->
   <main class="main">
     <!-- Breadcrumb -->
     <!-- breaking change 'cui-breadcrumb' -->
-    <cui-breadcrumb>
+    <cui-breadcrumb *ngIf="uLoggedIn">
       <!-- Breadcrumb Menu-->
       <li class="breadcrumb-menu d-md-down-none">
         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
@@ -336,6 +339,6 @@
   </app-aside>
 </div>
 <app-footer>
-  <span><a href="https://coreui.io">HMS</a> &copy; 2021 creativeLabs.</span>
+  <span><a href="https://coreui.io">HMS</a> &copy; 2021.</span>
   <span class="ml-auto">Powered by <a href="https://coreui.io/angular">HMS</a></span>
 </app-footer>

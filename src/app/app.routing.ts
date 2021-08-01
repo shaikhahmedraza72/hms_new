@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { config } from 'rxjs';
+import { roleConfig } from './constant/rolesConfig';
 import { AuthGuard } from './helpers/auth.guard';
 import { AdminSettingComponent } from './views/admin-setting/admin-setting.component';
 import { ClientConfigComponent } from './views/client-config/client-config.component';
@@ -12,66 +14,68 @@ import { RegisterComponent } from './views/register/register.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full',
+    
   },
-  {
-    path: '404',
-    component: P404Component,
-    data: {
-      title: 'Page 404'
-    }
-  },
-  {
-    path: '500',
-    component: P500Component,
-    data: {
-      title: 'Page 500'
-    }
-  },
+  
   {
     path: 'login',
     component: LoginComponent,
     data: {
-      title: 'Login Page'
+      title: 'Login Page',
+      roles: roleConfig.authRoles.guest
     }
   },
   {
     path: 'register',
     component: RegisterComponent,
     data: {
-      title: 'Register Page'
+      title: 'Register Page',
+      roles: roleConfig.authRoles.guest
     }
   },
   {
     path: 'admin-setting',
     component: AdminSettingComponent,
+    data:{
+    roles: roleConfig.authRoles.sa
+    },
     canActivate:[AuthGuard]
 
   }, 
-  {
-    path: 'hotel-admin',
-    component: HotelAdminComponent,
-    canActivate:[AuthGuard]
-  },
-  {
-    path: 'ClientConfigComponent',
-    component: ClientConfigComponent,
-  },  
+  // {
+  //   path: 'hotel-admin',
+  //   component: HotelAdminComponent,
+  //   data:{
+  //     roles: roleConfig.authRoles.admin
+  //   },
+  //   canActivate:[AuthGuard]
+  // },
+  // {
+  //   path: 'ClientConfigComponent',
+  //   component: ClientConfigComponent,
+  // },  
       {
         path: 'dashboard',
         loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule),
+        data:{
+          roles: roleConfig.authRoles.guest
+        },
         canActivate:[AuthGuard]
       },
     
       {
         path: 'dish',
         loadChildren: () => import('./views/dish/dish.module').then(m => m.DashboardModule),
-        canActivate:[AuthGuard]
+      
       },
       {
         path: 'hotel-admin',
         loadChildren: () => import('./views/hotel-admin/hotel-admin.module').then(m => m.HotelAdminModule),
+        data:{
+          roles: roleConfig.authRoles.admin
+        },
         canActivate:[AuthGuard]
       },
       {
@@ -81,7 +85,23 @@ export const routes: Routes = [
     {
         path: 'users',
         loadChildren: () => import('./views/user/user.module').then(m => m.UserModule),
-        canActivate:[AuthGuard]
+     
+      },
+      {
+        path: '404',
+        component: P404Component,
+        data: {
+          title: 'Page 404',
+          roles: roleConfig.authRoles.guest
+        }
+      },
+      {
+        path: '500',
+        component: P500Component,
+        data: {
+          title: 'Page 500',
+          roles: roleConfig.authRoles.guest
+        }
       },
   { path: '**', component: P404Component }
 ];

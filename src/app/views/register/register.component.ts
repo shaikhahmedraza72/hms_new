@@ -46,8 +46,7 @@ export class RegisterComponent {
   }
 
 
-  register(data: NgForm) {
-    debugger;
+  register(data: NgForm) { 
     this.submitted = true;
     console.log(data);
     if (this.users.userType == 3) {

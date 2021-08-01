@@ -54,8 +54,7 @@ export class DishCategoryConfigComponent implements OnInit {
     this.categoryDialog = true;
   }
 
-  onSubmit(f){ 
-    debugger;
+  onSubmit(f){  
     this.submitted = true;
     if (f.invalid) return;
     if (this.category.id) {

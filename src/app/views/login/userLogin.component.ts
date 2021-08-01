@@ -6,7 +6,7 @@ import { StorageService } from '../../service/storage.service';
 import { UserService } from '../../service/user.service';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'app-user-login',
   templateUrl: 'userLogin.component.html',
   styleUrls:['./userLogin.component.css']
 })
@@ -31,6 +31,8 @@ export class LoginComponent implements OnInit {
     this.authService.loginUser(this.users).subscribe(
       (resp:any)=>{
         this.storage.setItem('HMSToken', resp.token);
+        this.storage.setItem('userData',resp.userType);
+        this.authService.uLoggedInSubject$.next(true)
         this.router.navigate(['/dish/dish-menu'])
       },
       err=> {

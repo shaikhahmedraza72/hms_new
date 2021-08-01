@@ -31,9 +31,7 @@ export class MasterAdminComponent implements OnInit {
   }
 
   onSubmit(val: any){
-    console.log(this.masterAdmin);
-    // tslint:disable-next-line:no-debugger
-    debugger;
+    console.log(this.masterAdmin); 
     if (val.invalid) { return; }
     let v = val.value;
     if(!this.masterAdmin.id){
