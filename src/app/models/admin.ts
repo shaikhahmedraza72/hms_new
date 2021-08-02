@@ -23,7 +23,9 @@ public ifscCode?: string,
 public codeImage?:string,
 public codeNumber?:string,
 public categoryId?:number,
-public category?: string
+public category?: string,
+public contact?: string,
+public email?: string
   ){}
 }
 export class Bankdetails {

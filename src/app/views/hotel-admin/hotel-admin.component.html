@@ -2,77 +2,81 @@
 <div class="p-card p-mb-5">
     <div class="p-card-body">
         <form name="aForm" #f="ngForm" novalidate (ngSubmit)="onSubmit(f)">
+            <div class="p-card-title">Personal Information</div>
             <div class="p-fluid p-formgrid p-grid">
-                <div class="p-field p-col-3">
-                    <label for="businessName">Business Name</label>
+                <div class="p-field p-col-4">
+                    <label for="businessName"><b>Business Name</b></label>
                     <input type="text" name="businessName" class="p-inputtext-sm" pInputText id="businessName" [(ngModel)]="admin.businessName" placeholder="Business Name" #bName="ngModel" required autofocus />
                     <div *ngIf="bName.touched && bName.invalid && f.submitted"> <small class="p-error p-error-danger" *ngIf="bName.errors.required">Business name is required.</small> </div>
                 </div>
-                <div class="p-field p-col-3">
-                    <label for="inventoryStatus">Business Category</label>
+                <div class="p-field p-col-4">
+                    <label for="email"><b>Email</b></label>
+                    <input type="email" name="email" class="p-inputtext-sm" pInputText id="email" [(ngModel)]="admin.email" placeholder="Email" #email="ngModel" required autofocus />
+                    <div *ngIf="email.touched && email.invalid && f.submitted"> <small class="p-error p-error-danger" *ngIf="email.errors.required">Email name is required.</small> </div>
+                </div>
+                <div class="p-field p-col-4">
+                    <label for="inventoryStatus"><b>Business Category</b></label>
                     <p-dropdown [(ngModel)]="admin.categoryId" class="p-inputtext-sm" name="category" inputId="categories" [options]="categories" required #category="ngModel" optionLabel="label" optionValue="value" placeholder="Select Category">
-
                     </p-dropdown>
                     <div *ngIf="category.touched && category.invalid && f.submitted"> <small class="p-error p-error-danger" *ngIf="category.errors.required">Business category is required.</small> </div>
                 </div>
-                <div class="p-field p-col-3">
-                    <label for="GSTNumber">GST Number</label>
-                    <input type="text" id="GSTNumber" name="gst" class="p-inputtext-sm" #gst="ngModel" [(ngModel)]="admin.gst" placeholder="GST Number" pInputText required/>
-                    <div *ngIf="gst.touched && gst.invalid && f.submitted"> <small class="p-error p-error-danger" *ngIf="gst.errors.required">GST Number is required.</small> </div>
-
-                </div>
-                <div class="p-field p-col-3">
-                    <label for="foodClass">Food License Number</label>
-                    <input type="text" id="foodLincNum" name="foodLincNum" class="p-inputtext-sm" #foodLicnNum="ngModel" [(ngModel)]="admin.foodLincNum" placeholder="Food Class" pInputText required/>
+                <div class="p-field p-col-2">
+                    <label for="foodClass"><b>Food License Number</b></label>
+                    <input type="text" id="foodLincNum" name="foodLincNum" #foodLicnNum="ngModel" [(ngModel)]="admin.foodLincNum" placeholder="Food Class" pInputText required/>
                     <div *ngIf="foodLicnNum.touched && foodLicnNum.invalid && f.submitted"> <small class="p-error p-error-danger" *ngIf="foodLicnNum.errors.required">Food License Number is required.</small> </div>
+                    <label for="GSTNumber"><b>GST Number</b></label>
+                    <input type="text" id="GSTNumber" name="gst" #gst="ngModel" [(ngModel)]="admin.gst" placeholder="GST Number" pInputText required/>
+                    <div *ngIf="gst.touched && gst.invalid && f.submitted"> <small class="p-error p-error-danger" *ngIf="gst.errors.required">GST Number is required.</small> </div>
                 </div>
-                <div class="p-field p-col-6">
-                    <label for="address">Address</label>
-                    <textarea id="address" name="address" type="text" [(ngModel)]="admin.address" rows="4" pInputTextarea></textarea>
-                </div>
-                <div class="p-field p-col-3">
-                    <label for="state">State</label>
+                <div class="p-field p-col-2">
+                    <label for="state"><b>State</b></label>
                     <p-dropdown inputId="state" name="state" [options]="states" [(ngModel)]="admin.stateId" placeholder="Select" optionLabel="label" optionValue="value"></p-dropdown>
-                    <label for="city">City</label>
+                    <label for="city"><b>City</b></label>
                     <p-dropdown inputId="cities" name="city" [options]="cities" [(ngModel)]="admin.cityId" placeholder="Select" optionLabel="label" optionValue="value">
                     </p-dropdown>
                 </div>
-
-                <div class="p-field p-col-3">
-                    <label for="pincode">Pincode</label>
-                    <input type="text" id="pincode" name="pincode" class="p-inputtext-sm" #pincode="ngModel" [(ngModel)]="admin.pinCode" placeholder="" minlength="6" maxlength="6" pInputText />
+                <div class="p-field p-col-2">
+                    <label for="pincode"><b>Pincode</b></label>
+                    <input type="text" id="pincode" name="pincode" #pincode="ngModel" [(ngModel)]="admin.pinCode" placeholder="Pincode" minlength="6" maxlength="6" pInputText />
                     <div *ngIf="pincode.touched && pincode.invalid && f.submitted"> <small class="p-error p-error-danger" *ngIf="pincode.errors.minlength">Minimum 6 digit required.</small> </div>
+                    <label for="contact"><b>Contact</b></label>
+                    <input type="text" id="contact" name="contact" #contact="ngModel" [(ngModel)]="admin.contact" placeholder="Contact" maxlength="10" pInputText />
+                    <div *ngIf="contact.touched && contact.invalid && f.submitted"> <small class="p-error p-error-danger" *ngIf="contact.errors.minlength">Minimum 10 digit required.</small> </div>
+                </div>
+                <div class="p-field p-col-6">
+                    <label for="address"><b>Address</b></label>
+                    <textarea id="address" name="address" type="text" [(ngModel)]="admin.address" rows="4" pInputTextarea></textarea>
                 </div>
             </div>
             <div class="p-card-title">Bank Information</div>
             <div class="p-card-subtitle">Enter bank details</div>
             <div class="p-fluid p-formgrid p-grid" ngModelGroup="bankDetails" #bDetails="ngModelGroup">
                 <div class="p-field p-col-6">
-                    <label for="accountName">Account Name</label>
+                    <label for="accountName"><b>Account Name</b></label>
                     <input id="accountName" name="accountName" class="p-inputtext-sm" #accName="ngModel" [(ngModel)]="admin.accountName" placeholder="Account Name" pInputText />
                     <!-- <div *ngIf="accName.invalid && f.submitted"> <small class="p-error p-error-danger" *ngIf="accName.errors.required">Account Name is required.</small> </div> -->
 
                 </div>
 
                 <div class="p-field p-col-6">
-                    <label for="accountNumber">Account Number</label>
+                    <label for="accountNumber"><b>Account Number</b></label>
                     <input type="text" id="accountNumber" pInputText #accNum="ngModel" name="accountNumber" class="p-inputtext-sm" [(ngModel)]="admin.accountNumber" placeholder="Account Number">
                     <!-- <div *ngIf="accNum.invalid && f.submitted"> <small class="p-error p-error-danger" *ngIf="accNum.errors.required">Account Number is required.</small> </div> -->
 
                 </div>
                 <div class="p-field p-col-6">
-                    <label for="bankName">Bank Name</label>
+                    <label for="bankName"><b>Bank Name</b></label>
                     <input type="text" id="bankName" name="bankName" class="p-inputtext-sm" #bankName="ngModel" [(ngModel)]="admin.bankName" placeholder="Bank Name" pInputText />
                     <!-- <div *ngIf="bankName.invalid && f.submitted"> <small class="p-error p-error-danger" *ngIf="bankName.errors.required">Business category is required.</small> </div> -->
 
                 </div>
                 <div class="p-field p-col-3">
-                    <label for="ifscCode">IFCS Code</label>
+                    <label for="ifscCode"><b>IFCS Code</b></label>
                     <input type="text" id="ifscCode" name="ifscCode" #ifcsCode="ngModel" class="p-inputtext-sm" [(ngModel)]="admin.ifscCode" placeholder="IFCS Code" pInputText />
                     <!-- <div *ngIf="ifscCode.invalid && f.submitted"> <small class="p-error p-error-danger" *ngIf="ifscCode.errors.required">IFSC code is required.</small> </div> -->
                 </div>
                 <div class="p-field p-col-3">
-                    <label for="UPICodeNumber">UPI Code(Number)</label>
+                    <label for="UPICodeNumber"><b>UPI Code(Number)</b></label>
                     <input type="text" id="UPICodeNumber" name="UPICodeNumber" class="p-inputtext-sm" [(ngModel)]="admin.codeNumber" placeholder="UPI Code" pInputText />
 
                 </div>
