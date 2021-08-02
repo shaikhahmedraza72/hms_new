@@ -27,7 +27,9 @@
                     </th>
                     <th style="width: 100px;">Contact
                     </th>
-                    <th style="width: 80px;">City</th>
+                    <th style="width: 80px;">City
+                        <p-columnFilter type="text" field="city" display="menu"></p-columnFilter>
+                    </th>
                     <th style="width: 100px;">Pincode
                         <p-columnFilter type="text" field="pinCode" display="menu"></p-columnFilter>
                     </th>
@@ -84,7 +86,7 @@
             </div>
             <div class="p-field p-col-6">
                 <label for="pincode">Pincode</label>
-                <p-inputNumber [(ngModel)]="user.pinCode" minlength="6" maxlength="6" mode="decimal" inputId="pincode" [useGrouping]="false">
+                <p-inputNumber [(ngModel)]="user.pinCode" minlength="6" maxlength="6" mode="decimal" placeholder="Pincode " inputId="pincode" [useGrouping]="false">
                 </p-inputNumber>
             </div>
         </div>
