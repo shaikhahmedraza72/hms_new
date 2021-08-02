@@ -42,7 +42,7 @@
                             <div class="product-list-action">
                                 <span class="product-price">{{dish.fullPrice | currency:'INR'}}</span>
                                 <p-button icon="pi pi-shopping-cart" styleClass="p-button-sm" label="Add to Cart" (click)="fnAddtoCart(dish)" [disabled]="dish.statuses === 'OUTOFSTOCK'"></p-button>
-                                <div class="timeTxt"><i class="pi pi-clock p-mr-1"></i> {{dish.serviceTime}} mins</div>
+                                <div class="timeTxt"><i class="pi pi-clock p-mr-1"></i> {{dish.timeForCook}} mins</div>
 
                             </div>
                         </div>
@@ -57,7 +57,6 @@
                                     <span class="product-category">{{dish.categories}}</span>
                                 </div>
                                 <div class="timeTxt"><i class="pi pi-clock p-mr-1"></i> {{dish.timeForCook}} mins</div>
-
                                 <!-- <span [class]="'product-badge status-' + dish.statuses.toLowerCase()">{{dish.statuses}}</span> -->
                             </div>
                             <div class="product-grid-item-content">

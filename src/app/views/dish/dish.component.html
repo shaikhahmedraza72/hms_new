@@ -71,7 +71,7 @@
 </div>
 
 
-<p-dialog [(visible)]="dishDialog" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}" header="Dish Configuration" [modal]="true">
+<p-dialog [(visible)]="dishDialog" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '80vw'}" header="Dish Configuration" [modal]="true">
     <ng-template pTemplate="content">
         <form name="dishform" #f="ngForm" novalidate (ngSubmit)="onSubmit(f)">
             <!-- <img [src]="'assets/showcase/images/demo/dish/' + dish.image" [alt]="dish.image" class="dish-image" *ngIf="dish.image"> -->
@@ -89,7 +89,7 @@
                         </ul>
                     </ng-template>
                 </p-fileUpload>  -->
-                    <p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)" multiple="multiple" accept="image/*" maxFileSize="1000000">
+                    <p-fileUpload name="demo[]" url="http://webapplication121-dev.us-east-2.elasticbeanstalk.com/api/FileUpload/Upload" (onUpload)="onUpload($event)" multiple="multiple" accept="image/*" maxFileSize="1000000">
                         <ng-template pTemplate="content">
                             <ul *ngIf="uploadedFiles.length">
                                 <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
