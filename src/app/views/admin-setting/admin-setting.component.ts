@@ -114,6 +114,14 @@ export class AdminSettingComponent implements OnInit {
     this.adminDialog = false;
   }
 
+  approve(admin: Admin){
+    this.admin = admin;
+    this.admin.subscriptionStatus = 3;
+    console.log(this.admin)
+    this.adminService.updateSubscription(this.admin).subscribe(res => {
+      console.log(this.admin.subscriptionStatus);
+    })
+  }
   
   deleteAdmin(admin: Admin) {
     this.confirmationService.confirm({
