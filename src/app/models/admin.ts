@@ -25,7 +25,11 @@ public codeNumber?:string,
 public categoryId?:number,
 public category?: string,
 public contact?: string,
-public email?: string
+public email?: string,
+public subscriptionStatus?: number,
+public startDate?: string,
+public endDAte?: string,
+public age?: number
   ){}
 }
 export class Bankdetails {

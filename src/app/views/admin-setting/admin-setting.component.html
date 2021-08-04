@@ -21,10 +21,10 @@
                     <th style="width: 2rem;">
                         <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                     </th>
-                    <th style="width: 20%;">Business Name
+                    <th style="width: 15%;">Business Name
                         <p-columnFilter type="text" field="businessName" display="menu"></p-columnFilter>
                     </th>
-                    <th style="width: 20%;">Business Category
+                    <th style="width: 18%;">Business Category
                         <p-columnFilter type="text" field="category" display="menu"></p-columnFilter>
                     </th>
                     <th style="width: 15%;">State
@@ -36,10 +36,11 @@
                     <th>Pincode
                         <p-columnFilter type="text" field="pinCode" display="menu"></p-columnFilter>
                     </th>
+                    <th>Age</th>
                     <th>Action</th>
             </ng-template>
             <ng-template pTemplate="body" let-item>
-                <tr>
+                <tr [ngClass]="item.city === 'pune'? 'bg-success': 'bg-danger'">
                     <td>
                         <p-tableCheckbox [value]="item"></p-tableCheckbox>
                     </td>
@@ -48,6 +49,7 @@
                     <td>{{item.state}}</td>
                     <td>{{item.city}}</td>
                     <td>{{item.pinCode}}</td>
+                    <td>{{item.age}}</td>
                     <td>
                         <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editAdmin(item)" pTooltip="Edit Admin" tooltipPosition="left"></button>
                         <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteAdmin(item)" pTooltip="Delete Admin" tooltipPosition="left"></button>
@@ -59,7 +61,7 @@
 </div>
 
 
-<p-dialog [(visible)]="adminDialog" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '90vw'}" header="Admin Configuration" [modal]="true">
+<p-dialog [(visible)]="adminDialog" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '85vw'}" header="Admin Configuration" [modal]="true">
     <ng-template pTemplate="content">
         <form name="aForm" #f="ngForm" novalidate (ngSubmit)="onSubmit(f)">
             <div class="p-card-title"><b>Personal Information</b></div>
@@ -75,7 +77,7 @@
                     <div *ngIf="email.touched && email.invalid && f.submitted"> <small class="p-error p-error-danger" *ngIf="email.errors.required">Email name is required.</small> </div>
                 </div>
                 <div class="p-field p-col-4">
-                    <label for="inventoryStatus">Business Category</label>
+                    <label for="inventoryStatus"><b>Business Category</b></label>
                     <p-dropdown [(ngModel)]="admin.categoryId" class="p-inputtext-sm" name="category" inputId="categories" [options]="categories" required #category="ngModel" optionLabel="label" optionValue="value" placeholder="Select Category">
                     </p-dropdown>
                     <div *ngIf="category.touched && category.invalid && f.submitted"> <small class="p-error p-error-danger" *ngIf="category.errors.required">Business category is required.</small> </div>
@@ -90,9 +92,9 @@
                 </div>
 
                 <div class="p-field p-col-2">
-                    <label for="state">State</label>
+                    <label for="state"><b>State</b></label>
                     <p-dropdown inputId="state" name="state" [options]="states" [(ngModel)]="admin.stateId" placeholder="Select" optionLabel="label" optionValue="value"></p-dropdown>
-                    <label for="city">City</label>
+                    <label for="city"><b>City</b></label>
                     <p-dropdown inputId="cities" name="city" [options]="cities" [(ngModel)]="admin.cityId" placeholder="Select" optionLabel="label" optionValue="value">
                     </p-dropdown>
                 </div>

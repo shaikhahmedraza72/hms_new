@@ -20,6 +20,7 @@ export class AdminSettingComponent implements OnInit {
   cities: any;
   adminDialog: boolean;
   submitted: boolean;
+  val = "Status"
   constructor(
     public adminService: AdminService,
     private msgService: MessageService,
@@ -35,6 +36,7 @@ export class AdminSettingComponent implements OnInit {
 
   ngOnInit(): void { 
     this.loadClient();
+
     this.getClientCategory();
     this.fnGetCitiesList();
     this.fnGetStatesList();
@@ -66,6 +68,15 @@ export class AdminSettingComponent implements OnInit {
     // })
     this.adminService.getClientList().subscribe(res => {
       this.adminList = res;
+      this.adminList.map(aItem => {
+        let sDate = new Date(aItem.startDate);
+        let eDate = new Date(aItem.endDAte);
+        const diffTime =  Math.abs(eDate.getTime() - sDate.getTime());
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        aItem.age = diffDays;
+        console.log(diffTime + " milliseconds");
+        console.log(diffDays + " days");
+      })
     });
   }
   getClientCategory() {
