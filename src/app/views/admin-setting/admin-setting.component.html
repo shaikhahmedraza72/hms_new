@@ -27,20 +27,20 @@
                     <th style="width: 18%;">Business Category
                         <p-columnFilter type="text" field="category" display="menu"></p-columnFilter>
                     </th>
-                    <th style="width: 15%;">State
+                    <th style="width: 10%;">State
                         <p-columnFilter type="text" field="state" display="menu"></p-columnFilter>
                     </th>
-                    <th style="width: 15%;">City
+                    <th style="width: 10%;">City
                         <p-columnFilter type="text" field="city" display="menu"></p-columnFilter>
                     </th>
                     <th>Pincode
                         <p-columnFilter type="text" field="pinCode" display="menu"></p-columnFilter>
                     </th>
                     <th>Age</th>
-                    <th>Action</th>
+                    <th style="text-align: center;">Action</th>
             </ng-template>
             <ng-template pTemplate="body" let-item>
-                <tr [ngClass]="item.city === 'pune'? 'bg-success': 'bg-danger'">
+                <tr [ngClass]="{'bg-success': item.subscriptionStatus === 0 , 'bg-danger' : item.subscriptionStatus === 1 }">
                     <td>
                         <p-tableCheckbox [value]="item"></p-tableCheckbox>
                     </td>
@@ -52,6 +52,7 @@
                     <td>{{item.age}}</td>
                     <td>
                         <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editAdmin(item)" pTooltip="Edit Admin" tooltipPosition="left"></button>
+                        <button pButton pRipple icon="pi pi-check" class="p-button-rounded p-button-success p-mr-2" (click)="approve(item)" pTooltip="Approve Admin" tooltipPosition="left"></button>
                         <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteAdmin(item)" pTooltip="Delete Admin" tooltipPosition="left"></button>
                     </td>
                 </tr>
