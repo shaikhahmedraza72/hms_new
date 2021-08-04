@@ -26,6 +26,14 @@ export class AdminService {
       catchError(this.handleError('', client))
     );
   }
+  updateSubscription(client: Admin): Observable<Admin> {
+    return this.httpClient.put<Admin>(`${this.url}/updateSubscription`, client).pipe(
+      map(x => {
+        return client;
+      }),
+      catchError(this.handleError('', client))
+    );
+  }
   // updating exisiting client's data
   updateCLient(client: Admin): Observable<Admin> {
     return this.httpClient.put<Admin>(`${this.url}`, client).pipe(
