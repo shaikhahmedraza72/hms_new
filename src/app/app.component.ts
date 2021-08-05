@@ -5,6 +5,7 @@ import { navItems } from './_nav';
 import { IconSetService } from '@coreui/icons-angular';
 import { freeSet } from '@coreui/icons';
 import { AuthService } from './service/auth.service';
+import { StorageService } from './service/storage.service';
 
 @Component({
   // tslint:disable-next-line
@@ -14,13 +15,16 @@ import { AuthService } from './service/auth.service';
   providers: [IconSetService],
 })
 export class AppComponent implements OnInit { 
+  storage: Storage;
   constructor(
     private router: Router,
     public iconSet: IconSetService,
-    public authService:AuthService
+    public authService:AuthService,
+    private storageService: StorageService
   ) {
     // iconSet singleton
     iconSet.icons = { ...freeSet };
+    this.storage = this.storageService.get();
   }
   uLoggedIn:boolean;
   public sidebarMinimized = false;
@@ -30,7 +34,15 @@ export class AppComponent implements OnInit {
     this.sidebarMinimized = e;
   }
   ngOnInit() { 
-    this.authService.uLoggedInSubject$.subscribe(resp => this.uLoggedIn = resp)
+    const uData = this.storage.getItem('userData');
+    if(uData && uData != '4'){
+      debugger
+      this.authService.uLoggedInSubject$.next(true)
+      this.authService.uLoggedInSubject$.subscribe(resp => this.uLoggedIn = resp)
+  } else {
+    this.storage.setItem('userData','4')
+  }
+    
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
         return;

@@ -13,13 +13,6 @@ import { RegisterComponent } from './views/register/register.component';
 
 export const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full',
-    
-  },
-  
-  {
     path: 'login',
     component: LoginComponent,
     data: {
@@ -36,47 +29,33 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'dish',
+    loadChildren: () => import('./views/dish/dish.module').then(m => m.DashboardModule),
+  },
+  {
     path: 'admin-setting',
     component: AdminSettingComponent,
-    data:{
+    data: {
     roles: roleConfig.authRoles.sa
     },
-    canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
 
   }, 
-  // {
-  //   path: 'hotel-admin',
-  //   component: HotelAdminComponent,
-  //   data:{
-  //     roles: roleConfig.authRoles.admin
-  //   },
-  //   canActivate:[AuthGuard]
-  // },
-  // {
-  //   path: 'ClientConfigComponent',
-  //   component: ClientConfigComponent,
-  // },  
       {
         path: 'dashboard',
         loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule),
-        data:{
+    data: {
           roles: roleConfig.authRoles.guest
         },
-        canActivate:[AuthGuard]
-      },
-    
-      {
-        path: 'dish',
-        loadChildren: () => import('./views/dish/dish.module').then(m => m.DashboardModule),
-      
+    canActivate: [AuthGuard]
       },
       {
         path: 'hotel-admin',
-        loadChildren: () => import('./views/hotel-admin/hotel-admin.module').then(m => m.HotelAdminModule),
-        data:{
+        component: HotelAdminComponent,
+    data: {
           roles: roleConfig.authRoles.admin
         },
-        canActivate:[AuthGuard]
+    canActivate: [AuthGuard]
       },
       {
         path: 'bankDetail',
@@ -102,13 +81,19 @@ export const routes: Routes = [
           title: 'Page 500',
           roles: roleConfig.authRoles.guest
         }
+  },
+  {
+    path: '',
+    redirectTo: '/dish/dish-menu',
+    pathMatch: 'full',
+
       },
   { path: '**', component: P404Component }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
 export const routingComponents = [];

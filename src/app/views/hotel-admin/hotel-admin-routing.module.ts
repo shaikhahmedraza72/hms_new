@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { roleConfig } from '../../constant/rolesConfig';
+import { AuthGuard } from '../../helpers/auth.guard';
 import { HotelAdminComponent } from './hotel-admin.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: HotelAdminComponent,
-    data: {
-      title: 'Hotel Admin'
-    }
-  }
+  // {
+  //   path: '',
+  //   component: HotelAdminComponent,
+  //   data: {
+  //     title: 'Hotel Admin 1',
+  //     roles: roleConfig.authRoles.admin
+  //   },
+  //   canActivate:[AuthGuard]
+  // }
 ]
 @NgModule({
   imports: [RouterModule.forChild(routes)],

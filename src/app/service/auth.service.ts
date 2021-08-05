@@ -24,7 +24,7 @@ export class AuthService {
     return this.http.post(`${this.url}/authenticate`, user)
   }
   loggedIn(){
-    return !! this.storage.getItem('HMSToken');
+    return this.uLoggedInSubject$.getValue();
   }
   userData(){
     return this.storage.getItem('userData')

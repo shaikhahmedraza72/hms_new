@@ -10,7 +10,7 @@
         <li class="nav-item px-3">
             <a class="nav-link" href="#">Settings</a>
         </li>
-        <li class="nav-item px-3" (click)="logout()" *ngIf="uLoggedIn">
+        <li class="nav-item px-3" (click)="logout()" *ngIf="authService.loggedIn()">
             <a class="nav-link" href="javascript:void(0)">Logout</a>
         </li>
     </ul>
@@ -47,15 +47,15 @@
     </ul>
 </app-header>
 <div class="app-body">
-    <app-sidebar #appSidebar *ngIf="uLoggedIn" [fixed]="true" [display]="'lg'" [minimized]="sidebarMinimized" (minimizedChange)="toggleMinimize($event)">
-        <app-sidebar-nav *ngIf="uLoggedIn" [navItems]="navItems" [perfectScrollbar] [disabled]="appSidebar.minimized"></app-sidebar-nav>
+    <app-sidebar #appSidebar *ngIf="authService.loggedIn()" [fixed]="true" [display]="'lg'" [minimized]="sidebarMinimized" (minimizedChange)="toggleMinimize($event)">
+        <app-sidebar-nav *ngIf="authService.loggedIn()" [navItems]="navItems" [perfectScrollbar] [disabled]="appSidebar.minimized"></app-sidebar-nav>
         <app-sidebar-minimizer></app-sidebar-minimizer>
     </app-sidebar>
     <!-- Main content -->
     <main class="main">
         <!-- Breadcrumb -->
         <!-- breaking change 'cui-breadcrumb' -->
-        <cui-breadcrumb *ngIf="uLoggedIn">
+        <cui-breadcrumb *ngIf="authService.loggedIn()">
             <!-- Breadcrumb Menu-->
             <li class="breadcrumb-menu d-md-down-none">
                 <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
