@@ -20,7 +20,6 @@ export class AdminSettingComponent implements OnInit {
   cities: any;
   adminDialog: boolean;
   submitted: boolean;
-  val = "Status"
   constructor(
     public adminService: AdminService,
     private msgService: MessageService,
@@ -69,7 +68,7 @@ export class AdminSettingComponent implements OnInit {
     this.adminService.getClientList().subscribe(res => {
       this.adminList = res;
       this.adminList.map(aItem => {
-        let sDate = new Date(aItem.startDate);
+        let sDate = new Date();
         let eDate = new Date(aItem.endDAte);
         const diffTime =  Math.abs(eDate.getTime() - sDate.getTime());
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
@@ -118,7 +117,8 @@ export class AdminSettingComponent implements OnInit {
     this.admin = admin;
     this.admin.subscriptionStatus = 3;
     console.log(this.admin)
-    this.adminService.updateSubscription(this.admin).subscribe(res => {
+    this.adminService.updateSubscription(this.admin).subscribe((res) => {
+      this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Updated!', life: 3000});
       console.log(this.admin.subscriptionStatus);
     })
   }

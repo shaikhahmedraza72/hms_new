@@ -87,7 +87,7 @@
             <div class="p-card-title text-center">Registeration</div>
             <div class="p-card-subtitle text-center">Enter your details</div>
             <div class="p-grid p-flex-column">
-                <div class="p-col-8 mx-auto mt-3">
+                <div class="p-col-10 mx-auto mt-3">
                     <!-- <label for="userType">Select Category</label><br> -->
                     <p-dropdown [(ngModel)]="users.userType" class="p-inputtext-sm" [style]="{width: '100%'}" name="userType" inputId="typeUser" [options]="typeUser" optionLabel="label" optionValue="value" placeholder="Select Login Type" required #category="ngModel">
                         <ng-template let-option pTemplate="item">
@@ -95,33 +95,33 @@
                         </ng-template>
                     </p-dropdown>
                 </div>
-                <div class="p-col-8 mx-auto">
+                <div class="p-col-10 mx-auto">
                     <!-- <label for="name">Name</label> -->
                     <input [(ngModel)]="users.name" type="text" class="form-control" placeholder="Name" id="name" name="name" #name="ngModel" required>
                     <div *ngIf="name.touched && name.invalid && name.submitted"> <small class="p-error p-error-danger" *ngIf="name.errors.required">Name is
                             required.</small> </div>
                 </div>
-                <div class="p-col-8 mx-auto">
+                <div class="p-col-10 mx-auto">
                     <!-- <label for="username">Username</label> -->
                     <input [(ngModel)]="users.userName" type="text" class="form-control" placeholder="Username" id="username" name="username" #username="ngModel" required>
                     <div *ngIf="username.touched && username.invalid && username.submitted"> <small class="p-error p-error-danger" *ngIf="username.errors.required">Username is
                             required.</small> </div>
                 </div>
-                <div class="p-col-8 mx-auto">
+                <div class="p-col-10 mx-auto">
                     <!-- <label for="email">Email</label> -->
                     <!-- <input type="text" id="GSTNumber" name="gst" class="p-inputtext-sm" #gst="ngModel" [(ngModel)]="admin.gst" placeholder="GST Number" pInputText required/> -->
                     <input [(ngModel)]="users.email" type="text" class="form-control" placeholder="Email" id="email" name="email" #email="ngModel" required email>
                     <div *ngIf="email.touched && email.invalid && email.submitted"> <small class="p-error p-error-danger" *ngIf="email.errors.required">Email is required.</small>
                     </div>
                 </div>
-                <div class="p-col-8 mx-auto">
+                <div class="p-col-10 mx-auto">
                     <!-- <label for="mobile">Mobile Number</label> -->
                     <!-- <input type="text" id="foodLincNum" name="foodLincNum" class="p-inputtext-sm" #foodLicnNum="ngModel" [(ngModel)]="admin.foodLincNum" placeholder="Food Class" pInputText required/> -->
-                    <input maxlength="10" [(ngModel)]="users.mobile" class="form-control" placeholder="Mobile" id="mobile" name="mobile" #mobile="ngModel" required>
+                    <input maxlength="10" [(ngModel)]="users.contact" class="form-control" placeholder="Mobile" id="mobile" name="mobile" #mobile="ngModel" required>
                     <div *ngIf="mobile.touched && mobile.invalid && mobile.submitted"> <small class="p-error p-error-danger" *ngIf="mobile.errors.required">Mobile Number is
                             required.</small> </div>
                 </div>
-                <div class="p-col-8 mx-auto">
+                <div class="p-col-10 mx-auto">
                     <!-- <label for="Password">Password</label> -->
                     <!-- <textarea id="address" name="address" type="text" [(ngModel)]="admin.address" rows="4" pInputTextarea></textarea> -->
                     <input [(ngModel)]="users.password" type="password" class="form-control" placeholder="Password" id="password" name="password" #password="ngModel" required>
@@ -136,14 +136,14 @@
                     </div>
                     <div class="p-card-subtitle text-center">Or login with</div>
 
-                    <div class="p-col-8 mx-auto">
+                    <div class="p-row ">
                         <button class="btn btn-block btn-facebook" type="button"><span>facebook</span></button>
-                    </div>
-                    <div class="p-col-8 mx-auto">
                         <button type="button" class="btn btn-primary btn-social-icon btn-block btn-instagram"><i class="fab fa-instagram"></i>Instagram</button>
+                        <button type="button" class="btn btn-danger btn-social-icon btn-block btn-google"><i class="fab fa-google"></i> Google +</button>
                     </div>
                     <div class="p-col-8 mx-auto">
-                        <button type="button" class="btn btn-primary btn-social-icon btn-block btn-google"><i class="fab fa-google"></i> Google +</button>
+                    </div>
+                    <div class="p-col-8 mx-auto">
                     </div>
                 </div>
             </div>
