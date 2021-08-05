@@ -56,8 +56,9 @@ export class HotelAdminComponent implements OnInit {
 
   loadClient(){
     this.adminService.getClientList().subscribe(resp => {
+      debugger;
       if(resp.length > 0){  
-       const adminItm = resp.find(x => x.id);
+       const adminItm = resp.find(x => x.id == 10);
        this.admin = adminItm;
        
       }
