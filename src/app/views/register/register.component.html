@@ -135,15 +135,19 @@
                         <button [disabled]="!registerForm.form.valid" pButton pRipple label="Creat account" class="btn btn-block"></button>
                     </div>
                     <div class="p-card-subtitle text-center">Or login with</div>
-
-                    <div class="p-row ">
-                        <button class="btn btn-block btn-facebook" type="button"><span>facebook</span></button>
-                        <button type="button" class="btn btn-primary btn-social-icon btn-block btn-instagram"><i class="fab fa-instagram"></i>Instagram</button>
-                        <button type="button" class="btn btn-danger btn-social-icon btn-block btn-google"><i class="fab fa-google"></i> Google +</button>
-                    </div>
-                    <div class="p-col-8 mx-auto">
-                    </div>
-                    <div class="p-col-8 mx-auto">
+                    <div class="p-grid p-col-8 mx-auto">
+                        <div class="p-col">
+                            <button class="btn btn-block btn-facebook" type="button"><i class="fab fa-facebook-f"></i><span>facebook</span></button>
+                            <!-- <a href="#" class="fa fa-facebook"></a> -->
+                        </div>
+                        <div class="p-col">
+                            <button type="button" class="btn btn-primary btn-social-icon btn-block btn-instagram"><i
+                                    class="fab fa-instagram"></i>Instagram</button>
+                        </div>
+                        <div class="p-col">
+                            <button type="button" class="btn btn-danger btn-social-icon btn-block btn-google"><i
+                                    class="fab fa-google"></i> Google +</button>
+                        </div>
                     </div>
                 </div>
             </div>
