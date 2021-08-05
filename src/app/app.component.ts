@@ -36,7 +36,6 @@ export class AppComponent implements OnInit {
   ngOnInit() { 
     const uData = this.storage.getItem('userData');
     if(uData && uData != '4'){
-      debugger
       this.authService.uLoggedInSubject$.next(true)
       this.authService.uLoggedInSubject$.subscribe(resp => this.uLoggedIn = resp)
   } else {

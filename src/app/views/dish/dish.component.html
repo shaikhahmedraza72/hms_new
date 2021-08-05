@@ -89,7 +89,7 @@
                         </ul>
                     </ng-template>
                 </p-fileUpload>  -->
-                    <p-fileUpload name="demo[]" url="http://webapplication121-dev.us-east-2.elasticbeanstalk.com/api/FileUpload/Upload" (onUpload)="onUpload($event)" multiple="multiple" accept="image/*" maxFileSize="1000000">
+                    <p-fileUpload name="imageUploader" customUpload="true" maxFileSize="250000" (uploadHandler)="onUpload($event,dish.id)" multiple="multiple" accept="image/*" maxFileSize="1000000">
                         <ng-template pTemplate="content">
                             <ul *ngIf="uploadedFiles.length">
                                 <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
