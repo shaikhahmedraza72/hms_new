@@ -61,16 +61,25 @@ export class DishComponent implements OnInit {
       })
     });
   }
-  onUpload(event) {
-    this.selectedFile = <File>event.target.files[0];
+  onUpload(event,id) {
+    this.selectedFile = event.files[0];
     const fd = new FormData();
+   // name="imageUploader" url="http://webapplication121-dev.us-east-2.elasticbeanstalk.com/api/FileUpload/Upload"
     fd.append('image', this.selectedFile, this.selectedFile.name);
-    this.http.post('assets/img/dishes', fd);
+    const fData = {
+      dishId:id,
+      added_by:"user",
+      imageUploader:this.selectedFile
+    }
+    this.dishSvc.fileUpload(fData).subscribe(resp => {
+      this.msgService.add({ severity: 'info', summary: 'File Uploaded', detail: '' });
+
+    })
+    //this.http.post('assets/img/dishes', fd);
 
     // for (let file of event) {
     //   this.dish.imageUrl.push(file);
     // }
-    this.msgService.add({ severity: 'info', summary: 'File Uploaded', detail: '' });
   }
   // to Open fresh form  
   openNew() {

@@ -104,6 +104,13 @@ export class DishService {
       );
   }
 
+  fileUpload(fData){
+    return this.httpClient.post(`${ApiConfig.URL}api/FileUpload/Upload`,fData).pipe(
+      map(x => { return x}),
+      catchError(this.handleError(''))
+    )
+
+  }
   openModal() {
     this.modalSubject.next();
   }

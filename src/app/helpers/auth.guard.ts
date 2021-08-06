@@ -8,8 +8,7 @@ import {Location } from '@angular/common'
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router,
-    private location:Location){
+  constructor(private authService: AuthService, private router: Router){
 
   }
   canActivate(
@@ -22,9 +21,9 @@ export class AuthGuard implements CanActivate {
          route.data.roles.includes(user)){
         return true;
       } else {
-        if(!user){ 
+        if( !user || user === '4'){ 
         this.router.navigate(['/login'])
-      }
+      }  
         return false;
       }
   }

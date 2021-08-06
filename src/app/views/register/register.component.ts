@@ -9,8 +9,7 @@ import { style } from '@angular/animations';
 import { UserService } from '../../service/user.service';
 @Component({
   selector: 'app-dashboard',
-  templateUrl: 'register.component.html',
-  styleUrls: ['./register.component.css']
+  templateUrl: 'register.component.html'
 })
 export class RegisterComponent {
   users: Registration;
