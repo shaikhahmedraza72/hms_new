@@ -89,12 +89,10 @@
                         </ul>
                     </ng-template>
                 </p-fileUpload>  -->
-                    <p-fileUpload name="imageUploader" customUpload="true" maxFileSize="250000" (uploadHandler)="onUpload($event,dish.id)" multiple="multiple" accept="image/*" maxFileSize="1000000">
-                        <ng-template pTemplate="content">
                             <ul *ngIf="uploadedFiles.length">
                                 <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
                             </ul>
-                        </ng-template>
+                        </ng-template> -->
                     </p-fileUpload>
                 </div>
                 <!-- <div class="card"> -->

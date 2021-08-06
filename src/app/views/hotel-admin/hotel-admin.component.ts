@@ -20,6 +20,7 @@ export class HotelAdminComponent implements OnInit {
   cities: any;
   adminDialog: boolean;
   submitted: boolean;
+  dataId: number;
   constructor(
     public adminService: AdminService,
     private msgService: MessageService,
@@ -56,7 +57,6 @@ export class HotelAdminComponent implements OnInit {
 
   loadClient(){
     this.adminService.getClientList().subscribe(resp => {
-      debugger;
       if(resp.length > 0){  
        const adminItm = resp.find(x => x.id == 10);
        this.admin = adminItm;
@@ -74,6 +74,7 @@ export class HotelAdminComponent implements OnInit {
   }
 
   onSubmit(fData:any){
+    debugger;
     if(fData.invalid) return;
     if(!this.admin.id){
       this.admin.id = this.adminList[this.adminList.length - 1].id + 1;
@@ -97,6 +98,7 @@ export class HotelAdminComponent implements OnInit {
     
     this.adminList = [...this.adminList];
     this.adminDialog = false;
+    this.dataId = this.admin.id;
   }
 
   fnGetCitiesList(){
