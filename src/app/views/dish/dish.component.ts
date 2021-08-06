@@ -47,6 +47,12 @@ export class DishComponent implements OnInit {
       this.dishList = res;
     });
   }
+  files;
+  dealWithFiles(event) {
+     this.files = event.originalEvent.files;
+    // Deal with your files
+    // e.g  assign it to a variable, and on submit add the variable to your form data
+}
 
   fnGetDishCategoy() {
     this.dishSvc.getDishCategory().subscribe(x => {
@@ -118,7 +124,9 @@ export class DishComponent implements OnInit {
 
   // add/ update dish 
   onSubmit(f) {
+    console.log(f)
     this.submitted = true;
+    this.dish = f
     if (f.invalid) return;
     if (this.dish.id) {
       this.dishList[this.findIndexById(this.dish.id)] = this.dish;

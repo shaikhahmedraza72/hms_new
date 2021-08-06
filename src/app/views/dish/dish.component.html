@@ -89,12 +89,12 @@
                         </ul>
                     </ng-template>
                 </p-fileUpload>  -->
-                    <p-fileUpload name="demo[]" url="http://webapplication121-dev.us-east-2.elasticbeanstalk.com/api/FileUpload/Upload" (onUpload)="onUpload($event)" multiple="multiple" accept="image/*" maxFileSize="1000000">
-                        <ng-template pTemplate="content">
+                    <p-fileUpload name="image1" (onSelect)="dealWithFiles($event)" accept="image/*" maxFileSize="1000000">
+                        <!-- <ng-template pTemplate="content">
                             <ul *ngIf="uploadedFiles.length">
                                 <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
                             </ul>
-                        </ng-template>
+                        </ng-template> -->
                     </p-fileUpload>
                 </div>
                 <!-- <div class="card"> -->
