@@ -29,7 +29,7 @@
                     <th style="width:16%;">Category
                         <p-columnFilter type="text" field="dishCategory" display="menu"></p-columnFilter>
                     </th>
-                    <th>Time for Cook</th>
+                    <th>Cooking time</th>
                     <th>Status
                         <p-columnFilter type="text" field="status" display="menu">
                             <ng-template pTemplate="filter" let-value let-filter="filterCallback">
@@ -71,7 +71,7 @@
 </div>
 
 
-<p-dialog [(visible)]="dishDialog" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '80vw'}" header="Dish Configuration" [modal]="true">
+<p-dialog [(visible)]="dishDialog" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '60vw'}" header="Dish Configuration" [modal]="true">
     <ng-template pTemplate="content">
         <form name="dishform" #f="ngForm" novalidate (ngSubmit)="onSubmit(f)">
             <!-- <img [src]="'assets/showcase/images/demo/dish/' + dish.image" [alt]="dish.image" class="dish-image" *ngIf="dish.image"> -->
@@ -89,10 +89,14 @@
                         </ul>
                     </ng-template>
                 </p-fileUpload>  -->
+                    <!-- <p-fileUpload name="image1" (onSelect)="dealWithFiles($event)" accept="image/*" maxFileSize="1000000">
+                        <ng-template pTemplate="content"> -->
+                    <p-fileUpload name="imageUploader" customUpload="true" maxFileSize="250000" (uploadHandler)="onUpload($event,dish.id)" multiple="multiple" accept="image/*" maxFileSize="1000000">
+                        <ng-template pTemplate="content">
                             <ul *ngIf="uploadedFiles.length">
                                 <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
                             </ul>
-                        </ng-template> -->
+                        </ng-template>
                     </p-fileUpload>
                 </div>
                 <!-- <div class="card"> -->

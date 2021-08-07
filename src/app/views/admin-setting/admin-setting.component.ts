@@ -20,6 +20,8 @@ export class AdminSettingComponent implements OnInit {
   cities: any;
   adminDialog: boolean;
   submitted: boolean;
+  // status: { label: string; value: string; }[];
+  statusString: string;
   constructor(
     public adminService: AdminService,
     private msgService: MessageService,
@@ -34,8 +36,11 @@ export class AdminSettingComponent implements OnInit {
   isEdit: boolean;
 
   ngOnInit(): void { 
+    // this.status = [
+    // { label: 'Lead', value: 'lead' },
+    // { label: 'Pending', value: 'pending' },
+    // { label: 'Approved', value: 'approved' }];
     this.loadClient();
-
     this.getClientCategory();
     this.fnGetCitiesList();
     this.fnGetStatesList();
@@ -76,6 +81,14 @@ export class AdminSettingComponent implements OnInit {
         console.log(diffTime + " milliseconds");
         console.log(diffDays + " days");
       })
+      // let val = res.map(x => x.subscriptionStatus);
+      // if(val === 1){
+      //   this.statusString = "Lead";
+      // }else if(val === 2){
+      //   this.statusString = "Pending";
+      // } else if(val === 3){
+      //   this.statusString = "Approved"
+      // }
     });
   }
   getClientCategory() {

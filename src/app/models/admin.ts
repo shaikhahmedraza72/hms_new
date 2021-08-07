@@ -29,7 +29,8 @@ public email?: string,
 public subscriptionStatus?: number,
 public startDate?: string,
 public endDAte?: string,
-public age?: number
+public age?: number,
+public status?: string
   ){}
 }
 export class Bankdetails {
