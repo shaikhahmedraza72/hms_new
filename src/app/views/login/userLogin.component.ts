@@ -30,8 +30,8 @@ export class LoginComponent implements OnInit {
   loginUser(){  
     this.authService.loginUser(this.users).subscribe(
       (resp:any)=>{
-        this.storage.setItem('HMSToken', resp.token);
-        this.storage.setItem('userData',resp.userType);
+        this.storage.setItem('HMSToken', resp.token); 
+        this.storage.setItem('HMSUserData',JSON.stringify(resp));
         this.authService.uLoggedInSubject$.next(true)
         this.router.navigate(['/dish/dish-menu'])
       },

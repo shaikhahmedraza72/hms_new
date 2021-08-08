@@ -71,7 +71,7 @@
 </div>
 
 
-<p-dialog [(visible)]="dishDialog" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '80vw'}" header="Dish Configuration" [modal]="true">
+<p-dialog [(visible)]="dishDialog" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '60vw'}" header="Dish Configuration" [modal]="true">
     <ng-template pTemplate="content">
         <form name="dishform" #f="ngForm" novalidate (ngSubmit)="onSubmit(f)">
             <!-- <img [src]="'assets/showcase/images/demo/dish/' + dish.image" [alt]="dish.image" class="dish-image" *ngIf="dish.image"> -->
@@ -81,20 +81,10 @@
                     <input type="text" name="name" #name="ngModel" class="p-inputtext-sm" pInputText id="name" [(ngModel)]="dish.name" required autofocus />
                     <div *ngIf="name.touched && name.invalid && f.submitted"> <small class="p-error" *ngIf="name.errors.required">Dish name is required.</small></div>
                 </div>
-                <div class="p-field p-col-6" style="width: 50vw;">
-                    <!-- <p-fileUpload name="dish.imageUrl[]" url="./assets/img" (onUpload)="onUpload($event)" multiple="multiple" accept="image/*" maxFileSize="1000000">
-                    <ng-template pTemplate="content">
-                        <ul *ngIf="dish.imageUrl.length">0
-                            <li *ngFor="let file of dish.imageUrl">{{file.name}} - {{file.size}} bytes</li>
-                        </ul>
-                    </ng-template>
-                </p-fileUpload>  -->
-                            <ul *ngIf="uploadedFiles.length">
-                                <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
-                            </ul>
-                        </ng-template> -->
-                    </p-fileUpload>
-                </div>
+                <div class="p-field p-col-6" >
+                    <label for="files">Upload Dish Image</label>
+                    <input name="files" [(ngModel)]="dish.imageUrl" (change)="fileChange($event)" class="p-inputtext-sm" pInputText type="file">
+                   </div>
                 <!-- <div class="card"> -->
                 <!-- <div>Dish image</div>-->
 

@@ -34,12 +34,12 @@ export class AppComponent implements OnInit {
     this.sidebarMinimized = e;
   }
   ngOnInit() { 
-    const uData = this.storage.getItem('userData');
-    if(uData && uData != '4'){
+    const uData = JSON.parse(this.storage.getItem('HMSUserData'));
+    if(uData && uData.userType != 4){
       this.authService.uLoggedInSubject$.next(true)
       this.authService.uLoggedInSubject$.subscribe(resp => this.uLoggedIn = resp)
   } else {
-    this.storage.setItem('userData','4')
+    this.storage.setItem('HMSUserData',JSON.stringify({userType:4}))
   }
     
     this.router.events.subscribe((evt) => {

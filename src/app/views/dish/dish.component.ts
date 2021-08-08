@@ -133,22 +133,22 @@ export class DishComponent implements OnInit {
 
   // add/ update dish 
   onSubmit(f) {
-    console.log(f)
     this.submitted = true;
-    this.dish = f
     if (f.invalid) return;
     if (this.dish.id) {
       this.dishList[this.findIndexById(this.dish.id)] = this.dish;
-      this.dish.imageUrl = './assets/img/dishes/img-menu-placeholder.jpg';
-      this.dishSvc.update(this.dish).subscribe(() => {
+     // this.dish.imageUrl = './assets/img/dishes/img-menu-placeholder.jpg';
+      const dFormData = this.convertFormdata(this.dish);
+      this.dishSvc.update(dFormData).subscribe(() => {
         this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Dish Updated', life: 30000 });
         this.loadData();
       });
 
     } else {
       this.dish.id = this.dishList[this.dishList.length - 1].id + 1;
-      this.dish.imageUrl = './assets/img/dishes/img-menu-placeholder.jpg';
-      this.dishSvc.Add(this.dish).subscribe(resp => {
+     // this.dish.imageUrl = './assets/img/dishes/img-menu-placeholder.jpg';
+      const dFormData = this.convertFormdata(this.dish);
+      this.dishSvc.Add(dFormData).subscribe(resp => {
         if (resp) {
           this.dishList.push(this.dish);
           this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Dish Created', life: 3000 });
@@ -162,7 +162,17 @@ export class DishComponent implements OnInit {
     this.dishList = [...this.dishList];
     this.dishDialog = false;
   }
-
+    convertFormdata(dish:Dish){
+      const fd = new FormData();
+      for (const [key, value] of Object.entries(dish)) {
+        fd.append(key,value);
+      }
+      return fd;
+    }
+    fileChange(e){
+      debugger
+      this.dish.files = e.target.files[0]
+    }
     findIndexById(id: number) {
     let index = -1;
     for (let i = 0; i < this.dishList.length; i++) {

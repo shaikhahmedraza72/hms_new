@@ -1,3 +1,5 @@
+import { Binary } from "@angular/compiler";
+
 export interface Dish {
     id?: number;
     name?: string;
@@ -18,6 +20,7 @@ export interface Dish {
     serviceTime?: number;
     bookmark?: boolean;
     dishCategory?:string;
+    files?: Binary
 }
 
 export class DishCategory {

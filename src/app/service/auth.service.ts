@@ -27,10 +27,10 @@ export class AuthService {
     return this.uLoggedInSubject$.getValue();
   }
   userData(){
-    return this.storage.getItem('userData')
+    return JSON.parse(this.storage.getItem('HMSUserData'))
   }
   logoutUser(){
     this.storage.removeItem('HMSToken');
-    this.storage.removeItem('userData');
+    this.storage.removeItem('HMSUserData');
   }
 }
