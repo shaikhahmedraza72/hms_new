@@ -33,7 +33,7 @@ export class DishService {
   //#region Method
   // Adding new data
   
-  Add(dish: Dish): Observable<Dish> {
+  Add(dish): Observable<Dish> {
     return this.httpClient.post<Dish>(this.url, dish).pipe(
       map(x => {
         this.dishList.push(x);
@@ -44,7 +44,7 @@ export class DishService {
   }
   
   //updating exisiting data
-  update(dish: Dish): Observable<Dish> {
+  update(dish): Observable<Dish> {
     return this.httpClient.put<Dish>(`${this.url}`, dish).pipe(
       map(x => {
         var index = this.dishList.findIndex(i => i.id == x.id)

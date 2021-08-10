@@ -29,7 +29,7 @@
                     <th style="width:16%;">Category
                         <p-columnFilter type="text" field="dishCategory" display="menu"></p-columnFilter>
                     </th>
-                    <th>Cooking time</th>
+                    <th>Time for Cook</th>
                     <th>Status
                         <p-columnFilter type="text" field="status" display="menu">
                             <ng-template pTemplate="filter" let-value let-filter="filterCallback">
@@ -81,24 +81,10 @@
                     <input type="text" name="name" #name="ngModel" class="p-inputtext-sm" pInputText id="name" [(ngModel)]="dish.name" required autofocus />
                     <div *ngIf="name.touched && name.invalid && f.submitted"> <small class="p-error" *ngIf="name.errors.required">Dish name is required.</small></div>
                 </div>
-                <div class="p-field p-col-6" style="width: 50vw;">
-                    <!-- <p-fileUpload name="dish.imageUrl[]" url="./assets/img" (onUpload)="onUpload($event)" multiple="multiple" accept="image/*" maxFileSize="1000000">
-                    <ng-template pTemplate="content">
-                        <ul *ngIf="dish.imageUrl.length">0
-                            <li *ngFor="let file of dish.imageUrl">{{file.name}} - {{file.size}} bytes</li>
-                        </ul>
-                    </ng-template>
-                </p-fileUpload>  -->
-                    <!-- <p-fileUpload name="image1" (onSelect)="dealWithFiles($event)" accept="image/*" maxFileSize="1000000">
-                        <ng-template pTemplate="content"> -->
-                    <p-fileUpload name="imageUploader" customUpload="true" maxFileSize="250000" (uploadHandler)="onUpload($event,dish.id)" multiple="multiple" accept="image/*" maxFileSize="1000000">
-                        <ng-template pTemplate="content">
-                            <ul *ngIf="uploadedFiles.length">
-                                <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
-                            </ul>
-                        </ng-template>
-                    </p-fileUpload>
-                </div>
+                <div class="p-field p-col-6" >
+                    <label for="files">Upload Dish Image</label>
+                    <input name="files" [(ngModel)]="dish.imageUrl" (change)="fileChange($event)" class="p-inputtext-sm" pInputText type="file">
+                   </div>
                 <!-- <div class="card"> -->
                 <!-- <div>Dish image</div>-->
 
