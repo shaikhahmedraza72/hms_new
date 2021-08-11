@@ -20,15 +20,17 @@ export interface Dish {
     serviceTime?: number;
     bookmark?: boolean;
     dishCategory?:string;
-    files?: Binary
+    files?: Binary;
+    upi?: string
 }
 
 export class DishCategory {
     constructor(
         public id?: number,
         public name?: string,
-        public description?: string | undefined,
-        public isActive?: boolean
+        // public description?: string | undefined,
+        public isActive?: boolean,
+        public gstCompliance?: number
     ) { }
 }
 

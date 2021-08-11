@@ -21,26 +21,29 @@
                     <th style="width: 2rem;">
                         <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
                     </th>
-                    <th style="width: 15%;">Business Name
+                    <th style="width: 7rem;">Name
                         <p-columnFilter type="text" field="businessName" display="menu"></p-columnFilter>
                     </th>
-                    <th style="width: 18%;">Business Category
+                    <th style="width: 9rem;">Category
                         <p-columnFilter type="text" field="category" display="menu"></p-columnFilter>
                     </th>
-                    <th style="width: 10%;">State
+                    <th style="width: 7rem;">State
                         <p-columnFilter type="text" field="state" display="menu"></p-columnFilter>
                     </th>
-                    <th style="width: 10%;">City
+                    <th style="width: 7rem;">City
                         <p-columnFilter type="text" field="city" display="menu"></p-columnFilter>
                     </th>
-                    <th>Pincode
+                    <th style="width: 8rem;">Pincode
                         <p-columnFilter type="text" field="pinCode" display="menu"></p-columnFilter>
                     </th>
-                    <th>Age</th>
-                    <th style="text-align: center;">Action</th>
+                    <th>Days left</th>
+                    <th style="width: 8rem;">Status
+                        <p-columnFilter type="text" field="status" display="menu"></p-columnFilter>
+                    </th>
+                    <th style="text-align: center; width: 12rem;">Action</th>
             </ng-template>
             <ng-template pTemplate="body" let-item>
-                <tr [ngClass]="{'bg-success': item.subscriptionStatus === 3 , 'bg-danger' : item.subscriptionStatus === 1 }">
+                <tr>
                     <td>
                         <p-tableCheckbox [value]="item"></p-tableCheckbox>
                     </td>
@@ -50,6 +53,9 @@
                     <td>{{item.city}}</td>
                     <td>{{item.pinCode}}</td>
                     <td>{{item.age}}</td>
+                    <td>
+                        <p-tag [value]="item.subscriptionStatus" *ngIf="item.subscriptionStatus" class="p-text-uppercase" [ngClass]="{'bg-primary' : item.subscriptionStatus === 1 ,'bg-danger': item.subscriptionStatus === 2 ,'bg-success': item.subscriptionStatus === 3}"></p-tag>
+                    </td>
                     <td>
                         <button [disabled]="item.subscriptionStatus === 3" pButton pRipple icon="pi pi-check" class="p-button-rounded p-button-success p-mr-2" (click)="approve(item)" pTooltip="Approve Admin" tooltipPosition="left"></button>
                         <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-warning p-mr-2" (click)="editAdmin(item)" pTooltip="Edit Admin" tooltipPosition="left"></button>
@@ -62,7 +68,7 @@
 </div>
 
 
-<p-dialog [(visible)]="adminDialog" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '85vw'}" header="Admin Configuration" [modal]="true">
+<p-dialog [(visible)]="adminDialog" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '70vw'}" header="Admin Configuration" [modal]="true">
     <ng-template pTemplate="content">
         <form name="aForm" #f="ngForm" novalidate (ngSubmit)="onSubmit(f)">
             <div class="p-card-title"><b>Personal Information</b></div>
@@ -84,7 +90,7 @@
                     <div *ngIf="category.touched && category.invalid && f.submitted"> <small class="p-error p-error-danger" *ngIf="category.errors.required">Business category is required.</small> </div>
                 </div>
                 <div class="p-field p-col-2">
-                    <label for="foodClass"><b>Food License Number</b></label>
+                    <label for="foodClass"><b>License Number</b></label>
                     <input type="text" id="foodLincNum" name="foodLincNum" #foodLicnNum="ngModel" [(ngModel)]="admin.foodLincNum" placeholder="Food Class" pInputText required/>
                     <div *ngIf="foodLicnNum.touched && foodLicnNum.invalid && f.submitted"> <small class="p-error p-error-danger" *ngIf="foodLicnNum.errors.required">Food License Number is required.</small> </div>
                     <label for="GSTNumber"><b>GST Number</b></label>

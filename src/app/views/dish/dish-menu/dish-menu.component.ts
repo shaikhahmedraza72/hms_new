@@ -17,7 +17,7 @@ export class DishMenuComponent implements OnInit {
   sortOrder: number;
 
   sortField: string;
-    dishCategory: { label: string; value: string; }[];
+  dishCategory: { label: string; value: string; }[];
   cartItems: Array<any> = [];
 
   constructor(

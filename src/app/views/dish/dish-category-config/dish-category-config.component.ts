@@ -30,7 +30,6 @@ export class DishCategoryConfigComponent implements OnInit {
     this.categorySvc.getList().subscribe(res => {
       this.dishList = res;
       this.dish = res.find(x => x);
-      console.log(this.dish);
     });
   }
   loadCategory(){
@@ -41,6 +40,7 @@ export class DishCategoryConfigComponent implements OnInit {
   }
 
   openNew() {
+    this.category = {};
     this.submitted = false;
     this.categoryDialog = true;
   }
@@ -50,16 +50,17 @@ export class DishCategoryConfigComponent implements OnInit {
   }
 
   editDish(category: DishCategory) {
-    this.category = { ...category };
+    this.category = {...category };
     this.categoryDialog = true;
   }
 
   onSubmit(f){  
+    debugger;
     this.submitted = true;
     if (f.invalid) return;
     if (this.category.id) {
       this.CategoryList[this.findIndexById(this.category.id)] = this.category;
-      this.categorySvc.update(this.category).subscribe(() => {
+      this.categorySvc.updateDishCategory(this.category).subscribe(() => {
         this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Dish Updated', life: 3000 });
         this.loadData();
         this.loadCategory();
@@ -67,7 +68,7 @@ export class DishCategoryConfigComponent implements OnInit {
 
     } else {
       this.category.id = this.CategoryList[this.CategoryList.length - 1].id + 1;
-      this.dish.mainCategoryId = 1;
+      // this.dish.mainCategoryId = 1;
       this.categorySvc.addDishCategory(this.category).subscribe(() => {
           this.CategoryList.push(this.category);
           this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Dish Created', life: 3000 });
