@@ -30,7 +30,7 @@
                     </td>
                     <td>{{item.name}}</td>
                     <td>
-                        <p-tag [value]="item.isActive" *ngIf="item.isActive" class="p-text-uppercase" [severity]="item.isActive =='active' ? 'success':'danger'"></p-tag>
+                        <p-tag [value]="item.isActive" *ngIf="item.isActive" class="p-text-uppercase" [severity]="item.isActive === true ? 'success':'danger'"></p-tag>
                     </td>
                     <td>
                         <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editDish(item)"></button>
@@ -44,11 +44,11 @@
 
 <p-dialog [(visible)]="categoryDialog" [breakpoints]="{'960px': '75vw', '640px': '100vw'}" [style]="{width: '50vw'}" header="Dish Configuration" [modal]="true">
     <ng-template pTemplate="content">
-        <form name="dishform" #f="ngForm" novalidate (ngSubmit)="onSubmit(f)">
+        <form name="categoryForm" #f="ngForm" novalidate (ngSubmit)="onSubmit(f)">
             <div class="p-fluid p-formgrid p-grid">
                 <div class="p-field p-col-6">
                     <label for="name">Dish Name</label>
-                    <input type="text" name="name" #name="ngModel" class="p-inputtext-sm" pInputText id="name" [(ngModel)]="dishCategory" required autofocus />
+                    <input type="text" name="name" #name="ngModel" class="p-inputtext-sm" pInputText id="name" [(ngModel)]="category.name" required autofocus />
                     <div *ngIf="name.touched && name.invalid && f.submitted"> <small class="p-error" *ngIf="name.errors.required">Dish name is required.</small></div>
                 </div>
                 <div class="p-field p-col-6">

@@ -133,24 +133,13 @@ export class DishComponent implements OnInit {
 
   // add/ update dish 
   onSubmit(f) {
-<<<<<<< HEAD
-    debugger;
-    this.submitted = true;
-    // this.dish = f
-    if (f.invalid) return;
-    if (this.dish.id) {
-      this.dishList[this.findIndexById(this.dish.id)] = this.dish;
-      // this.dish.imageUrl = './assets/img/dishes/img-menu-placeholder.jpg';
-      this.dishSvc.update(this.dish).subscribe(() => {
-=======
     this.submitted = true;
     if (f.invalid) return;
     if (this.dish.id) {
       this.dishList[this.findIndexById(this.dish.id)] = this.dish;
      // this.dish.imageUrl = './assets/img/dishes/img-menu-placeholder.jpg';
       const dFormData = this.convertFormdata(this.dish);
-      this.dishSvc.update(dFormData).subscribe(() => {
->>>>>>> 17546fb80f306edd5e19b72b0ddb00f2126e40c7
+      this.dishSvc.update(f).subscribe(() => {
         this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Dish Updated', life: 30000 });
         this.loadData();
       });

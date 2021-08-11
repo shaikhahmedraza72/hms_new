@@ -11,8 +11,8 @@ import { catchError, map } from 'rxjs/internal/operators';
 export class DishService {
 
   // #region properties
-    url = `${ApiConfig.URL}${ApiConfig.DISH}`;
-    categoryUrl = `${ApiConfig.URL}${ApiConfig.DISHCATEGORY}`;
+  url = `${ApiConfig.URL}${ApiConfig.DISH}`;
+  categoryUrl = `${ApiConfig.URL}${ApiConfig.DISHCATEGORY}`;
   public dish: Dish | undefined;
   public dishList: Dish[] = [];
   public categoryList: DishCategory[] = [];
@@ -103,6 +103,21 @@ export class DishService {
         catchError(this.handleError('', this.category))
       );
   }
+  updateDishCategory(CategoryItm:DishCategory):Observable<DishCategory>{ 
+    return this.httpClient.put<DishCategory>(this.categoryUrl, CategoryItm).pipe(
+
+      map(x => {
+        var index = this.categoryList.findIndex(i => i.id == x.id)
+        this.dishList[index] = x;
+        return this.category;
+      }),
+      catchError(this.handleError('', this.category))
+    );
+}
+deleteCategoryData(id: number): Observable<DishCategory> {
+  return this.httpClient.delete<DishCategory>(`${this.categoryUrl}?id=${id}`).pipe(
+    catchError(this.handleError('', this.category)))
+}
 
   fileUpload(fData){
     return this.httpClient.post(`${ApiConfig.URL}api/FileUpload/Upload`,fData).pipe(

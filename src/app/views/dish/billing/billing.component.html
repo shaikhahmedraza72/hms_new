@@ -1,0 +1,8 @@
+<div class="p-card p-p-2">
+    <div class="p-card-body p-formgroup-inline">
+        <div *ngFor="let category of categories" class="p-field-checkbox">
+            <p-radioButton [inputId]="category.key" name="category" [value]="category" [(ngModel)]="selectedCategory"></p-radioButton>
+            <label [for]="category.key">{{category.name}}</label>
+        </div>
+    </div>
+</div>

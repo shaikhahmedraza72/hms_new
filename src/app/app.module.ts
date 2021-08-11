@@ -21,6 +21,7 @@ import { AppComponent } from './app.component';
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
  import { LoginComponent } from './views/login/userLogin.component';
+ import { BillingComponent } from './views/dish/billing/billing.component';
 // import { RegisterComponent } from './views/register/register.component';
 import {
   AppAsideModule,
@@ -74,6 +75,7 @@ import { HotelAdminModule } from './views/hotel-admin/hotel-admin.module';
    
   ],
   declarations: [
+    BillingComponent,
     AppComponent, 
     P404Component,
     P500Component,
