@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageService } from 'primeng/api';
+import { MessageService, ConfirmationService } from 'primeng/api';
 import { Dish, DishCategory } from '../../../models/dish';
 import { DishService } from '../../../service/dish.service';
 
@@ -13,11 +13,12 @@ export class DishCategoryConfigComponent implements OnInit {
   dishCategory: DishCategory;
   category: DishCategory;
   CategoryList: DishCategory[];
+  selectedCategories: Dish[];
   categoryDialog: boolean;
   submitted: boolean;
   dishList: Dish[];
   dish: Dish;
-  constructor(private categorySvc: DishService, private msgService: MessageService) { }
+  constructor(private categorySvc: DishService, private msgService: MessageService, private confirmationService: ConfirmationService) { }
 
   ngOnInit(): void {
     this.status = [{ label: 'Active', value: 'active' },
@@ -53,9 +54,39 @@ export class DishCategoryConfigComponent implements OnInit {
     this.category = {...category };
     this.categoryDialog = true;
   }
+    //to delete dish item 
+    deleteCategory(category: DishCategory) {
+      this.confirmationService.confirm({
+        message: 'Are you sure you want to delete ' + category.name + '?',
+        header: 'Confirm',
+        icon: 'pi pi-exclamation-triangle',
+        accept: () => {
+          this.categorySvc.deleteCategoryData(category.id).subscribe(() => {
+              this.CategoryList = this.CategoryList.filter(val => val.id !== category.id);
+              this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Category Deleted', life: 3000 });
+          })
+        }
+      });
+    }
+    // deleteSelectedCategories() {
+    //   this.confirmationService.confirm({
+    //     message: 'Are you sure you want to delete the selected categories?',
+    //     header: 'Confirm',
+    //     icon: 'pi pi-exclamation-triangle',
+    //     accept: () => {
+    //       this.CategoryList = this.CategoryList.filter(val => !this.selectedCategories.includes(val));
+    //       this.selectedCategories.map((CategoryId: DishCategory) => {
+    //         this.categorySvc.deleteCategoryData(CategoryId.id).subscribe(() => {
+    //             this.selectedCategories = null;
+    //             this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Categories Deleted', life: 3000 });
+    //         })
+    //       })
+    //     }
+    //   });
+    // }
+  
 
-  onSubmit(f){  
-    debugger;
+  onSubmit(f){
     this.submitted = true;
     if (f.invalid) return;
     if (this.category.id) {

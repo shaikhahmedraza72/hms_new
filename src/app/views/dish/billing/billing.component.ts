@@ -7,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BillingComponent implements OnInit {
 
-  selectedCategory: any = null;
-  categories: any[] = [{name: 'Cash', key: 'C'}, {name: 'UPI', key: 'U'}];
+  stateOptions: any[];
 
-  constructor() { }
+  constructor() { this.stateOptions = [{label: 'Off', value: 'off'}, {label: 'On', value: 'on'}];}
+  value1: string = "off";
 
   ngOnInit(): void {
-    console.log(this.selectedCategory);
+    console.log(this.value1);
   }
 
 }
