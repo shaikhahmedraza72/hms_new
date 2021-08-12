@@ -194,18 +194,18 @@ export class DishComponent implements OnInit {
     }
     return id;
   }
-  onCheckboxChange(id, e) {
-    if (e.target.checked) {
-      if (this.selectedDish.indexOf(id) === -1) {
-        this.selectedDish.push(id);
-      }
-    } else {
-      const index = this.selectedDish.indexOf(id, 0);
-      if (index > -1) {
-        this.selectedDish.splice(index, 1);
-      }
-    }
-    if (this.selectedDish.length > 1) {
-    }
-  }
+  // onCheckboxChange(id, e) {
+  //   if (e.target.checked) {
+  //     if (this.selectedDish.indexOf(id) === -1) {
+  //       this.selectedDish.push(id);
+  //     }
+  //   } else {
+  //     const index = this.selectedDish.indexOf(id, 0);
+  //     if (index > -1) {
+  //       this.selectedDish.splice(index, 1);
+  //     }
+  //   }
+  //   if (this.selectedDish.length > 1) {
+  //   }
+  // }
 }
