@@ -1,0 +1,7 @@
+/* Header css */
+.app-header{
+    background-color: #222b94;
+}
+.app-header > ul.mainNav li a{
+    color:#fff;
+}

@@ -1,5 +1,16 @@
-<div class="p-card p-p-2">
-    <div class="p-card-body p-formgroup-inline p-jc-center">
-        <p-selectButton class="p-primary" [options]="stateOptions" [(ngModel)]="value1" optionLabel="label" optionValue="value"></p-selectButton>
-    </div>
-</div>
+<div class="p-card p-p-2"> 
+    <div class="p-grid">
+        <div class="p-col-12 text-center">
+            <button pButton type="button" label="Cash" icon="pi pi-wallet pi-text-primary" (click)="fnCashProceed(true)" class="p-button-outlined p-px-5 p-py-3 p-mr-2"></button>
+            <button pButton type="button" label="UPI Payments" icon="pi pi-briefcase" (click)="fnUPIProceed(true)" class="p-button-outlined p-px-5 p-py-3"></button>
+       
+            </div>
+        
+        <div class="p-col-12 text-right">
+            <button pButton pRipple label="Proceed" [disabled]="!lblIsProceed" icon="pi pi-check" class="p-button-success p-button p-button-raised p-mx-1"></button>
+            <button pButton pRipple label="Cancel" type="reset" icon="pi pi-times" class="p-button-danger p-button-raised" (click)="fnResetPayment()"></button>
+        </div> 
+        
+ 
+        <!-- <p-selectButton class="p-primary" [options]="stateOptions" [(ngModel)]="value1" optionLabel="label" optionValue="value"></p-selectButton> -->
+    </div> 

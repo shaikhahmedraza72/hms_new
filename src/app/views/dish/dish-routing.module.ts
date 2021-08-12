@@ -6,7 +6,7 @@ import { DishComponent } from './dish.component';
 import { DishCategoryConfigComponent } from './dish-category-config/dish-category-config.component';
 import { AuthGuard } from '../../helpers/auth.guard';
 import { roleConfig } from '../../constant/rolesConfig';
-// import { BillingComponent } from './billing/billing.component';
+import { BillingComponent } from './billing/billing.component';
 const routes: Routes = [
   {
     path: '',
@@ -44,15 +44,15 @@ const routes: Routes = [
     },
     canActivate:[AuthGuard]
   },
-  // {
-  //   path:'billing',
-  //   component:BillingComponent,
-  //   data:{
-  //     title:"billing",
-  //     roles:roleConfig.authRoles.user
-  //   },
-  //   canActivate:[AuthGuard]
-  // }
+  {
+    path:'billing',
+    component:BillingComponent,
+    data:{
+      title:"billing",
+      roles:roleConfig.authRoles.user
+    },
+    canActivate:[AuthGuard]
+  }
 ];
 
 @NgModule({

@@ -31,12 +31,8 @@ export const routes: Routes = [
   },
   {
     path: 'dish',
-    loadChildren: () => import('./views/dish/dish.module').then(m => m.DashboardModule),
-  },
-  {
-    path: 'billing',
-    component: BillingComponent
-  },
+    loadChildren: () => import('./views/dish/dish.module').then(m => m.DishModule),
+  }, 
   {
     path: 'admin-setting',
     component: AdminSettingComponent,
