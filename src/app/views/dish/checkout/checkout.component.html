@@ -4,7 +4,7 @@
         <label for="userName">User Name:</label><span *ngIf="userData.userType === 3">{{userData.username}}</span>
         <p-dropdown *ngIf="userData.userType === 1 || userData.userType === 2" class="p-mr-4" id="userName"
             [options]="users" [(ngModel)]="selectedUser" placeholder="Select a User" optionLabel="label"
-            optionValue="value" [showClear]="true"></p-dropdown>{{selectedUser}}
+            optionValue="value" [showClear]="true"></p-dropdown>
         <button *ngIf="userData.userType === 1 || userData.userType === 2" pButton pRipple label="New" icon="pi pi-plus"
             class="p-button-success p-mr-2" pTooltip="Add new user" (click)="openNew()"></button>
     </div>
