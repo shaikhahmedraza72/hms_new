@@ -1,0 +1,48 @@
+<div class="p-card-content">
+        <div class="p-fluid p-formgrid p-grid">
+            <div class="p-field p-col-6">
+                <label for="userName">Name</label>
+                <input type="text" name="userName" class="p-inputtext-sm" pInputText id="userName"
+                    [(ngModel)]="user.userName" placeholder="Name" required autofocus />
+                <small class="p-error" *ngIf="submitted && !user.userName">Name is required.</small>
+            </div>
+            <div class="p-field p-col-6">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="p-inputtext-sm" pInputText id="email" [(ngModel)]="user.email"
+                    placeholder="Email" required autofocus />
+                <small class="p-error" *ngIf="submitted && !user.email">Email is required.</small>
+            </div>
+            <div class="p-field p-col-6">
+                <label for="contact">Contact</label>
+                <input pInputText [(ngModel)]="user.contact" mode="decimal" maxlength="10" inputId="contact"
+                    placeholder="Contact" required autofocus />
+                <small class="p-error" *ngIf="submitted && !user.contact">Contact is required.</small><br>
+                <label for="state">State</label>
+                <p-dropdown inputId="state" name="state" [options]="states" [(ngModel)]="user.stateId"
+                    placeholder="State" optionLabel="label" optionValue="value"></p-dropdown>
+            </div>
+            <div class="p-field p-col-6">
+                <label for="address">Address</label>
+                <textarea rows="4" cols="30" id="address" [(ngModel)]="user.address" pInputTextarea
+                    autoResize="autoResize" placeholder="Address" required autofocus></textarea>
+                <small class="p-error" *ngIf="submitted && !user.address">Address is required.</small>
+            </div>
+            <div class="p-field p-col-6">
+                <label for="city">City</label>
+                <p-dropdown inputId="cities" name="city" [options]="cities" [(ngModel)]="user.cityId" placeholder="City"
+                    optionLabel="label" optionValue="value"></p-dropdown>
+            </div>
+            <div class="p-field p-col-6">
+                <label for="pincode">Pincode</label>
+                <p-inputNumber [(ngModel)]="user.pinCode" minlength="6" maxlength="6" mode="decimal"
+                    placeholder="Pincode " inputId="pincode" [useGrouping]="false">
+                </p-inputNumber>
+            </div>
+        </div>
+        <div class="p-card-footer p-text-right">
+            <button pButton pRipple label="Save" icon="pi pi-check" class="p-button p-button-raised"
+                (click)="saveUser(user)"></button>
+            <button pButton pRipple label="Reset" icon="pi pi-refresh" class="p-button-danger p-button-raised"
+                (click)="reset()"></button>
+        </div>
+</div>
