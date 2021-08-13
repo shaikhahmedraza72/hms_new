@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { scan } from 'rxjs/internal/operators';
 
 @Component({
   selector: 'app-billing',
@@ -11,11 +12,9 @@ export class BillingComponent implements OnInit {
   lblIsProceed: boolean;
   paymentMode: string;
 
-  constructor() { this.stateOptions = [{label: 'Off', value: 'off'}, {label: 'On', value: 'on'}];}
-  value1: string = "off";
+  constructor() { }
 
   ngOnInit(): void {
-    console.log(this.value1);
   }
   fnCashProceed(v){
     this.paymentMode = "Cash"
@@ -29,6 +28,13 @@ export class BillingComponent implements OnInit {
   fnResetPayment(){
     this.paymentMode = null;
     this.lblIsProceed = false;
+  }
+  fnProceed(){
+    if(this.paymentMode === 'Cash'){
+      alert('Payment Successful');
+    } else if(this.paymentMode === 'UPI'){
+      alert('Please scan the QR code and proceed');
+    }
   }
    
 }

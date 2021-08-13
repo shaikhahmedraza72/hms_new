@@ -37,10 +37,8 @@ export class UserConfigComponent implements OnInit {
   }
   reset() {
     this.user = {}
-    // this.userDialog = false;
     this.submitted = false;
   }
-
   editUser(user: User) {
     this.user = { ...user };
     this.userDialog = true;
@@ -82,17 +80,14 @@ export class UserConfigComponent implements OnInit {
       this.cities = x.map(cItem => {
         return { label: cItem.name, value: cItem.id }
       })
-      console.log(this.cities)
     });
 
   }
-
   getStates() {
     this.commonSvc.getStates().subscribe(x => {
       this.states = x.map(cItem => {
         return { label: cItem.name, value: cItem.id }
       })
-      console.log(this.cities)
     });
   }
 
@@ -140,9 +135,6 @@ export class UserConfigComponent implements OnInit {
 
     return index;
   }
-
-
-
   createId(): string {
     let id = '';
     var chars = '0123456789';

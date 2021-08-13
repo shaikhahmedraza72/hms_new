@@ -4,8 +4,6 @@ import { config } from 'rxjs';
 import { roleConfig } from './constant/rolesConfig';
 import { AuthGuard } from './helpers/auth.guard';
 import { AdminSettingComponent } from './views/admin-setting/admin-setting.component';
-import { ClientConfigComponent } from './views/client-config/client-config.component';
-import { BillingComponent } from './views/dish/billing/billing.component';
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { HotelAdminComponent } from './views/hotel-admin/hotel-admin.component';

@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { PrimeNGConfig, SelectItem } from 'primeng/api';
+import { MessageService, PrimeNGConfig, SelectItem } from 'primeng/api';
 import { Dish, DishCategory } from '../../../models/dish';
+import { User } from '../../../models/user';
+import { AuthService } from '../../../service/auth.service';
 import { CartService } from '../../../service/cart.service';
+import { CommonService } from '../../../service/common.service';
 import { DishService } from '../../../service/dish.service';
+import { UserService } from '../../../service/user.service';
 
 @Component({
   selector: 'app-dish-menu',
@@ -19,11 +23,23 @@ export class DishMenuComponent implements OnInit {
   sortField: string;
   dishCategory: { label: string; value: string; }[];
   cartItems: Array<any> = [];
-
+  cities: any;
+  states: any;
+  selectedUser: string;
+  userList: User[];
+  userDialog: boolean;
+  submitted: boolean;
+  user: any;
+  userData: any;
+  users: { label: string, value: string }[];
   constructor(
     private dishService: DishService, 
     private primengConfig: PrimeNGConfig,
-    private cartService:CartService) { }
+    private cartService:CartService,
+    public commonSvc: CommonService,
+    private msgService: MessageService,
+    public userSvc: UserService,
+    private authServive: AuthService) { }
 
   ngOnInit() {
       this.dishService.getList().subscribe(data => this.dishes = data);
@@ -33,10 +49,51 @@ export class DishMenuComponent implements OnInit {
           {label: 'Price Low to High', value: 'fullPrice'}
       ];
 
+      this.userData = this.authServive.userData(); 
       this.primengConfig.ripple = true;
       this.fnGetDishCategoy();
+      this.loadData()
+      this.getCities();
+      this.getStates();
   }
   
+  loadData() {
+    this.userSvc.getUserList().subscribe(res => {
+      this.users = res.map(Item => {
+        return { label: Item.userName, value: Item.userName };
+      });
+    });
+  }
+  getCities() {
+    this.commonSvc.getCities().subscribe(x => {
+      this.cities = x.map(cItem => {
+        return { label: cItem.name, value: cItem.id }
+      })
+    });
+  }
+  getStates() {
+    this.commonSvc.getStates().subscribe(x => {
+      this.states = x.map(cItem => {
+        return { label: cItem.name, value: cItem.id }
+      })
+    });
+  }
+  openNew() {
+    this.user = {};
+    this.submitted = false;
+    this.userDialog = true;
+  }
+  saveUser() {
+    debugger;
+    this.submitted = true;
+    console.log(this.user);
+    if (this.user.userName.trim()) {
+      this.userSvc.AddUser(this.user).subscribe(() => {
+        this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'user Created', life: 3000 });
+      })
+    }
+    this.userDialog = false;
+  }
   onSortChange(event) {
       let value = event.value;
 
