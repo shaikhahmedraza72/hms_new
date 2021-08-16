@@ -21,7 +21,8 @@ export interface Dish {
     bookmark?: boolean;
     dishCategory?:string;
     files?: Binary;
-    upi?: string
+    upi?: string;
+    oldImageUrl?:string;
 }
 
 export class DishCategory {

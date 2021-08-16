@@ -90,6 +90,8 @@ export class DishComponent implements OnInit {
 
   // edit the dish item
   editDish(dish: Dish) {
+    dish.oldImageUrl =dish.imageUrl;
+    dish.imageUrl = '';
     this.dish = { ...dish };
     this.dishDialog = true;
   }
@@ -137,16 +139,16 @@ export class DishComponent implements OnInit {
     if (f.invalid) return;
     if (this.dish.id) {
       this.dishList[this.findIndexById(this.dish.id)] = this.dish;
-     // this.dish.imageUrl = './assets/img/dishes/img-menu-placeholder.jpg';
+      if(this.dish.imageUrl==""){
+        this.dish.imageUrl = this.dish.oldImageUrl;
+      }
       const dFormData = this.convertFormdata(this.dish);
-      this.dishSvc.update(f).subscribe(() => {
+      this.dishSvc.update(dFormData).subscribe(() => {
         this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Dish Updated', life: 30000 });
         this.loadData();
       });
 
     } else {
-      this.dish.id = this.dishList[this.dishList.length - 1].id + 1;
-     // this.dish.imageUrl = './assets/img/dishes/img-menu-placeholder.jpg';
       const dFormData = this.convertFormdata(this.dish);
       this.dishSvc.Add(dFormData).subscribe(resp => {
         if (resp) {
@@ -170,7 +172,6 @@ export class DishComponent implements OnInit {
       return fd;
     }
     fileChange(e){
-      debugger
       this.dish.files = e.target.files[0]
     }
     findIndexById(id: number) {

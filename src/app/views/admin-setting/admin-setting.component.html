@@ -147,15 +147,19 @@
                 </div>
                 <div class="p-field p-col-3" >
                     <label for="files"><b>Upload restaurent's Logo</b></label>
-                    <input name="files" [(ngModel)]="admin.restaurentLogo" (change)="fileChange($event)" class="p-inputtext-sm" pInputText type="file">
+                    <input name="files" [(ngModel)]="admin.restaurentLogo" (change)="logoFile($event)" class="p-inputtext-sm" pInputText type="file">
                 </div>
                 <div class="p-field p-col-3" >
                     <label for="files"><b>Upload Owner's Sign</b></label>
-                    <input name="files" [(ngModel)]="admin.signature" (change)="fileChange($event)" class="p-inputtext-sm" pInputText type="file">
+                    <input name="files" [(ngModel)]="admin.signature" (change)="signFile($event)" class="p-inputtext-sm" pInputText type="file">
+                </div>
+                <div class="p-field p-col-3" >
+                    <label for="files"><b>Upload Restaurent's Seal</b></label>
+                    <input name="files" [(ngModel)]="admin.restaurentSeal" (change)="sealFile($event)" class="p-inputtext-sm" pInputText type="file">
                 </div>
                 <div class="p-field p-col-3" >
                     <label for="files"><b>Upload UPI Scan Image</b></label>
-                    <input name="files" [(ngModel)]="admin.codeImage" (change)="fileChange($event)" class="p-inputtext-sm" pInputText type="file">
+                    <input name="files" [(ngModel)]="admin.codeImage" (change)="upiFile($event)" class="p-inputtext-sm" pInputText type="file">
                 </div>
             </div>
             <div class="p-card-footer p-text-right">

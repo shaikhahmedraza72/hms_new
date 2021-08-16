@@ -72,6 +72,18 @@ export class HotelAdminComponent implements OnInit {
     });
    
   }
+  logoFile(e){
+    this.admin.logoFile = e.target.files[0]
+  }
+  signFile(e){
+    this.admin.signFile = e.target.files[0]
+  }
+  sealFile(e){
+    this.admin.sealFile = e.target.files[0]
+  }
+  upiFile(e){
+    this.admin.upiFile = e.target.files[0]
+  }
 
   onSubmit(fData:any){
     debugger;
@@ -126,6 +138,13 @@ export class HotelAdminComponent implements OnInit {
     }
 
     return index;
+  }
+  convertFormdata(admin:Admin){
+    const fd = new FormData();
+    for (const [key, value] of Object.entries(admin)) {
+      fd.append(key,value);
+    }
+    return fd;
   }
 
 
