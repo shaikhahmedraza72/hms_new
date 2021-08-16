@@ -193,6 +193,9 @@
 
 .cartContent {
     padding: 10px;
+    .pborder{
+        border-bottom:1px solid #898989;
+    }
 }
 
 @media screen and (max-width: 576px) {

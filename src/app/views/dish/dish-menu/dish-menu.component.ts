@@ -32,6 +32,7 @@ export class DishMenuComponent implements OnInit {
   user: any;
   userData: any;
   users: { label: string, value: string }[];
+  billingDialog: boolean;
   constructor(
     private dishService: DishService, 
     private primengConfig: PrimeNGConfig,
@@ -148,5 +149,8 @@ export class DishMenuComponent implements OnInit {
   fnGetTotal(){
   const totVal = (accumulator:any, curVal:any) => accumulator + curVal.price;
   return this.cartItems.reduce(totVal);
+  }
+  fnMakePayment(){
+    this.billingDialog = true;
   }
 }
