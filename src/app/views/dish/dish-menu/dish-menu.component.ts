@@ -31,7 +31,7 @@ export class DishMenuComponent implements OnInit {
   submitted: boolean;
   user: any;
   userData: any;
-  users: { label: string, value: string }[];
+  users: { label: number, value: number }[];
   constructor(
     private dishService: DishService, 
     private primengConfig: PrimeNGConfig,
@@ -59,9 +59,9 @@ export class DishMenuComponent implements OnInit {
   
   loadData() {
     this.userSvc.getUserList().subscribe(res => {
-      this.users = res.map(Item => {
-        return { label: Item.userName, value: Item.userName };
-      });
+      this.user = res.map(CItem => {
+        return { label: CItem.contact, value: CItem.contact}
+      })
     });
   }
   getCities() {

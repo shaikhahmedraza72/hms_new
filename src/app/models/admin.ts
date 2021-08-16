@@ -1,3 +1,5 @@
+import { Binary } from "@angular/compiler";
+
 export class Admin{
   constructor(
 public businessName?:string,
@@ -30,7 +32,11 @@ public subscriptionStatus?: number,
 public startDate?: string,
 public endDAte?: string,
 public age?: number,
-public status?: string
+public status?: string,
+public logoFile?: Binary,
+public signFile?: Binary,
+public sealFile?: Binary,
+public upiFile?: Binary
   ){}
 }
 export class Bankdetails {

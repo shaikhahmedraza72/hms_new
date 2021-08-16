@@ -50,7 +50,7 @@ import { AuthService } from './service/auth.service';
 import { AuthGuard } from './helpers/auth.guard'; 
 import { TokenInterceptorService } from './helpers/token-interceptor.service';
 import { HotelAdminModule } from './views/hotel-admin/hotel-admin.module';
-import { UserFormComponent } from './src/app/views/user/user-form/user-form.component';
+// import { UserFormComponent } from './src/app/views/user/user-form/user-form.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -83,7 +83,7 @@ import { UserFormComponent } from './src/app/views/user/user-form/user-form.comp
     RegisterComponent,
     routingComponents,
     ClientConfigComponent,
-    UserFormComponent,   
+    // UserFormComponent,   
     // MasterAdminComponent
 
    // EndUserComponent
