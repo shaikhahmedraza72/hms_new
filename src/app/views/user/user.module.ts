@@ -4,13 +4,14 @@ import { UserRoutingModule } from './user-routing.module';
 import { SharedModule } from './../../shared/shared.module'
 import { UserConfigComponent } from './user-config/user-config.component'
 import { UserFeedbackComponent } from './user-feedback/user-feedback.component';
-import { UserFormComponent } from './user-form/user-form.component';
+import { UserFormModuleModule } from '../user/user-form/user-form-module.module'
 @NgModule({
-  declarations: [UserConfigComponent, UserFeedbackComponent, UserFormComponent],
+  declarations: [UserConfigComponent, UserFeedbackComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
-    SharedModule
+    SharedModule,
+    UserFormModuleModule
   ]
 })
 export class UserModule { }

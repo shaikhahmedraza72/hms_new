@@ -22,7 +22,7 @@ public accountName?: string,
 public accountNumber?: number,
 public bankName?: string,
 public ifscCode?: string,
-public codeImage?:string,
+public upiImage?:string,
 public codeNumber?:string,
 public categoryId?:number,
 public category?: string,
@@ -33,10 +33,10 @@ public startDate?: string,
 public endDAte?: string,
 public age?: number,
 public status?: string,
-public logoFile?: Binary,
-public signFile?: Binary,
-public sealFile?: Binary,
-public upiFile?: Binary
+public RestaurentLogoFile?: Binary,
+public SignatureFile?: Binary,
+public RestaurentSealFile?: Binary,
+public UpiImageFile?: Binary
   ){}
 }
 export class Bankdetails {

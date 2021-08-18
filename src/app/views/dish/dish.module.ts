@@ -7,13 +7,14 @@ import { CardDetailsComponent } from './card-details/card-details.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { DishCategoryConfigComponent } from './dish-category-config/dish-category-config.component';
 import { BillingComponent } from './billing/billing.component'
-import { UserFormComponent }from '../user/user-form/user-form.component'
+import { UserModule }from '../user/user.module'
 @NgModule({
   imports: [
     SharedModule,
-    DishRoutingModule,    
+    DishRoutingModule,  
+    UserModule
   ],
-  declarations: [DishComponent,DishMenuComponent, CardDetailsComponent, CheckoutComponent, DishCategoryConfigComponent, BillingComponent,UserFormComponent]
+  declarations: [DishComponent,DishMenuComponent, CardDetailsComponent, CheckoutComponent, DishCategoryConfigComponent, BillingComponent]
  
 })
 export class DishModule { }
