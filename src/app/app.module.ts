@@ -72,13 +72,7 @@ import { UserModule } from '../app/views/user/user.module'
     IconSetModule.forRoot(),
     HttpClientModule,
     FormsModule,
-<<<<<<< HEAD
-    MasterAdminModule,
-    UserModule
-   
-=======
     MasterAdminModule, 
->>>>>>> 6d973502087f32023c4a8cbd6a55a083e3ff97ff
   ],
   declarations: [
     AppComponent, 
