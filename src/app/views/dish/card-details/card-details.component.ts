@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Dish } from '../../../models/dish';
 import { ShoppingCart } from '../../../models/shopping-cart';
@@ -12,6 +12,7 @@ import { CartService } from '../../../service/cart.service';
 export class CardDetailsComponent implements OnInit {
   public cartItems: ShoppingCart;
   totCartPrice: any;
+  @Output() fnBillingModal: EventEmitter<any> = new EventEmitter();
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
@@ -25,5 +26,8 @@ export class CardDetailsComponent implements OnInit {
   }
   emptyCart(){
     this.cartService.empty();
+  }
+  fnMakePayment(){
+    this.fnBillingModal.emit();
   }
 }

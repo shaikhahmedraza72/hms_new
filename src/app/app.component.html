@@ -1,5 +1,7 @@
-<app-header [navbarBrandRouterLink]="['/dashboard']" [fixed]="true" [navbarBrandFull]="{src: 'assets/img/brand/logo.jpg', width: 60,  alt: 'FY 5 Logo'}" [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'FY 5 Logo'}"
-    [sidebarToggler]="'lg'" [asideMenuToggler]="'lg'">
+<app-header [navbarBrandRouterLink]="['/dashboard']" 
+[fixed]="true" [navbarBrandFull]="{src: 'assets/img/brand/logo.jpg', width: 60,  alt: 'FY 5 Logo'}" 
+[navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'FY 5 Logo'}"
+    [sidebarToggler]="'lg'">
     <ul class="nav navbar-nav mainNav d-md-down-none">
         <li class="nav-item px-3">
             <a class="nav-link" href="#">Dashboard</a>
@@ -10,12 +12,12 @@
         <li class="nav-item px-3">
             <a class="nav-link" href="#">Settings</a>
         </li>
-        <li class="nav-item px-3" (click)="logout()" *ngIf="authService.loggedIn()">
+        <!-- <li class="nav-item px-3" (click)="logout()" *ngIf="authService.loggedIn()">
             <a class="nav-link" href="javascript:void(0)">Logout</a>
-        </li>
+        </li> -->
     </ul>
     <ul class="nav navbar-nav ml-auto">
-        <li class="nav-item d-md-down-none">
+        <!-- <li class="nav-item d-md-down-none">
             <a class="nav-link" href="#"><i class="icon-bell"></i><span class="badge badge-pill badge-danger">5</span></a>
         </li>
         <li class="nav-item d-md-down-none">
@@ -23,25 +25,27 @@
         </li>
         <li class="nav-item d-md-down-none">
             <a class="nav-link" href="#"><i class="icon-location-pin"></i></a>
-        </li>
-        <li class="nav-item dropdown" dropdown placement="bottom right">
-            <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false">
-                <img src="assets/img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com" />
-            </a>
+        </li> -->
+        <li class="nav-item dropdown p-mr-2" dropdown placement="bottom right">
+            <a pButton class="nav-link p-button-raised p-button-rounded" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false">
+                <!-- <img src="assets/img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com" /> -->
+                <!-- <i class="pi pi-user"></i> -->
+                <p-avatar icon="pi pi-user"></p-avatar>
+            </a> 
             <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
                 <div class="dropdown-header text-center"><strong>Account</strong></div>
-                <a class="dropdown-item" href="#"><i class="fa fa-bell-o"></i> Updates<span class="badge badge-info">42</span></a>
+                <!-- <a class="dropdown-item" href="#"><i class="fa fa-bell-o"></i> Updates<span class="badge badge-info">42</span></a>
                 <a class="dropdown-item" href="#"><i class="fa fa-envelope-o"></i> Messages<span class="badge badge-success">42</span></a>
                 <a class="dropdown-item" href="#"><i class="fa fa-tasks"></i> Tasks<span class="badge badge-danger">42</span></a>
-                <a class="dropdown-item" href="#"><i class="fa fa-comments"></i> Comment<span class="badge badge-warning">42</span></a>
-                <div class="dropdown-header text-center"><strong>Settings</strong></div>
-                <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>
-                <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Setting</a>
-                <a class="dropdown-item" href="#"><i class="fa fa-usd"></i> Payments<span class="badge badge-dark">42</span></a>
-                <a class="dropdown-item" href="#"><i class="fa fa-file"></i> Projects<span class="badge badge-primary">42</span></a>
+                <a class="dropdown-item" href="#"><i class="fa fa-comments"></i> Comment<span class="badge badge-warning">42</span></a> -->
+                <!-- <div class="dropdown-header text-center"><strong>Settings</strong></div> -->
+                <a class="dropdown-item" routerLink="/hotel-admin"><i class="pi pi-user-edit"></i> Profile</a>
+                <!-- <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Setting</a> -->
+                <a class="dropdown-item" href="#"><i class="pi pi-book"></i> Orders<span class="badge badge-dark">2</span></a>
+                <!-- <a class="dropdown-item" href="#"><i class="fa fa-file"></i> Projects<span class="badge badge-primary">42</span></a> -->
                 <div class="divider"></div>
-                <a class="dropdown-item" href="#"><i class="fa fa-shield"></i> Lock account</a>
-                <a class="dropdown-item" href="#"><i class="fa fa-lock"></i> Logout</a>
+                <!-- <a class="dropdown-item" href="#"><i class="fa fa-shield"></i> Lock account</a> -->
+                <a class="dropdown-item" (click)="logout()" *ngIf="authService.loggedIn()"><i class="pi pi-lock"></i> Logout</a>
             </div>
         </li>
     </ul>
@@ -82,7 +86,7 @@
         </div>
         <!-- /.container-fluid -->
     </main>
-    <app-aside [fixed]="true" [display]="false" [ngClass]="'test'">
+    <!-- <app-aside [fixed]="true" [display]="false" [ngClass]="'test'">
         <tabset>
             <tab>
                 <ng-template tabHeading><i class="icon-list"></i></ng-template>
@@ -332,7 +336,7 @@
                 </div>
             </tab>
         </tabset>
-    </app-aside>
+    </app-aside> -->
 </div>
 <app-footer>
     <span><a href="https://coreui.io">HMS</a> &copy; 2021.</span>

@@ -36,7 +36,7 @@ import {InputMaskModule} from 'primeng/inputmask';
 import {CardModule} from 'primeng/card';
 import {RippleModule} from 'primeng/ripple';
 import {DataViewModule} from 'primeng/dataview';
-
+import {AvatarModule} from 'primeng/avatar';
 @NgModule({
   declarations: [],
   imports: [
@@ -76,7 +76,8 @@ import {DataViewModule} from 'primeng/dataview';
     TagModule,
     InputMaskModule,
     RippleModule,
-    DataViewModule
+    DataViewModule,
+    AvatarModule
   ],
   exports:[
     CommonModule,
@@ -113,7 +114,8 @@ import {DataViewModule} from 'primeng/dataview';
     TagModule,
     InputMaskModule,
     RippleModule,
-    DataViewModule
+    DataViewModule,
+    AvatarModule
   ],
   providers:[MessageService, ConfirmationService]
 })

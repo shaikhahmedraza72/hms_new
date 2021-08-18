@@ -1,4 +1,4 @@
-<div class="p-card p-p-2"> 
+ 
     <div class="p-grid">
         <div class="p-col-12 text-center">
             <button pButton type="button" [ngClass]="paymentMode == 'Cash' && lblIsProceed ? '' : 'p-button-outlined'" label="Cash" icon="pi pi-wallet pi-text-primary" (click)="fnCashProceed(true)" class="p-px-5 p-py-3 p-mr-2"></button>
@@ -9,7 +9,4 @@
             <button pButton pRipple label="Proceed" [disabled]="!lblIsProceed" icon="pi pi-check" class="p-button-success p-button p-button-raised p-mx-1" (click)="fnProceed()"></button>
             <button pButton pRipple label="Cancel" type="button" icon="pi pi-times" class="p-button-danger p-button-raised" (click)="fnResetPayment()"></button>
         </div> 
-        
- 
-        <!-- <p-selectButton class="p-primary" [options]="stateOptions" [(ngModel)]="value1" optionLabel="label" optionValue="value"></p-selectButton> -->
     </div> 
