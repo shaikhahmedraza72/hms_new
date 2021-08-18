@@ -82,7 +82,7 @@ export class HotelAdminComponent implements OnInit {
     this.admin.RestaurentSealFile = e.target.files[0]
   }
   upiFile(e){
-    this.admin.upiImageFile = e.target.files[0]
+    this.admin.UpiImageFile = e.target.files[0]
   }
 
   onSubmit(fData:any){

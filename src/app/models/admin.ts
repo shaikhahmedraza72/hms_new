@@ -36,7 +36,7 @@ public status?: string,
 public RestaurentLogoFile?: Binary,
 public SignatureFile?: Binary,
 public RestaurentSealFile?: Binary,
-public upiImageFile?: Binary
+public UpiImageFile?: Binary
   ){}
 }
 export class Bankdetails {
