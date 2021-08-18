@@ -58,7 +58,7 @@ export class HotelAdminComponent implements OnInit {
   loadClient(){
     this.adminService.getClientList().subscribe(resp => {
       if(resp.length > 0){  
-       const adminItm = resp.find(x => x.id == 10);
+       const adminItm = resp.find(x => x.id == x.id);
        this.admin = adminItm;
        
       }
@@ -73,13 +73,13 @@ export class HotelAdminComponent implements OnInit {
    
   }
   logoFile(e){
-    this.admin.logoFile = e.target.files[0]
+    this.admin.RestaurentLogoFile = e.target.files[0]
   }
   signFile(e){
-    this.admin.signFile = e.target.files[0]
+    this.admin.SignatureFile = e.target.files[0]
   }
   sealFile(e){
-    this.admin.sealFile = e.target.files[0]
+    this.admin.RestaurentSealFile = e.target.files[0]
   }
   upiFile(e){
     this.admin.upiFile = e.target.files[0]

@@ -64,7 +64,7 @@
                 </div>
                 <div class="p-field p-col-6">
                     <label for="gstCompliance">GST Compliance</label>
-                    <input type="text" name="gstCompliance" #gstCompliance="ngModel" class="p-inputtext-sm" pInputText id="gstCompliance" [(ngModel)]="category.gstCompliance" placeholder="GST Compliance Number" required autofocus />
+                    <input type="number" name="gstCompliance" #gstCompliance="ngModel" class="p-inputtext-sm" pInputText id="gstCompliance" [(ngModel)]="category.gstCompliance" placeholder="GST Compliance Number" required autofocus />
                     <div *ngIf="gstCompliance.touched && gstCompliance.invalid && f.submitted"> <small class="p-error" *ngIf="gstCompliance.errors.required">GST compliance is required.</small></div>
                 </div>
             </div>

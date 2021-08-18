@@ -95,6 +95,18 @@
                     <label for="files"><b>Upload UPI Scan Image</b></label>
                     <input name="files" [(ngModel)]="admin.codeImage" (change)="upiFile($event)" class="p-inputtext-sm" pInputText type="file">
                 </div>
+                <div class="p-field p-col-3" >
+                    <label for="files"><b>Restaurent's Logo</b></label>
+                    <img [src]="admin.restaurentLogo" alt="Logo" width="70px" height="70px">
+                </div>
+                <div class="p-field p-col-3" >
+                    <label for="files"><b>Sign</b></label>
+                    <img [src]="admin.signature" alt="Sign"  width="70px" height="70px">
+                </div>
+                <div class="p-field p-col-3" >
+                    <label for="files"><b>Seal</b></label>
+                    <img [src]="admin.restaurentSeal" alt="Seal"  width="70px" height="70px">
+                </div>
             </div>
             <div class="p-card-footer p-text-right">
                 <button pButton pRipple label="Save" icon="pi pi-check" class="p-button p-button-raised"></button>

@@ -100,22 +100,22 @@ export class AdminSettingComponent implements OnInit {
    
   }
   logoFile(e){
-    this.admin.logoFile = e.target.files[0]
+    this.admin.RestaurentLogoFile = e.target.files[0]
   }
   signFile(e){
-    this.admin.signFile = e.target.files[0]
+    this.admin.SignatureFile  = e.target.files[0]
   }
   sealFile(e){
-    this.admin.sealFile = e.target.files[0]
+    this.admin.RestaurentSealFile = e.target.files[0]
   }
   upiFile(e){
-    this.admin.upiFile = e.target.files[0]
+    this.admin.upiImageFile = e.target.files[0]
   }
   onSubmit(fData){
     debugger;
-    // if(fData.invalid) return;
+    if(fData.invalid) return;
     if(!this.admin.id){
-      this.admin.id = this.adminList[this.adminList.length - 1].id + 1;
+      // this.admin.id = this.adminList[this.adminList.length - 1].id + 1;
       const dFormData = this.convertFormdata(this.admin);
       this.adminService.AddClient(dFormData).subscribe(() => {
           this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Added!', life: 3000});
