@@ -18,6 +18,9 @@
                     <th>Name
                         <p-columnFilter type="text" field="name" display="menu"></p-columnFilter>
                     </th>
+                    <th>GST Compliance
+                        <p-columnFilter type="text" field="gstCompliance" display="menu"></p-columnFilter>
+                    </th>
                     <th>Status
                         <p-columnFilter type="text" field="statuses" display="menu"></p-columnFilter>
                     </th>
@@ -29,6 +32,7 @@
                         <p-tableCheckbox [value]="item"></p-tableCheckbox>
                     </td>
                     <td>{{item.name}}</td>
+                    <td>{{item.gstCompliance}}</td>
                     <td>
                         <p-tag [value]="item.isActive" *ngIf="item.isActive" class="p-text-uppercase" [severity]="item.isActive === true ? 'success':'danger'"></p-tag>
                     </td>
@@ -58,11 +62,11 @@
                     </p-dropdown>
                     <!-- <div *ngIf="invStatus.touched && invStatus.invalid && f.submitted"><small class="p-error" *ngIf="invStatus.errors.required">Inventory Status is required.</small></div> -->
                 </div>
-                <!-- <div class="p-field p-col-6">
+                <div class="p-field p-col-6">
                     <label for="gstCompliance">GST Compliance</label>
                     <input type="text" name="gstCompliance" #gstCompliance="ngModel" class="p-inputtext-sm" pInputText id="gstCompliance" [(ngModel)]="category.gstCompliance" placeholder="GST Compliance Number" required autofocus />
                     <div *ngIf="gstCompliance.touched && gstCompliance.invalid && f.submitted"> <small class="p-error" *ngIf="gstCompliance.errors.required">GST compliance is required.</small></div>
-                </div> -->
+                </div>
             </div>
             <div class="p-d-flex p-jc-end">
                 <button pButton pRipple label="Save" icon="pi pi-check" class="p-button p-button-raised p-mx-1"></button>

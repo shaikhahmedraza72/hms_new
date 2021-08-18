@@ -47,7 +47,7 @@ export class AdminSettingComponent implements OnInit {
   }
 
   openNew() {
-    // this.admin = {};
+    this.admin = {};
     this.submitted = false;
     this.adminDialog = true;
   }
@@ -99,12 +99,25 @@ export class AdminSettingComponent implements OnInit {
     });
    
   }
-
-  onSubmit(fData:any){
-    if(fData.invalid) return;
+  logoFile(e){
+    this.admin.logoFile = e.target.files[0]
+  }
+  signFile(e){
+    this.admin.signFile = e.target.files[0]
+  }
+  sealFile(e){
+    this.admin.sealFile = e.target.files[0]
+  }
+  upiFile(e){
+    this.admin.upiFile = e.target.files[0]
+  }
+  onSubmit(fData){
+    debugger;
+    // if(fData.invalid) return;
     if(!this.admin.id){
       this.admin.id = this.adminList[this.adminList.length - 1].id + 1;
-      this.adminService.AddClient(this.admin).subscribe(() => {
+      const dFormData = this.convertFormdata(this.admin);
+      this.adminService.AddClient(dFormData).subscribe(() => {
           this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Added!', life: 3000});
           this.loadClient();  
           this.getClientCategory();
@@ -113,7 +126,8 @@ export class AdminSettingComponent implements OnInit {
       });
     } else {
       this.adminList[this.findIndexById(this.admin.id)] = this.admin;
-      this.adminService.updateCLient(this.admin).subscribe(() => {
+      const dFormData = this.convertFormdata(this.admin);
+      this.adminService.updateCLient(dFormData).subscribe(() => {
         this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Updated!', life: 3000});
         this.loadClient();
         this.getClientCategory();
@@ -192,6 +206,12 @@ export class AdminSettingComponent implements OnInit {
 
     return index;
   }
-
+  convertFormdata(admin:Admin){
+    const fd = new FormData();
+    for (const [key, value] of Object.entries(admin)) {
+      fd.append(key,value);
+    }
+    return fd;
+  }
 
 }

@@ -17,7 +17,7 @@ export class AdminService {
   clientList: Admin[] = [];
   constructor(private httpClient: HttpClient) { }
   // Add Client
-  AddClient(client: Admin): Observable<Admin> {
+  AddClient(client): Observable<Admin> {
     return this.httpClient.post<Admin>(this.url, client).pipe(
       map(x => {
         this.clientList.push(x);
@@ -35,7 +35,7 @@ export class AdminService {
     );
   }
   // updating exisiting client's data
-  updateCLient(client: Admin): Observable<Admin> {
+  updateCLient(client): Observable<Admin> {
     return this.httpClient.put<Admin>(`${this.url}`, client).pipe(
       map(x => {
         // tslint:disable-next-line:prefer-const
