@@ -9,7 +9,7 @@ import { P500Component } from './views/error/500.component';
 import { HotelAdminComponent } from './views/hotel-admin/hotel-admin.component';
 import { LoginComponent } from './views/login/userLogin.component'; 
 import { RegisterComponent } from './views/register/register.component'; 
-
+import { InvoiceComponent } from './views/invoice/invoice.component'
 export const routes: Routes = [
   {
     path: 'login',
@@ -24,6 +24,14 @@ export const routes: Routes = [
     component: RegisterComponent,
     data: {
       title: 'Register Page',
+      roles: roleConfig.authRoles.guest
+    }
+  },
+  {
+    path: 'invoice',
+    component: InvoiceComponent,
+    data: {
+      title: 'invoice',
       roles: roleConfig.authRoles.guest
     }
   },

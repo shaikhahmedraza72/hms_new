@@ -18,7 +18,6 @@
                 <ng-template let-dish pTemplate="listItem">
                     <div class="p-col-12" *ngIf="dish.status === 'active'">
                         <div class="product-list-item">
-
                             <div class="imgWrap">
                                 <img [src]="!dish.imageUrl" alt="{{dish.name}}">
                                 <span class="icnBookmark" (click)="fnBookmarkMenu(dish)" [ngClass]="{'bMarked':dish.bookmark}"><i class="pi pi-bookmark"></i></span>
