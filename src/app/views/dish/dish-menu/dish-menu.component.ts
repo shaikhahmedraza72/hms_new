@@ -135,7 +135,7 @@ export class DishMenuComponent implements OnInit {
   
   //Add to cart Function
   fnAddtoCart(cartItem:Dish){
-    this.cartService.addItem(cartItem,1)
+    this.cartService.addItem(cartItem,1);
   //   if(this.cartItems.length > 0) { 
   //   this.cartItems.push({Id:cartItem.id,price:cartItem.fullPrice,name:cartItem.name,quantity:1})
 

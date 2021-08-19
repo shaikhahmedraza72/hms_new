@@ -8,7 +8,7 @@ const CART_KEY = "cart";
   providedIn: 'root'
 })
 export class CartService {
- 
+
   private storage: Storage;
   private subscriptionObservable: Observable<ShoppingCart>;
   private subscribers: Array<Observer<ShoppingCart>> = new Array<Observer<ShoppingCart>>();
