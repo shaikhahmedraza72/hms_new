@@ -7,7 +7,6 @@ import { CartService } from '../../../service/cart.service';
 import { CommonService } from '../../../service/common.service';
 import { DishService } from '../../../service/dish.service';
 import { UserService } from '../../../service/user.service';
-
 @Component({
   selector: 'app-dish-menu',
   templateUrl: './dish-menu.component.html',
@@ -31,6 +30,7 @@ export class DishMenuComponent implements OnInit {
   submitted: boolean;
   user: any;
   userData: any; 
+  CategoryList: DishCategory[];
   billingDialog: boolean;
   users: { label: number, value: number }[];
   constructor(
@@ -56,6 +56,12 @@ export class DishMenuComponent implements OnInit {
       this.loadData()
       this.getCities();
       this.getStates();
+  }
+  loadCategory(){
+    this.dishService.getDishCategory().subscribe(x => {
+      this.CategoryList = x;
+      console.log(this.CategoryList); 
+    });
   }
   
   loadData() {
@@ -85,7 +91,6 @@ export class DishMenuComponent implements OnInit {
     this.userDialog = true;
   }
   saveUser() {
-    debugger;
     this.submitted = true;
     console.log(this.user);
     if (this.user.userName.trim()) {

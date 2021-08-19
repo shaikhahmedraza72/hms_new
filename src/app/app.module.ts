@@ -50,7 +50,8 @@ import { AuthService } from './service/auth.service';
 import { AuthGuard } from './helpers/auth.guard'; 
 import { TokenInterceptorService } from './helpers/token-interceptor.service';
 import { HotelAdminModule } from './views/hotel-admin/hotel-admin.module';
-import { UserModule } from '../app/views/user/user.module'
+import { UserModule } from '../app/views/user/user.module';
+import { InvoiceComponent } from './views/invoice/invoice.component'
 @NgModule({
   imports: [
     BrowserModule,
@@ -82,6 +83,7 @@ import { UserModule } from '../app/views/user/user.module'
     RegisterComponent,
     routingComponents,
     ClientConfigComponent,
+    InvoiceComponent,
   ],
   providers: [
     AuthService,
