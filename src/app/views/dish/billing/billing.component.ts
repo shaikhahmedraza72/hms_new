@@ -11,6 +11,7 @@ export class BillingComponent implements OnInit {
   stateOptions: any[];
   lblIsProceed: boolean;
   paymentMode: string;
+  invoiceDialog: boolean;
 
   constructor() { }
 
@@ -31,7 +32,8 @@ export class BillingComponent implements OnInit {
   }
   fnProceed(){
     if(this.paymentMode === 'Cash'){
-      alert('Payment Successful');
+      // alert('Payment Successful');
+      this.invoiceDialog = true
     } else if(this.paymentMode === 'UPI'){
       alert('Please scan the QR code and proceed');
     }
