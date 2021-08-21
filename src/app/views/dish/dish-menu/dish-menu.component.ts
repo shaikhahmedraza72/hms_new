@@ -33,6 +33,7 @@ export class DishMenuComponent implements OnInit {
   CategoryList: DishCategory[];
   billingDialog: boolean;
   users: { label: number, value: number }[];
+  rawDishCategoyItems: DishCategory[];
   constructor(
     private dishService: DishService, 
     private primengConfig: PrimeNGConfig,
@@ -115,6 +116,7 @@ export class DishMenuComponent implements OnInit {
   // Get Category
   fnGetDishCategoy() {
     this.dishService.getDishCategory().subscribe((x:DishCategory[]) => {
+      this.rawDishCategoyItems = x;
       this.dishCategory = x.map(cItem => { 
         return { label:cItem.name, value:cItem.name}
          }) 
@@ -140,7 +142,10 @@ export class DishMenuComponent implements OnInit {
   
   //Add to cart Function
   fnAddtoCart(cartItem:Dish){
-    this.cartService.addItem(cartItem,1);
+   const selCategory =  this.rawDishCategoyItems.filter(dItem =>dItem.id === cartItem.mainCategoryId)[0];
+
+    console.log(selCategory.gstCompliance, "GST C")
+    this.cartService.addItem(cartItem,1, selCategory.gstCompliance);
   //   if(this.cartItems.length > 0) { 
   //   this.cartItems.push({Id:cartItem.id,price:cartItem.fullPrice,name:cartItem.name,quantity:1})
 

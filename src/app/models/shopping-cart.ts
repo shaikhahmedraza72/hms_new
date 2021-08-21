@@ -7,6 +7,8 @@ export class CartItem {
     public quantity: number = 0;
     public image: string;
     public description:string;
+    public gstCompliance:number;
+    public gstPrice:number;
   }
 export class ShoppingCart {
     public items: CartItem[] = new Array<CartItem>();
@@ -14,11 +16,13 @@ export class ShoppingCart {
     public grossTotal: number = 0;
     public deliveryTotal: number = 0;
     public itemsTotal: number = 0;
+    public gstTotal: number = 0;
     public updateFrom(src: ShoppingCart) {
         this.items = src.items;
         this.deliveryOptionId = src.deliveryOptionId;
         this.grossTotal = src.grossTotal;
         this.deliveryTotal = src.deliveryTotal;
         this.itemsTotal = src.itemsTotal;
+        this.gstTotal = src.gstTotal;
       }
 }

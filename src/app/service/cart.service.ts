@@ -26,7 +26,8 @@ public get(): Observable<ShoppingCart> {
   return this.subscriptionObservable;
 }
 
-public addItem(product: any, quantity: number): void {
+public addItem(product: any, quantity: number, gstCompliance?:number): void {
+  debugger
   const cart = this.retrieve();
   const prodId = product.id ? product.id : product.productId;
   let item = cart.items.find((p) => p.productId == prodId);
@@ -36,7 +37,9 @@ public addItem(product: any, quantity: number): void {
     item.name = product.name;
     item.price = product.price ? product.price : product.fullPrice ;
     item.description = product.description;
-    item.image= product.imageUrl ? product.imageUrl : './assets/img/dishes/img-menu-placeholder.jpg'
+    item.image= product.imageUrl ? product.imageUrl : './assets/img/dishes/img-menu-placeholder.jpg';
+    item.gstCompliance = gstCompliance || 0;
+    item.gstPrice = item.price * item.gstCompliance / 100;
     cart.items.push(item);
   }
 
@@ -64,7 +67,10 @@ private calculateCart(cart: ShoppingCart): void {
   // cart.deliveryTotal = cart.deliveryOptionId ?
   //                       this.deliveryOptions.find((x) => x.id === cart.deliveryOptionId).price :
   //                       0;
-  cart.grossTotal = cart.itemsTotal + cart.deliveryTotal;
+  cart.gstTotal = cart.items
+  .map((item) => item.quantity * item.gstPrice)
+  .reduce((previous, current) => previous + current, 0);
+  cart.grossTotal = cart.itemsTotal + cart.deliveryTotal + cart.gstTotal;
 }
 
 private retrieve(): ShoppingCart {

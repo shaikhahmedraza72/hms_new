@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="card">
+        <!-- <div class="col-md-12">
+            <nav>
+                <ul>
+                    <li (click)="fnSwitchView('advTblBooking')"><a>Advanced Table Booking</a></li>
+                    <li (click)="fnSwitchView('dining')"><a>Dining</a></li>
+                    <li (click)="fnSwitchView('homeDelivery')"><a>Home Delivery</a></li>
+                    <li (click)="fnSwitchView('takeAway')"><a>Take Away</a></li>
+                </ul>
+            </nav>
+            <div class="tab-content" [ngSwitch]="currentView">
+                <div id="advTblBooking" *ngSwitchCase="'advTblBooking'">
+                    <div class="col-md-12">
+                        Adavanced Booking 
+                    </div>
+                </div>
+                <div id="dining" *ngSwitchCase="'dining'">
+                    Dining
+                </div>
+                <div id="homeDelivery" *ngSwitchCase="'homeDelivery'">
+                    <p>Home Delivery</p>
+                </div>
+                <div id="takeAway" *ngSwitchCase="'takeAway'">
+                    <p>Take Away</p>
+                </div>
+
+            </div>
+        </div> -->
+
+<!-- <div>     -->
+<p-tabView class="col-md-12 p-m-3">
+    <p-tabPanel header="Advanced Table Booking">
+        <div class="p-grid">
+            <div class="p-col-2" *ngFor="let tblItem of tableList" (click)="fnTblBook(tblItem)">
+                <div class="tblBox p-shadow-1 p-px-5 p-py-4 text-center" 
+                [ngClass]="{'booked':tblItem.isBooked}"> <h6>{{tblItem.name}}</h6>
+                    <p class="text-small">Seats: {{tblItem.seats}}</p>
+                </div> 
+            </div>
+            
+        </div>    
+    </p-tabPanel>
+    <p-tabPanel header="Dining">
+       <div class="col-md-12">
+           <p class="text-medium"> Total list of Dining <strong># 10</strong></p>
+       </div>
+    </p-tabPanel>
+    <p-tabPanel header="Home Delivery">
+        <div class="col-md-12">
+            <p class="text-medium"> Total list of Home Delivery <strong># 30</strong></p>
+        </div>
+    </p-tabPanel>
+    <p-tabPanel header="Take Away" class="col-md-12">
+        <div class="p-grid">
+            <div class="p-col-12">
+            <p class="text-medium"> Total list of Take Away <strong># 02</strong></p>
+        </div>
+        </div>
+    </p-tabPanel>
+</p-tabView>
+    </div>
+</div>
+<!-- </div> -->

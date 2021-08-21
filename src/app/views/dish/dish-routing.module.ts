@@ -35,24 +35,24 @@ const routes: Routes = [
     },
     canActivate:[AuthGuard]
   },
-  {
-    path:'checkout',
-    component:CheckoutComponent,
-    data:{
-      title:"Checkout",
-      roles:roleConfig.authRoles.user
-    },
-    canActivate:[AuthGuard]
-  },
-  {
-    path:'billing',
-    component:BillingComponent,
-    data:{
-      title:"billing",
-      roles:roleConfig.authRoles.user
-    },
-    canActivate:[AuthGuard]
-  }
+  // {
+  //   path:'checkout',
+  //   component:CheckoutComponent,
+  //   data:{
+  //     title:"Checkout",
+  //     roles:roleConfig.authRoles.user
+  //   },
+  //   canActivate:[AuthGuard]
+  // },
+  // {
+  //   path:'billing',
+  //   component:BillingComponent,
+  //   data:{
+  //     title:"billing",
+  //     roles:roleConfig.authRoles.user
+  //   },
+  //   canActivate:[AuthGuard]
+  // }
 ];
 
 @NgModule({
