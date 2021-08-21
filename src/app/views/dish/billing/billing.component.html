@@ -6,6 +6,9 @@
         <button pButton type="button" [ngClass]="paymentMode == 'UPI' && lblIsProceed ? '' : 'p-button-outlined'"
             label="UPI Payments" icon="pi pi-briefcase" (click)="fnUPIProceed()" class="p-px-5 p-py-3"></button>
     </div>
+    <div *ngIf="paymentMode === 'UPI'" class="p-col-6" style="margin: auto;">
+        <img [src]="admin.upiImage" alt="UPI" style="width: 200px; height: 200px;">
+    </div>
 
     <div class="p-col-12 text-right">
         <button pButton pRipple label="Proceed" [disabled]="!lblIsProceed" icon="pi pi-check"

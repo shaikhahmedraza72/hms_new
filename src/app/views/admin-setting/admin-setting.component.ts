@@ -63,13 +63,6 @@ export class AdminSettingComponent implements OnInit {
   }
 
   loadClient(){
-    // this.adminService.getClientList().subscribe(resp => {
-    //   if(resp.length > 0){  
-    //    const adminItm = resp[resp.length-1];
-    //    this.admin = adminItm;
-       
-    //   }
-    // })
     this.adminService.getClientList().subscribe(res => {
       this.adminList = res;
       this.adminList.map(aItem => {
@@ -81,14 +74,6 @@ export class AdminSettingComponent implements OnInit {
         console.log(diffTime + " milliseconds");
         console.log(diffDays + " days");
       })
-      // let val = res.map(x => x.subscriptionStatus);
-      // if(val === 1){
-      //   this.statusString = "Lead";
-      // }else if(val === 2){
-      //   this.statusString = "Pending";
-      // } else if(val === 3){
-      //   this.statusString = "Approved"
-      // }
     });
   }
   getClientCategory() {
