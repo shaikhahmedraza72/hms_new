@@ -1,12 +1,20 @@
- 
-    <div class="p-grid">
-        <div class="p-col-12 text-center">
-            <button pButton type="button" [ngClass]="paymentMode == 'Cash' && lblIsProceed ? '' : 'p-button-outlined'" label="Cash" icon="pi pi-wallet pi-text-primary" (click)="fnCashProceed(true)" class="p-px-5 p-py-3 p-mr-2"></button>
-            <button pButton type="button" [ngClass]="paymentMode == 'UPI' && lblIsProceed ? '' : 'p-button-outlined'" label="UPI Payments" icon="pi pi-briefcase" (click)="fnUPIProceed()" class="p-px-5 p-py-3"></button>
-        </div>
-        
-        <div class="p-col-12 text-right">
-            <button pButton pRipple label="Proceed" [disabled]="!lblIsProceed" icon="pi pi-check" class="p-button-success p-button p-button-raised p-mx-1" (click)="fnProceed()"></button>
-            <button pButton pRipple label="Cancel" type="button" icon="pi pi-times" class="p-button-danger p-button-raised" (click)="fnResetPayment()"></button>
-        </div> 
-    </div> 
+<div class="p-grid">
+    <div class="p-col-12 text-center">
+        <button pButton type="button" [ngClass]="paymentMode == 'Cash' && lblIsProceed ? '' : 'p-button-outlined'"
+            label="Cash" icon="pi pi-wallet pi-text-primary" (click)="fnCashProceed(true)"
+            class="p-px-5 p-py-3 p-mr-2"></button>
+        <button pButton type="button" [ngClass]="paymentMode == 'UPI' && lblIsProceed ? '' : 'p-button-outlined'"
+            label="UPI Payments" icon="pi pi-briefcase" (click)="fnUPIProceed()" class="p-px-5 p-py-3"></button>
+    </div>
+
+    <div class="p-col-12 text-right">
+        <button pButton pRipple label="Proceed" [disabled]="!lblIsProceed" icon="pi pi-check"
+            class="p-button-success p-button p-button-raised p-mx-1" (click)="fnProceed()"></button>
+        <button pButton pRipple label="Cancel" type="button" icon="pi pi-times" class="p-button-danger p-button-raised"
+            (click)="fnResetPayment()"></button>
+    </div>
+</div>
+<p-dialog [(visible)]="invoiceDialog" [style]="{width: '50vw'}"
+    header="Invoice Details" [maximizable]="true" [resizable]="true">
+    <app-invoice></app-invoice>
+</p-dialog>
