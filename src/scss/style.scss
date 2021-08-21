@@ -11,3 +11,21 @@
 .voteTxt {
     color: #898989;
 }
+
+.p-tabview .p-tabview-nav {
+    li {
+        a{
+            font-size: 16px !important;
+            font-weight: normal !important;
+        }
+        a:focus,a:visited{
+            outline: 0 !important; 
+            box-shadow: none !important;
+        } 
+    }
+    li.p-highlight{
+        a{
+            color:#222b94 !important;
+        }
+    }
+} 

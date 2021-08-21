@@ -14,9 +14,10 @@
 
             <span>{{ item.quantity * item.price | currency:'INR':true }}</span>
 
-        </li>
+        </li> 
         <li>
-            <span>Total:</span>{{cartItems.grossTotal | currency:'INR':true}}
+            <div class="p-d-flex p-jc-between p-m-0"><span>GST</span> {{cartItems.gstTotal | currency:'INR': true}}</div>
+            <div class="p-d-flex p-jc-between gTotP"><span> Total</span>{{cartItems.grossTotal | currency:'INR':true}}</div>
         </li>
     </ul>
     <div class="btnWrap">

@@ -6,7 +6,6 @@ import { AuthGuard } from './helpers/auth.guard';
 import { AdminSettingComponent } from './views/admin-setting/admin-setting.component';
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
-import { HotelAdminComponent } from './views/hotel-admin/hotel-admin.component';
 import { LoginComponent } from './views/login/userLogin.component'; 
 import { RegisterComponent } from './views/register/register.component'; 
 import { InvoiceComponent } from './views/invoice/invoice.component'
@@ -58,11 +57,7 @@ export const routes: Routes = [
       },
       {
         path: 'hotel-admin',
-        component: HotelAdminComponent,
-    data: {
-          roles: roleConfig.authRoles.admin
-        },
-    canActivate: [AuthGuard]
+        loadChildren: () => import('./views/hotel-admin/hotel-admin.module').then(m => m.HotelAdminModule),
       },
       {
         path: 'bankDetail',

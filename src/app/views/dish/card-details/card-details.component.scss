@@ -16,9 +16,18 @@ ul.ulCart {
     }
 }
 li:last-child{
-    font-weight: bold;
+    
     border-top: 1px solid #dcdcdc;
     margin: 5px 0;
+    flex-direction: column;
+    justify-content: end;
+    align-items: flex-end;
+    > div{
+        width: 100%;
+    }
+    .gTotP{
+        font-weight: bold;
+    }
 }
 }
 .btnPlusMinusWrap {
