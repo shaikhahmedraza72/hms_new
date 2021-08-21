@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService, PrimeNGConfig, SelectItem } from 'primeng/api';
+import { Admin } from '../../../models/admin';
 import { Dish, DishCategory } from '../../../models/dish';
 import { User } from '../../../models/user';
+import { AdminService } from '../../../service/admin.service';
 import { AuthService } from '../../../service/auth.service';
 import { CartService } from '../../../service/cart.service';
 import { CommonService } from '../../../service/common.service';
@@ -34,6 +36,7 @@ export class DishMenuComponent implements OnInit {
   billingDialog: boolean;
   users: { label: number, value: number }[];
   rawDishCategoyItems: DishCategory[];
+  admin: Admin;
   constructor(
     private dishService: DishService, 
     private primengConfig: PrimeNGConfig,
@@ -41,7 +44,9 @@ export class DishMenuComponent implements OnInit {
     public commonSvc: CommonService,
     private msgService: MessageService,
     public userSvc: UserService,
-    private authServive: AuthService) { }
+    private authServive: AuthService,
+    public adminService: AdminService,
+    ) { }
 
   ngOnInit() {
       this.dishService.getList().subscribe(data => this.dishes = data);
@@ -57,6 +62,18 @@ export class DishMenuComponent implements OnInit {
       this.loadData()
       this.getCities();
       this.getStates();
+      this.loadClient();
+
+  }
+
+  loadClient(){
+    this.adminService.getClientList().subscribe(resp => {
+      if(resp.length > 0){  
+       const adminItm = resp.find(x => x.id == x.id);
+       this.admin = adminItm;
+       
+      }
+    });
   }
   loadCategory(){
     this.dishService.getDishCategory().subscribe(x => {

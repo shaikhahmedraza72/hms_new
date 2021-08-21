@@ -14,7 +14,7 @@ import { InvoiceComponent } from '../invoice/invoice.component';
     SharedModule,
     DishRoutingModule,
   ],
-  declarations: [DishComponent,DishMenuComponent, CardDetailsComponent, CheckoutComponent, DishCategoryConfigComponent, BillingComponent, UserFormComponent, InvoiceComponent]
+  declarations: [DishComponent,DishMenuComponent, CardDetailsComponent, CheckoutComponent, DishCategoryConfigComponent, BillingComponent,InvoiceComponent]
  
 })
 export class DishModule { }
