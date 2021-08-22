@@ -27,10 +27,11 @@ public get(): Observable<ShoppingCart> {
 }
 
 public addItem(product: any, quantity: number, gstCompliance?:number): void {
-  debugger
+
   const cart = this.retrieve();
   const prodId = product.id ? product.id : product.productId;
   let item = cart.items.find((p) => p.productId == prodId);
+  cart.itemCount = quantity === 1 ? cart.itemCount+quantity : cart.itemCount-1;
   if (item === undefined) {
     item = new CartItem();
     item.productId = product.id;
@@ -70,7 +71,7 @@ private calculateCart(cart: ShoppingCart): void {
   cart.gstTotal = cart.items
   .map((item) => item.quantity * item.gstPrice)
   .reduce((previous, current) => previous + current, 0);
-  cart.grossTotal = cart.itemsTotal + cart.deliveryTotal + cart.gstTotal;
+  cart.grossTotal = cart.itemsTotal + cart.gstTotal;
 }
 
 private retrieve(): ShoppingCart {

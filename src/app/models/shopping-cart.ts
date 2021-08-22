@@ -17,6 +17,7 @@ export class ShoppingCart {
     public deliveryTotal: number = 0;
     public itemsTotal: number = 0;
     public gstTotal: number = 0;
+    public itemCount: number = 0;
     public updateFrom(src: ShoppingCart) {
         this.items = src.items;
         this.deliveryOptionId = src.deliveryOptionId;
@@ -24,5 +25,6 @@ export class ShoppingCart {
         this.deliveryTotal = src.deliveryTotal;
         this.itemsTotal = src.itemsTotal;
         this.gstTotal = src.gstTotal;
+        this.itemCount = src.itemCount;
       }
 }
