@@ -2,28 +2,34 @@
     <ul class="ulCart">
         <li class="cart-item" *ngFor="let item of cartItems.items">
             <span>{{ item.name }}</span>
-            <span class="btnPlusMinusWrap"> 
+            <span class="btnPlusMinusWrap">
                 <!-- <i class="pi pi-minus"></i>  -->
-                <button pButton type="button" icon="pi pi-minus" (click)="removeItem(item)" class="p-button-secondary p-button-sm p-button-text-only p-button-text" iconPos="left"></button>
+                <button pButton type="button" icon="pi pi-minus" (click)="removeItem(item)"
+                    class="p-button-secondary p-button-sm p-button-text-only p-button-text" iconPos="left"></button>
 
                 <span class="quantity text-success">{{item.quantity}} </span>
                 <!-- <i class="pi pi-plus text-success"></i> -->
-                <button pButton type="button" icon="pi pi-plus" (click)="addItem(item)" class="p-button-success p-button-sm p-button-text-only p-button-text" iconPos="left"></button>
+                <button pButton type="button" icon="pi pi-plus" (click)="addItem(item)"
+                    class="p-button-success p-button-sm p-button-text-only p-button-text" iconPos="left"></button>
 
             </span>
 
             <span>{{ item.quantity * item.price | currency:'INR':true }}</span>
 
-        </li> 
+        </li>
         <li>
-            <div class="p-d-flex p-jc-between p-m-0"><span>GST</span> {{cartItems.gstTotal | currency:'INR': true}}</div>
-            <div class="p-d-flex p-jc-between gTotP"><span> Total</span>{{cartItems.grossTotal | currency:'INR':true}}</div>
+            <div class="p-d-flex p-jc-between p-m-0"><span>GST</span> {{cartItems.gstTotal | currency:'INR': true}}
+            </div>
+            <div class="p-d-flex p-jc-between gTotP"><span> Total</span>{{cartItems.grossTotal | currency:'INR':true}}
+            </div>
         </li>
     </ul>
     <div class="btnWrap">
-    <button pButton type="button" label="Make Payment" (click)="fnMakePayment($event)" class="p-button-sm p-button-success" ></button>
-    <button pButton type="button" label="Empty Cart" (click)="emptyCart()" class="p-button-sm p-button-danger" ></button>
-        </div>
+        <button pButton type="button" label="Make Payment" (click)="fnMakePayment($event)"
+            class="p-button-sm p-button-success"></button>
+        <button pButton type="button" label="Empty Cart" (click)="emptyCart()"
+            class="p-button-sm p-button-danger"></button>
+    </div>
 
 </div>
 
