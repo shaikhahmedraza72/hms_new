@@ -16,6 +16,7 @@ import { StorageService } from './service/storage.service';
 })
 export class AppComponent implements OnInit { 
   storage: Storage;
+  isLoggedin:boolean;
   constructor(
     private router: Router,
     public iconSet: IconSetService,
@@ -50,9 +51,12 @@ export class AppComponent implements OnInit {
     });
   }
 
+
+
   logout(){
     this.authService.logoutUser();
     this.authService.uLoggedInSubject$.next(false);
     this.router.navigate(['/login'])
+    this.isLoggedin = false;
   }
 }
