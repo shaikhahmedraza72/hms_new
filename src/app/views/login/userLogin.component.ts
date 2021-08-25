@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router } from '@angular/router'; 
 import { UserLogin } from '../../models/userLogin';
 import { AuthService } from '../../service/auth.service';
 import { StorageService } from '../../service/storage.service';
@@ -32,8 +32,17 @@ export class LoginComponent implements OnInit {
       (resp:any)=>{
         this.storage.setItem('HMSToken', resp.token); 
         this.storage.setItem('HMSUserData',JSON.stringify(resp));
-        this.authService.uLoggedInSubject$.next(true)
-        this.router.navigate(['/dish/dish-menu'])
+        this.authService.uLoggedInSubject$.next(true);
+        switch(resp.userType){
+          case 1:
+          this.router.navigate(['/admin-setting']);
+          break;
+          case 2:
+          this.router.navigate(['/dish']);
+          break;
+          default:
+          this.router.navigate(['/dish/dish-menu'])
+        } 
       },
       err=> {
         alert(err.error.message)

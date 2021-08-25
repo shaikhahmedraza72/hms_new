@@ -1,44 +1,4 @@
-<!-- <div class="p-card">
-    <div class="p-card-body">
-        <div class="p-card-title float-center">
-            Invoice Details
-        </div>
-        <div class="p-card-content">
-            <div class="p-grid p-flex-column">
-                <div class="p-col">Name: {{admin.businessName}}</div>
-                <div class="p-col">Address: {{admin.address}}</div>
-                <div class="p-col">State: {{admin.state}}</div>
-                <div class="p-col">GSTIN No./PAN No:{{admin.gst}}</div>
-                <div *ngFor="let item of cartItems.items" class="p-grid p-flex-column">
-                    <div class="p-col">
-                        Product Name: {{item.name}}
-                    </div>
-                    <div class="p-col">
-                        QTY: {{item.quantity}}
-                    </div>
-                    <div class="p-col">
-                        Rate: {{item.price}}
-                    </div>
-                    <div class="p-col">
-                        GST: {{item.gstCompliance}} <span>%</span>
-                    </div>
-                    <div class="p-col">
-                        GST Amount: {{item.gstPrice | currency:'INR'}}
-                    </div>
-                </div>
-                <div class="p-col">
-                    Total: {{cartItems.grossTotal}}
-                </div>
-            </div>
-        </div>
-        <div class="p-card-footer p-text-left">
-            <div class="p-col">Terms & Condition</div>
-            {{admin.termAndCondition}}
-        </div>
-    </div>
-</div> -->
-
-<div class="">
+<div class="" *ngIf="admin">
    <table class="tblInvoice">
     <tr><td> 
             <div class="p-col p-py-0"><strong>Name: </strong>{{admin.businessName}}</div>
@@ -47,6 +7,7 @@
             <div class="p-col p-py-0"><strong>GSTIN No./PAN No: </strong>{{admin.gst}}</div>
  
     </td> <td>
+        <img [src]="admin.restaurentLogo" [alt]="admin.restaurentLogo" width="120" class="resLogo">
         <div class="p-col p-py-0"><strong>GSTIN: </strong>{{admin.state}}</div>
         <div class="p-col p-py-0"><strong>Voucher No: </strong>{{admin.state}}</div>
         <div class="p-col p-py-0"><strong>Date: </strong></div> 
@@ -60,7 +21,7 @@
             <th rowspan="2">Qty</th>
             <th rowspan="2">Rate</th>
             <th rowspan="2">Discount</th>
-            <th rowspan="2">Taxable Value</th>
+            <th rowspan="2">Non Taxable Value</th>
             <th colspan="2">CGST</th>
             <th colspan="2">SGST</th>
             <th rowspan="2">Total</th>
@@ -101,13 +62,13 @@
                 <p class="p-text-bold">Total invoice amount in words</p>
                 <!-- <p>{{cartItems.grossTotal + cartItems.gstTotal}}</p> -->
             </td>
-            <td colspan="3"> Taxable Amount : 
+            <td colspan="3"> Total Amount : 
             </td> 
             <td>
-                <strong>{{cartItems.grossTotal  | currency: 'INR'}}</strong>
+                <strong>{{cartItems.grossTotal + cartItems.gstTotal | currency :'INR'}}</strong>
             </td>
         </tr>
-        <tr>
+        <!-- <tr>
             <td colspan="3">Add CGST: <br> Add SGST:</td> 
                 <td class="text-right">{{cartItems.gstTotal/2 | currency: 'INR'}}<br>
                     {{cartItems.gstTotal/2 | currency: 'INR'}}
@@ -119,7 +80,7 @@
             {{cartItems.gstTotal | currency: 'INR'}} <br>
             <strong>{{cartItems.grossTotal + cartItems.gstTotal | currency: 'INR' }}</strong>
            </td>
-        </tr>
+        </tr> -->
     </tbody>
 </table> 
 <div class="p-grid p-my-2">
@@ -129,7 +90,8 @@
 
      </div>
      <div class="p-col-3 text-right p-text-bold smTxt">
-         For, XYZ
+         For, XYZ <br>
+         <img [src]="admin.signature" width="100" [alt]="admin.businessName">
      </div>
 </div>
 </div>

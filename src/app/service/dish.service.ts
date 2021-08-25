@@ -4,6 +4,7 @@ import { ApiConfig } from '../constant/api';
 import { Dish, DishCategory } from '../models/dish';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map } from 'rxjs/internal/operators'; 
+import { StorageService } from './storage.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,11 +24,12 @@ export class DishService {
   editModalSubject = new Subject<Dish>();
   editModalObservable = this.editModalSubject.subscribe();
   storage: Storage;
+  uData = JSON.parse(localStorage.getItem('HMSUserData'));
 
   //#endregion properties
 
   //#region Constructor
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private storageStorage: StorageService) {
   }
   //#endregion Constructor
 
@@ -77,9 +79,8 @@ export class DishService {
   }
 
   // get all dish list
-  getList(): Observable<Dish[]> {
-    console.log("storage",localStorage["HMSUserData"]);
-    return this.httpClient.get<Dish[]>(`${this.url}/Get/5`).pipe(
+  getList(): Observable<Dish[]> { 
+    return this.httpClient.get<Dish[]>(`${this.url}/Get/${this.uData.id}`).pipe(
       map(x => {
         this.dishList = x;
         return this.dishList;
