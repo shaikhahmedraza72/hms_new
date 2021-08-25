@@ -22,6 +22,7 @@ export class DishService {
 
   editModalSubject = new Subject<Dish>();
   editModalObservable = this.editModalSubject.subscribe();
+  storage: Storage;
 
   //#endregion properties
 
@@ -77,7 +78,8 @@ export class DishService {
 
   // get all dish list
   getList(): Observable<Dish[]> {
-    return this.httpClient.get<Dish[]>(this.url).pipe(
+    console.log("storage",localStorage["HMSUserData"]);
+    return this.httpClient.get<Dish[]>(`${this.url}/Get/5`).pipe(
       map(x => {
         this.dishList = x;
         return this.dishList;
