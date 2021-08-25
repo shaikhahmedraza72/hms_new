@@ -48,14 +48,6 @@ export const routes: Routes = [
 
   }, 
       {
-        path: 'dashboard',
-        loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule),
-    data: {
-          roles: roleConfig.authRoles.guest
-        },
-    canActivate: [AuthGuard]
-      },
-      {
         path: 'hotel-admin',
         loadChildren: () => import('./views/hotel-admin/hotel-admin.module').then(m => m.HotelAdminModule),
       },
