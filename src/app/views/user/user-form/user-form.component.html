@@ -1,5 +1,5 @@
 <div class="p-card-content">
-    <form name="userForm" #userForm="ngForm" novalidate (ngSubmit)="saveUser()"></form>
+    <form name="userForm" #userForm="ngForm" novalidate (ngSubmit)="saveUser()">
     <div class="p-fluid p-formgrid p-grid">
         <div class="p-field p-col-6">
             <label for="userName">Name</label>
@@ -55,4 +55,5 @@
         <button pButton pRipple label="Reset" icon="pi pi-refresh" class="p-button-danger p-button-raised"
             (click)="reset()"></button>
     </div>
+</form>
 </div>
