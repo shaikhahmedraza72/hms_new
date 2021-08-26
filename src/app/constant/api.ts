@@ -15,4 +15,5 @@ export class ApiConfig {
     public static USERFEEDBACK = 'UserFeedback';
     public static MASTERADMIN = 'masterAdmin';
     public static REGISTERED = "User";
+    public static HOTEL = 'Hotel';
 }

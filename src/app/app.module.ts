@@ -51,7 +51,7 @@ import { AuthGuard } from './helpers/auth.guard';
 import { TokenInterceptorService } from './helpers/token-interceptor.service';
 import { HotelAdminModule } from './views/hotel-admin/hotel-admin.module';
 import { UserModule } from '../app/views/user/user.module';
-import { UserDetailComponent } from '../app/views/user/user-detail/user-detail.component';
+// import { UserDetailComponent } from '../app/views/user/user-detail/user-detail.component';
 // import { InvoiceComponent } from './views/invoice/invoice.component'
 @NgModule({
   imports: [
@@ -84,7 +84,7 @@ import { UserDetailComponent } from '../app/views/user/user-detail/user-detail.c
     RegisterComponent,
     routingComponents,
     ClientConfigComponent,
-    UserDetailComponent,
+    // UserDetailComponent,
     // InvoiceComponent,
   ],
   providers: [
