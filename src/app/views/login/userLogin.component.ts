@@ -34,6 +34,14 @@ export class LoginComponent implements OnInit {
         this.storage.setItem('HMSUserData',JSON.stringify(resp));
         this.authService.uLoggedInSubject$.next(true)
         this.router.navigate(['/dish/dish-menu'])
+        // if superadmin
+        // admin list
+        //if admin 
+        // dish config or dashboard
+        // if user or guest
+        // dish menu
+        
+
       },
       err=> {
         alert(err.error.message)
