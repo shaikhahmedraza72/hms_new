@@ -26,7 +26,7 @@ export class InvoiceComponent implements OnInit {
     this.adminService.getClientList().subscribe(resp => {
       if(resp.length > 0){  
        const adminItm = resp.find(x => x.id == x.id);
-       this.admin = adminItm;  
+       this.admin = resp[1];  
       }
     });
   }
