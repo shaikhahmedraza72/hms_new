@@ -19,6 +19,7 @@ export class UserService {
   public user: User | undefined;
   public userList: User[] = [];
   modalSubject = new Subject();
+  userData = JSON.parse(localStorage.getItem('HMSUserData'));
   modalObservable = this.modalSubject.subscribe();
 
   constructor(private http: HttpClient) { }
@@ -51,7 +52,7 @@ export class UserService {
   }
 
   getUserList(): Observable<User[]> {
-    return this.http.get<User[]>(this.url).pipe(
+    return this.http.get<User[]>(`${this.url}/Get/${this.userData.id}`).pipe(
       map(x => {
         this.userList = x;
         return this.userList;
