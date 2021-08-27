@@ -64,7 +64,7 @@ export class AdminService {
   }
 
   getClientCategory(): Observable<CLientCategory[]> {
-    return this.httpClient.get<CLientCategory[]>(this.categoryUrl).pipe(
+    return this.httpClient.get<CLientCategory[]>(`${this.categoryUrl}/Get/${this.userData.id}`).pipe(
       map(x => {
         return x;
       })

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService, PrimeNGConfig, SelectItem } from 'primeng/api';
+import { Subscription } from 'rxjs';
 import { Admin } from '../../../models/admin';
 import { Dish, DishCategory } from '../../../models/dish';
 import { User } from '../../../models/user';
@@ -37,6 +38,7 @@ export class DishMenuComponent implements OnInit {
   users: { label: number, value: number }[];
   rawDishCategoyItems: DishCategory[];
   admin: Admin;
+  obs: Subscription;
   constructor(
     private dishService: DishService, 
     private primengConfig: PrimeNGConfig,
@@ -60,14 +62,14 @@ export class DishMenuComponent implements OnInit {
       this.primengConfig.ripple = true;
       this.fnGetDishCategoy();
       this.loadData()
-      this.getCities();
-      this.getStates();
+      // this.getCities();
+      // this.getStates();
       this.loadClient();
 
   }
 
   loadClient(){
-    this.adminService.getClientList().subscribe(resp => {
+   this.obs = this.adminService.getClientList().subscribe(resp => {
       if(resp.length > 0){  
        const adminItm = resp.find(x => x.id == x.id);
        this.admin = adminItm;
@@ -161,7 +163,7 @@ export class DishMenuComponent implements OnInit {
   fnAddtoCart(cartItem:Dish){
    const selCategory =  this.rawDishCategoyItems.filter(dItem =>dItem.id === cartItem.mainCategoryId)[0];
 
-    console.log(selCategory.gstCompliance, "GST C")
+    // console.log(selCategory.gstCompliance, "GST C");
     this.cartService.addItem(cartItem,1, selCategory.gstCompliance);
   //   if(this.cartItems.length > 0) { 
   //   this.cartItems.push({Id:cartItem.id,price:cartItem.fullPrice,name:cartItem.name,quantity:1})
@@ -179,5 +181,10 @@ export class DishMenuComponent implements OnInit {
   }
   fnMakePayment(){
     this.billingDialog = true;
+  }
+
+  ngOnDestroy() {
+    console.log("Component Destroyed ");
+    this.obs.unsubscribe();
   }
 }
