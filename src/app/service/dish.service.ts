@@ -90,7 +90,7 @@ export class DishService {
 
   // get dishcategory list
   getDishCategory(): Observable<DishCategory[]> {
-    return this.httpClient.get<DishCategory[]>(this.categoryUrl).pipe(
+    return this.httpClient.get<DishCategory[]>(`${this.categoryUrl}/Get/${this.uData.id}`).pipe(
       map(x => {
         return x;
       })
