@@ -14,7 +14,8 @@ const routes: Routes = [
       roles: roleConfig.authRoles.admin
     },
     canActivate:[AuthGuard]
-  },{
+  },
+  {
   path: 'settings',
   component: HotelSettingComponent,
   data: {

@@ -89,7 +89,7 @@ export class HotelAdminComponent implements OnInit {
     debugger;
     if(fData.invalid) return;
     if(!this.admin.id){
-      this.admin.id = this.adminList[this.adminList.length - 1].id + 1;
+      // this.admin.id = this.adminList[this.adminList.length - 1].id + 1;
       this.adminService.AddClient(this.admin).subscribe(() => {
           this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Added!', life: 3000});
           this.loadClient();  

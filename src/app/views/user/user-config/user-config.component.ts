@@ -21,8 +21,6 @@ export class UserConfigComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadData();
-    this.getCities();
-    this.getStates();
   }
 
   loadData() {
@@ -43,56 +41,6 @@ export class UserConfigComponent implements OnInit {
     this.user = { ...user };
     this.userDialog = true;
   }
-  saveUser() {
-    this.submitted = true;
-    console.log(this.user);
-    if (this.user.userName.trim()) {
-      if (this.user.id) {
-        this.userSvc.updateUser(this.user).subscribe(() => {
-            this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'user Updated', life: 3000 });
-            this.loadData();
-            this.getCities();
-            this.getStates();
-        })
-
-      } else {
-        if(this.user.id){
-          this.user.id = this.userList[this.userList.length - 1].id + 1;
-        } else {
-          this.user.id = 1;
-        }
-        this.userSvc.AddUser(this.user).subscribe(() => {
-            this.userList.push(this.user);
-            this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'user Created', life: 3000 });
-            this.loadData();
-            this.getCities();
-            this.getStates();
-        })
-      }
-      this.userList = [...this.userList];
-      this.userDialog = false;
-    }
-  }
-
-
-  getCities() {
-    this.commonSvc.getCities().subscribe(x => {
-      this.cities = x.map(cItem => {
-        return { label: cItem.name, value: cItem.id }
-      })
-    });
-
-  }
-  getStates() {
-    this.commonSvc.getStates().subscribe(x => {
-      this.states = x.map(cItem => {
-        return { label: cItem.name, value: cItem.id }
-      })
-    });
-  }
-
-
-
 
   deleteUser(user: User) {
     this.confirmationService.confirm({

@@ -64,22 +64,7 @@ export class TableConfigurationComponent {
             }
         });
     }
-    deleteSelectedTables() {
-        this.confirmationService.confirm({
-            message: 'Are you sure you want to delete the selected tables?',
-            header: 'Confirm',
-            icon: 'pi pi-exclamation-triangle',
-            accept: () => {
-                this.tableList = this.tableList.filter(val => !this.selectedTables.includes(val));
-                this.selectedTables.map((tableId: Hotel) => {
-                    this.tableSvc.deleteData(tableId.id).subscribe(() => {
-                        this.selectedTables = null;
-                        this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Tables Deleted', life: 3000 });
-                    })
-                })
-            }
-        });
-    }
+
 
     reset() {
         

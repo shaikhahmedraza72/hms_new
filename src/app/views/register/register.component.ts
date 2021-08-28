@@ -29,7 +29,7 @@ export class RegisterComponent {
 
 
   ngOnInit(): void {
-    this.getUsers();
+    // this.getUsers();
     this.users = {};
     this.typeUser = [{
       label: 'Admin', value: 2
@@ -39,37 +39,22 @@ export class RegisterComponent {
     }
     ];
   }
-  getUsers() {
-    this.regSvc.getRegisteredUser().subscribe(res => {
-      this.registeredList = res;
-    })
-  }
+  // getUsers() {
+  //   this.regSvc.getRegisteredUser().subscribe(res => {
+  //     this.registeredList = res;
+  //   })
+  // }
 
 
   register(data: NgForm) { 
     this.submitted = true;
     console.log(data);
-    if (this.users.userType == 3) {
+    if (this.users.userType === 3) {
       this.userSvc.AddUser(this.users).subscribe(() => {
         this.registeredList.push(this.users);
         alert('Registration completed')
       })
     } else {
-      // if(data.invalid) return;
-      // if(this.users.id){
-      //   this.regSvc.AddUser(this.users).subscribe( res => {
-      //     console.log(res);
-      //   }
-      // (resp:any)=>{
-      //   this.storage.setItem('HMSToken',resp.token);
-      //   this.router.navigate(['/dish/dish-menu']);       
-      // },
-      // err => {
-      //   console.log(err)
-      // }
-      // )
-      // }
-
       this.regSvc.AddUser(this.users).subscribe(res => {
         if (res) {
           this.registeredList.push(this.users);
