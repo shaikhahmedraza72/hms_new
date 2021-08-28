@@ -20,7 +20,7 @@ export class UserFormComponent implements OnInit {
   cities: any;
   states: any;
 
-  constructor(public userSvc: UserService,public commonSvc: CommonService, private msgService: MessageService, private confirmationService: ConfirmationService) { }
+  constructor(public userSvc: UserService, public commonSvc: CommonService, private msgService: MessageService, private confirmationService: ConfirmationService) { }
 
   ngOnInit(): void {
     this.loadData();
@@ -50,49 +50,34 @@ export class UserFormComponent implements OnInit {
     });
   }
 
-  openNew() {
-    this.user = {};
-    this.submitted = false;
-    this.userDialog = true;
-  }
-  reset() {
-    this.user = {}
-    this.submitted = false;
-  }
-  editUser(user: User) {
-    this.user = { ...user };
-    this.userDialog = true;
-  }
-
   saveUser() {
     this.submitted = true;
     console.log(this.user);
     if (this.user.userName.trim()) {
       if (this.user.id) {
         this.userSvc.updateUser(this.user).subscribe(() => {
-            this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'user Updated', life: 3000 });
-            this.loadData();
-            this.getCities();
-            this.getStates();
+          this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'user Updated', life: 3000 });
+          this.loadData();
+          this.getCities();
+          this.getStates();
         })
 
       } else {
-        if(this.user.id){
-          this.user.id = this.userList[this.userList.length - 1].id + 1;
-        } else {
-          this.user.id = 1;
-        }
         this.userSvc.AddUser(this.user).subscribe(() => {
-            this.userList.push(this.user);
-            this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'user Created', life: 3000 });
-            this.loadData();
-            this.getCities();
-            this.getStates();
+          this.userList.push(this.user);
+          this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'user Created', life: 3000 });
+          this.loadData();
+          this.getCities();
+          this.getStates();
         })
       }
       this.userList = [...this.userList];
       this.userDialog = false;
     }
+  }
+
+  reset(){
+    this.user = {};
   }
 
   deleteUser(user: User) {
@@ -102,8 +87,8 @@ export class UserFormComponent implements OnInit {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.userSvc.deleteUserData(user.id).subscribe(() => {
-            this.userList = this.userList.filter(val => val.userName !== user.userName);
-            this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'User Deleted', life: 3000 });
+          this.userList = this.userList.filter(val => val.userName !== user.userName);
+          this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'User Deleted', life: 3000 });
         });
       }
     });
@@ -119,7 +104,7 @@ export class UserFormComponent implements OnInit {
           this.userSvc.deleteUserData(userId.id).subscribe(() => {
             this.selectedUsers = null;
             this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Users Deleted', life: 3000 })
-        })
+          })
         })
       }
     });

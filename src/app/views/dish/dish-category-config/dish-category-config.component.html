@@ -34,7 +34,7 @@
                     <td>{{item.name}}</td>
                     <td>{{item.gstCompliance}}</td>
                     <td>
-                        <p-tag [value]="item.isActive" *ngIf="item.isActive" class="p-text-uppercase" [severity]="item.isActive === true ? 'success':'danger'"></p-tag>
+                        <p-tag [value]="item.status" *ngIf="item.status" class="p-text-uppercase" [severity]="item.isActive === true ? 'success':'danger'"></p-tag>
                     </td>
                     <td>
                         <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editDish(item)" pTooltip="Edit categories"></button>
@@ -58,13 +58,12 @@
                 </div>
                 <div class="p-field p-col-6">
                     <label for="inventoryStatus">Inventory Status</label>
-                    <p-dropdown [(ngModel)]="dish.status" class="p-inputtext-sm" #invStatus="ngModel" name="inventoryStatus" optionLabel="label" optionValue="value" inputId="inventoryStatus" [options]="status" placeholder="Select" required>
+                    <p-dropdown [(ngModel)]="category.status" class="p-inputtext-sm" #invStatus="ngModel" name="inventoryStatus" optionLabel="label" optionValue="value" inputId="inventoryStatus" [options]="status" placeholder="Select" required>
                     </p-dropdown>
-                    <!-- <div *ngIf="invStatus.touched && invStatus.invalid && f.submitted"><small class="p-error" *ngIf="invStatus.errors.required">Inventory Status is required.</small></div> -->
                 </div>
                 <div class="p-field p-col-6">
                     <label for="gstCompliance">GST Compliance</label>
-                    <input type="number" name="gstCompliance" #gstCompliance="ngModel" class="p-inputtext-sm" pInputText id="gstCompliance" [(ngModel)]="category.gstCompliance" placeholder="GST Compliance Number" required autofocus />
+                    <input type="number" name="gstCompliance" #gstCompliance="ngModel" class="p-inputtext-sm" pInputText id="gstCompliance" [(ngModel)]="category.gstCompliance" placeholder="GST Compliance Number" required />
                     <div *ngIf="gstCompliance.touched && gstCompliance.invalid && f.submitted"> <small class="p-error" *ngIf="gstCompliance.errors.required">GST compliance is required.</small></div>
                 </div>
             </div>

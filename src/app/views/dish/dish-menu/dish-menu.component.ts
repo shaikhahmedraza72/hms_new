@@ -69,11 +69,9 @@ export class DishMenuComponent implements OnInit {
   }
 
   loadClient(){
-   this.obs = this.adminService.getClientList().subscribe(resp => {
+   this.obs = this.adminService.getAdmin().subscribe(resp => {
       if(resp.length > 0){  
-       const adminItm = resp.find(x => x.id == x.id);
-       this.admin = adminItm;
-       
+        // this.admin = resp;
       }
     });
   }

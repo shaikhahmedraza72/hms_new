@@ -29,9 +29,9 @@ export class DishCategory {
     constructor(
         public id?: number,
         public name?: string,
-        // public description?: string | undefined,
         public isActive?: boolean,
-        public gstCompliance?: number
+        public gstCompliance?: number,
+        public status?: string
     ) { }
 }
 

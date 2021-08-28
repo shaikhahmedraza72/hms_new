@@ -62,9 +62,17 @@ export class AdminService {
       })
     );
   }
+  getAdmin(): Observable<Admin[]> {
+    return this.httpClient.get<Admin[]>(`${this.url}/GetById/${this.userData.id}`).pipe(
+      map(x => {
+        this.clientList = x;
+        return this.clientList;
+      })
+    );
+  }
 
   getClientCategory(): Observable<CLientCategory[]> {
-    return this.httpClient.get<CLientCategory[]>(`${this.categoryUrl}/Get/${this.userData.id}`).pipe(
+    return this.httpClient.get<CLientCategory[]>(`${this.categoryUrl}`).pipe(
       map(x => {
         return x;
       })

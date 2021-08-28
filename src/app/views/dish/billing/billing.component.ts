@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { scan } from 'rxjs/internal/operators';
 import { Admin } from '../../../models/admin';
 import { AdminService } from '../../../service/admin.service';
@@ -9,27 +9,17 @@ import { AdminService } from '../../../service/admin.service';
   styleUrls: ['./billing.component.scss']
 })
 export class BillingComponent implements OnInit {
+  @Input() adminData: Admin;
 
   stateOptions: any[];
   lblIsProceed: boolean;
   paymentMode: string;
   invoiceDialog: boolean;
-  admin: Admin;
-  adminList: Admin[] = [];
   constructor(public adminService: AdminService) { }
 
   ngOnInit(): void {
-    this.loadClient();
   }
 
-  loadClient(){
-    this.adminService.getClientList().subscribe(resp => {
-      if(resp.length > 0){  
-       const adminItm = resp.find(x => x.id == x.id);
-       this.admin = adminItm;    
-      }
-    });
-  }
   fnCashProceed(v){
     this.paymentMode = "Cash"
     this.lblIsProceed = true;
