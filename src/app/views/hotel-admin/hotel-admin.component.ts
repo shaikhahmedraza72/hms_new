@@ -4,6 +4,7 @@ import { Admin, Bankdetails } from '../../models/admin';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { CommonService } from '../../service/common.service';
 import { AdminService } from '../../service/admin.service';
+import { Form } from '@angular/forms';
 
 @Component({
   selector: 'app-hotel-admin',
@@ -85,12 +86,15 @@ export class HotelAdminComponent implements OnInit {
     this.admin.UpiImageFile = e.target.files[0]
   }
 
-  onSubmit(fData:any){
+  onSubmit(fData){
     debugger;
     if(fData.invalid) return;
+    console.log(fData);
     if(!this.admin.id){
+      const dFormData = this.convertFormdata(this.admin);
       // this.admin.id = this.adminList[this.adminList.length - 1].id + 1;
-      this.adminService.AddClient(this.admin).subscribe(() => {
+      this.adminService.AddClient(dFormData).subscribe(() => {
+        debugger;
           this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Added!', life: 3000});
           this.loadClient();  
           this.getClientCategory();
@@ -98,8 +102,10 @@ export class HotelAdminComponent implements OnInit {
           this.fnGetStatesList();                                                                                                          
       });
     } else {
+      const dFormData = this.convertFormdata(this.admin);
+      
       this.adminList[this.findIndexById(this.admin.id)] = this.admin;
-      this.adminService.updateCLient(this.admin).subscribe(() => {
+      this.adminService.updateCLient(dFormData).subscribe(() => {
         this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Updated!', life: 3000});
         this.loadClient();
         this.getClientCategory();

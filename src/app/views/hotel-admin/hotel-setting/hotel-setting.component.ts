@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TableService } from "../../../service/table.service";
+import { Hotel } from "../../../models/tabelConfiguration.model";
 
 @Component({
   selector: 'app-hotel-setting',
@@ -7,92 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HotelSettingComponent implements OnInit {
   currentView:string = "advTblBooking";
-  tableList:Array<any>;
-  constructor() { }
+  tableList:Hotel[];
+  constructor(public tableSvc: TableService) { }
 
   ngOnInit(): void {
-    this.tableList = [
-      {
-        name:'Table 1',
-        isBooked:false,
-        seats:4
-      },
-      {
-        name:'Table 2',
-        isBooked:false,
-        seats:4
-      },
-      {
-        name:'Table 3',
-        isBooked:false,
-        seats:4
-      },
-      {
-        name:'Table 4',
-        isBooked:false,
-        seats:4
-      },{
-        name:'Table 5',
-        isBooked:false,
-        seats:4
-      }
-      ,{
-        name:'Table 6',
-        isBooked:false,
-        seats:4
-      },
-      {
-        name:'Table 7',
-        isBooked:false,
-        seats:4
-      },
-      {
-        name:'Table 8',
-        isBooked:false,
-        seats:6
-      },
-      {
-        name:'Table 9',
-        isBooked:false,
-        seats:6
-      },
-      {
-        name:'Table 10',
-        isBooked:false,
-        seats:6
-      },
-      {
-        name:'Table 11',
-        isBooked:false,
-        seats:10
-      },{
-        name:'Table 12',
-        isBooked:false,
-        seats:10
-      },
-      {
-        name:'Table 13',
-        isBooked:false,
-        seats:10
-      },
-      {
-        name:'Table 14',
-        isBooked:false,
-        seats:10
-      },
-      {
-        name:'Table 15',
-        isBooked:false,
-        seats:10
-      },
-
-  ] 
+    this.loadTabaleData();
   }
 
+  loadTabaleData() {
+    this.tableSvc.getTableData().subscribe(res => {
+        this.tableList = res;
+    })
+}
   fnTblBook(tblItem){ 
     this.tableList.map(res => { 
         if(res.name === tblItem.name ){
-          res.isBooked = true;
+          // res.isBooked = true;
         }
       });
   }

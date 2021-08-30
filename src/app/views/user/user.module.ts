@@ -5,6 +5,7 @@ import { SharedModule } from './../../shared/shared.module'
 import { UserConfigComponent } from './user-config/user-config.component'
 import { UserFeedbackComponent } from './user-feedback/user-feedback.component';
 // import { UserFormModuleModule } from '../user/user-form/user-form-module.module'
+import { UserFormModuleModule } from '../user/user-form/user-form-module.module';
 import { UserFormComponent } from './user-form/user-form.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 @NgModule({
@@ -13,7 +14,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     CommonModule,
     UserRoutingModule,
     SharedModule,
-    // UserFormModuleModule
+    UserFormModuleModule
   ]
 })
 export class UserModule { }

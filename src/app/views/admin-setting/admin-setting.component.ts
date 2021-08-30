@@ -102,6 +102,7 @@ export class AdminSettingComponent implements OnInit {
     if(!this.admin.id){
       // this.admin.id = this.adminList[this.adminList.length - 1].id + 1;
       const dFormData = this.convertFormdata(this.admin);
+      console.log(dFormData);
       this.adminService.AddClient(dFormData).subscribe(() => {
           this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Added!', life: 3000});
           this.loadClient();  
@@ -110,8 +111,10 @@ export class AdminSettingComponent implements OnInit {
           this.fnGetStatesList();                                                                                                          
       });
     } else {
+
       this.adminList[this.findIndexById(this.admin.id)] = this.admin;
       const dFormData = this.convertFormdata(this.admin);
+      console.log(dFormData);
       this.adminService.updateCLient(dFormData).subscribe(() => {
         this.msgService.add({severity:'success', summary: 'Successful', detail: 'Admin Details Updated!', life: 3000});
         this.loadClient();

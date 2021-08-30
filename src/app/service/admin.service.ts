@@ -19,8 +19,10 @@ export class AdminService {
   constructor(private httpClient: HttpClient) { }
   // Add Client
   AddClient(client): Observable<Admin> {
+    console.log(this.url);
     return this.httpClient.post<Admin>(this.url, client).pipe(
       map(x => {
+        debugger;
         this.clientList.push(x);
         return client;
       }),
@@ -55,7 +57,8 @@ export class AdminService {
 
   // Get client list
   getClientList(): Observable<Admin[]> {
-    return this.httpClient.get<Admin[]>(`${this.url}/Get/${this.userData.id}`).pipe(
+    console.log(this.userData);
+    return this.httpClient.get<Admin[]>(`${this.url}/Get/${this.userData.adminId}`).pipe(
       map(x => {
         this.clientList = x;
         return this.clientList;
@@ -63,7 +66,7 @@ export class AdminService {
     );
   }
   getAdmin(): Observable<Admin[]> {
-    return this.httpClient.get<Admin[]>(`${this.url}/GetById/${this.userData.id}`).pipe(
+    return this.httpClient.get<Admin[]>(`${this.url}/GetById/${this.userData.adminId}`).pipe(
       map(x => {
         this.clientList = x;
         return this.clientList;

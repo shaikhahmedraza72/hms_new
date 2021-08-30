@@ -16,4 +16,5 @@ export class ApiConfig {
     public static MASTERADMIN = 'masterAdmin';
     public static REGISTERED = "User";
     public static HOTEL = 'Hotel';
+    public static ORDER = 'Order';
 }

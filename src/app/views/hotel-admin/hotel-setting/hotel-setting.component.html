@@ -33,12 +33,13 @@
     <p-tabPanel header="Advanced Table Booking">
         <div class="p-grid">
             <div class="p-col-2" *ngFor="let tblItem of tableList" (click)="fnTblBook(tblItem)">
-                <div class="tblBox p-shadow-1 p-px-5 p-py-4 text-center" 
+                <div class="tblBox p-shadow-1 p-px-0 text-center" 
                 [ngClass]="{'booked':tblItem.isBooked}"> <h6>{{tblItem.name}}</h6>
-                    <p class="text-small">Seats: {{tblItem.seats}}</p>
+                    <p class="text-small">Seats: {{tblItem.seat}}</p>
+                    <p class="text-small">Shape: {{tblItem.shape}}</p>
+                    <p class="text-small">Hall type: {{tblItem.isAc === true? 'AC': 'Non AC'}}</p>
                 </div> 
-            </div>
-            
+            </div>   
         </div>    
     </p-tabPanel>
     <p-tabPanel header="Dining">

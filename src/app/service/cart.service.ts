@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Observer } from 'rxjs';
+import { Observable, Observer, of } from 'rxjs';
+import { catchError, map } from 'rxjs/internal/operators';
+import { ApiConfig } from '../constant/api';
 import { Dish } from '../models/dish';
 import { ShoppingCart, CartItem } from '../models/shopping-cart'; 
 import { StorageService } from './storage.service';
@@ -9,10 +12,14 @@ const CART_KEY = "cart";
 })
 export class CartService {
 
+  orderUrl = `${ApiConfig.URL}${ApiConfig.ORDER}`;
+  orderList: Array<any>;
   private storage: Storage;
   private subscriptionObservable: Observable<ShoppingCart>;
   private subscribers: Array<Observer<ShoppingCart>> = new Array<Observer<ShoppingCart>>();
-  constructor(private storageService: StorageService) { 
+  constructor(
+    private storageService: StorageService,
+    private http: HttpClient) { 
     this.storage = this.storageService.get();
   this.subscriptionObservable = new Observable<ShoppingCart>((observer: Observer<ShoppingCart>) => {
     this.subscribers.push(observer);
@@ -98,5 +105,27 @@ private dispatch(cart: ShoppingCart): void {
         }
       });
 }
-   
+
+  
+postOrder(order): Observable<any> {
+
+  return this.http.post<Dish>(this.orderUrl, order).pipe(
+    map(x => {
+      this.orderList.push(x);
+      return order;
+    }),
+    catchError(this.handleError('', order))
+  );
+}
+
+handleError<T>(operation = 'operation', result?: T) {
+  return (error: any): Observable<T> => {
+    console.error(error);
+    //  this.log(`${operation} failed: ${error.message}`);
+
+    return of(result as T);
+  };
+}
+
+
 }

@@ -16,7 +16,7 @@ export class TableService {
   constructor(public http: HttpClient) { }
 
   getTableData(): Observable<Hotel[]> {
-    return this.http.get<Hotel[]>(`${this.url}/Get/${this.userData.id}`).pipe(
+    return this.http.get<Hotel[]>(`${this.url}/Get/${this.userData.adminId}`).pipe(
       map( x => {
         this.tableList = x;
         return this.tableList;

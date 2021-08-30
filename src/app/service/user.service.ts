@@ -52,7 +52,7 @@ export class UserService {
   }
 
   getUserList(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.url}/Get/${this.userData.id}`).pipe(
+    return this.http.get<User[]>(`${this.url}/Get/${this.userData.adminId}`).pipe(
       map(x => {
         this.userList = x;
         return this.userList;
