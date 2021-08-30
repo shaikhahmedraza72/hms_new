@@ -4,6 +4,7 @@ import { roleConfig } from '../../constant/rolesConfig';
 import { AuthGuard } from '../../helpers/auth.guard';
 import { HotelAdminComponent } from './hotel-admin.component';
 import { HotelSettingComponent } from './hotel-setting/hotel-setting.component';
+import { TableConfigurationComponent } from './table-configuration/table-configuration.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,14 @@ const routes: Routes = [
     roles: roleConfig.authRoles.admin
   },
   canActivate:[AuthGuard]
+},
+{
+  path: 'table-configuration',
+  component: TableConfigurationComponent,
+  data: {
+    title: 'table-configuration',
+    roles: roleConfig.authRoles.guest
+  }
 }
 ]
 @NgModule({

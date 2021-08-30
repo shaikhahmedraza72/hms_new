@@ -36,14 +36,6 @@ export const routes: Routes = [
     }
   },
   {
-    path: 'table-configuration',
-    component: TableConfigurationComponent,
-    data: {
-      title: 'table-configuration',
-      roles: roleConfig.authRoles.guest
-    }
-  },
-  {
     path: 'dish',
     loadChildren: () => import('./views/dish/dish.module').then(m => m.DishModule),
   }, 
