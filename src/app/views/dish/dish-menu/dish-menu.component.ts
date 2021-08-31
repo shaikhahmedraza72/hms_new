@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MessageService, PrimeNGConfig, SelectItem } from 'primeng/api';
-import { Subscription } from 'rxjs';
+import { from, Subscription } from 'rxjs';
 import { Admin } from '../../../models/admin';
 import { Dish, DishCategory } from '../../../models/dish';
 import { User } from '../../../models/user';
@@ -10,6 +10,7 @@ import { CartService } from '../../../service/cart.service';
 import { CommonService } from '../../../service/common.service';
 import { DishService } from '../../../service/dish.service';
 import { UserService } from '../../../service/user.service';
+import { ShareDataService } from '../../../service/share-data.service';
 @Component({
   selector: 'app-dish-menu',
   templateUrl: './dish-menu.component.html',
@@ -17,6 +18,7 @@ import { UserService } from '../../../service/user.service';
 })
 export class DishMenuComponent implements OnInit {
   dishes: Dish[];
+  message: string;
 
   sortOptions: SelectItem[];
 
@@ -39,6 +41,7 @@ export class DishMenuComponent implements OnInit {
   rawDishCategoyItems: DishCategory[];
   admin: Admin;
   obs: Subscription;
+  @Output() toDish = new EventEmitter();
   constructor(
     private dishService: DishService, 
     private primengConfig: PrimeNGConfig,
@@ -48,9 +51,10 @@ export class DishMenuComponent implements OnInit {
     public userSvc: UserService,
     private authServive: AuthService,
     public adminService: AdminService,
+    public data: ShareDataService
     ) { }
-
   ngOnInit() {
+      this.data.currentMessage.subscribe(message => this.message = message);
       this.dishService.getList().subscribe(data => this.dishes = data);
 
       this.sortOptions = [
@@ -66,6 +70,10 @@ export class DishMenuComponent implements OnInit {
       // this.getStates();
       this.loadClient();
 
+  }
+
+  newMessage(){
+    this.data.changeMessage(this.selectedUser);
   }
 
   loadClient(){
@@ -160,6 +168,7 @@ export class DishMenuComponent implements OnInit {
   //Add to cart Function
   fnAddtoCart(cartItem:Dish){
    const selCategory =  this.rawDishCategoyItems.filter(dItem =>dItem.id === cartItem.mainCategoryId)[0];
+   console.log(cartItem);
 
     // console.log(selCategory.gstCompliance, "GST C");
     this.cartService.addItem(cartItem,1, selCategory.gstCompliance);

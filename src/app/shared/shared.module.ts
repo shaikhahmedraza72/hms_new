@@ -38,8 +38,11 @@ import {RippleModule} from 'primeng/ripple';
 import {DataViewModule} from 'primeng/dataview';
 import {AvatarModule} from 'primeng/avatar';
 import {TabViewModule} from 'primeng/tabview';
+import { UserFormComponent } from './../views/user/user-form/user-form.component';
 @NgModule({
-  declarations: [],
+  declarations: [ 
+    UserFormComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -79,7 +82,7 @@ import {TabViewModule} from 'primeng/tabview';
     RippleModule,
     DataViewModule,
     AvatarModule,
-    TabViewModule
+    TabViewModule,
   ],
   exports:[
     CommonModule,
@@ -118,7 +121,8 @@ import {TabViewModule} from 'primeng/tabview';
     RippleModule,
     DataViewModule,
     AvatarModule,
-    TabViewModule
+    TabViewModule,
+    UserFormComponent
   ],
   providers:[MessageService, ConfirmationService]
 })

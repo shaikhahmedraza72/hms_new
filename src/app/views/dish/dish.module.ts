@@ -7,16 +7,11 @@ import { CardDetailsComponent } from './card-details/card-details.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { DishCategoryConfigComponent } from './dish-category-config/dish-category-config.component';
 import { BillingComponent } from './billing/billing.component'
-// import { UserFormComponent }from '../user/user-form/user-form.component';
 import { InvoiceComponent } from '../invoice/invoice.component';
-import { UserFormModuleModule } from '../user/user-form/user-form-module.module';
-import { UserModule } from '../user/user.module';
 @NgModule({
   imports: [
     SharedModule,
     DishRoutingModule,
-    UserFormModuleModule,
-    UserModule
   ],
   declarations: [DishComponent,DishMenuComponent, CardDetailsComponent, CheckoutComponent, DishCategoryConfigComponent, BillingComponent,InvoiceComponent]
  

@@ -57,11 +57,10 @@ export class HotelAdminComponent implements OnInit {
   }
 
   loadClient(){
-    this.adminService.getClientList().subscribe(resp => {
+    this.adminService.getAdmin().subscribe(resp => {
       if(resp.length > 0){  
        const adminItm = resp.find(x => x.id == x.id);
-       this.admin = adminItm;
-       
+       this.admin = adminItm;    
       }
     });
   }

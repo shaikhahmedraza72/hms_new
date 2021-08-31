@@ -39,8 +39,14 @@
                                 <i class="pi pi-tag product-category-icon"></i><span class="product-category">{{dish.categories}}</span>
                             </div>
                             <div class="product-list-action">
-                                <span class="product-price">{{dish.fullPrice | currency:'INR'}}</span>
-                                <p-button icon="pi pi-shopping-cart" styleClass="p-button-sm" label="Add to Cart" (click)="fnAddtoCart(dish)" [disabled]="dish.statuses === 'OUTOFSTOCK'"></p-button>
+                                <span class="product-price">{{dish.halfPrice | currency:'INR'}}</span>
+                                <div class="row">
+                                    <div class="col-sm-12 text-center">
+                                    <p-button styleClass="p-button-sm" label="Full" [disabled]="dish.statuses === 'OUTOFSTOCK'"></p-button>
+                                    <p-button styleClass="p-button-sm" label="Half" [disabled]="dish.statuses === 'OUTOFSTOCK'"></p-button>
+                                </div>
+                                </div>
+                                <p-button icon="pi pi-shopping-cart" styleClass="p-button-sm" label="Add to Cart" (click)="fnAddtoCart(dish)" [disabled]="dish.statuses === 'OUTOFSTOCK' || !isHalf"></p-button>
                                 <div class="timeTxt"><i class="pi pi-clock p-mr-1"></i> {{dish.timeForCook}} mins</div>
 
                             </div>
@@ -93,13 +99,13 @@
                 <div class="p-d-flex p-ai-center pborder">
                     <!-- <label for="userName">User Name:</label> -->
                     <span *ngIf="userData.userType === 3">{{userData.username}}</span>
-                    <p-dropdown *ngIf="userData.userType === 1 || userData.userType === 2" class="p-mr-4 p-inputtext-sm" id="userName"
+                    <p-dropdown (onChange)="newMessage()" *ngIf="userData.userType === 1 || userData.userType === 2" class="p-mr-4 p-inputtext-sm" id="userName"
                         [options]="user" [(ngModel)]="selectedUser" placeholder="Search for Number" optionLabel="label"
-                        optionValue="value" [showClear]="true" [filter]="true" filterBy="label"></p-dropdown>
-                    <button *ngIf="userData.userType === 1 || userData.userType === 2" pButton pRipple label="" icon="pi pi-plus"
+                        optionValue="value" [filter]="true" [showClear]="true" filterBy="label"></p-dropdown>
+                    <button (click)="sendToDish()" *ngIf="userData.userType === 1 || userData.userType === 2" pButton pRipple label="" icon="pi pi-plus"
                         class="p-button-success p-mr-2 p-button-sm my-2" pTooltip="Add new user" (click)="openNew()"></button>
-                </div> 
-                <app-card-details (fnBillingModal)="fnMakePayment()"></app-card-details>
+                </div>
+                <app-card-details [toCard]="selectedUser" (fnBillingModal)="fnMakePayment()"></app-card-details>
             </div>
         </div>
     </div>

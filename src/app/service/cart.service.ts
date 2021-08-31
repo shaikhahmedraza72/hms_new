@@ -34,6 +34,7 @@ public get(): Observable<ShoppingCart> {
 }
 
 public addItem(product: any, quantity: number, gstCompliance?:number): void {
+  console.log(product);
 
   const cart = this.retrieve();
   const prodId = product.id ? product.id : product.productId;
@@ -43,7 +44,7 @@ public addItem(product: any, quantity: number, gstCompliance?:number): void {
     item = new CartItem();
     item.productId = product.id;
     item.name = product.name;
-    item.price = product.price ? product.price : product.fullPrice ;
+    item.price = product.price ? product.Price : product.fullPrice ;
     item.description = product.description;
     item.image= product.imageUrl ? product.imageUrl : './assets/img/dishes/img-menu-placeholder.jpg';
     item.gstCompliance = gstCompliance || 0;
