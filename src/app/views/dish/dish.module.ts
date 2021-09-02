@@ -11,6 +11,7 @@ import { BillingComponent } from './billing/billing.component'
 import { InvoiceComponent } from '../invoice/invoice.component';
 import { UserFormModuleModule } from '../user/user-form/user-form-module.module';
 import { UserModule } from '../user/user.module';
+import { OrdersListComponent } from './orders-list/orders-list.component';
 @NgModule({
   imports: [
     SharedModule,
@@ -18,7 +19,7 @@ import { UserModule } from '../user/user.module';
     UserFormModuleModule,
     UserModule
   ],
-  declarations: [DishComponent,DishMenuComponent, CardDetailsComponent, CheckoutComponent, DishCategoryConfigComponent, BillingComponent,InvoiceComponent]
+  declarations: [DishComponent,DishMenuComponent, CardDetailsComponent, CheckoutComponent, DishCategoryConfigComponent, BillingComponent,InvoiceComponent, OrdersListComponent]
  
 })
 export class DishModule { }
