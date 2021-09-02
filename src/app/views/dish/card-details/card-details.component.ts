@@ -14,6 +14,7 @@ import { ShareDataService } from '../../../service/share-data.service';
 })
 export class CardDetailsComponent implements OnInit {
   message: string;
+  userData = JSON.parse(localStorage.getItem('HMSUserData'));
   public cartItems: ShoppingCart;
   totCartPrice: any;
   @Output() fnBillingModal: EventEmitter<any> = new EventEmitter();
@@ -36,6 +37,10 @@ export class CardDetailsComponent implements OnInit {
   }
   fnMakePayment(){
     this.fnBillingModal.emit();
+    this.cartItems.items.map(x => {
+      x.userId = this.userData.id;
+      x.adminId = this.userData.adminId
+    });
     this.cartService.postOrder(this.cartItems).subscribe(() => {
       this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Cart Item Posted', life: 30000 });
     })

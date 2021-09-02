@@ -46,22 +46,19 @@
                                     class="product-category">{{dish.categories}}</span>
                             </div>
                             <div class="product-list-action">
-                                <span class="product-price">{{(quantity ? dish.fullPrice : dish.halfPrice )| currency:'INR'}}</span>
-                                <div *ngIf="cartBTNClicked" class="p-field">
-                                        <!-- <p-button (click)="fnBTN1()" styleClass="p-button-sm" label="Full"
-                                            [disabled]="dish.statuses === 'OUTOFSTOCK'"></p-button>
-                                        <p-button (click)="fnBTN2()" styleClass="p-button-sm" label="Half"
-                                            [disabled]="dish.statuses === 'OUTOFSTOCK'"></p-button> -->
-                                        <div class="p-formgroup-inline">
-                                            <label for="isVeg">Half </label>
-                                            <p-inputSwitch [(ngModel)]="quantity" name="isVeg" class="p-mx-2">
-                                            </p-inputSwitch>
-                                            <label for="isVeg">Full</label>
-                                        </div>
+                                <span class="product-price">{{(dish.isFullIsHalf ? dish.fullPrice : dish.halfPrice )|
+                                    currency:'INR'}}</span>
+                                <div class="p-field">
+                                    <div class="p-formgroup-inline">
+                                        <label for="isFullIsHalfStatus">Half </label>
+                                        <p-inputSwitch [(ngModel)]="dish.isFullIsHalf" name="isFullIsHalfStatus"
+                                            class="p-mx-2">
+                                        </p-inputSwitch>
+                                        <label for="isFullIsHalfStatus">Full</label>
+                                    </div>
                                 </div>
                                 <p-button icon="pi pi-shopping-cart" styleClass="p-button-sm" label="Add to Cart"
-                                    (click)="fnAddtoCart(dish)"
-                                    [disabled]="dish.statuses === 'OUTOFSTOCK' || cartBTNClicked"></p-button>
+                                    (click)="fnAddtoCart(dish)" [disabled]="dish.statuses === 'OUTOFSTOCK'"></p-button>
                                 <div class="timeTxt"><i class="pi pi-clock p-mr-1"></i> {{dish.timeForCook}} mins</div>
 
                             </div>
@@ -101,9 +98,20 @@
                             </div>
                             <div class="product-grid-item-bottom">
                                 <span class="product-price">{{dish.fullPrice | currency:'INR'}}</span>
+                                
                                 <p-button styleClass="p-button-sm" icon="pi pi-shopping-cart"
                                     (click)="fnAddtoCart(dish)" [disabled]="dish.statuses === 'OUTOFSTOCK'"
                                     pTooltip="Bookmark Dish" tooltipPosition="bottom"></p-button>
+                            </div>
+                            <div class="p-field
+                            ">
+                                <div class="p-formgroup-inline">
+                                    <label for="isFullIsHalfStatus">Half </label>
+                                    <p-inputSwitch [(ngModel)]="dish.isFullIsHalf" name="isFullIsHalfStatus"
+                                        class="p-mx-2">
+                                    </p-inputSwitch>
+                                    <label for="isFullIsHalfStatus">Full</label>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -127,7 +135,7 @@
                         pRipple label="" icon="pi pi-plus" class="p-button-success p-mr-2 p-button-sm my-2"
                         pTooltip="Add new user" (click)="openNew()"></button>
                 </div>
-                <app-card-details [toCard]="selectedUser" (fnBillingModal)="fnMakePayment()"></app-card-details>
+                <app-card-details (fnBillingModal)="fnMakePayment()"></app-card-details>
             </div>
         </div>
     </div>

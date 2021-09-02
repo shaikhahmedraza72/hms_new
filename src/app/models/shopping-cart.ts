@@ -1,6 +1,8 @@
 
 
 export class CartItem {
+    public userId: number;
+    public adminId: number
     public productId: number;
     public name: string;
     public price: number;
@@ -9,6 +11,7 @@ export class CartItem {
     public description:string;
     public gstCompliance:number;
     public gstPrice:number;
+    public isFullIsHalf: boolean;
   }
 export class ShoppingCart {
     public items: CartItem[] = new Array<CartItem>();

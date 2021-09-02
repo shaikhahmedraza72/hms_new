@@ -1,7 +1,7 @@
 <div *ngIf="cartItems?.items.length > 0">
     <ul class="ulCart">
         <li class="cart-item" *ngFor="let item of cartItems.items">
-            <span>{{ item.name }}</span>
+            <span>{{ item.name }} <span>{{item.isFullIsHalf ? '(Full)' : '(Half)'}}</span></span>
             <span class="btnPlusMinusWrap">
                 <!-- <i class="pi pi-minus"></i>  -->
                 <button pButton type="button" icon="pi pi-minus" (click)="removeItem(item)"

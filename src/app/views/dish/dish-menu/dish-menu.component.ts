@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { MessageService, PrimeNGConfig, SelectItem } from 'primeng/api';
 import { from, Subscription } from 'rxjs';
 import { Admin } from '../../../models/admin';
@@ -21,9 +21,7 @@ export class DishMenuComponent implements OnInit {
   message: string;
   cartBTNClicked: boolean = false;
   sortOptions: SelectItem[];
-  quantity: boolean = true;
   sortOrder: number;
-
   sortField: string;
   dishCategory: { label: string; value: string; }[];
   cartItems: Array<any> = [];
@@ -55,13 +53,13 @@ export class DishMenuComponent implements OnInit {
     ) { }
   ngOnInit() {
       this.data.currentMessage.subscribe(message => this.message = message);
-      this.dishService.getList().subscribe(data => this.dishes = data);
-
+      this.dishService.getList().subscribe(data => {this.dishes = data;
+      this.dishes.map(x => x.isFullIsHalf = true);
+      });
       this.sortOptions = [
           {label: 'Price High to Low', value: '!fullPrice'},
           {label: 'Price Low to High', value: 'fullPrice'}
       ];
-
       this.userData = this.authServive.userData(); 
       this.primengConfig.ripple = true;
       this.fnGetDishCategoy();
