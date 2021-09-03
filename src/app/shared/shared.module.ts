@@ -38,18 +38,11 @@ import {RippleModule} from 'primeng/ripple';
 import {DataViewModule} from 'primeng/dataview';
 import {AvatarModule} from 'primeng/avatar';
 import {TabViewModule} from 'primeng/tabview';
-<<<<<<< HEAD
-import { UserFormComponent } from './../views/user/user-form/user-form.component';
-@NgModule({
-  declarations: [ 
-    UserFormComponent
-=======
 import { TimelineModule } from "primeng/timeline";
 import { OrderStatusComponent } from './order-status/order-status.component';
 @NgModule({
   declarations: [
     OrderStatusComponent
->>>>>>> b1f0c79df2820b2745ea7505c1d68019052a7b5a
   ],
   imports: [
     CommonModule,
@@ -91,10 +84,7 @@ import { OrderStatusComponent } from './order-status/order-status.component';
     DataViewModule,
     AvatarModule,
     TabViewModule,
-<<<<<<< HEAD
-=======
     TimelineModule
->>>>>>> b1f0c79df2820b2745ea7505c1d68019052a7b5a
   ],
   exports:[
     CommonModule,
@@ -134,12 +124,8 @@ import { OrderStatusComponent } from './order-status/order-status.component';
     DataViewModule,
     AvatarModule,
     TabViewModule,
-<<<<<<< HEAD
-    UserFormComponent
-=======
     TimelineModule,
     OrderStatusComponent
->>>>>>> b1f0c79df2820b2745ea7505c1d68019052a7b5a
   ],
   providers:[MessageService, ConfirmationService]
 })
