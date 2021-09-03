@@ -34,6 +34,10 @@ export class HotelAdminComponent implements OnInit {
    categories:any;
    isEdit: boolean;
   ngOnInit(): void {
+    this.admin.id = 0;
+    this.admin.subscriptionStatus = 2;
+    this.admin.startDate = new Date().toLocaleDateString();
+    this.admin.endDAte = new Date('02-10-2021').toLocaleDateString();
     this.loadClient();
     this.getClientCategory();
     this.fnGetCitiesList();
