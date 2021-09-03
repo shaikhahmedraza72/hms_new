@@ -1,5 +1,3 @@
-
-
 export class CartItem {
     public userId: number;
     public adminId: number
