@@ -19,7 +19,6 @@ import { ShareDataService } from '../../../service/share-data.service';
 export class DishMenuComponent implements OnInit {
   dishes: Dish[];
   message: string;
-  cartBTNClicked: boolean = false;
   sortOptions: SelectItem[];
   sortOrder: number;
   sortField: string;
@@ -173,7 +172,6 @@ export class DishMenuComponent implements OnInit {
   
   //Add to cart Function
   fnAddtoCart(cartItem:Dish){
-    this.cartBTNClicked = true;
    const selCategory =  this.rawDishCategoyItems.filter(dItem =>dItem.id === cartItem.mainCategoryId)[0];
    console.log(cartItem);
 
