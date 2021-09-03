@@ -17,6 +17,7 @@ import { ShareDataService } from '../../../service/share-data.service';
   styleUrls: ['./dish-menu.component.scss']
 })
 export class DishMenuComponent implements OnInit {
+  //Test
   dishes: Dish[];
   message: string;
   sortOptions: SelectItem[];
