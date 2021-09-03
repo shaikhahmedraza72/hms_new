@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { MessageService, PrimeNGConfig, SelectItem } from 'primeng/api';
-import { Subscription } from 'rxjs';
+import { from, Subscription } from 'rxjs';
 import { Admin } from '../../../models/admin';
 import { Dish, DishCategory } from '../../../models/dish';
 import { User } from '../../../models/user';
@@ -10,6 +10,7 @@ import { CartService } from '../../../service/cart.service';
 import { CommonService } from '../../../service/common.service';
 import { DishService } from '../../../service/dish.service';
 import { UserService } from '../../../service/user.service';
+import { ShareDataService } from '../../../service/share-data.service';
 @Component({
   selector: 'app-dish-menu',
   templateUrl: './dish-menu.component.html',
@@ -17,11 +18,10 @@ import { UserService } from '../../../service/user.service';
 })
 export class DishMenuComponent implements OnInit {
   dishes: Dish[];
-
+  message: string;
+  cartBTNClicked: boolean = false;
   sortOptions: SelectItem[];
-
   sortOrder: number;
-
   sortField: string;
   dishCategory: { label: string; value: string; }[];
   cartItems: Array<any> = [];
@@ -39,6 +39,7 @@ export class DishMenuComponent implements OnInit {
   rawDishCategoyItems: DishCategory[];
   admin: Admin;
   obs: Subscription;
+  @Output() toDish = new EventEmitter();
   constructor(
     private dishService: DishService, 
     private primengConfig: PrimeNGConfig,
@@ -48,16 +49,17 @@ export class DishMenuComponent implements OnInit {
     public userSvc: UserService,
     private authServive: AuthService,
     public adminService: AdminService,
+    public data: ShareDataService
     ) { }
-
   ngOnInit() {
-      this.dishService.getList().subscribe(data => this.dishes = data);
-
+      this.data.currentMessage.subscribe(message => this.message = message);
+      this.dishService.getList().subscribe(data => {this.dishes = data;
+      this.dishes.map(x => x.isFullIsHalf = true);
+      });
       this.sortOptions = [
           {label: 'Price High to Low', value: '!fullPrice'},
           {label: 'Price Low to High', value: 'fullPrice'}
       ];
-
       this.userData = this.authServive.userData(); 
       this.primengConfig.ripple = true;
       this.fnGetDishCategoy();
@@ -66,6 +68,18 @@ export class DishMenuComponent implements OnInit {
       // this.getStates();
       this.loadClient();
 
+  }
+
+  newMessage(){
+    this.data.changeMessage(this.selectedUser);
+  }
+
+  fnBTN1(){
+    alert('Full button is pressed');
+  }
+
+  fnBTN2(){
+    alert('Half button is pressed');
   }
 
   loadClient(){
@@ -159,7 +173,9 @@ export class DishMenuComponent implements OnInit {
   
   //Add to cart Function
   fnAddtoCart(cartItem:Dish){
+    this.cartBTNClicked = true;
    const selCategory =  this.rawDishCategoyItems.filter(dItem =>dItem.id === cartItem.mainCategoryId)[0];
+   console.log(cartItem);
 
     // console.log(selCategory.gstCompliance, "GST C");
     this.cartService.addItem(cartItem,1, selCategory.gstCompliance);
