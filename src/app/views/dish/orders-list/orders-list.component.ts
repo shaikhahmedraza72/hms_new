@@ -9,6 +9,7 @@ import { DishService } from '../../../service/dish.service';
 })
 export class OrdersListComponent implements OnInit {
   dishList: Dish[];
+  selectedDishes: Dish[];
   orderStatusDialog:boolean;
   constructor(private dishSvc: DishService) { }
 
