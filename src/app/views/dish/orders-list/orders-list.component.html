@@ -35,9 +35,9 @@
                     <td><span class="p-column-title">Name</span>{{order.name}}</td>
                      
                     <td>{{order.fullPrice | currency:'INR'}}</td> 
-                    <td>{{order.timeForCook}} mins</td>
+                    <td>03/09/21</td>
                     <td>
-                        <p-tag [value]="order.status" *ngIf="order.status" class="p-text-uppercase" [severity]="order.status =='active' ? 'success':'danger'"></p-tag>
+                        <p-tag value="Completed" *ngIf="order.status" class="p-text-uppercase" [severity]="order.status =='active' ? 'success':'danger'"></p-tag>
                         <td>
                             <button pButton pRipple icon="pi pi-eye" class="p-button-rounded p-button-success p-mr-2" (click)="fnViewOrder(order)" pTooltip="View Order" tooltipPosition="left"></button>
                             <button pButton pRipple icon="pi pi-times" class="p-button-rounded p-button-danger" (click)="fnCancelOrder(order)" pTooltip="Cancel Order" tooltipPosition="left"></button>
