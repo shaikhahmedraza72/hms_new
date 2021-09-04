@@ -1,6 +1,7 @@
 export class CartItem {
+    public id: number;
+    public adminId: number;
     public userId: number;
-    public adminId: number
     public productId: number;
     public name: string;
     public price: number;
@@ -12,6 +13,7 @@ export class CartItem {
     public isFullIsHalf: boolean;
   }
 export class ShoppingCart {
+    public id: number;
     public items: CartItem[] = new Array<CartItem>();
     public deliveryOptionId: string;
     public grossTotal: number = 0;

@@ -39,4 +39,8 @@ export class OrderStatusComponent implements OnInit {
     ];
   }
 
+  fnCancelOrder(){
+    // Do something
+  }
+
 }
