@@ -24,6 +24,12 @@ export class OrdersListComponent implements OnInit {
   fnViewOrder(){
     this.orderStatusDialog =true;
   }
+  fnProcessing(){ 
+  }
+  fnShipping(){  
+  }
+  fnCompleted(){ 
+  }
   fnCancelOrder(){
 
   }
