@@ -17,52 +17,52 @@
                 <div class="p-col-10 p-mx-auto">
                     <div class="p-inputgroup p-mt-2">
                         <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                        <input type="text" pInputText [(ngModel)]="users.name" placeholder="Name" id="name"
-                        name="name" #name="ngModel" required>
-                        <div *ngIf="name.touched && name.invalid && name.submitted"> <small class="p-error p-error-danger"
-                            *ngIf="name.errors.required">Name is
-                            required.</small> </div>
+                        <input type="text" pInputText [(ngModel)]="users.name" placeholder="Name" id="name" name="name"
+                            #name="ngModel" required>
+                        <div *ngIf="name.touched && name.invalid && name.submitted"> <small
+                                class="p-error p-error-danger" *ngIf="name.errors.required">Name is
+                                required.</small> </div>
                     </div>
                 </div>
                 <div class="p-col-10 p-mx-auto">
                     <div class="p-inputgroup p-mt-1">
                         <span class="p-inputgroup-addon"><i class="pi pi-user"></i></span>
-                    <input type="text" pInputText [(ngModel)]="users.userName" placeholder="Username"
-                        id="username" name="username" #username="ngModel" required>
-                    <div *ngIf="username.touched && username.invalid && username.submitted"> <small
-                            class="p-error p-error-danger" *ngIf="username.errors.required">Username is
-                            required.</small> </div>
-                            </div>
+                        <input type="text" pInputText [(ngModel)]="users.userName" placeholder="Username" id="username"
+                            name="username" #username="ngModel" required>
+                        <div *ngIf="username.touched && username.invalid && username.submitted"> <small
+                                class="p-error p-error-danger" *ngIf="username.errors.required">Username is
+                                required.</small> </div>
+                    </div>
                 </div>
                 <div class="p-col-10 p-mx-auto">
                     <div class="p-inputgroup p-mt-1">
                         <span class="p-inputgroup-addon"><i class="pi pi-envelope"></i></span>
-                    <input type="text" pInputText [(ngModel)]="users.email" placeholder="Email" id="email"
-                        name="email" #email="ngModel" required email>
-                    <div *ngIf="email.touched && email.invalid && email.submitted"> <small
-                            class="p-error p-error-danger" *ngIf="email.errors.required">Email is required.</small>
-                    </div>
+                        <input type="text" pInputText [(ngModel)]="users.email" placeholder="Email" id="email"
+                            name="email" #email="ngModel" required email>
+                        <div *ngIf="email.touched && email.invalid && email.submitted"> <small
+                                class="p-error p-error-danger" *ngIf="email.errors.required">Email is required.</small>
+                        </div>
                     </div>
                 </div>
                 <div class="p-col-10 p-mx-auto">
                     <div class="p-inputgroup p-mt-1">
                         <span class="p-inputgroup-addon"><i class="pi pi-mobile"></i></span>
-                    <input type="text" pInputText maxlength="10" [(ngModel)]="users.contact" placeholder="Mobile"
-                        id="mobile" name="mobile" #mobile="ngModel" required>
-                    <div *ngIf="mobile.touched && mobile.invalid && mobile.submitted"> <small
-                            class="p-error p-error-danger" *ngIf="mobile.errors.required">Mobile Number is
-                            required.</small> </div>
-                            </div>
+                        <input type="text" pInputText maxlength="10" [(ngModel)]="users.contact" placeholder="Mobile"
+                            id="mobile" name="mobile" #mobile="ngModel" required>
+                        <div *ngIf="mobile.touched && mobile.invalid && mobile.submitted"> <small
+                                class="p-error p-error-danger" *ngIf="mobile.errors.required">Mobile Number is
+                                required.</small> </div>
+                    </div>
                 </div>
                 <div class="p-col-10 p-mx-auto">
                     <div class="p-inputgroup p-mt-1">
                         <span class="p-inputgroup-addon"><i class="pi pi-lock"></i></span>
-                    <input type="password" pInputText [(ngModel)]="users.password" placeholder="Password"
-                        id="password" name="password" #password="ngModel" required>
-                    <div *ngIf="password.touched && password.invalid && password.submitted"> <small
-                            class="p-error p-error-danger" *ngIf="password.errors.required">Mobile Number is
-                            required.</small> </div>
-                            </div>
+                        <input type="password" pInputText [(ngModel)]="users.password" placeholder="Password"
+                            id="password" name="password" #password="ngModel" required>
+                        <div *ngIf="password.touched && password.invalid && password.submitted"> <small
+                                class="p-error p-error-danger" *ngIf="password.errors.required">Mobile Number is
+                                required.</small> </div>
+                    </div>
                 </div>
             </div>
             <div class="p-card-footer">
@@ -72,18 +72,17 @@
                             class=""></button>
                     </div>
                     <div class="p-my-3 p-text-center">Or login with</div>
-                    <div class="p-grid p-col-10 p-mx-auto">
-                        <div class="p-col">
-                            <button pButton class="p-button-info btn-facebook" type="button"><i
-                                    class="fab fa-facebook-f"></i><span>facebook</span></button>
-                        </div>
-                        <div class="p-col">
-                            <button pButton type="button" class="btn btn-primary btn-social-icon btn-block btn-instagram"><i
-                                    class="fab fa-instagram"></i>Instagram</button>
-                        </div>
-                        <div class="p-col">
-                            <button pButton type="button" class="p-button-danger btn-social-icon btn-block btn-google"><i
-                                    class="fab fa-google"></i> Google +</button>
+                    <div class="p-grid p-d-flex p-mx-auto">
+                        <div class="p-col-12 p-jc-between">
+                            <!-- <div class="p-col"> -->
+                            <button pButton class="p-button-info btn-facebook" type="button">facebook</button>
+                            <!-- </div> -->
+                            <!-- <div class="p-col"> -->
+                            <button pButton type="button" class="btn  btn-instagram">Instagram</button>
+                            <!-- </div> -->
+                            <!-- <div class="p-col"> -->
+                            <button pButton type="button" class="p-button-danger">Google +</button>
+                            <!-- </div> -->
                         </div>
                     </div>
                 </div>
