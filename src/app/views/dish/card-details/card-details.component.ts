@@ -37,10 +37,9 @@ export class CardDetailsComponent implements OnInit {
   }
   fnMakePayment(){
     this.fnBillingModal.emit();
-    this.cartItems.items.map(x => {
-      x.userId = this.userData.id;
-      x.adminId = this.userData.adminId
-    });
+    this.cartItems.userId = this.userData.id;
+    this.cartItems.adminId = this.userData.adminId;
+    console.log(this.cartItems);
     this.cartService.postOrder(this.cartItems).subscribe(() => {
       this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Cart Item Posted', life: 30000 });
     })

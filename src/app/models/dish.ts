@@ -23,7 +23,7 @@ export interface Dish {
     files?: Binary;
     upi?: string;
     oldImageUrl?:string;
-    isFullIsHalf?: boolean;
+    isFull?: boolean;
 }
 
 export class DishCategory {
