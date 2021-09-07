@@ -42,11 +42,15 @@ import { TimelineModule } from "primeng/timeline";
 import { OrderStatusComponent } from './order-status/order-status.component';
 import { UserFormComponent } from '../views/user/user-form/user-form.component';
 import { ClickOutsideDirective } from './../directive/click-outside.directive';
+import { InvoiceComponent } from '../views/invoice/invoice.component';
+
 @NgModule({
   declarations: [
     OrderStatusComponent,
     UserFormComponent,
-    ClickOutsideDirective
+    InvoiceComponent,
+    ClickOutsideDirective,
+    
 
   ],
   imports: [
@@ -132,6 +136,7 @@ import { ClickOutsideDirective } from './../directive/click-outside.directive';
     TimelineModule,
     OrderStatusComponent,
     UserFormComponent,
+    InvoiceComponent,
     ClickOutsideDirective
   ],
   providers:[MessageService, ConfirmationService]

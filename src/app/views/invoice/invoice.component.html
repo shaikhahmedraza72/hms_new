@@ -1,5 +1,6 @@
 <div class="" *ngIf="adminData">
    <table class="tblInvoice">
+       <tr><td colspan="2" class="p-text-center"><h3 class="p-m-1">Invoice</h3></td></tr>
     <tr><td> 
             <div class="p-col p-py-0"><strong>Name: </strong>{{adminData.businessName}}</div>
             <div class="p-col p-py-0"><strong>Address: </strong>{{adminData.address}}</div>
@@ -34,7 +35,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of cartItems.items; let i = index;">
+        <tr *ngFor="let item of cartItems.orderitems; let i = index;">
             <td>{{i+1}}</td>
             <td>{{item.name}}</td>
             <td>{{item.quantity}}</td>

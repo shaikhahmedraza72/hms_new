@@ -55,6 +55,12 @@ main .container-fluid{
     }
 } 
 
+// 
+p-dialog app-order-status .p-card {
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+}
 // Table css
 .p-datatable .p-datatable-wrapper .p-datatable-thead > tr > th,
 .p-datatable .p-datatable-wrapper .p-datatable-tbody > tr > td{

@@ -54,7 +54,7 @@ export class DishMenuComponent implements OnInit {
   ngOnInit() {
       this.data.currentMessage.subscribe(message => this.message = message);
       this.dishService.getList().subscribe(data => {this.dishes = data;
-      this.dishes.map(x => x.isFull = true);
+     // this.dishes.map(x => x.isFull = true);
       });
       this.sortOptions = [
           {label: 'Price High to Low', value: '!fullPrice'},
@@ -85,7 +85,7 @@ export class DishMenuComponent implements OnInit {
   loadClient(){
    this.obs = this.adminService.getAdmin().subscribe(resp => {
       if(resp.length > 0){  
-        // this.admin = resp;
+        this.admin = resp[0];
       }
     });
   }
