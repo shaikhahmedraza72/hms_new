@@ -13,7 +13,7 @@ import { ShareDataService } from '../../../service/share-data.service';
   styleUrls: ['./card-details.component.scss']
 })
 export class CardDetailsComponent implements OnInit {
-  message: string;
+  selectedUserId: number;
   userData = JSON.parse(localStorage.getItem('HMSUserData'));
   public cartItems: ShoppingCart;
   totCartPrice: any;
@@ -23,7 +23,7 @@ export class CardDetailsComponent implements OnInit {
     private msgService: MessageService) { }
 
   ngOnInit(): void {
-    this.data.currentMessage.subscribe(message => this.message = message);
+    this.data.currentMessage.subscribe(message => this.selectedUserId = message);
     this.cartService.get().subscribe(resp=> this.cartItems = resp);
   }
   addItem(item){
@@ -37,7 +37,7 @@ export class CardDetailsComponent implements OnInit {
   }
   fnMakePayment(){
     this.fnBillingModal.emit();
-    this.cartItems.userId = this.userData.id;
+    this.cartItems.userId = this.selectedUserId;
     this.cartItems.adminId = this.userData.adminId;
     console.log(this.cartItems);
     this.cartService.postOrder(this.cartItems).subscribe(() => {

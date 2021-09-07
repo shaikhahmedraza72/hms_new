@@ -126,7 +126,7 @@
                 <div class="p-d-flex p-ai-center pborder">
                     <!-- <label for="userName">User Name:</label> -->
                     <span *ngIf="userData.userType === 3">{{userData.username}}</span>
-                    <p-dropdown (onChange)="newMessage()" *ngIf="userData.userType === 1 || userData.userType === 2"
+                    <p-dropdown (onChange)="userSelection(user)" *ngIf="userData.userType === 1 || userData.userType === 2"
                         class="p-mr-4 p-inputtext-sm" id="userName" [options]="user" [(ngModel)]="selectedUser"
                         placeholder="Search for Number" optionLabel="label" optionValue="value" [filter]="true"
                         [showClear]="true" filterBy="label"></p-dropdown>
