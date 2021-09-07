@@ -54,3 +54,9 @@ main .container-fluid{
         }
     }
 } 
+
+// Table css
+.p-datatable .p-datatable-wrapper .p-datatable-thead > tr > th,
+.p-datatable .p-datatable-wrapper .p-datatable-tbody > tr > td{
+    padding:0.5rem;
+}

@@ -6,9 +6,9 @@
                 <span class="hamBurgerIcn" *ngIf="authService.loggedIn()" (click)="fnhmBurgerClick()"><i class="pi pi-bars"></i></span>
             </div>
             <div class="p-col-6 p-text-right"> 
-                <div class="profilWrap p-mr-4 p-mt-2">
+                <div class="profilWrap p-mr-4 p-mt-2" (clickOutside)="lbluserProfleShow=false">
                 <p-avatar icon="pi pi-user" (click)="fnToggleUProfile()" *ngIf="authService.loggedIn()"></p-avatar> 
-                <ul class="dropdownMenu"*ngIf="lbluserProfleShow" >
+                <ul class="dropdownMenu"*ngIf="lbluserProfleShow">
                     <li class="dropdownHeader">Account</li>
                     <li><a routerLink="/hotel-admin"><i></i>Profile</a></li>
                     <li><a routerLink="/">Setting</a></li>

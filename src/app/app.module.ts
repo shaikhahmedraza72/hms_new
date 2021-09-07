@@ -90,8 +90,6 @@ import { FooterComponent } from './common/footer/footer.component';
     SidebarComponent,
     HeaderComponent,
     FooterComponent
-    // UserDetailComponent,
-    // InvoiceComponent,
   ],
   providers: [
     AuthService,

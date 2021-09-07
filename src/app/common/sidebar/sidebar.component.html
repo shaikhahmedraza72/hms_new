@@ -1,5 +1,5 @@
 <!-- <div class="app  toggled"> -->
-<div class="pro-sidebar md" [ngClass]="lblsidebar ? 'collapsed': 'toggled'">
+<div class="pro-sidebar md" [ngClass]="lblsidebar ? 'collapsed': 'toggled'" (clickOutside)="lblMenuToggle=0">
     <!-- pro-sidebar md collapsed -->
     <div class="pro-sidebar-inner">
         <div class="pro-sidebar-layout">
