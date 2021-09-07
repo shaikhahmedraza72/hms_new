@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { resourceUsage } from 'process';
 import { Observable, Observer, of } from 'rxjs';
 import { catchError, map } from 'rxjs/internal/operators';
 import { ApiConfig } from '../constant/api';
@@ -14,6 +15,8 @@ export class CartService {
 
   orderUrl = `${ApiConfig.URL}${ApiConfig.ORDER}`;
   orderList: Array<any>;
+  userData = JSON.parse(localStorage.getItem('HMSUserData'));
+
   private storage: Storage;
   private subscriptionObservable: Observable<ShoppingCart>;
   private subscribers: Array<Observer<ShoppingCart>> = new Array<Observer<ShoppingCart>>();
@@ -109,6 +112,14 @@ private dispatch(cart: ShoppingCart): void {
       });
 }
 
+getOrder(): Observable<any> {
+  return this.http.get<ShoppingCart>(`${this.orderUrl}/Get/${this.userData.adminId}`).pipe(
+    map(x => {
+     this.orderList.push(x);
+     return this.orderList;
+    })
+  )
+}
   
 postOrder(order): Observable<any> {
 
