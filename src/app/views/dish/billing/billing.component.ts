@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { scan } from 'rxjs/internal/operators';
 import { Admin } from '../../../models/admin';
 import { AdminService } from '../../../service/admin.service';
-
+import { ShoppingCart } from '../../../models/shopping-cart';
 @Component({
   selector: 'app-billing',
   templateUrl: './billing.component.html',
@@ -10,7 +10,7 @@ import { AdminService } from '../../../service/admin.service';
 })
 export class BillingComponent implements OnInit {
   @Input() adminData: Admin;
-
+  @Input() cartData: any;
   stateOptions: any[];
   lblIsProceed: boolean;
   paymentMode: string;
@@ -20,6 +20,8 @@ export class BillingComponent implements OnInit {
   constructor(public adminService: AdminService) { }
 
   ngOnInit(): void {
+    console.log(this.cartData);
+    console.log(this.adminData);
   }
 
   fnCashProceed(v){
@@ -43,7 +45,7 @@ export class BillingComponent implements OnInit {
   }
   fnProceed(){
     if(this.paymentMode === 'Cash'){
-      // alert('Payment Successful');
+      alert('Payment Successful');
       this.invoiceDialog = true
     } else if(this.paymentMode === 'UPI'){
       alert('Please scan the QR code and proceed');

@@ -39,9 +39,9 @@ export class CardDetailsComponent implements OnInit {
     this.fnBillingModal.emit();
     this.cartItems.userId = this.selectedUserId;
     this.cartItems.adminId = this.userData.adminId;
-    console.log(this.cartItems);
-    this.cartService.postOrder(this.cartItems).subscribe(() => {
-      this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Cart Item Posted', life: 30000 });
-    })
+    // console.log(this.cartItems);
+    // this.cartService.postOrder(this.cartItems).subscribe(() => {
+    //   this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Cart Item Posted', life: 30000 });
+    // })
   }
 }

@@ -37,8 +37,6 @@ public get(): Observable<ShoppingCart> {
 }
 
 public addItem(product: any, quantity: number, gstCompliance?:number): void {
-  console.log(product);
-
   const cart = this.retrieve();
   const prodId = product.id ? product.id : product.productId;
   const qStatus = product.isFull;
