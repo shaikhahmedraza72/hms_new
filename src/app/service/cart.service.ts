@@ -5,7 +5,8 @@ import { Observable, Observer, of } from 'rxjs';
 import { catchError, map } from 'rxjs/internal/operators';
 import { ApiConfig } from '../constant/api';
 import { Dish } from '../models/dish';
-import { ShoppingCart, CartItem } from '../models/shopping-cart'; 
+import { OrderList } from '../models/orderList';
+import { ShoppingCart, CartItem, OrderStatus } from '../models/shopping-cart'; 
 import { StorageService } from './storage.service';
 const CART_KEY = "cart";
 @Injectable({
@@ -14,7 +15,8 @@ const CART_KEY = "cart";
 export class CartService {
 
   orderUrl = `${ApiConfig.URL}${ApiConfig.ORDER}`;
-  orderList: Array<any>;
+  orderList: OrderList[] = [];
+  // orderList: Array<any>;
   userData = JSON.parse(localStorage.getItem('HMSUserData'));
 
   private storage: Storage;
@@ -110,24 +112,30 @@ private dispatch(cart: ShoppingCart): void {
       });
 }
 
-getOrder(): Observable<any> {
-  return this.http.get<ShoppingCart>(`${this.orderUrl}/Get/${this.userData.adminId}`).pipe(
+getOrder(): Observable<OrderList[]> {
+  return this.http.get<OrderList[]>(`${this.orderUrl}/Get/${this.userData.adminId}`).pipe(
     map(x => {
-     this.orderList.push(x);
+     this.orderList = x;
      return this.orderList;
     })
   )
 }
   
-postOrder(order): Observable<any> {
-
-  return this.http.post<Dish>(this.orderUrl, order).pipe(
+postOrder(order): Observable<ShoppingCart> {
+  return this.http.post<ShoppingCart>(this.orderUrl, order).pipe(
     map(x => {
-      this.orderList.push(x);
-      return order;
+      return x;
     }),
     catchError(this.handleError('', order))
   );
+}
+
+postOrderStatus(status): Observable<OrderStatus> {
+  return this.http.post<OrderStatus>(`${this.orderUrl}/Post/{AddStatus}`, status).pipe(
+    map( x => {
+      return x;
+    })
+  )
 }
 
 handleError<T>(operation = 'operation', result?: T) {

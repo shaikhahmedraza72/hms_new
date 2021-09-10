@@ -36,7 +36,10 @@ export class CardDetailsComponent implements OnInit {
     this.cartService.empty();
   }
   fnMakePayment(){
-    this.fnBillingModal.emit();
+    // this.fnBillingModal.emit();
+    // this.cartItems.userId = this.selectedUserId;
+    // this.cartItems.adminId = this.userData.adminId;
+    this.fnBillingModal.emit(this.cartItems);
     this.cartItems.userId = this.selectedUserId;
     this.cartItems.adminId = this.userData.adminId;
     // console.log(this.cartItems);
