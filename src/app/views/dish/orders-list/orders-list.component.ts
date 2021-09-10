@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Dish } from '../../../models/dish';
 import { DishService } from '../../../service/dish.service';
 import { CartService } from '../../../service/cart.service';
+import { ShoppingCart } from '../../../models/shopping-cart';
 
 @Component({
   selector: 'app-orders-list',
@@ -9,7 +10,7 @@ import { CartService } from '../../../service/cart.service';
   styleUrls: ['./orders-list.component.scss']
 })
 export class OrdersListComponent implements OnInit {
-  dishList: Dish[];
+  dishList: ShoppingCart[];
   selectedDishes: Dish[];
   orderStatusDialog:boolean;
   constructor(private dishSvc: DishService,
@@ -19,7 +20,8 @@ export class OrdersListComponent implements OnInit {
     this.loadData();
   }
   loadData() {
-    this.dishSvc.getList().subscribe(res => {
+    debugger;
+    this.orderService.getOrder().subscribe(res => {
       this.dishList = res;
     });
   }
