@@ -23,6 +23,7 @@ export class CardDetailsComponent implements OnInit {
     private msgService: MessageService) { }
 
   ngOnInit(): void {
+    console.log(this.selectedUserId);
     this.data.currentMessage.subscribe(message => this.selectedUserId = message);
     this.cartService.get().subscribe(resp=> this.cartItems = resp);
   }

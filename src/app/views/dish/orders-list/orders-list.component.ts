@@ -16,6 +16,7 @@ export class OrdersListComponent implements OnInit {
   statusValue: string;
   selectedDishes: Dish[];
   orderStatus: OrderStatus = new OrderStatus();
+  selectedOrderId: number = 0;
   orderStatusDialog:boolean;
   constructor(private dishSvc: DishService,
     private orderService: CartService,
@@ -30,7 +31,8 @@ export class OrdersListComponent implements OnInit {
       this.orderList = res;
     });
   }
-  fnViewOrder(){
+  fnViewOrder(order: OrderList){
+    this.selectedOrderId = order.id;
     this.orderStatusDialog =true;
   }
   fnProcessing(order: OrderList){ 

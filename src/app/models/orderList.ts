@@ -12,3 +12,15 @@ export interface OrderList {
     userName?: string;
     status?: string;
 }
+
+export interface OrderItem {
+    id?: number;
+    quantity?: number;
+    productId?: number;
+    price?: number;
+    gstCompliance?: number;
+    gstPrice?: number;
+    orderID?: number;
+    dishName?: string;
+
+}

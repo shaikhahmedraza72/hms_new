@@ -97,7 +97,8 @@
                                 </div>
                             </div>
                             <div class="product-grid-item-bottom">
-                                <span class="product-price">{{dish.fullPrice | currency:'INR'}}</span>
+                                <span class="product-price">{{(dish.isFull ? dish.fullPrice : dish.halfPrice )|
+                                    currency:'INR'}}</span>
 
                                 <p-button styleClass="p-button-sm" icon="pi pi-shopping-cart"
                                     (click)="fnAddtoCart(dish)" [disabled]="dish.statuses === 'OUTOFSTOCK'"

@@ -39,4 +39,6 @@ export class OrderStatus {
   public id: number;
   public orderId: number;
   public status: number;
+   public createdOn? : Date;
+  // public name: string;
 }
