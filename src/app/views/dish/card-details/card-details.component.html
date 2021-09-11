@@ -25,7 +25,7 @@
         </li>
     </ul>
     <div class="btnWrap">
-        <button [disabled]="userData.userType === 3 || selectedUserId === undefined" pButton type="button" label="Make Payment" (click)="fnMakePayment($event)"
+        <button [disabled]="!selectedUserId || userData.userType === 3" pButton type="button" label="Make Payment" (click)="fnMakePayment($event)"
             class="p-button-sm p-button-success"></button>
         <button pButton type="button" label="Empty Cart" (click)="emptyCart()"
             class="p-button-sm p-button-danger"></button>
