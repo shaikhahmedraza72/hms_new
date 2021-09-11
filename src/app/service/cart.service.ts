@@ -5,7 +5,7 @@ import { Observable, Observer, of } from 'rxjs';
 import { catchError, map } from 'rxjs/internal/operators';
 import { ApiConfig } from '../constant/api';
 import { Dish } from '../models/dish';
-import { OrderList } from '../models/orderList';
+import { OrderItem, OrderList } from '../models/orderList';
 import { ShoppingCart, CartItem, OrderStatus } from '../models/shopping-cart'; 
 import { StorageService } from './storage.service';
 const CART_KEY = "cart";
@@ -121,6 +121,20 @@ getOrder(): Observable<OrderList[]> {
   )
 }
   
+getOrderStatus(orderId: number): Observable<OrderStatus[]> {
+  return this.http.get<OrderStatus[]>(`${this.orderUrl}/Get/status/${orderId}`).pipe(
+    map(x => {
+      return x;
+    }));
+}
+
+getOrderItem(orderId: number): Observable<OrderItem[]> {
+ return this.http.get<OrderItem[]>(`${this.orderUrl}/Get/orderitem/${orderId}`).pipe(
+   map(x => {
+     return x;
+   })
+ ); 
+}
 postOrder(order): Observable<ShoppingCart> {
   return this.http.post<ShoppingCart>(this.orderUrl, order).pipe(
     map(x => {
