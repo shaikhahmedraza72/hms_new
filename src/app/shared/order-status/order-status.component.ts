@@ -13,6 +13,7 @@ import { CartService } from '../../service/cart.service';
 })
 export class OrderStatusComponent implements OnInit {
   @Input() orderId: number;
+  @Input() orderTotal: number;
   orderStatusList: OrderStatus[] = [];
   orderStatusData: OrderStatusData[] = [];
   orderItem: OrderItem[] = [];
@@ -23,9 +24,11 @@ export class OrderStatusComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.orderId);
+    console.log(this.orderTotal);
     this.orderSvc.getOrderItem(this.orderId).subscribe( (x) => {
       console.log(x);
       this.orderItem = x;
+      console.log(this.orderItem);
     })
     console.log(this.orderItem);
     this.orderSvc.getOrderStatus(this.orderId).subscribe( (x) => {

@@ -5,6 +5,7 @@ import { AdminService } from '../../../service/admin.service';
 import { OrderStatus, ShoppingCart } from '../../../models/shopping-cart';
 import { CartService } from '../../../service/cart.service';
 import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-billing',
   templateUrl: './billing.component.html',
@@ -21,7 +22,8 @@ export class BillingComponent implements OnInit {
   isSelectDeliveryMode: boolean;
   constructor(public adminService: AdminService,
     private cartService: CartService,
-    private msgService: MessageService) { }
+    private msgService: MessageService,
+    private router: Router) { }
 
   ngOnInit(): void {
     console.log(this.shoppingCart);
@@ -60,19 +62,20 @@ export class BillingComponent implements OnInit {
     // } else if(this.paymentMode === 'UPI'){
     //   alert('Please scan the QR code and proceed');
     // }
-    if(this.paymentMode === 'Cash'){
-      this.shoppingCart.paymentMode = 1;
-      alert('Payment Successful');
-      this.invoiceDialog = true
-    } else if(this.paymentMode === 'UPI'){
-      alert('Please scan the QR code and proceed');
-    }
+    // if(this.paymentMode === 'Cash'){
+    //   this.shoppingCart.paymentMode = 1;
+    //   alert('Payment Successful');
+    //   this.invoiceDialog = true
+    // } else if(this.paymentMode === 'UPI'){
+    //   alert('Please scan the QR code and proceed');
+    // }
     console.log(this.shoppingCart);
     var orderStatus : OrderStatus = {status : 1,id:0,orderId:0};
     this.shoppingCart.orderStatus = [];
     this.shoppingCart.orderStatus.push(orderStatus);
     this.cartService.postOrder(this.shoppingCart).subscribe(() => {
       this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Cart Item Posted', life: 3000 });
+      this.router.navigate(['/dish/order-list']);
     })
   }
 
