@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy  } from '@angular/core';
 import { scan } from 'rxjs/internal/operators';
 import { Admin } from '../../../models/admin';
 import { AdminService } from '../../../service/admin.service';
@@ -6,6 +6,8 @@ import { OrderStatus, ShoppingCart } from '../../../models/shopping-cart';
 import { CartService } from '../../../service/cart.service';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
+import { ShareDataService } from '../../../service/share-data.service';
+import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-billing',
   templateUrl: './billing.component.html',
@@ -14,18 +16,32 @@ import { Router } from '@angular/router';
 export class BillingComponent implements OnInit {
   @Input() adminData: Admin;
   @Input() shoppingCart: ShoppingCart;
+  selectedUserId: number;
   stateOptions: any[];
   lblIsProceed: boolean;
   paymentMode: string;
   invoiceDialog: boolean;
   deliveryMode:string;
   isSelectDeliveryMode: boolean;
+  subscription: Subscription;
+  object: any;
   constructor(public adminService: AdminService,
     private cartService: CartService,
     private msgService: MessageService,
-    private router: Router) { }
+    private router: Router,
+    public data: ShareDataService) { }
+
 
   ngOnInit(): void {
+    var testData 
+    this.data.currentObject.subscribe(
+      object => {
+        return testData = object;
+      }
+    );
+    console.log(testData);
+    this.data.currentMessage.subscribe(message => this.selectedUserId = message);
+    console.log(this.selectedUserId);
     console.log(this.shoppingCart);
     console.log(this.adminData);
   }
@@ -69,10 +85,11 @@ export class BillingComponent implements OnInit {
     // } else if(this.paymentMode === 'UPI'){
     //   alert('Please scan the QR code and proceed');
     // }
-    console.log(this.shoppingCart);
     var orderStatus : OrderStatus = {status : 1,id:0,orderId:0};
     this.shoppingCart.orderStatus = [];
     this.shoppingCart.orderStatus.push(orderStatus);
+    this.shoppingCart.userId = Number(this.selectedUserId);
+    console.log(this.shoppingCart);
     this.cartService.postOrder(this.shoppingCart).subscribe(() => {
       this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Cart Item Posted', life: 3000 });
       this.router.navigate(['/dish/order-list']);
