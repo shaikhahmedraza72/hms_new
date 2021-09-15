@@ -17,6 +17,7 @@ export class OrdersListComponent implements OnInit {
   selectedDishes: Dish[];
   orderStatus: OrderStatus = new OrderStatus();
   selectedOrderId: number = 0;
+  selectedOrderTotal: number = 0;
   orderStatusDialog:boolean;
   constructor(private dishSvc: DishService,
     private orderService: CartService,
@@ -32,7 +33,9 @@ export class OrdersListComponent implements OnInit {
     });
   }
   fnViewOrder(order: OrderList){
+
     this.selectedOrderId = order.id;
+    this.selectedOrderTotal = order.grossTotal;
     this.orderStatusDialog =true;
   }
   fnProcessing(order: OrderList){ 
