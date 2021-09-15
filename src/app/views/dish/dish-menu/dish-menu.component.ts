@@ -55,7 +55,8 @@ export class DishMenuComponent implements OnInit {
     public data: ShareDataService
     ) { }
   ngOnInit() {
-      this.data.currentMessage.subscribe(message => this.selectedUserId = message);
+      this.data.sendObject('Hello from dish menu!');
+      this.data.currentMessage.subscribe(message => this.selectedUser = message);
       this.dishService.getList().subscribe(data => {this.dishes = data;
      // this.dishes.map(x => x.isFull = true);
       });
@@ -102,7 +103,7 @@ export class DishMenuComponent implements OnInit {
   loadData() {
     this.userSvc.getUserList().subscribe(res => {
       
-      console.log(this.userID);
+
       this.user = res.map(CItem => {
         return { label: CItem.contact, value: CItem.id}
       })

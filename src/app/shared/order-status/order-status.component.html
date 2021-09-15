@@ -59,7 +59,7 @@
 		</p-tabPanel>
 		<p-tabPanel header="Invoice">
 			<div class="p-col-12">
-				<app-invoice *ngIf="adminData" [adminData]="adminData"></app-invoice>
+				<app-invoice *ngIf="adminData" [adminData]="adminData" [orderItem]="orderItem"></app-invoice>
 			</div>
 		</p-tabPanel>
 	</p-tabView>

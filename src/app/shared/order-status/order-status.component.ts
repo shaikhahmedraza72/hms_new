@@ -2,7 +2,7 @@ import { ReturnStatement } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { Admin } from '../../models/admin';
 import { OrderItem } from '../../models/orderList';
-import { OrderStatus } from '../../models/shopping-cart';
+import { OrderStatus, ShoppingCart } from '../../models/shopping-cart';
 import { AdminService } from '../../service/admin.service';
 import { CartService } from '../../service/cart.service';
 
