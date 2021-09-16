@@ -3,6 +3,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { Dish, DishCategory } from '../../models/dish';
 import { DishService } from '../../service/dish.service';
 import { HttpClient } from '@angular/common/http';
+import { ShareDataService } from '../../service/share-data.service';
 
 @Component({
   selector: 'dish-Component',
@@ -11,6 +12,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DishComponent implements OnInit {
   selectedUser: string;
+  sendId: number;
   dishDialog: boolean;
   checked: boolean = true;
   isEdit: boolean;
@@ -19,6 +21,7 @@ export class DishComponent implements OnInit {
   constructor(public dishSvc: DishService, 
     private confirmationService: ConfirmationService, 
     private msgService: MessageService,
+    private shareData: ShareDataService,
     private http: HttpClient) { }
   dishList: Dish[] = [];
   uploadedFiles: any[] = [];
@@ -32,6 +35,8 @@ export class DishComponent implements OnInit {
   nonVegTypes: Array<any>;
   isVeg = true;
   ngOnInit(): void {
+    this.shareData.currentId.subscribe(id => this.sendId = id);
+    console.log(this.sendId);
     this.loadData();
     this.status = [{ label: 'Active', value: 'active' },
     { label: 'InActive', value: 'inactive' }];
@@ -48,7 +53,7 @@ export class DishComponent implements OnInit {
   }
 
   loadData() {
-    this.dishSvc.getList().subscribe(res => {
+    this.dishSvc.getList(this.sendId).subscribe(res => {
       this.dishList = res;
     });
   }
@@ -60,7 +65,7 @@ export class DishComponent implements OnInit {
 }
 
   fnGetDishCategoy() {
-    this.dishSvc.getDishCategory().subscribe(x => {
+    this.dishSvc.getDishCategory(this.sendId).subscribe(x => {
       this.dishCategory = x.map(cItem => {
         return { label: cItem.name, value: cItem.id }
       })
