@@ -4,7 +4,8 @@ import { Admin } from '../../models/admin';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { CommonService } from '../../service/common.service';
 import { AdminService } from '../../service/admin.service';
-
+import { Router } from '@angular/router';
+import { ShareDataService } from '../../service/share-data.service';
 @Component({
   selector: 'app-admin-setting',
   templateUrl: './admin-setting.component.html',
@@ -22,11 +23,14 @@ export class AdminSettingComponent implements OnInit {
   submitted: boolean;
   // status: { label: string; value: string; }[];
   statusString: string;
+  sendId: number;
   constructor(
     public adminService: AdminService,
     private msgService: MessageService,
     private commonService: CommonService,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
+    private router: Router,
+    private shareData: ShareDataService,
     ) { 
     this.admin = new Admin();
     // this.admin.bankDetails = new Bankdetails();
@@ -36,6 +40,8 @@ export class AdminSettingComponent implements OnInit {
   isEdit: boolean;
 
   ngOnInit(): void { 
+    this.shareData.currentId.subscribe( id => this.sendId = id);
+    console.log(this.sendId);
     // this.status = [
     // { label: 'Lead', value: 'lead' },
     // { label: 'Pending', value: 'pending' },
@@ -200,5 +206,10 @@ export class AdminSettingComponent implements OnInit {
     }
     return fd;
   }
+  fnWorkAsAdmin(){
+    this.router.navigate(['/dish']);
+    this.shareData.sendId(14);
+  }
+
 
 }

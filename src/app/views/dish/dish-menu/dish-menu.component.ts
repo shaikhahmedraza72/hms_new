@@ -31,6 +31,7 @@ export class DishMenuComponent implements OnInit {
   states: any;
   selectedUser: number;
   userList: User[];
+  sendId:number;
   userDialog: boolean;
   submitted: boolean;
   user: any;
@@ -57,7 +58,8 @@ export class DishMenuComponent implements OnInit {
   ngOnInit() {
       this.data.sendObject('Hello from dish menu!');
       this.data.currentMessage.subscribe(message => this.selectedUser = message);
-      this.dishService.getList().subscribe(data => {this.dishes = data;
+      this.data.currentId.subscribe(id => this.sendId = id);
+      this.dishService.getList(this.sendId).subscribe(data => {this.dishes = data;
      // this.dishes.map(x => x.isFull = true);
       });
       this.sortOptions = [
@@ -94,7 +96,7 @@ export class DishMenuComponent implements OnInit {
     });
   }
   loadCategory(){
-    this.dishService.getDishCategory().subscribe(x => {
+    this.dishService.getDishCategory(this.sendId).subscribe(x => {
       this.CategoryList = x;
       console.log(this.CategoryList); 
     });
@@ -152,7 +154,7 @@ export class DishMenuComponent implements OnInit {
   }
   // Get Category
   fnGetDishCategoy() {
-    this.dishService.getDishCategory().subscribe((x:DishCategory[]) => {
+    this.dishService.getDishCategory(this.sendId).subscribe((x:DishCategory[]) => {
       this.rawDishCategoyItems = x;
       this.dishCategory = x.map(cItem => { 
         return { label:cItem.name, value:cItem.name}
