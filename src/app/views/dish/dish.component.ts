@@ -4,6 +4,7 @@ import { Dish, DishCategory } from '../../models/dish';
 import { DishService } from '../../service/dish.service';
 import { HttpClient } from '@angular/common/http';
 import { ShareDataService } from '../../service/share-data.service';
+import { CommonMethodsService } from '../../service/common-methods.service';
 
 @Component({
   selector: 'dish-Component',
@@ -22,7 +23,8 @@ export class DishComponent implements OnInit {
     private confirmationService: ConfirmationService, 
     private msgService: MessageService,
     private shareData: ShareDataService,
-    private http: HttpClient) { }
+    private http: HttpClient,
+    private commonMethod: CommonMethodsService) { }
   dishList: Dish[] = [];
   uploadedFiles: any[] = [];
   dish: Dish;
@@ -182,7 +184,7 @@ export class DishComponent implements OnInit {
       return fd;
     }
     fileChange(e){
-      this.dish.files = e.target.files[0]
+      this.dish.files = this.commonMethod.limitFileSize(e , 200, 500);
     }
     findIndexById(id: number) {
     let index = -1;
