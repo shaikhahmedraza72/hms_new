@@ -6,6 +6,7 @@ import { CommonService } from '../../service/common.service';
 import { AdminService } from '../../service/admin.service';
 import { Router } from '@angular/router';
 import { ShareDataService } from '../../service/share-data.service';
+import { CommonMethodsService } from '../../service/common-methods.service';
 @Component({
   selector: 'app-admin-setting',
   templateUrl: './admin-setting.component.html',
@@ -31,6 +32,7 @@ export class AdminSettingComponent implements OnInit {
     private confirmationService: ConfirmationService,
     private router: Router,
     private shareData: ShareDataService,
+    private commonMethod: CommonMethodsService
     ) { 
     this.admin = new Admin();
     // this.admin.bankDetails = new Bankdetails();
@@ -91,16 +93,16 @@ export class AdminSettingComponent implements OnInit {
    
   }
   logoFile(e){
-    this.admin.RestaurentLogoFile = e.target.files[0]
+    this.admin.RestaurentLogoFile = this.commonMethod.limitFileSize(e, 200, 500);
   }
   signFile(e){
-    this.admin.SignatureFile  = e.target.files[0]
+    this.admin.SignatureFile = this.commonMethod.limitFileSize(e, 200, 500);
   }
   sealFile(e){
-    this.admin.RestaurentSealFile = e.target.files[0]
+    this.admin.RestaurentSealFile = this.commonMethod.limitFileSize(e, 200, 500);
   }
   upiFile(e){
-    this.admin.UpiImageFile = e.target.files[0]
+    this.admin.UpiImageFile = this.commonMethod.limitFileSize(e, 200, 500);
   }
   onSubmit(fData){
     debugger;
