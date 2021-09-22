@@ -7,7 +7,7 @@ export interface User {
     password?: string;
     contact?: string;
     address?: string;
-    pinCode?: number;
+    pinCode?: string;
     cityId?: number;
     stateId?: number;
     city?: string;

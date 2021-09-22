@@ -19,6 +19,7 @@ export class UserFormComponent implements OnInit {
   selectedUsers: User[];
   cities: any;
   states: any;
+  cityFilter: [];
 
   constructor(public userSvc: UserService, public commonSvc: CommonService, private msgService: MessageService, private confirmationService: ConfirmationService) { }
 
@@ -36,9 +37,7 @@ export class UserFormComponent implements OnInit {
 
   getCities() {
     this.commonSvc.getCities().subscribe(x => {
-      this.cities = x.map(cItem => {
-        return { label: cItem.name, value: cItem.id }
-      })
+      this.cities = x;
     });
 
   }
@@ -48,6 +47,10 @@ export class UserFormComponent implements OnInit {
         return { label: cItem.name, value: cItem.id }
       })
     });
+  }
+  onStateChange(e) {
+    this.cityFilter = this.cities.filter((city) => city.stateId === this.user.stateId);
+    console.log(this.cityFilter);
   }
 
   saveUser() {

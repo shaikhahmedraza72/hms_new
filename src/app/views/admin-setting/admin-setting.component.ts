@@ -22,6 +22,7 @@ export class AdminSettingComponent implements OnInit {
   cities: any;
   adminDialog: boolean;
   submitted: boolean;
+  cityFilter: [];
   // status: { label: string; value: string; }[];
   statusString: string;
   sendId: number;
@@ -190,6 +191,9 @@ export class AdminSettingComponent implements OnInit {
     });
   }
 
+  onStateChange(){
+    this.cityFilter = this.cities.filter((city) => city.stateId === this.admin.stateId);
+  }
   findIndexById(id: number) {
     let index = -1;
     for (let i = 0; i < this.adminList.length; i++) {

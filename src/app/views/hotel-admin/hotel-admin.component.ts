@@ -23,6 +23,7 @@ export class HotelAdminComponent implements OnInit {
   adminDialog: boolean;
   submitted: boolean;
   dataId: number;
+  cityFilter: [];
   constructor(
     public adminService: AdminService,
     private msgService: MessageService,
@@ -126,9 +127,7 @@ export class HotelAdminComponent implements OnInit {
 
   fnGetCitiesList(){
     this.commonService.getCities().subscribe(x => {
-      this.cities = x.map(cItem => {
-        return { label: cItem.name, value: cItem.id }
-      }) 
+      this.cities = x;
     });
   }
   fnGetStatesList(){
@@ -137,6 +136,10 @@ export class HotelAdminComponent implements OnInit {
         return { label: cItem.name, value: cItem.id }
       }) 
     });
+  }
+
+  onStateChange(){
+    this.cityFilter = this.cities.filter((city) => city.stateId === this.admin.stateId);
   }
 
   findIndexById(id: number) {
