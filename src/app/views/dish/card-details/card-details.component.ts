@@ -41,6 +41,7 @@ export class CardDetailsComponent implements OnInit {
     // this.fnBillingModal.emit();
     // this.cartItems.userId = this.selectedUserId;
     // this.cartItems.adminId = this.userData.adminId;
+
     this.fnBillingModal.emit(this.cartItems);
     this.cartItems.userId = this.selectedUserId;
     console.log(this.cartItems.userId);

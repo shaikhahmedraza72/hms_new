@@ -50,7 +50,6 @@ export class UserFormComponent implements OnInit {
   }
   onStateChange(e) {
     this.cityFilter = this.cities.filter((city) => city.stateId === this.user.stateId);
-    console.log(this.cityFilter);
   }
 
   saveUser() {

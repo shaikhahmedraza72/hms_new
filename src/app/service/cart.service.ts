@@ -84,7 +84,13 @@ private calculateCart(cart: ShoppingCart): void {
   cart.gstTotal = cart.orderitems
   .map((item) => item.quantity * item.gstPrice)
   .reduce((previous, current) => previous + current, 0);
+  cart.discountInPercent = cart.discountInRupees;
   cart.grossTotal = cart.itemTotal + cart.gstTotal;
+  // if(cart.discountInPercent !== null){
+  //   cart.grossTotal = (cart.discountInPercent * cart.grossTotal) / 100;
+  // } else {
+  //   cart.grossTotal = cart.itemTotal + cart.gstTotal;
+  // }
 }
 
 private retrieve(): ShoppingCart {

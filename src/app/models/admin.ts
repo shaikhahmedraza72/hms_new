@@ -17,7 +17,6 @@ public cityId?: number,
 public stateId?: number,
 public city?: string,
 public state?: string,
-// public bankDetails?: Bankdetails,
 public bankName?: string,
 public ifscCode?: string,
 public upiImage?:string,
@@ -41,7 +40,3 @@ public UPICodeImg?:string,
 public UPICodeNumber?:string
   ){}
 }
-// export class Bankdetails {
-//   constructor(
-//     ){}
-//   }

@@ -178,9 +178,7 @@ export class AdminSettingComponent implements OnInit {
   }
   fnGetCitiesList(){
     this.commonService.getCities().subscribe(x => {
-      this.cities = x.map(cItem => {
-        return { label: cItem.name, value: cItem.id }
-      }) 
+      this.cities = x;
     });
   }
   fnGetStatesList(){
