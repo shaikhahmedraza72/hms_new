@@ -66,3 +66,52 @@ p-dialog app-order-status .p-card {
 .p-datatable .p-datatable-wrapper .p-datatable-tbody > tr > td{
     padding:0.5rem;
 }
+
+
+
+
+@media screen and (max-width: 40rem) { 
+    main .container-fluid{
+      padding: 0 10px;  
+    }
+
+
+        .p-datatable {
+            &.p-datatable-responsive-demo {
+                .p-datatable-thead > tr > th,
+                .p-datatable-tfoot > tr > td {
+                    display: none !important;
+                }
+
+                .p-datatable-tbody > tr > td {
+                    text-align: left;
+                    display: block;
+                    width: 100%;
+                    float: left;
+                    clear: left;
+                    border: 0 none;
+
+                    .p-column-title {
+                        padding: .4rem;
+                        min-width: 30%;
+                        display: inline-block;
+                        margin: -.4em 1em -.4em -.4rem;
+                        font-weight: bold;
+                    }
+
+                    &:last-child {
+                        border-bottom: 1px solid #dfdfdf;
+                    }
+                }
+            }
+        }
+        .p-field{
+            margin-bottom: 0.5rem;
+        }
+        .p-component{
+            font-size: 0.8rem;
+        }
+        .p-field-checkbox, .p-field-radiobutton{
+            margin-bottom: 0.7rem;
+        }
+}
