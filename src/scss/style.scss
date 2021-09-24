@@ -106,12 +106,13 @@ p-dialog app-order-status .p-card {
             }
         }
         .p-field{
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.5rem !important;
         }
         .p-component{
-            font-size: 0.8rem;
+            font-size: 0.8rem !important;
         }
         .p-field-checkbox, .p-field-radiobutton{
-            margin-bottom: 0.7rem;
+            margin-bottom: 0.7rem !important;
+            margin-right: 0.5rem !important;
         }
 }
