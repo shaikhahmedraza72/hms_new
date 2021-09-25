@@ -3,6 +3,7 @@ import { User } from './../../../models/user';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { UserService } from './../../../service/user.service';
 import { CommonService } from './../../../service/common.service'
+import { ShareDataService } from '../../../service/share-data.service';
 
 @Component({
   selector: 'app-user-config',
@@ -17,9 +18,14 @@ export class UserConfigComponent implements OnInit {
   selectedUsers: User[];
   cities: any;
   states: any;
-  constructor(public userSvc: UserService,public commonSvc: CommonService, private msgService: MessageService, private confirmationService: ConfirmationService) { }
+  constructor(public userSvc: UserService, 
+    public commonSvc: CommonService,
+    private msgService: MessageService,
+    private confirmationService: ConfirmationService,
+    private sharedData: ShareDataService) { }
 
   ngOnInit(): void {
+    this.sharedData.currentDiallog.subscribe(dialog => this.userDialog = dialog);
     this.loadData();
   }
 
@@ -49,8 +55,8 @@ export class UserConfigComponent implements OnInit {
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.userSvc.deleteUserData(user.id).subscribe(() => {
-            this.userList = this.userList.filter(val => val.userName !== user.userName);
-            this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'User Deleted', life: 3000 });
+          this.userList = this.userList.filter(val => val.userName !== user.userName);
+          this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'User Deleted', life: 3000 });
         });
       }
     });
@@ -66,7 +72,7 @@ export class UserConfigComponent implements OnInit {
           this.userSvc.deleteUserData(userId.id).subscribe(() => {
             this.selectedUsers = null;
             this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'Users Deleted', life: 3000 })
-        })
+          })
         })
       }
     });

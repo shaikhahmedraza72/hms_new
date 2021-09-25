@@ -28,6 +28,10 @@ export class CardDetailsComponent implements OnInit {
     this.cartService.empty();
     this.cartService.get().subscribe(resp=> this.cartItems = resp);
   }
+
+  onInput(value: number){
+    this.cartItems.discountInRupees = (this.cartItems.grossTotal * value) / 100; 
+  }
   addItem(item){
     this.cartService.addItem(item,1);
   } 

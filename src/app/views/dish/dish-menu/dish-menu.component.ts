@@ -57,6 +57,7 @@ export class DishMenuComponent implements OnInit {
     ) { }
   ngOnInit() {
       this.data.sendObject('Hello from dish menu!');
+      this.data.currentDiallog.subscribe(dialog => this.userDialog = dialog);
       this.data.currentMessage.subscribe(message => this.selectedUser = message);
       this.data.currentId.subscribe(id => this.sendId = id);
       this.dishService.getList(this.sendId).subscribe(data => {this.dishes = data;

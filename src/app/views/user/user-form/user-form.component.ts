@@ -3,6 +3,7 @@ import { User } from './../../../models/user';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { UserService } from './../../../service/user.service';
 import { CommonService } from './../../../service/common.service'
+import { ShareDataService } from '../../../service/share-data.service';
 
 @Component({
   selector: 'app-user-form',
@@ -21,9 +22,14 @@ export class UserFormComponent implements OnInit {
   states: any;
   cityFilter: [];
 
-  constructor(public userSvc: UserService, public commonSvc: CommonService, private msgService: MessageService, private confirmationService: ConfirmationService) { }
+  constructor(public userSvc: UserService,
+     public commonSvc: CommonService, 
+     private msgService: MessageService, 
+     private confirmationService: ConfirmationService,
+     private shareData: ShareDataService) { }
 
   ngOnInit(): void {
+    this.shareData.currentDiallog.subscribe(dialog => this.userDialog = dialog);
     this.loadData();
     this.getCities();
     this.getStates();
@@ -74,7 +80,8 @@ export class UserFormComponent implements OnInit {
         })
       }
       this.userList = [...this.userList];
-      this.userDialog = false;
+      this.shareData.changeDialog(false);
+      // this.userDialog = false;
     }
   }
 

@@ -24,9 +24,9 @@ export class ShoppingCart {
   public gstTotal: number = 0;
   public itemCount: number = 0;
   public paymentMode: number;
-  public discountInPercent: number = 0;
-  public discountInRupees: number = 0;
-  public additionalAmount: number = 0;
+  public discountInPercent: number;
+  public discountInRupees: number;
+  public additionalAmount: number;
   public updateFrom(src: ShoppingCart) {
       this.orderitems = src.orderitems;
       this.deliveryOptionId = src.deliveryOptionId;

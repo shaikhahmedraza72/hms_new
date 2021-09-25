@@ -86,7 +86,7 @@ private calculateCart(cart: ShoppingCart): void {
   .reduce((previous, current) => previous + current, 0);
   cart.discountInPercent = cart.discountInRupees;
   cart.grossTotal = cart.itemTotal + cart.gstTotal;
-  // if(cart.discountInPercent !== null){
+  // if(cart.discountInPercent >0 || cart.discountInRupees){
   //   cart.grossTotal = (cart.discountInPercent * cart.grossTotal) / 100;
   // } else {
   //   cart.grossTotal = cart.itemTotal + cart.gstTotal;
