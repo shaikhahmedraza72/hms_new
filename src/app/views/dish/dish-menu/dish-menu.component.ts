@@ -43,6 +43,14 @@ export class DishMenuComponent implements OnInit {
   rawDishCategoyItems: DishCategory[];
   admin: Admin;
   obs: Subscription;
+  // activeIndex1: number;
+  // activeIndex2: number;
+  // scrollableTabs: any[];
+  activeIndex1: number = 0;
+
+    activeIndex2: number = 0;
+
+    scrollableTabs: any[] = Array.from({ length: 50 }, (_, i) => ({ title: `Tab ${i + 1}`, content: `Tab ${i + 1} Content` }));
   @Output() toDish = new EventEmitter();
   constructor(
     private dishService: DishService, 
@@ -61,6 +69,11 @@ export class DishMenuComponent implements OnInit {
       this.data.currentMessage.subscribe(message => this.selectedUser = message);
       this.data.currentId.subscribe(id => this.sendId = id);
       this.dishService.getList(this.sendId).subscribe(data => {this.dishes = data;
+        // this.activeIndex1 = 0;
+
+        // this.activeIndex2 = 0;
+    
+        // this.scrollableTabs = Array.from({ length: 50 }, (_, i) => ({ title: `Tab ${i + 1}`, content: `Tab ${i + 1} Content` }));
      // this.dishes.map(x => x.isFull = true);
       });
       this.sortOptions = [
