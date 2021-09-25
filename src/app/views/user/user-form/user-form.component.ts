@@ -21,7 +21,7 @@ export class UserFormComponent implements OnInit {
   cities: any;
   states: any;
   cityFilter: [];
-
+  userData = JSON.parse(localStorage.getItem('HMSUserData'));
   constructor(public userSvc: UserService,
      public commonSvc: CommonService, 
      private msgService: MessageService, 
@@ -63,6 +63,7 @@ export class UserFormComponent implements OnInit {
     console.log(this.user);
     if (this.user.userName.trim()) {
       if (this.user.id) {
+        this.user.userType = this.userData.userType;
         this.userSvc.updateUser(this.user).subscribe(() => {
           this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'user Updated', life: 3000 });
           this.loadData();
@@ -71,6 +72,7 @@ export class UserFormComponent implements OnInit {
         })
 
       } else {
+        this.user.userType = this.userData.userType;
         this.userSvc.AddUser(this.user).subscribe(() => {
           this.userList.push(this.user);
           this.msgService.add({ severity: 'success', summary: 'Successful', detail: 'user Created', life: 3000 });

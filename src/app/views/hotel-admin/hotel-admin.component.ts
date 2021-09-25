@@ -129,6 +129,9 @@ export class HotelAdminComponent implements OnInit {
       //   })
       // }
       this.cities = x;
+      if(this.admin.stateId){
+      this.onStateChange();
+      }
     });
   }
   fnGetStatesList(){
@@ -140,6 +143,7 @@ export class HotelAdminComponent implements OnInit {
   }
 
   onStateChange(){
+    debugger;
     this.cityFilter = this.cities.filter((city) => city.stateId === this.admin.stateId);
   }
 

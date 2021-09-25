@@ -5,7 +5,7 @@
                 [sortOrder]="sortOrder" layout="list">
                 <ng-template pTemplate="header">
                     <div class="p-d-flex p-flex-column p-flex-md-row p-jc-md-between">
-                        <!-- <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By Price"
+                        <p-dropdown [options]="sortOptions" [(ngModel)]="sortKey" placeholder="Sort By Price"
                             (onChange)="onSortChange($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
                         <span class="p-input-icon-left p-mb-2 p-mb-md-0">
                             <i class="pi pi-search"></i>
@@ -13,8 +13,8 @@
                                 (input)="dv.filter($event.target.value)">
                         </span>
                         <p-dropdown [options]="dishCategory" [(ngModel)]="categories" placeholder="Sort By Category"
-                            (onChange)="onCategoryChange($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown> -->
-
+                            (onChange)="onCategoryChange($event)" styleClass="p-mb-2 p-mb-md-0"></p-dropdown>
+<!-- 
                             <div style="padding: .5em 0 1em 0">
                                 <p-button (click)="activeIndex2 = 0" styleClass="p-button-text" label="Activate 1rd"></p-button>
                                 <p-button (click)="activeIndex2 = 29" styleClass="p-button-text" label="Activate 30th" [style]="{'margin-left': '.5em'}"></p-button>
@@ -25,7 +25,7 @@
                                 <p-tabPanel *ngFor="let tab of scrollableTabs;" [header]="tab.title">
                                     <p>{{tab.content}}</p>
                                 </p-tabPanel>
-                            </p-tabView>
+                            </p-tabView> -->
                         <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
                     </div>
                 </ng-template>
