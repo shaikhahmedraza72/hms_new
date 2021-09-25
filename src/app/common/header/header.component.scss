@@ -64,3 +64,18 @@
         }
     }
 }
+:host{
+    z-index: 1111;
+}
+@media screen and (max-width: 40rem) {
+    .headerWrap{
+         
+        .logo{
+            margin:7px 5px;
+        }
+    }
+    
+    .hamBurgerIcn{
+        margin-left: 20px;
+    }
+}

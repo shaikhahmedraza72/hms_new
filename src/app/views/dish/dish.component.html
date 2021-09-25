@@ -49,17 +49,17 @@
                         <p-tableCheckbox [value]="item"></p-tableCheckbox>
                     </td>
                     <td><span class="p-column-title">Name</span>{{item.name}}</td>
-                    <td>
+                    <td><span class="p-column-title">Dish Image</span>
                         <img src="{{item.imageUrl}}" [alt]="item.name" width="100" class="p-shadow-4" />
                     </td>
                     <!-- <td title="{{item.description}} ">{{item.description}}</td> -->
-                    <td>{{item.halfPrice | currency:'INR'}}</td>
-                    <td>{{item.fullPrice | currency:'INR'}}</td>
-                    <td>{{item.dishCategory}}</td>
-                    <td>{{item.timeForCook}} mins</td>
-                    <td>
+                    <td><span class="p-column-title">Half Price</span>{{item.halfPrice | currency:'INR'}}</td>
+                    <td><span class="p-column-title">FullPrice</span>{{item.fullPrice | currency:'INR'}}</td>
+                    <td><span class="p-column-title">Dish Category</span>{{item.dishCategory}}</td>
+                    <td><span class="p-column-title">Time For Cook</span>{{item.timeForCook}} mins</td>
+                    <td><span class="p-column-title">Status</span>
                         <p-tag [value]="item.status" *ngIf="item.status" class="p-text-uppercase" [severity]="item.status =='active' ? 'success':'danger'"></p-tag>
-                        <td>
+                        <td><span class="p-column-title">Action</span>
                             <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success p-mr-2" (click)="editDish(item)" pTooltip="Edit Dish" tooltipPosition="left"></button>
                             <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteDish(item)" pTooltip="Delete Dish" tooltipPosition="left"></button>
                             <!-- <p-checkbox name="groupname{{item.id}}" [value]="item.selectedDish" [inputId]="item.id" [(ngModel)]="selectedValues" (change)="onCheckboxChange(item.id, $event)"></p-checkbox> -->
@@ -105,14 +105,14 @@
                 <label for="newCategory">Enter a new category</label>
                 <input id="newCategory" name="newCategory" class="p-inputtext-sm" pInputText [disabled]="dish.categories" [(ngModel)]="dish.newCategory">
             </div> -->
-                <div class="p-field p-col-4">
+                <div class="p-field p-col-12 p-md-4">
                     <div class="p-formgroup-inline">
                         <label for="isVeg">Non-Veg </label>
                         <p-inputSwitch [(ngModel)]="dish.isVeg" name="isVeg" class="p-mx-2"></p-inputSwitch>
                         <label for="isVeg">Veg</label>
                     </div>
                 </div>
-                <div class="p-field p-col-8">
+                <div class="p-field p-col-12 p-md-8">
                     <div class="p-formgroup-inline" *ngIf="!dish.isVeg">
                         <div class="p-field-checkbox">
                             <p-radioButton name="nonVegCategory" value="chicken" [(ngModel)]="dish.nonVegCategory" inputId="nonVegCategory1"></p-radioButton>
@@ -128,24 +128,24 @@
                         </div>
                     </div>
                 </div>
-                <div class="p-field p-col-3">
+                <div class="p-field p-col-6 p-md-3">
                     <label for="fullPrice">Full dish price</label>
                     <div class="p-inputgroup">
                         <p-inputNumber required id="fullPrice" name="fullPrice" class="p-inputtext-sm" [(ngModel)]="dish.fullPrice"></p-inputNumber>
                     </div>
                 </div>
 
-                <div class="p-field p-col-3">
+                <div class="p-field p-col-6 p-md-3">
                     <label for="halfPrice">Half dish price {{dish.isHalf}}</label>
                     <div class="p-inputgroup">
                         <p-inputNumber min="0" mode="decimal" id="halfPrice" name="halfPrice" class="p-inputtext-sm" [(ngModel)]="dish.halfPrice"></p-inputNumber>
                     </div>
                 </div>
-                <div class="p-field p-col-3">
+                <div class="p-field p-col-6 p-md-3">
                     <label for="quantity">Quantity</label>
                     <p-inputNumber type="number" class="p-inputtext-sm" name="quantity" id="quantity" [(ngModel)]="dish.quantity"></p-inputNumber>
                 </div>
-                <div class="p-field p-col-3">
+                <div class="p-field p-col-6 p-md-3">
                     <label for="serviceTime">Time for Cook</label>
                     <p-inputNumber type="time" class="p-inputtext-sm" name="timeForCook" id="timeForCook" suffix=" mins" [(ngModel)]="dish.timeForCook"></p-inputNumber>
                 </div>

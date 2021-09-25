@@ -12,7 +12,7 @@ export class SidebarComponent implements OnInit {
   lblMenuToggle = 0;
   navMenu: Array<any>;
   userType:number;
-  lblsidebar = false;
+  lblsidebar = true;
   constructor(private authService:AuthService) { }
 
   ngOnInit(): void {
@@ -91,7 +91,6 @@ export class SidebarComponent implements OnInit {
     this.lblMenuToggle = this.lblMenuToggle == n ? 0 : n;
   }
   fnToggleSidebar(){
-    debugger
     this.lblsidebar = !this.lblsidebar;
   }
   
