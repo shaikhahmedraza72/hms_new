@@ -43,6 +43,7 @@ export class DishMenuComponent implements OnInit {
   rawDishCategoyItems: DishCategory[];
   admin: Admin;
   obs: Subscription;
+  text: string = "Text1";
   // activeIndex1: number;
   // activeIndex2: number;
   // scrollableTabs: any[];
@@ -186,6 +187,7 @@ export class DishMenuComponent implements OnInit {
         this.sortOrder = -1;
         this.sortField = value;
     }
+
 }
   // Bookmark the menu Item
 
@@ -223,5 +225,9 @@ export class DishMenuComponent implements OnInit {
   ngOnDestroy() {
     console.log("Component Destroyed ");
     this.obs.unsubscribe();
+  }
+
+  onCategoryFilter(event){
+    console.log(event);
   }
 }
